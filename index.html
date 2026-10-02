@@ -3,391 +3,394 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reality Demand — Business Launch Assistant</title>
+<title>Reality Demand — Evidence Engine</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#07070b;
-  color:#f4f2ff;
-  line-height:1.6;
+font-family:Arial,Helvetica,sans-serif;
+background:#07070b;
+color:#f5f2fa;
+line-height:1.6;
 }
 
 .container{
-  width:min(1100px,92%);
-  margin:auto;
+width:min(1100px,92%);
+margin:auto;
 }
 
 header{
-  padding:38px 0 25px;
-  text-align:center;
+text-align:center;
+padding:38px 0 25px;
 }
 
 .logo{
-  font-size:34px;
-  font-weight:900;
-  letter-spacing:3px;
-  color:#ffffff;
+font-size:34px;
+font-weight:900;
+letter-spacing:3px;
 }
 
-.logo span{
-  color:#a855f7;
-}
+.logo span{color:#a855f7}
 
 .subtitle{
-  color:#aaa5b8;
-  margin-top:8px;
-  font-size:15px;
+color:#9d97a7;
+font-size:14px;
+margin-top:8px;
 }
 
-.top-controls{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-  margin:25px 0;
+.controls{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+margin-bottom:20px;
 }
 
 .control{
-  background:#111017;
-  border:1px solid #282332;
-  border-radius:14px;
-  padding:12px;
+background:#111017;
+border:1px solid #292331;
+border-radius:14px;
+padding:13px;
 }
 
-.control label{
-  display:block;
-  color:#91899f;
-  font-size:11px;
-  text-transform:uppercase;
-  letter-spacing:1px;
-  margin-bottom:7px;
+label{
+display:block;
+font-size:11px;
+text-transform:uppercase;
+letter-spacing:1px;
+color:#91899f;
+margin-bottom:7px;
 }
 
-select,
-input,
+input,textarea,select{
+width:100%;
+background:#0b0a10;
+border:1px solid #362d43;
+color:#fff;
+padding:12px;
+border-radius:10px;
+font-size:14px;
+outline:none;
+}
+
+input:focus,textarea:focus,select:focus{
+border-color:#a855f7;
+}
+
 textarea{
-  width:100%;
-  background:#0b0a10;
-  color:#fff;
-  border:1px solid #352d43;
-  border-radius:10px;
-  padding:12px;
-  outline:none;
-  font-size:14px;
-}
-
-select:focus,
-input:focus,
-textarea:focus{
-  border-color:#a855f7;
+resize:vertical;
+min-height:110px;
 }
 
 .hero{
-  background:
-    radial-gradient(circle at top,#241035 0%,#100b18 38%,#0d0c12 100%);
-  border:1px solid #3a2750;
-  border-radius:22px;
-  padding:30px;
-  margin-bottom:20px;
+background:
+radial-gradient(circle at top,#251038,#110b18 45%,#0d0c12);
+border:1px solid #3a2750;
+border-radius:22px;
+padding:28px;
+margin-bottom:20px;
 }
 
 .hero h1{
-  font-size:28px;
-  margin-bottom:8px;
+font-size:29px;
+margin-bottom:8px;
 }
 
 .hero p{
-  color:#aaa5b8;
-  margin-bottom:22px;
-}
-
-textarea{
-  min-height:125px;
-  resize:vertical;
+color:#aaa5b5;
+margin-bottom:20px;
 }
 
 .btn{
-  margin-top:14px;
-  border:none;
-  background:#9333ea;
-  color:#fff;
-  padding:14px 22px;
-  border-radius:11px;
-  font-weight:800;
-  cursor:pointer;
-  transition:.2s;
+border:0;
+background:#9333ea;
+color:#fff;
+padding:13px 20px;
+border-radius:10px;
+font-weight:800;
+cursor:pointer;
+margin-top:12px;
 }
 
-.btn:hover{
-  background:#a855f7;
-  transform:translateY(-1px);
-}
+.btn:hover{background:#a855f7}
 
 .btn.secondary{
-  background:#17131e;
-  border:1px solid #40334e;
+background:#17131e;
+border:1px solid #3d3248;
 }
 
 .section{
-  background:#101016;
-  border:1px solid #292431;
-  border-radius:20px;
-  padding:25px;
-  margin:20px 0;
+background:#101016;
+border:1px solid #292431;
+border-radius:20px;
+padding:24px;
+margin:20px 0;
 }
 
-.section-title{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin-bottom:20px;
+.title{
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:18px;
 }
 
-.section-title h2{
-  font-size:20px;
+.title-number{
+color:#a855f7;
+font-size:12px;
+font-weight:800;
 }
 
-.section-title span{
-  color:#a855f7;
-  font-size:12px;
-  letter-spacing:1px;
+.title h2{
+font-size:20px;
 }
 
 .grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:14px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:14px;
 }
 
 .card{
-  background:#0b0a0f;
-  border:1px solid #282330;
-  border-radius:14px;
-  padding:17px;
+background:#0b0a0f;
+border:1px solid #282330;
+border-radius:14px;
+padding:17px;
 }
 
 .card h3{
-  font-size:12px;
-  text-transform:uppercase;
-  letter-spacing:1px;
-  color:#a78bfa;
-  margin-bottom:7px;
+font-size:12px;
+text-transform:uppercase;
+letter-spacing:1px;
+color:#c084fc;
+margin-bottom:8px;
 }
 
 .card p{
-  color:#d3cfda;
-  font-size:14px;
+font-size:14px;
+color:#d2cdd8;
 }
 
-.score{
-  font-size:48px;
-  font-weight:900;
-  color:#c084fc;
+.mission{
+border-left:4px solid #a855f7;
+background:#17111e;
+padding:16px;
+border-radius:10px;
+margin:12px 0;
 }
 
-.score-label{
-  color:#9993a5;
-  font-size:12px;
-  text-transform:uppercase;
+.mission strong{
+display:block;
+margin-bottom:5px;
 }
 
-.reason{
-  display:flex;
-  justify-content:space-between;
-  padding:9px 0;
-  border-bottom:1px solid #211d27;
-  font-size:13px;
+.mission span{
+font-size:13px;
+color:#aaa3b1;
 }
 
-.reason:last-child{
-  border-bottom:none;
+.research-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:14px;
 }
 
-.positive{
-  color:#c084fc;
+.research-box{
+background:#0b0a0f;
+border:1px solid #292330;
+border-radius:14px;
+padding:16px;
 }
 
-.neutral{
-  color:#aaa5b8;
+.research-box h3{
+font-size:13px;
+color:#c084fc;
+margin-bottom:8px;
 }
 
-.warning{
-  border-left:4px solid #a855f7;
-  background:#17101f;
-  padding:15px;
-  border-radius:8px;
-  color:#d9d2e4;
-  margin-top:15px;
+.research-box p{
+font-size:13px;
+color:#aaa5b4;
+margin-bottom:10px;
 }
 
-.money-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:14px;
+.result-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:12px;
+margin-top:15px;
 }
 
-.money-result{
-  background:#0b0a10;
-  border:1px solid #342743;
-  border-radius:14px;
-  padding:18px;
+.result{
+background:#0b0a0f;
+border:1px solid #30263a;
+border-radius:13px;
+padding:15px;
+text-align:center;
 }
 
-.money-result .number{
-  font-size:25px;
-  font-weight:900;
-  color:#c084fc;
-  margin-top:5px;
+.result .num{
+font-size:26px;
+font-weight:900;
+color:#c084fc;
 }
 
-.money-result small{
-  color:#8f8998;
-}
-
-.form-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:14px;
-}
-
-.day{
-  display:grid;
-  grid-template-columns:80px 1fr;
-  gap:15px;
-  align-items:start;
-  padding:14px 0;
-  border-bottom:1px solid #25212b;
-}
-
-.day:last-child{
-  border-bottom:none;
-}
-
-.day-number{
-  background:#24122f;
-  color:#c084fc;
-  border:1px solid #4a2864;
-  border-radius:10px;
-  padding:8px;
-  text-align:center;
-  font-weight:800;
-}
-
-.day h3{
-  font-size:15px;
-}
-
-.day p{
-  color:#aaa5b8;
-  font-size:13px;
-}
-
-.stack{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
-}
-
-.stack-item{
-  background:#0c0b10;
-  border:1px solid #282330;
-  border-radius:12px;
-  padding:14px;
-}
-
-.stack-item strong{
-  display:block;
-  margin-bottom:4px;
-}
-
-.stack-item span{
-  color:#8f8998;
-  font-size:12px;
-}
-
-.evidence-question{
-  margin-bottom:15px;
-}
-
-.evidence-question label{
-  display:block;
-  color:#d8d2df;
-  font-size:13px;
-  margin-bottom:7px;
+.result small{
+color:#8f8998;
 }
 
 .progress{
-  height:8px;
-  background:#211d27;
-  border-radius:20px;
-  overflow:hidden;
-  margin:12px 0;
+height:8px;
+background:#211d27;
+border-radius:20px;
+overflow:hidden;
+margin-top:12px;
 }
 
 .progress-bar{
-  height:100%;
-  background:#a855f7;
-  width:0%;
-  transition:.3s;
+height:100%;
+width:0;
+background:#a855f7;
+transition:.3s;
 }
 
-.footer{
-  text-align:center;
-  color:#716b78;
-  font-size:12px;
-  padding:35px 0 50px;
+.money-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:13px;
+margin-top:18px;
 }
 
-.hidden{
-  display:none;
+.money-card{
+background:#0b0a0f;
+border:1px solid #30263a;
+border-radius:13px;
+padding:16px;
 }
 
-.tag{
-  display:inline-block;
-  background:#21142d;
-  border:1px solid #422458;
-  color:#c084fc;
-  padding:5px 9px;
-  border-radius:20px;
-  font-size:11px;
-  margin:3px;
+.money-card small{color:#898390}
+
+.money-card strong{
+display:block;
+font-size:24px;
+color:#c084fc;
+margin-top:5px;
+}
+
+.day{
+display:grid;
+grid-template-columns:75px 1fr;
+gap:14px;
+padding:14px 0;
+border-bottom:1px solid #25212b;
+}
+
+.day:last-child{border-bottom:0}
+
+.daynum{
+background:#24132f;
+border:1px solid #4a2863;
+color:#c084fc;
+border-radius:9px;
+padding:7px;
+height:max-content;
+text-align:center;
+font-weight:800;
+}
+
+.day h3{font-size:15px}
+.day p{font-size:13px;color:#9993a3}
+
+.risk{
+background:#0b0a0f;
+border:1px solid #292330;
+border-radius:13px;
+padding:16px;
+}
+
+.risk h3{
+font-size:12px;
+color:#c084fc;
+margin-bottom:7px;
+}
+
+.risk p{
+font-size:13px;
+color:#aaa5b4;
+}
+
+.stack{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:12px;
+}
+
+.stack-item{
+background:#0b0a0f;
+border:1px solid #292330;
+border-radius:12px;
+padding:14px;
+}
+
+.stack-item strong{
+display:block;
+font-size:14px;
+margin-bottom:4px;
+}
+
+.stack-item span{
+font-size:12px;
+color:#8e8797;
+}
+
+.warning{
+background:#17111e;
+border-left:4px solid #a855f7;
+border-radius:8px;
+padding:15px;
+margin-top:16px;
+font-size:13px;
+color:#c9c2d2;
+}
+
+.hidden{display:none}
+
+footer{
+text-align:center;
+padding:35px 0 50px;
+color:#6f6877;
+font-size:12px;
 }
 
 @media(max-width:800px){
-  .top-controls,
-  .grid,
-  .money-grid,
-  .form-grid{
-    grid-template-columns:1fr;
-  }
+.controls,
+.grid,
+.research-grid,
+.money-grid{
+grid-template-columns:1fr;
+}
 
-  .stack{
-    grid-template-columns:repeat(2,1fr);
-  }
+.result-grid{
+grid-template-columns:repeat(2,1fr);
+}
 
-  .hero{
-    padding:20px;
-  }
-
-  .logo{
-    font-size:27px;
-  }
+.stack{
+grid-template-columns:repeat(2,1fr);
+}
 }
 
 @media(max-width:500px){
-  .stack{
-    grid-template-columns:1fr;
-  }
+.result-grid,
+.stack{
+grid-template-columns:1fr;
+}
 
-  .day{
-    grid-template-columns:60px 1fr;
-  }
+.hero{
+padding:20px;
+}
+
+.logo{
+font-size:27px;
+}
 }
 </style>
 </head>
@@ -397,1040 +400,836 @@ textarea{
 <div class="container">
 
 <header>
-  <div class="logo">REALITY <span>DEMAND</span></div>
-  <div class="subtitle" id="subtitle">
-    From idea → market → money → launch.
-  </div>
+<div class="logo">REALITY <span>DEMAND</span></div>
+<div class="subtitle">
+Evidence before investment.
+</div>
 </header>
 
-<!-- GLOBAL SETTINGS -->
-<div class="top-controls">
+<!-- SETTINGS -->
 
-  <div class="control">
-    <label id="languageLabel">Language</label>
-    <select id="language" onchange="changeLanguage()">
-      <option value="en">English</option>
-      <option value="fr">Français</option>
-      <option value="ar">العربية</option>
-      <option value="darija">Darija</option>
-    </select>
-  </div>
+<div class="controls">
 
-  <div class="control">
-    <label id="countryLabel">Market / Country</label>
-    <select id="country" onchange="updateCurrency()">
-      <option value="Morocco">🇲🇦 Morocco</option>
-      <option value="France">🇫🇷 France</option>
-      <option value="Belgium">🇧🇪 Belgium</option>
-      <option value="Canada">🇨🇦 Canada</option>
-      <option value="United States">🇺🇸 United States</option>
-      <option value="United Kingdom">🇬🇧 United Kingdom</option>
-      <option value="Spain">🇪🇸 Spain</option>
-      <option value="Germany">🇩🇪 Germany</option>
-      <option value="UAE">🇦🇪 UAE</option>
-      <option value="India">🇮🇳 India</option>
-      <option value="Japan">🇯🇵 Japan</option>
-      <option value="Brazil">🇧🇷 Brazil</option>
-    </select>
-  </div>
+<div class="control">
+<label>Language</label>
+<select id="language">
+<option>English</option>
+<option>Français</option>
+<option>العربية</option>
+<option>Darija</option>
+</select>
+</div>
 
-  <div class="control">
-    <label id="currencyLabel">Currency</label>
-    <select id="currency">
-      <option value="MAD">MAD</option>
-      <option value="EUR">EUR</option>
-      <option value="CAD">CAD</option>
-      <option value="USD">USD</option>
-      <option value="GBP">GBP</option>
-      <option value="AED">AED</option>
-      <option value="INR">INR</option>
-      <option value="JPY">JPY</option>
-      <option value="BRL">BRL</option>
-    </select>
-  </div>
+<div class="control">
+<label>Country / Market</label>
+<select id="country">
+<option value="Morocco">🇲🇦 Morocco</option>
+<option value="France">🇫🇷 France</option>
+<option value="Belgium">🇧🇪 Belgium</option>
+<option value="Canada">🇨🇦 Canada</option>
+<option value="United States">🇺🇸 United States</option>
+<option value="United Kingdom">🇬🇧 United Kingdom</option>
+<option value="Spain">🇪🇸 Spain</option>
+<option value="Germany">🇩🇪 Germany</option>
+<option value="UAE">🇦🇪 UAE</option>
+<option value="India">🇮🇳 India</option>
+<option value="Japan">🇯🇵 Japan</option>
+<option value="Brazil">🇧🇷 Brazil</option>
+</select>
+</div>
+
+<div class="control">
+<label>City / Area</label>
+<input id="city" placeholder="Example: Casablanca">
+</div>
 
 </div>
 
 <!-- IDEA -->
+
 <div class="hero">
 
-  <h1 id="mainTitle">Test your business idea before you spend.</h1>
+<h1>Find the evidence before you invest.</h1>
 
-  <p id="mainDescription">
-    Reality Demand turns your idea into a practical market and launch plan.
-  </p>
+<p>
+Describe your idea. Reality Demand will turn it into a structured research mission,
+money model and launch plan.
+</p>
 
-  <textarea
-    id="idea"
-    placeholder="Example: I want to sell crispy chicken sandwiches for 10 MAD near schools..."
-  ></textarea>
+<textarea id="idea"
+placeholder="Example: I want to sell crispy chicken sandwiches for 10 MAD near schools."></textarea>
 
-  <button class="btn" onclick="analyze()">
-    <span id="analyzeText">ANALYZE MY IDEA →</span>
-  </button>
+<div class="grid" style="margin-top:14px">
+
+<div>
+<label>Target customer</label>
+<input id="target" placeholder="Example: students">
+</div>
+
+<div>
+<label>Expected selling price</label>
+<input id="price" type="number" placeholder="Example: 10">
+</div>
+
+</div>
+
+<button class="btn" onclick="startResearch()">
+BUILD MY MARKET RESEARCH →
+</button>
 
 </div>
 
 <div id="results" class="hidden">
 
-<!-- MARKET ANALYSIS -->
+<!-- 01 MARKET SNAPSHOT -->
+
 <section class="section">
 
-  <div class="section-title">
-    <span>01</span>
-    <h2 id="marketTitle">MARKET ANALYSIS</h2>
-  </div>
+<div class="title">
+<div class="title-number">01</div>
+<h2>MARKET SNAPSHOT</h2>
+</div>
 
-  <div class="grid">
+<div class="grid">
 
-    <div class="card">
-      <h3 id="customerTitle">Target Customer</h3>
-      <p id="customerResult"></p>
-    </div>
+<div class="card">
+<h3>Idea</h3>
+<p id="ideaOutput"></p>
+</div>
 
-    <div class="card">
-      <h3 id="problemTitle">Problem</h3>
-      <p id="problemResult"></p>
-    </div>
+<div class="card">
+<h3>Market</h3>
+<p id="marketOutput"></p>
+</div>
 
-    <div class="card">
-      <h3 id="competitionTitle">Competition</h3>
-      <p id="competitionResult"></p>
-    </div>
+<div class="card">
+<h3>Target</h3>
+<p id="targetOutput"></p>
+</div>
 
-    <div class="card">
-      <h3 id="buyingTitle">Buying Signal</h3>
-      <p id="buyingResult"></p>
-    </div>
+<div class="card">
+<h3>Initial interpretation</h3>
+<p id="interpretation"></p>
+</div>
 
-    <div class="card">
-      <h3 id="monetizationTitle">How You Can Make Money</h3>
-      <p id="monetizationResult"></p>
-    </div>
-
-    <div class="card">
-      <h3 id="riskTitle">Main Risk</h3>
-      <p id="riskResult"></p>
-    </div>
-
-  </div>
+</div>
 
 </section>
 
-<!-- DEMAND -->
+<!-- 02 RESEARCH MISSION -->
+
 <section class="section">
 
-  <div class="section-title">
-    <span>02</span>
-    <h2>DEMAND SIGNAL</h2>
-  </div>
+<div class="title">
+<div class="title-number">02</div>
+<h2>REAL MARKET RESEARCH MISSION</h2>
+</div>
 
-  <div class="grid">
+<p style="color:#9993a5;margin-bottom:15px">
+Reality Demand does not invent market data. These missions tell you exactly
+what evidence to collect.
+</p>
 
-    <div class="card" style="text-align:center;">
-      <div class="score" id="score">0</div>
-      <div class="score-label">/ 100 initial signal</div>
-    </div>
+<div id="missions"></div>
 
-    <div class="card">
-
-      <h3>WHY THIS SIGNAL?</h3>
-
-      <div class="reason">
-        <span>Base signal</span>
-        <strong id="baseScore">+45</strong>
-      </div>
-
-      <div class="reason">
-        <span>Idea category</span>
-        <strong id="categoryScore">+0</strong>
-      </div>
-
-      <div class="reason">
-        <span>Buying signal</span>
-        <strong id="buyingScore">+0</strong>
-      </div>
-
-      <div class="reason">
-        <span>Specific customer</span>
-        <strong id="customerScore">+0</strong>
-      </div>
-
-    </div>
-
-  </div>
-
-  <div class="warning">
-    ⚠️ <strong>Important:</strong>
-    This is an initial signal based on the information you provide.
-    It is NOT proof that customers will buy.
-  </div>
+<div class="warning">
+⚠️ Do not enter information because it makes your idea look better.
+Record what you actually find.
+</div>
 
 </section>
 
-<!-- EVIDENCE -->
+<!-- 03 EVIDENCE -->
+
 <section class="section">
 
-  <div class="section-title">
-    <span>03</span>
-    <h2>REALITY EVIDENCE CHECK</h2>
-  </div>
+<div class="title">
+<div class="title-number">03</div>
+<h2>MARKET EVIDENCE</h2>
+</div>
 
-  <p style="color:#9993a5;margin-bottom:18px;">
-    Answer honestly. Better evidence is more useful than a higher score.
-  </p>
+<div class="research-grid">
 
-  <div id="evidenceQuestions"></div>
+<div class="research-box">
+<h3>Competitors found</h3>
+<p>How many real alternatives did you identify?</p>
+<input type="number" id="competitors" placeholder="Example: 5">
+</div>
 
-  <button class="btn" onclick="calculateEvidence()">
-    CHECK MY EVIDENCE
-  </button>
+<div class="research-box">
+<h3>Prices observed</h3>
+<p>How many real prices did you record?</p>
+<input type="number" id="pricesFound" placeholder="Example: 10">
+</div>
 
-  <div class="card" style="margin-top:18px;">
-    <div class="score" id="evidenceScore">0/25</div>
-    <div id="evidenceStatus" style="color:#aaa5b8;">
-      NOT CHECKED YET
-    </div>
+<div class="research-box">
+<h3>Customer conversations</h3>
+<p>How many potential customers did you actually talk to?</p>
+<input type="number" id="customersTalked" placeholder="Example: 10">
+</div>
 
-    <div class="progress">
-      <div class="progress-bar" id="evidenceBar"></div>
-    </div>
-  </div>
+<div class="research-box">
+<h3>Real buying actions</h3>
+<p>Orders, deposits, appointments or other serious actions.</p>
+<input type="number" id="buyingActions" placeholder="Example: 3">
+</div>
+
+</div>
+
+<button class="btn" onclick="calculateEvidence()">
+ANALYZE MY EVIDENCE
+</button>
+
+<div class="result-grid">
+
+<div class="result">
+<div class="num" id="rCompetitors">0</div>
+<small>Competitors</small>
+</div>
+
+<div class="result">
+<div class="num" id="rPrices">0</div>
+<small>Prices</small>
+</div>
+
+<div class="result">
+<div class="num" id="rCustomers">0</div>
+<small>Customers</small>
+</div>
+
+<div class="result">
+<div class="num" id="rActions">0</div>
+<small>Buying actions</small>
+</div>
+
+</div>
+
+<div class="card" style="margin-top:15px">
+
+<h3>Evidence coverage</h3>
+
+<div class="progress">
+<div class="progress-bar" id="evidenceBar"></div>
+</div>
+
+<p id="evidenceText" style="margin-top:10px">
+Not checked yet.
+</p>
+
+</div>
 
 </section>
 
-<!-- MARKET EVIDENCE -->
+<!-- 04 PRICE RESEARCH -->
+
 <section class="section">
 
-  <div class="section-title">
-    <span>04</span>
-    <h2>REAL MARKET EVIDENCE</h2>
-  </div>
+<div class="title">
+<div class="title-number">04</div>
+<h2>PRICE REALITY</h2>
+</div>
 
-  <p style="color:#9993a5;margin-bottom:18px;">
-    These questions force you to look outside your idea and search for real-world signals.
-  </p>
+<p style="color:#9993a5;margin-bottom:15px">
+Enter the prices you actually observed. The tool will calculate the observed range.
+</p>
 
-  <div id="marketQuestions"></div>
+<div class="research-grid">
 
-  <button class="btn" onclick="calculateMarketEvidence()">
-    CHECK MARKET EVIDENCE
-  </button>
+<div class="research-box">
+<h3>Lowest observed price</h3>
+<input type="number" id="lowPrice">
+</div>
 
-  <div class="card" style="margin-top:18px;">
-    <div class="score" id="marketEvidenceScore">0/25</div>
-    <div id="marketEvidenceStatus" style="color:#aaa5b8;">
-      NOT CHECKED YET
-    </div>
+<div class="research-box">
+<h3>Highest observed price</h3>
+<input type="number" id="highPrice">
+</div>
 
-    <div class="progress">
-      <div class="progress-bar" id="marketEvidenceBar"></div>
-    </div>
-  </div>
+<div class="research-box">
+<h3>Your planned price</h3>
+<input type="number" id="plannedPrice">
+</div>
+
+<div class="research-box">
+<h3>Your cost / unit</h3>
+<input type="number" id="costUnit">
+</div>
+
+</div>
+
+<button class="btn" onclick="calculateMoney()">
+CALCULATE PRICE & PROFIT
+</button>
+
+<div class="money-grid">
+
+<div class="money-card">
+<small>Observed price range</small>
+<strong id="priceRange">—</strong>
+</div>
+
+<div class="money-card">
+<small>Profit / unit</small>
+<strong id="unitProfit">—</strong>
+</div>
+
+<div class="money-card">
+<small>Margin</small>
+<strong id="unitMargin">—</strong>
+</div>
+
+<div class="money-card">
+<small>Break-even units</small>
+<strong id="breakEven">—</strong>
+</div>
+
+<div class="money-card">
+<small>Daily profit scenario</small>
+<strong id="dailyProfit">—</strong>
+</div>
+
+<div class="money-card">
+<small>Monthly scenario</small>
+<strong id="monthlyProfit">—</strong>
+</div>
+
+</div>
+
+<div class="research-grid" style="margin-top:15px">
+
+<div class="research-box">
+<h3>Units / day</h3>
+<input type="number" id="unitsDay" placeholder="Example: 50">
+</div>
+
+<div class="research-box">
+<h3>Monthly fixed costs</h3>
+<input type="number" id="fixedCosts" placeholder="Example: 2000">
+</div>
+
+<div class="research-box">
+<h3>Working days / month</h3>
+<input type="number" id="workingDays" placeholder="Example: 26">
+</div>
+
+<div class="research-box">
+<h3>Startup budget</h3>
+<input type="number" id="startupBudget" placeholder="Example: 5000">
+</div>
+
+</div>
 
 </section>
 
-<!-- MONEY -->
+<!-- 05 CUSTOMER TEST -->
+
 <section class="section">
 
-  <div class="section-title">
-    <span>05</span>
-    <h2 id="moneyTitle">MONEY MODEL</h2>
-  </div>
+<div class="title">
+<div class="title-number">05</div>
+<h2>CUSTOMER TEST</h2>
+</div>
 
-  <p style="color:#9993a5;margin-bottom:18px;">
-    Enter only numbers you actually know. Unknown values stay unknown.
-  </p>
+<div class="grid">
 
-  <div class="form-grid">
+<div class="card">
+<h3>Question 1</h3>
+<p>Who specifically would pay?</p>
+<textarea id="q1" rows="3"></textarea>
+</div>
 
-    <div class="control">
-      <label>Selling price / unit</label>
-      <input type="number" id="sellingPrice" placeholder="Example: 10">
-    </div>
+<div class="card">
+<h3>Question 2</h3>
+<p>What problem are they trying to solve?</p>
+<textarea id="q2" rows="3"></textarea>
+</div>
 
-    <div class="control">
-      <label>Variable cost / unit</label>
-      <input type="number" id="unitCost" placeholder="Example: 6">
-    </div>
+<div class="card">
+<h3>Question 3</h3>
+<p>What do they use today?</p>
+<textarea id="q3" rows="3"></textarea>
+</div>
 
-    <div class="control">
-      <label>Monthly fixed costs</label>
-      <input type="number" id="fixedCosts" placeholder="Example: 2000">
-    </div>
+<div class="card">
+<h3>Question 4</h3>
+<p>Why would they switch?</p>
+<textarea id="q4" rows="3"></textarea>
+</div>
 
-    <div class="control">
-      <label>Units sold / day</label>
-      <input type="number" id="unitsDay" placeholder="Example: 50">
-    </div>
+</div>
 
-    <div class="control">
-      <label>One-time startup budget</label>
-      <input type="number" id="startupBudget" placeholder="Example: 5000">
-    </div>
+<button class="btn" onclick="scoreCustomers()">
+CHECK CUSTOMER EVIDENCE
+</button>
 
-    <div class="control">
-      <label>Working days / month</label>
-      <input type="number" id="workingDays" placeholder="Example: 26">
-    </div>
-
-  </div>
-
-  <button class="btn" onclick="calculateMoney()">
-    CALCULATE MONEY MODEL
-  </button>
-
-  <div class="money-grid" style="margin-top:20px;">
-
-    <div class="money-result">
-      <small>Profit / unit</small>
-      <div class="number" id="profitUnit">—</div>
-    </div>
-
-    <div class="money-result">
-      <small>Margin</small>
-      <div class="number" id="margin">—</div>
-    </div>
-
-    <div class="money-result">
-      <small>Break-even units / month</small>
-      <div class="number" id="breakEven">—</div>
-    </div>
-
-    <div class="money-result">
-      <small>Estimated daily profit</small>
-      <div class="number" id="dailyProfit">—</div>
-    </div>
-
-    <div class="money-result">
-      <small>Estimated monthly profit</small>
-      <div class="number" id="monthlyProfit">—</div>
-    </div>
-
-    <div class="money-result">
-      <small>Startup budget entered</small>
-      <div class="number" id="startupResult">—</div>
-    </div>
-
-  </div>
-
-  <div class="warning">
-    💡 Calculations are mathematical scenarios using YOUR numbers.
-    They are not forecasts of future sales.
-  </div>
+<div class="card" style="margin-top:15px;text-align:center">
+<div class="num" style="font-size:34px;color:#c084fc" id="customerScore">
+0/20
+</div>
+<p id="customerStatus">Not checked yet.</p>
+</div>
 
 </section>
 
-<!-- LAUNCH PLAN -->
+<!-- 06 LAUNCH PLAN -->
+
 <section class="section">
 
-  <div class="section-title">
-    <span>06</span>
-    <h2 id="launchTitle">7-DAY REALITY LAUNCH PLAN</h2>
-  </div>
+<div class="title">
+<div class="title-number">06</div>
+<h2>7-DAY LAUNCH PLAN</h2>
+</div>
 
-  <div id="launchPlan"></div>
+<div id="launchPlan"></div>
 
 </section>
 
-<!-- RISKS -->
+<!-- 07 RISKS -->
+
 <section class="section">
 
-  <div class="section-title">
-    <span>07</span>
-    <h2 id="riskEngineTitle">RISK ENGINE</h2>
-  </div>
+<div class="title">
+<div class="title-number">07</div>
+<h2>WHAT CAN KILL THE IDEA?</h2>
+</div>
 
-  <div class="grid" id="riskCards"></div>
+<div class="grid">
+
+<div class="risk">
+<h3>NO BUYERS</h3>
+<p>You may have interest but no real buying action.</p>
+</div>
+
+<div class="risk">
+<h3>BAD MARGIN</h3>
+<p>Revenue can look good while the actual unit economics are weak.</p>
+</div>
+
+<div class="risk">
+<h3>COMPETITION</h3>
+<p>Customers may already have convenient alternatives.</p>
+</div>
+
+<div class="risk">
+<h3>ACQUISITION</h3>
+<p>You need a realistic way to reach customers.</p>
+</div>
+
+<div class="risk">
+<h3>OPERATIONS</h3>
+<p>Suppliers, equipment, delivery, time and stock can become bottlenecks.</p>
+</div>
+
+<div class="risk">
+<h3>PREMATURE SPENDING</h3>
+<p>The biggest avoidable risk is spending before testing demand.</p>
+</div>
+
+</div>
 
 </section>
 
-<!-- STARTUP STACK -->
+<!-- 08 STARTUP STACK -->
+
 <section class="section">
 
-  <div class="section-title">
-    <span>08</span>
-    <h2 id="stackTitle">STARTUP STACK</h2>
-  </div>
+<div class="title">
+<div class="title-number">08</div>
+<h2>STARTUP STACK</h2>
+</div>
 
-  <p style="color:#9993a5;margin-bottom:18px;">
-    Things you may need to operate the business.
-  </p>
+<div class="stack">
 
-  <div class="stack" id="startupStack"></div>
+<div class="stack-item">
+<strong>Market</strong>
+<span>Competitors + customers</span>
+</div>
+
+<div class="stack-item">
+<strong>Offer</strong>
+<span>Product / service</span>
+</div>
+
+<div class="stack-item">
+<strong>Pricing</strong>
+<span>Observed market prices</span>
+</div>
+
+<div class="stack-item">
+<strong>Supplier</strong>
+<span>Inputs / materials</span>
+</div>
+
+<div class="stack-item">
+<strong>Payment</strong>
+<span>How money is collected</span>
+</div>
+
+<div class="stack-item">
+<strong>Marketing</strong>
+<span>How customers find you</span>
+</div>
+
+<div class="stack-item">
+<strong>Operations</strong>
+<span>How the product is delivered</span>
+</div>
+
+<div class="stack-item">
+<strong>Accounting</strong>
+<span>Track real costs</span>
+</div>
+
+</div>
 
 </section>
 
-<!-- FUTURE MONETIZATION -->
+<!-- 09 FUTURE MONETIZATION -->
+
 <section class="section">
 
-  <div class="section-title">
-    <span>09</span>
-    <h2>TOOLS & OFFERS</h2>
-  </div>
+<div class="title">
+<div class="title-number">09</div>
+<h2>TOOLS & PARTNERS</h2>
+</div>
 
-  <div class="grid">
+<div class="grid">
 
-    <div class="card">
-      <h3>Website</h3>
-      <p>Potential future partner or affiliate options.</p>
-    </div>
+<div class="card">
+<h3>Website</h3>
+<p>Future partner or affiliate options can appear here.</p>
+</div>
 
-    <div class="card">
-      <h3>Equipment</h3>
-      <p>Potential future product recommendations.</p>
-    </div>
+<div class="card">
+<h3>Equipment</h3>
+<p>Relevant equipment or supplier options can appear here.</p>
+</div>
 
-    <div class="card">
-      <h3>Design</h3>
-      <p>Potential future design services or tools.</p>
-    </div>
+<div class="card">
+<h3>Marketing</h3>
+<p>Marketing tools and services can appear here.</p>
+</div>
 
-    <div class="card">
-      <h3>Marketing</h3>
-      <p>Potential future advertising and marketing tools.</p>
-    </div>
+<div class="card">
+<h3>Professional Services</h3>
+<p>Design, accounting, delivery or other services can appear here.</p>
+</div>
 
-  </div>
+</div>
 
-  <div class="warning">
-    💡 Partner, sponsored and affiliate offers should remain clearly separated
-    from the market analysis. The analysis should never change because an offer
-    pays Reality Demand.
-  </div>
+<div class="warning">
+Partner and affiliate offers must be clearly identified.
+They should never influence the evidence analysis.
+</div>
 
 </section>
 
-<button class="btn secondary" onclick="resetTool()" style="width:100%;">
-  ↻ CHECK ANOTHER IDEA
+<button class="btn secondary" style="width:100%" onclick="resetTool()">
+↻ START ANOTHER IDEA
 </button>
 
 </div>
 
-<footer class="footer">
-  REALITY DEMAND © 2026<br>
-  Don't trust the score. Improve the evidence.
+<footer>
+REALITY DEMAND © 2026<br>
+Evidence before investment.
 </footer>
 
 </div>
 
 <script>
 
-/* =========================
-   TRANSLATIONS
-========================= */
-
-const translations = {
-
-en:{
-  subtitle:"From idea → market → money → launch.",
-  mainTitle:"Test your business idea before you spend.",
-  mainDescription:"Reality Demand turns your idea into a practical market and launch plan.",
-  analyze:"ANALYZE MY IDEA →",
-  market:"MARKET ANALYSIS",
-  customer:"Target Customer",
-  problem:"Problem",
-  competition:"Competition",
-  buying:"Buying Signal",
-  monetization:"How You Can Make Money",
-  risk:"Main Risk",
-  money:"MONEY MODEL",
-  launch:"7-DAY REALITY LAUNCH PLAN",
-  riskEngine:"RISK ENGINE",
-  stack:"STARTUP STACK"
-},
-
-fr:{
-  subtitle:"De l'idée → marché → argent → lancement.",
-  mainTitle:"Testez votre idée avant de dépenser.",
-  mainDescription:"Reality Demand transforme votre idée en plan pratique d'analyse et de lancement.",
-  analyze:"ANALYSER MON IDÉE →",
-  market:"ANALYSE DU MARCHÉ",
-  customer:"Client cible",
-  problem:"Problème",
-  competition:"Concurrence",
-  buying:"Signal d'achat",
-  monetization:"Comment gagner de l'argent",
-  risk:"Risque principal",
-  money:"MODÈLE FINANCIER",
-  launch:"PLAN DE LANCEMENT EN 7 JOURS",
-  riskEngine:"MOTEUR DE RISQUE",
-  stack:"STACK DE LANCEMENT"
-},
-
-ar:{
-  subtitle:"من الفكرة ← السوق ← المال ← الإطلاق.",
-  mainTitle:"اختبر فكرتك قبل أن تنفق المال.",
-  mainDescription:"Reality Demand يحول فكرتك إلى تحليل عملي للسوق وخطة إطلاق.",
-  analyze:"حلل فكرتي ←",
-  market:"تحليل السوق",
-  customer:"العميل المستهدف",
-  problem:"المشكلة",
-  competition:"المنافسة",
-  buying:"إشارة الشراء",
-  monetization:"كيف يمكن تحقيق الدخل",
-  risk:"الخطر الرئيسي",
-  money:"النموذج المالي",
-  launch:"خطة إطلاق لمدة 7 أيام",
-  riskEngine:"محرك المخاطر",
-  stack:"احتياجات البداية"
-},
-
-darija:{
-  subtitle:"Mn lfikra → sou9 → flouss → lancement.",
-  mainTitle:"Jarrab fikrtk 9bel ma tsref flouss.",
-  mainDescription:"Reality Demand kay7awwel lfekra dyalk l'analyse dyal sou9 w plan bach tbda.",
-  analyze:"7ELLAL L-FIKRA DYALI →",
-  market:"ANALYSE DYAL SOU9",
-  customer:"Chkon ghadi ychri",
-  problem:"Chno lmochkil",
-  competition:"Lmonafassa",
-  buying:"Signal dyal chra",
-  monetization:"Kifach t9der تربح",
-  risk:"Akbar khatar",
-  money:"MODEL DYAL FLOUSS",
-  launch:"PLAN DYAL 7 DAYS",
-  riskEngine:"RISK ENGINE",
-  stack:"ACH KHASSK TBDA"
-}
-
+let current={
+idea:"",
+country:"",
+city:"",
+target:"",
+price:""
 };
 
+function startResearch(){
 
-/* =========================
-   COUNTRY / CURRENCY
-========================= */
+const idea=document.getElementById("idea").value.trim();
 
-const countryCurrencies={
-  Morocco:"MAD",
-  France:"EUR",
-  Belgium:"EUR",
-  Canada:"CAD",
-  "United States":"USD",
-  "United Kingdom":"GBP",
-  Spain:"EUR",
-  Germany:"EUR",
-  UAE:"AED",
-  India:"INR",
-  Japan:"JPY",
-  Brazil:"BRL"
-};
-
-function updateCurrency(){
-  const country=document.getElementById("country").value;
-  document.getElementById("currency").value=countryCurrencies[country] || "USD";
+if(!idea){
+alert("Enter your business idea first.");
+return;
 }
 
+current.idea=idea;
+current.country=document.getElementById("country").value;
+current.city=document.getElementById("city").value.trim();
+current.target=document.getElementById("target").value.trim();
+current.price=document.getElementById("price").value;
 
-/* =========================
-   LANGUAGE
-========================= */
+document.getElementById("ideaOutput").textContent=current.idea;
 
-function changeLanguage(){
+document.getElementById("marketOutput").textContent=
+current.city
+? current.city+", "+current.country
+: current.country;
 
-  const lang=document.getElementById("language").value;
-  const t=translations[lang];
+document.getElementById("targetOutput").textContent=
+current.target || "Not specified yet.";
 
-  document.getElementById("subtitle").textContent=t.subtitle;
-  document.getElementById("mainTitle").textContent=t.mainTitle;
-  document.getElementById("mainDescription").textContent=t.mainDescription;
-  document.getElementById("analyzeText").textContent=t.analyze;
+document.getElementById("interpretation").textContent=
+"Your next step is to collect real market evidence before investing heavily.";
 
-  document.getElementById("marketTitle").textContent=t.market;
-  document.getElementById("customerTitle").textContent=t.customer;
-  document.getElementById("problemTitle").textContent=t.problem;
-  document.getElementById("competitionTitle").textContent=t.competition;
-  document.getElementById("buyingTitle").textContent=t.buying;
-  document.getElementById("monetizationTitle").textContent=t.monetization;
-  document.getElementById("riskTitle").textContent=t.risk;
-  document.getElementById("moneyTitle").textContent=t.money;
-  document.getElementById("launchTitle").textContent=t.launch;
-  document.getElementById("riskEngineTitle").textContent=t.riskEngine;
-  document.getElementById("stackTitle").textContent=t.stack;
+generateMissions();
+generateLaunchPlan();
 
-  if(lang==="ar"){
-    document.body.dir="rtl";
-  }else{
-    document.body.dir="ltr";
-  }
+document.getElementById("results").classList.remove("hidden");
+
+window.scrollTo({
+top:document.getElementById("results").offsetTop-20,
+behavior:"smooth"
+});
+
 }
 
+function generateMissions(){
 
-/* =========================
-   IDEA ANALYSIS
-========================= */
+const place=
+current.city
+? current.city+", "+current.country
+: current.country;
 
-let currentAnalysis=null;
+const target=
+current.target || "potential customers";
 
-function analyze(){
+const missions=[
 
-  const idea=document.getElementById("idea").value.trim();
+[
+"COMPETITORS",
+"Find at least 5 real businesses or alternatives offering something similar in "+place+"."
+],
 
-  if(!idea){
-    alert("Write your business idea first.");
-    return;
-  }
+[
+"PRICE",
+"Record at least 10 real prices for similar products or services in "+place+"."
+],
 
-  const text=idea.toLowerCase();
+[
+"CUSTOMERS",
+"Speak with at least 10 "+target+" and ask what they currently buy and what they dislike."
+],
 
-  let category="Digital product / service";
-  let customer="A specific niche customer";
-  let problem="The customer has a problem or unmet need.";
-  let competition="Existing alternatives should be investigated.";
-  let monetization="Direct sales, subscriptions or service fees.";
-  let risk="Unknown willingness to pay.";
-  let categoryPoints=0;
-  let buyingPoints=0;
-  let customerPoints=0;
+[
+"BUYING ACTION",
+"Try to obtain a real action: order, appointment, deposit, pre-order or serious request."
+],
 
-  if(
-    /food|meal|bread|bakery|cake|restaurant|sandwich|pizza|chicken|burger|food truck|café|cafe/.test(text)
-  ){
-    category="Food / physical product";
-    customer="Local customers who want convenient food.";
-    problem="Convenience, hunger, taste or price can create demand.";
-    competition="Local restaurants, bakeries, snack shops and delivery options.";
-    monetization="Direct product sales.";
-    risk="Margins, location, waste, competition and repeat purchases.";
-    categoryPoints=12;
-  }
+[
+"ALTERNATIVES",
+"Identify what people currently use instead of your idea."
+],
 
-  else if(
-    /app|website|platform|software|saas|online tool|ai tool/.test(text)
-  ){
-    category="App / website / digital platform";
-    customer="Users with a specific recurring problem.";
-    problem="A problem that users currently solve manually or with another tool.";
-    competition="Existing apps, websites and manual alternatives.";
-    monetization="Subscription, transaction fee, premium access or service.";
-    risk="Building before proving that people will use or pay.";
-    categoryPoints=12;
-  }
+[
+"LOCATION",
+"Check where customers already buy this type of product or service."
+],
 
-  else if(
-    /course|training|learn|education|formation|coaching|teaching|lesson/.test(text)
-  ){
-    category="Education / knowledge";
-    customer="People who want a specific skill or result.";
-    problem="Lack of accessible knowledge, guidance or practice.";
-    competition="Free content, courses, teachers and coaching services.";
-    monetization="Course sales, memberships or coaching.";
-    risk="People may consume free content without paying.";
-    categoryPoints=10;
-  }
+[
+"REVIEWS",
+"Look for repeated complaints, positive points and unmet needs in real customer reviews."
+],
 
-  else if(
-    /service|freelance|design|marketing|repair|cleaning|delivery|consulting|maintenance/.test(text)
-  ){
-    category="Service business";
-    customer="People or businesses with a specific problem.";
-    problem="The customer needs a task completed or problem solved.";
-    competition="Local providers and online freelancers.";
-    monetization="Per-job pricing or recurring monthly contracts.";
-    risk="Finding customers consistently.";
-    categoryPoints=10;
-  }
+[
+"SUPPLIERS",
+"Find real supplier prices for the main inputs you would need."
+]
 
-  else if(
-    /shop|store|sell|product|clothes|shoes|phone|accessories|ecommerce|e-commerce/.test(text)
-  ){
-    category="E-commerce / physical product";
-    customer="Consumers with a specific need or preference.";
-    problem="Access to a desired product at an acceptable price.";
-    competition="Online stores, marketplaces and local sellers.";
-    monetization="Product margin.";
-    risk="Inventory, acquisition cost and unsold stock.";
-    categoryPoints=10;
-  }
+];
 
-  if(
-    /dh|mad|€|eur|usd|dollar|price|prix|sell|selling|buy|pay|paid|order|commande|preorder|pre-order|شراء|ثمن|سعر|نبيع|نشري/.test(text)
-  ){
-    buyingPoints=8;
-  }
+document.getElementById("missions").innerHTML=
+missions.map(m=>`
+<div class="mission">
+<strong>${m[0]}</strong>
+<span>${m[1]}</span>
+</div>
+`).join("");
 
-  if(
-    /student|students|school|schools|business|company|companies|worker|workers|parents|children|customer|customers|client|clients|tourist|tourists|طلاب|زبون|زبناء|شركة/.test(text)
-  ){
-    customerPoints=7;
-  }
-
-  let score=45+categoryPoints+buyingPoints+customerPoints;
-
-  if(score>100) score=100;
-
-  currentAnalysis={
-    category,
-    customer,
-    problem,
-    competition,
-    monetization,
-    risk,
-    score,
-    categoryPoints,
-    buyingPoints,
-    customerPoints
-  };
-
-  document.getElementById("customerResult").textContent=customer;
-  document.getElementById("problemResult").textContent=problem;
-  document.getElementById("competitionResult").textContent=competition;
-  document.getElementById("buyingResult").textContent=
-    buyingPoints>0
-    ? "The idea contains a visible buying/payment signal."
-    : "No clear buying signal detected yet.";
-  document.getElementById("monetizationResult").textContent=monetization;
-  document.getElementById("riskResult").textContent=risk;
-
-  document.getElementById("score").textContent=score;
-  document.getElementById("categoryScore").textContent="+"+categoryPoints;
-  document.getElementById("buyingScore").textContent="+"+buyingPoints;
-  document.getElementById("customerScore").textContent="+"+customerPoints;
-
-  generateQuestions();
-  generateLaunchPlan();
-  generateRisks();
-  generateStack(category);
-
-  document.getElementById("results").classList.remove("hidden");
-
-  window.scrollTo({
-    top:document.getElementById("results").offsetTop-20,
-    behavior:"smooth"
-  });
 }
-
-
-/* =========================
-   EVIDENCE QUESTIONS
-========================= */
-
-function generateQuestions(){
-
-  const questions=[
-    "Who would actually pay for this?",
-    "What specific problem are you solving?",
-    "How do people solve this today?",
-    "Why would they choose you instead?",
-    "Can you get your first customer without building everything?"
-  ];
-
-  document.getElementById("evidenceQuestions").innerHTML=
-    questions.map((q,i)=>`
-      <div class="evidence-question">
-        <label>${i+1}. ${q}</label>
-        <textarea id="ev${i}" rows="3" placeholder="Write your real evidence..."></textarea>
-      </div>
-    `).join("");
-
-  const marketQuestions=[
-    "Who are your competitors or alternatives?",
-    "What prices are people already paying?",
-    "Do you have real customer conversations or potential buyers?",
-    "Has anyone shown real buying action?",
-    "Have you personally tested or sold something similar?"
-  ];
-
-  document.getElementById("marketQuestions").innerHTML=
-    marketQuestions.map((q,i)=>`
-      <div class="evidence-question">
-        <label>${i+1}. ${q}</label>
-        <textarea id="me${i}" rows="3" placeholder="Write what you found..."></textarea>
-      </div>
-    `).join("");
-}
-
-
-/* =========================
-   EVIDENCE SCORING
-========================= */
-
-function scoreAnswer(text){
-
-  let points=0;
-
-  if(text.length>=20) points+=2;
-  if(text.length>=60) points+=1;
-
-  const keywords=[
-    "customer","customers","client","clients",
-    "student","students","business","company",
-    "sell","sales","pay","paid","buy","order",
-    "price","competitor","competition",
-    "already","test","tested","sold","money",
-    "preorder","pre-order",
-    "زبون","زبناء","شراء","ثمن","سعر","شركة"
-  ];
-
-  keywords.forEach(word=>{
-    if(text.toLowerCase().includes(word)){
-      points+=1;
-    }
-  });
-
-  const strong=[
-    "sold","paid","ordered","preorder",
-    "pre-order","sold 10","sold 20","باع","شرى"
-  ];
-
-  strong.forEach(word=>{
-    if(text.toLowerCase().includes(word)){
-      points+=1;
-    }
-  });
-
-  return Math.min(points,5);
-}
-
 
 function calculateEvidence(){
 
-  let total=0;
+const competitors=Number(document.getElementById("competitors").value)||0;
+const prices=Number(document.getElementById("pricesFound").value)||0;
+const customers=Number(document.getElementById("customersTalked").value)||0;
+const actions=Number(document.getElementById("buyingActions").value)||0;
 
-  for(let i=0;i<5;i++){
-    total+=scoreAnswer(
-      document.getElementById("ev"+i).value.trim()
-    );
-  }
+document.getElementById("rCompetitors").textContent=competitors;
+document.getElementById("rPrices").textContent=prices;
+document.getElementById("rCustomers").textContent=customers;
+document.getElementById("rActions").textContent=actions;
 
-  let status="VERY WEAK EVIDENCE";
+let points=0;
 
-  if(total>=6) status="EARLY HYPOTHESIS";
-  if(total>=11) status="SOME EVIDENCE";
-  if(total>=16) status="PROMISING EVIDENCE";
-  if(total>=21) status="STRONGER EVIDENCE";
+if(competitors>=5)points+=25;
+else if(competitors>0)points+=competitors*5;
 
-  document.getElementById("evidenceScore").textContent=total+"/25";
-  document.getElementById("evidenceStatus").textContent=status;
-  document.getElementById("evidenceBar").style.width=(total/25*100)+"%";
-}
+if(prices>=10)points+=25;
+else if(prices>0)points+=prices*2.5;
 
+if(customers>=10)points+=25;
+else if(customers>0)points+=customers*2.5;
 
-function calculateMarketEvidence(){
+if(actions>=3)points+=25;
+else if(actions>0)points+=actions*8.33;
 
-  let total=0;
+points=Math.min(100,Math.round(points));
 
-  for(let i=0;i<5;i++){
-    total+=scoreAnswer(
-      document.getElementById("me"+i).value.trim()
-    );
-  }
+document.getElementById("evidenceBar").style.width=points+"%";
 
-  let status="VERY LITTLE MARKET EVIDENCE";
+let message="Very little evidence collected.";
 
-  if(total>=6) status="EARLY MARKET SIGNAL";
-  if(total>=11) status="SOME MARKET EVIDENCE";
-  if(total>=16) status="PROMISING MARKET EVIDENCE";
-  if(total>=21) status="STRONGER MARKET EVIDENCE";
+if(points>=25)message="Early market signal. Keep collecting evidence.";
+if(points>=50)message="Some useful market evidence exists.";
+if(points>=75)message="Strong evidence coverage. Verify the details.";
+if(points>=90)message="High evidence coverage. Continue testing real buying behaviour.";
 
-  document.getElementById("marketEvidenceScore").textContent=total+"/25";
-  document.getElementById("marketEvidenceStatus").textContent=status;
-  document.getElementById("marketEvidenceBar").style.width=(total/25*100)+"%";
-}
+document.getElementById("evidenceText").textContent=
+points+"% evidence coverage — "+message;
 
-
-/* =========================
-   MONEY MODEL
-========================= */
-
-function moneyValue(id){
-  const value=parseFloat(document.getElementById(id).value);
-  return Number.isFinite(value) ? value : null;
-}
-
-function formatMoney(value){
-
-  const currency=document.getElementById("currency").value;
-
-  return new Intl.NumberFormat(undefined,{
-    maximumFractionDigits:2
-  }).format(value)+" "+currency;
 }
 
 function calculateMoney(){
 
-  const price=moneyValue("sellingPrice");
-  const unitCost=moneyValue("unitCost");
-  const fixed=moneyValue("fixedCosts");
-  const units=moneyValue("unitsDay");
-  const startup=moneyValue("startupBudget");
-  const days=moneyValue("workingDays") || 26;
+const low=Number(document.getElementById("lowPrice").value);
+const high=Number(document.getElementById("highPrice").value);
+const price=Number(document.getElementById("plannedPrice").value);
+const cost=Number(document.getElementById("costUnit").value);
 
-  document.getElementById("profitUnit").textContent="—";
-  document.getElementById("margin").textContent="—";
-  document.getElementById("breakEven").textContent="—";
-  document.getElementById("dailyProfit").textContent="—";
-  document.getElementById("monthlyProfit").textContent="—";
-  document.getElementById("startupResult").textContent="—";
+const units=Number(document.getElementById("unitsDay").value);
+const fixed=Number(document.getElementById("fixedCosts").value);
+const days=Number(document.getElementById("workingDays").value)||26;
 
-  if(startup!==null){
-    document.getElementById("startupResult").textContent=
-      formatMoney(startup);
-  }
-
-  if(price===null || unitCost===null){
-    return;
-  }
-
-  const profit=price-unitCost;
-  const margin=price>0 ? (profit/price)*100 : 0;
-
-  document.getElementById("profitUnit").textContent=
-    formatMoney(profit);
-
-  document.getElementById("margin").textContent=
-    margin.toFixed(1)+"%";
-
-  if(fixed!==null && profit>0){
-    document.getElementById("breakEven").textContent=
-      Math.ceil(fixed/profit);
-  }
-
-  if(units!==null){
-
-    const daily=profit*units;
-
-    document.getElementById("dailyProfit").textContent=
-      formatMoney(daily);
-
-    if(days>0){
-
-      const monthly=(daily*days)-(fixed || 0);
-
-      document.getElementById("monthlyProfit").textContent=
-        formatMoney(monthly);
-    }
-  }
+if(low && high){
+document.getElementById("priceRange").textContent=
+low+" — "+high;
 }
 
+if(price && cost){
 
-/* =========================
-   7 DAY PLAN
-========================= */
+const profit=price-cost;
+const margin=(profit/price)*100;
+
+document.getElementById("unitProfit").textContent=
+profit.toFixed(2);
+
+document.getElementById("unitMargin").textContent=
+margin.toFixed(1)+"%";
+
+if(fixed && profit>0){
+document.getElementById("breakEven").textContent=
+Math.ceil(fixed/profit);
+}
+
+if(units){
+
+const daily=profit*units;
+
+document.getElementById("dailyProfit").textContent=
+daily.toFixed(2);
+
+document.getElementById("monthlyProfit").textContent=
+((daily*days)-(fixed||0)).toFixed(2);
+}
+
+}
+
+}
+
+function scoreCustomers(){
+
+let total=0;
+
+for(let i=1;i<=4;i++){
+
+const text=document.getElementById("q"+i).value.trim();
+
+if(text.length>=20)total+=3;
+if(text.length>=60)total+=1;
+
+if(
+/customer|client|buyer|pay|paid|buy|order|price|sold|زبون|زبناء|شراء|ثمن|سعر/.test(text.toLowerCase())
+){
+total+=1;
+}
+
+}
+
+total=Math.min(total,20);
+
+document.getElementById("customerScore").textContent=
+total+"/20";
+
+let status="Very weak evidence.";
+
+if(total>=5)status="Early hypothesis.";
+if(total>=10)status="Some customer evidence.";
+if(total>=15)status="Promising customer evidence.";
+if(total>=18)status="Strong customer evidence.";
+
+document.getElementById("customerStatus").textContent=status;
+
+}
 
 function generateLaunchPlan(){
 
-  const plan=[
-    ["DAY 1","Research","Find 5 competitors or alternatives in your selected market."],
-    ["DAY 2","Customers","Talk to at least 10 potential customers and ask about the problem."],
-    ["DAY 3","Offer","Create the smallest version of your product or service."],
-    ["DAY 4","Test","Try to get real actions: orders, appointments, deposits or serious inquiries."],
-    ["DAY 5","Numbers","Record real costs, selling price and actual margin."],
-    ["DAY 6","Improve","Change the offer, price, product or target customer based on evidence."],
-    ["DAY 7","Decision data","Compare evidence, costs and results before spending more."]
-  ];
+const plan=[
 
-  document.getElementById("launchPlan").innerHTML=
-    plan.map(day=>`
-      <div class="day">
-        <div class="day-number">${day[0]}</div>
-        <div>
-          <h3>${day[1]}</h3>
-          <p>${day[2]}</p>
-        </div>
-      </div>
-    `).join("");
+["DAY 1","Research",
+"Find 5 competitors, alternatives and real prices."],
+
+["DAY 2","Customers",
+"Talk to 10 potential customers and document what they actually say."],
+
+["DAY 3","Prototype",
+"Build or prepare the smallest version possible."],
+
+["DAY 4","Real test",
+"Ask for real orders, appointments, deposits or pre-orders."],
+
+["DAY 5","Numbers",
+"Calculate actual costs, price and margin."],
+
+["DAY 6","Improve",
+"Adjust your offer using what customers and numbers tell you."],
+
+["DAY 7","Review",
+"Compare evidence with costs before investing more."]
+
+];
+
+document.getElementById("launchPlan").innerHTML=
+plan.map(x=>`
+<div class="day">
+<div class="daynum">${x[0]}</div>
+<div>
+<h3>${x[1]}</h3>
+<p>${x[2]}</p>
+</div>
+</div>
+`).join("");
+
 }
-
-
-/* =========================
-   RISK ENGINE
-========================= */
-
-function generateRisks(){
-
-  const risks=[
-    ["CUSTOMER","You may be targeting people who are interested but not willing to pay."],
-    ["PRICE","Your price must leave enough margin after all relevant costs."],
-    ["COMPETITION","Existing alternatives may already solve the same problem."],
-    ["ACQUISITION","A good product still needs a realistic way to reach customers."],
-    ["OPERATIONS","Delivery, equipment, suppliers, time or stock can affect execution."],
-    ["VALIDATION","The biggest risk is spending heavily before obtaining real evidence."]
-  ];
-
-  document.getElementById("riskCards").innerHTML=
-    risks.map(r=>`
-      <div class="card">
-        <h3>${r[0]}</h3>
-        <p>${r[1]}</p>
-      </div>
-    `).join("");
-}
-
-
-/* =========================
-   STARTUP STACK
-========================= */
-
-function generateStack(category){
-
-  let items=[
-    ["Market research","Competitors + customers"],
-    ["Offer","Clear product/service"],
-    ["Payment","A way to receive money"],
-    ["Marketing","A way to reach customers"]
-  ];
-
-  if(category.includes("Food")){
-    items=[
-      ["Supplier","Ingredients / materials"],
-      ["Equipment","Tools needed to produce"],
-      ["Packaging","Packaging for the product"],
-      ["Location","Where customers can buy"],
-      ["Payment","Cash / digital payment"],
-      ["Marketing","Local promotion"],
-      ["Delivery","Only if required"],
-      ["Accounting","Track revenue and costs"]
-    ];
-  }
-
-  else if(category.includes("App") || category.includes("Digital")){
-    items=[
-      ["Prototype","Smallest useful version"],
-      ["Website","Landing page / product page"],
-      ["Hosting","Where the website runs"],
-      ["Payment","How users can pay"],
-      ["Analytics","Measure usage"],
-      ["Marketing","Acquire first users"],
-      ["Support","Handle user problems"],
-      ["Legal","Check relevant requirements"]
-    ];
-  }
-
-  document.getElementById("startupStack").innerHTML=
-    items.map(item=>`
-      <div class="stack-item">
-        <strong>${item[0]}</strong>
-        <span>${item[1]}</span>
-      </div>
-    `).join("");
-}
-
-
-/* =========================
-   RESET
-========================= */
 
 function resetTool(){
 
-  document.getElementById("idea").value="";
+document.getElementById("idea").value="";
+document.getElementById("city").value="";
+document.getElementById("target").value="";
+document.getElementById("price").value="";
 
-  document.getElementById("results").classList.add("hidden");
+document.getElementById("results").classList.add("hidden");
 
-  document.getElementById("score").textContent="0";
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
 
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
 }
-
-
-/* =========================
-   INITIALIZE
-========================= */
-
-updateCurrency();
 
 </script>
 
