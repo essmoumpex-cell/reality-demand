@@ -3,259 +3,260 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Reality Demand</title>
 
 <style>
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+box-sizing:border-box;
+margin:0;
+padding:0;
 }
 
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#070707;
-  color:#fff;
-  min-height:100vh;
+font-family:Arial,Helvetica,sans-serif;
+background:#070707;
+color:#fff;
+min-height:100vh;
 }
 
 .container{
-  max-width:1050px;
-  margin:auto;
-  padding:35px 20px 60px;
+max-width:1050px;
+margin:auto;
+padding:35px 20px 60px;
 }
 
 nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:100px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:95px;
 }
 
 .logo{
-  font-weight:bold;
-  letter-spacing:2px;
-  font-size:20px;
+font-weight:bold;
+letter-spacing:2px;
+font-size:20px;
 }
 
 .badge{
-  border:1px solid #292929;
-  color:#999;
-  padding:8px 14px;
-  border-radius:30px;
-  font-size:12px;
+border:1px solid #292929;
+color:#999;
+padding:8px 14px;
+border-radius:30px;
+font-size:12px;
 }
 
 .hero{
-  text-align:center;
-  max-width:850px;
-  margin:auto;
+text-align:center;
+max-width:850px;
+margin:auto;
 }
 
 .eyebrow{
-  color:#9b6cff;
-  font-size:13px;
-  letter-spacing:3px;
-  margin-bottom:20px;
-  font-weight:bold;
+color:#9b6cff;
+font-size:12px;
+letter-spacing:3px;
+margin-bottom:20px;
+font-weight:bold;
 }
 
 h1{
-  font-size:clamp(48px,8vw,86px);
-  line-height:.95;
-  letter-spacing:-5px;
-  margin-bottom:28px;
+font-size:clamp(48px,8vw,86px);
+line-height:.95;
+letter-spacing:-5px;
+margin-bottom:28px;
 }
 
 h1 span{
-  color:#925cff;
+color:#925cff;
 }
 
 .subtitle{
-  color:#999;
-  max-width:680px;
-  margin:auto;
-  font-size:18px;
-  line-height:1.7;
-  margin-bottom:50px;
+color:#999;
+max-width:680px;
+margin:auto;
+font-size:18px;
+line-height:1.7;
+margin-bottom:50px;
 }
 
 .box{
-  background:#101010;
-  border:1px solid #292929;
-  border-radius:20px;
-  padding:25px;
-  text-align:left;
-  box-shadow:0 0 60px rgba(139,92,246,.08);
+background:#101010;
+border:1px solid #292929;
+border-radius:20px;
+padding:25px;
+text-align:left;
+box-shadow:0 0 60px rgba(139,92,246,.08);
 }
 
 textarea{
-  width:100%;
-  height:145px;
-  background:transparent;
-  border:0;
-  outline:0;
-  color:white;
-  font-size:18px;
-  line-height:1.5;
-  resize:none;
+width:100%;
+height:145px;
+background:transparent;
+border:0;
+outline:0;
+color:white;
+font-size:18px;
+line-height:1.5;
+resize:none;
 }
 
 textarea::placeholder{
-  color:#505050;
+color:#505050;
 }
 
 button{
-  width:100%;
-  border:0;
-  padding:18px;
-  border-radius:12px;
-  background:#8b5cf6;
-  color:white;
-  font-size:16px;
-  font-weight:bold;
-  cursor:pointer;
-  transition:.2s;
+width:100%;
+border:0;
+padding:18px;
+border-radius:12px;
+background:#8b5cf6;
+color:white;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+transition:.2s;
 }
 
 button:hover{
-  background:#7c3aed;
-  transform:translateY(-1px);
+background:#7c3aed;
+transform:translateY(-1px);
 }
 
 .analyzing{
-  display:none;
-  margin-top:25px;
-  background:#101010;
-  border:1px solid #292929;
-  border-radius:20px;
-  padding:35px;
-  text-align:left;
+display:none;
+margin-top:25px;
+background:#101010;
+border:1px solid #292929;
+border-radius:20px;
+padding:35px;
+text-align:left;
 }
 
 .analyzing h2{
-  margin-bottom:25px;
+margin-bottom:25px;
 }
 
 .scan{
-  padding:14px 0;
-  border-bottom:1px solid #222;
-  color:#777;
+padding:14px 0;
+border-bottom:1px solid #222;
+color:#555;
 }
 
 .scan.active{
-  color:#b994ff;
+color:#b994ff;
 }
 
 .dot{
-  display:inline-block;
-  width:7px;
-  height:7px;
-  background:#8b5cf6;
-  border-radius:50%;
-  margin-right:10px;
-  animation:pulse 1s infinite;
+display:inline-block;
+width:7px;
+height:7px;
+background:#8b5cf6;
+border-radius:50%;
+margin-right:10px;
+animation:pulse 1s infinite;
 }
 
 @keyframes pulse{
-  50%{opacity:.25}
+50%{opacity:.25}
 }
 
 .report{
-  display:none;
-  margin-top:25px;
-  background:#101010;
-  border:1px solid #292929;
-  border-radius:20px;
-  padding:30px;
-  text-align:left;
+display:none;
+margin-top:25px;
+background:#101010;
+border:1px solid #292929;
+border-radius:20px;
+padding:30px;
+text-align:left;
 }
 
 .report-title{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:25px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:25px;
 }
 
 .report-title h2{
-  font-size:26px;
+font-size:26px;
 }
 
 .live{
-  color:#8b5cf6;
-  font-size:12px;
-  letter-spacing:2px;
+color:#8b5cf6;
+font-size:11px;
+letter-spacing:2px;
 }
 
 .grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px;
 }
 
 .card{
-  border:1px solid #252525;
-  background:#0c0c0c;
-  border-radius:14px;
-  padding:20px;
+border:1px solid #252525;
+background:#0c0c0c;
+border-radius:14px;
+padding:20px;
 }
 
 .label{
-  color:#666;
-  font-size:11px;
-  letter-spacing:2px;
-  margin-bottom:10px;
+color:#666;
+font-size:11px;
+letter-spacing:2px;
+margin-bottom:10px;
 }
 
 .value{
-  font-size:18px;
+font-size:17px;
+line-height:1.4;
 }
 
 .next{
-  margin-top:15px;
-  border:1px solid #5636a0;
-  background:#15101f;
-  border-radius:14px;
-  padding:22px;
+margin-top:15px;
+border:1px solid #5636a0;
+background:#15101f;
+border-radius:14px;
+padding:22px;
 }
 
 .next .value{
-  color:#d5c5ff;
-  line-height:1.5;
+color:#d5c5ff;
+line-height:1.5;
 }
 
 .reset{
-  margin-top:15px;
-  background:transparent;
-  border:1px solid #333;
-  color:#aaa;
+margin-top:15px;
+background:transparent;
+border:1px solid #333;
+color:#aaa;
 }
 
 footer{
-  text-align:center;
-  margin-top:100px;
-  color:#444;
-  font-size:12px;
+text-align:center;
+margin-top:100px;
+color:#444;
+font-size:12px;
 }
 
 @media(max-width:650px){
-  nav{
-    margin-bottom:70px;
-  }
 
-  .badge{
-    display:none;
-  }
+nav{
+margin-bottom:70px;
+}
 
-  h1{
-    letter-spacing:-3px;
-  }
+.badge{
+display:none;
+}
 
-  .grid{
-    grid-template-columns:1fr;
-  }
+h1{
+letter-spacing:-3px;
+}
+
+.grid{
+grid-template-columns:1fr;
+}
 }
 </style>
 </head>
@@ -265,8 +266,8 @@ footer{
 <div class="container">
 
 <nav>
-  <div class="logo">REALITY DEMAND</div>
-  <div class="badge">BUILD LESS. TEST MORE.</div>
+<div class="logo">REALITY DEMAND</div>
+<div class="badge">POWERED BY REALITY ENGINE</div>
 </nav>
 
 <section class="hero">
@@ -274,13 +275,13 @@ footer{
 <div class="eyebrow">DEMAND INTELLIGENCE</div>
 
 <h1>
-  Is your idea<br>
-  <span>actually wanted?</span>
+Is your idea<br>
+<span>actually wanted?</span>
 </h1>
 
 <p class="subtitle">
-  Describe your product, service or business idea.
-  Test the concept before spending your time and money building it.
+Describe your product, service or business idea.
+Reality Engine will break it down into a practical first test.
 </p>
 
 <div class="box">
@@ -289,33 +290,38 @@ footer{
 placeholder="Example: I want to sell healthy meals to people who work from home..."></textarea>
 
 <button onclick="checkDemand()">
-  CHECK DEMAND →
+CHECK DEMAND →
 </button>
 
 </div>
 
 <div class="analyzing" id="analyzing">
 
-<h2>ANALYZING YOUR IDEA</h2>
+<h2>REALITY ENGINE</h2>
 
 <div class="scan active">
 <span class="dot"></span>
-Understanding the problem
+Reading your idea
 </div>
 
 <div class="scan">
 <span class="dot"></span>
-Identifying potential customers
+Detecting business type
 </div>
 
 <div class="scan">
 <span class="dot"></span>
-Checking monetization possibilities
+Identifying the customer
 </div>
 
 <div class="scan">
 <span class="dot"></span>
-Finding the first practical test
+Finding the monetization path
+</div>
+
+<div class="scan">
+<span class="dot"></span>
+Designing the first demand test
 </div>
 
 </div>
@@ -324,49 +330,38 @@ Finding the first practical test
 
 <div class="report-title">
 <h2>REALITY REPORT</h2>
-<div class="live">INITIAL ANALYSIS</div>
+<div class="live">ENGINE ANALYSIS</div>
 </div>
 
 <div class="grid">
 
 <div class="card">
-<div class="label">PROBLEM</div>
-<div class="value" id="problem">
-A specific problem appears to be present.
-</div>
+<div class="label">BUSINESS TYPE</div>
+<div class="value" id="type"></div>
 </div>
 
 <div class="card">
 <div class="label">CUSTOMER</div>
-<div class="value" id="customer">
-A potential customer group can be identified.
-</div>
+<div class="value" id="customer"></div>
 </div>
 
 <div class="card">
 <div class="label">MONETIZATION</div>
-<div class="value">
-There may be a path to charging for the solution.
-</div>
+<div class="value" id="money"></div>
 </div>
 
 <div class="card">
 <div class="label">MAIN RISK</div>
-<div class="value">
-Demand must be tested before investing heavily.
-</div>
+<div class="value" id="risk"></div>
 </div>
 
 </div>
 
 <div class="next">
 
-<div class="label">NEXT MOVE</div>
+<div class="label">FIRST DEMAND TEST</div>
 
-<div class="value">
-Don't build the full business yet.
-Try to get your first 3 paying customers with the smallest possible version.
-</div>
+<div class="value" id="test"></div>
 
 </div>
 
@@ -386,6 +381,89 @@ Reality Demand — Validate before you build.
 
 <script>
 
+function analyzeIdea(idea){
+
+let text=idea.toLowerCase();
+
+let type="Digital product or service";
+let customer="A clearly defined niche customer";
+let money="Direct sales, subscription or service fees";
+let risk="You don't yet know whether people will pay";
+let test="Create the smallest possible version and try to get 3 paying customers.";
+
+if(
+text.includes("app") ||
+text.includes("website") ||
+text.includes("platform")
+){
+type="App / website / digital platform";
+money="Subscription, transaction fee or premium access";
+risk="Building the platform before proving demand";
+test="Create a simple landing page and try to collect 3 real users or pre-orders.";
+}
+
+else if(
+text.includes("food") ||
+text.includes("meal") ||
+text.includes("bread") ||
+text.includes("cake") ||
+text.includes("restaurant") ||
+text.includes("sandwich")
+){
+type="Food / physical product";
+customer="Local customers with a specific food need";
+money="Direct product sales";
+risk="Margins, delivery and repeat purchases";
+test="Offer the product to 10 potential customers before investing in equipment or stock.";
+}
+
+else if(
+text.includes("course") ||
+text.includes("training") ||
+text.includes("learn") ||
+text.includes("education")
+){
+type="Education / digital knowledge";
+customer="People who want a specific skill or result";
+money="Course sales, membership or coaching";
+risk="People may like the content but not pay for it";
+test="Sell a small paid lesson or workshop before creating the complete course.";
+}
+
+else if(
+text.includes("service") ||
+text.includes("freelance") ||
+text.includes("design") ||
+text.includes("marketing") ||
+text.includes("repair")
+){
+type="Service business";
+customer="People or businesses with a specific problem";
+money="Per-job pricing or monthly service";
+risk="Finding customers consistently";
+test="Contact 20 potential customers with one clear offer and measure responses.";
+}
+
+else if(
+text.includes("shop") ||
+text.includes("store") ||
+text.includes("sell") ||
+text.includes("product")
+){
+type="E-commerce / physical product";
+customer="Consumers with a specific need";
+money="Product margin";
+risk="Inventory and customer acquisition";
+test="Show the product to potential buyers and collect orders before buying large quantities.";
+}
+
+document.getElementById("type").textContent=type;
+document.getElementById("customer").textContent=customer;
+document.getElementById("money").textContent=money;
+document.getElementById("risk").textContent=risk;
+document.getElementById("test").textContent=test;
+}
+
 function checkDemand(){
 
 const idea=document.getElementById("idea").value.trim();
@@ -404,12 +482,16 @@ analyzing.style.display="block";
 const scans=document.querySelectorAll(".scan");
 
 scans.forEach((scan,index)=>{
+
 setTimeout(()=>{
 scan.classList.add("active");
-},index*600);
+},index*500);
+
 });
 
 setTimeout(()=>{
+
+analyzeIdea(idea);
 
 analyzing.style.display="none";
 
