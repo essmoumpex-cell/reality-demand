@@ -7,242 +7,227 @@
 <title>Reality Demand</title>
 
 <style>
-
-*{
-    box-sizing:border-box;
+* {
+    box-sizing: border-box;
 }
 
-body{
-    margin:0;
-    background:#050509;
-    color:#fff;
-    font-family:Arial,Helvetica,sans-serif;
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #050507;
+    color: #f5f5f5;
 }
 
-.container{
-    max-width:850px;
-    margin:auto;
-    padding:60px 20px;
+.container {
+    width: 92%;
+    max-width: 900px;
+    margin: auto;
+    padding: 55px 0 80px;
 }
 
-h1{
-    font-size:48px;
-    margin:0 0 10px;
-    letter-spacing:2px;
+header {
+    text-align: center;
+    margin-bottom: 45px;
 }
 
-.subtitle{
-    color:#aaa;
-    font-size:18px;
-    margin-bottom:35px;
+h1 {
+    font-size: 42px;
+    margin: 0;
+    letter-spacing: 4px;
 }
 
-.badge{
-    display:inline-block;
-    border:1px solid #8b5cf6;
-    color:#a78bfa;
-    padding:7px 12px;
-    border-radius:20px;
-    font-size:12px;
-    letter-spacing:1px;
-    margin-bottom:25px;
+.subtitle {
+    color: #a9a9b8;
+    margin-top: 12px;
+    font-size: 17px;
 }
 
-textarea{
-    width:100%;
-    min-height:150px;
-    background:#0c0c13;
-    border:1px solid #292936;
-    border-radius:12px;
-    padding:18px;
-    color:white;
-    font-size:17px;
-    resize:vertical;
-    outline:none;
+.badge {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 14px;
+    border: 1px solid #7c3cff;
+    border-radius: 20px;
+    color: #b991ff;
+    font-size: 12px;
+    letter-spacing: 1px;
 }
 
-textarea:focus{
-    border-color:#8b5cf6;
+.card {
+    background: #0d0d12;
+    border: 1px solid #24242f;
+    border-radius: 18px;
+    padding: 25px;
+    margin-bottom: 22px;
+    box-shadow: 0 0 30px rgba(124,60,255,0.05);
 }
 
-button{
-    margin-top:15px;
-    width:100%;
-    padding:16px;
-    border:0;
-    border-radius:10px;
-    background:#8b5cf6;
-    color:white;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #dcdce8;
 }
 
-button:hover{
-    background:#7c3aed;
+textarea,
+input {
+    width: 100%;
+    background: #07070a;
+    color: white;
+    border: 1px solid #30303b;
+    border-radius: 12px;
+    padding: 15px;
+    font-size: 15px;
+    outline: none;
 }
 
-.report{
-    display:none;
-    margin-top:40px;
-    background:#0b0b12;
-    border:1px solid #292936;
-    border-radius:15px;
-    padding:25px;
+textarea {
+    min-height: 130px;
+    resize: vertical;
 }
 
-.report h2{
-    margin-top:0;
+textarea:focus,
+input:focus {
+    border-color: #7c3cff;
 }
 
-.score{
-    text-align:center;
-    padding:25px 0;
-    border-bottom:1px solid #292936;
-    margin-bottom:25px;
+button {
+    width: 100%;
+    border: none;
+    border-radius: 12px;
+    padding: 15px;
+    margin-top: 15px;
+    background: #7c3cff;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-.score-number{
-    font-size:64px;
-    font-weight:bold;
-    color:#a78bfa;
+button:hover {
+    background: #915dff;
 }
 
-.score-label{
-    color:#aaa;
-    letter-spacing:2px;
+.secondary {
+    background: transparent;
+    border: 1px solid #343441;
 }
 
-.why{
-    margin:25px 0;
-    padding:20px;
-    background:#10101a;
-    border:1px solid #292936;
-    border-radius:12px;
+.secondary:hover {
+    background: #15151d;
 }
 
-.why h3{
-    margin-top:0;
-    color:#a78bfa;
+.hidden {
+    display: none;
 }
 
-.signal{
-    display:flex;
-    justify-content:space-between;
-    gap:20px;
-    padding:10px 0;
-    border-bottom:1px solid #20202b;
-    color:#ddd;
+.score {
+    text-align: center;
+    padding: 20px;
 }
 
-.signal:last-child{
-    border-bottom:none;
+.score-number {
+    font-size: 65px;
+    font-weight: bold;
+    color: #a875ff;
 }
 
-.points{
-    color:#a78bfa;
-    font-weight:bold;
-    white-space:nowrap;
+.score-label {
+    color: #aaaaba;
+    letter-spacing: 2px;
+    font-size: 12px;
 }
 
-.item{
-    margin-bottom:22px;
+.evidence-score {
+    font-size: 50px;
+    font-weight: bold;
+    color: #8f63ff;
+    text-align: center;
 }
 
-.item-title{
-    color:#a78bfa;
-    font-size:13px;
-    letter-spacing:1px;
-    margin-bottom:7px;
+.section-title {
+    color: #b991ff;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
 }
 
-.item-text{
-    color:#ddd;
-    line-height:1.5;
+.row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 12px 0;
+    border-bottom: 1px solid #20202a;
 }
 
-.warning{
-    margin-top:25px;
-    padding:15px;
-    border-left:3px solid #8b5cf6;
-    background:#10101a;
-    color:#bbb;
-    line-height:1.5;
+.row:last-child {
+    border-bottom: none;
 }
 
-.evidence{
-    margin-top:35px;
-    padding:22px;
-    background:#0f0f17;
-    border:1px solid #292936;
-    border-radius:12px;
+.row span:first-child {
+    color: #888898;
 }
 
-.evidence h3{
-    color:#a78bfa;
-    margin-top:0;
+.row span:last-child {
+    text-align: right;
+    color: #eeeeF5;
 }
 
-.evidence-intro{
-    color:#aaa;
-    line-height:1.5;
-    margin-bottom:25px;
+.reason {
+    padding: 10px 0;
+    color: #cfcfda;
 }
 
-.question{
-    margin-bottom:22px;
+.warning {
+    background: #141119;
+    border-left: 3px solid #7c3cff;
+    padding: 15px;
+    color: #bdbdcc;
+    line-height: 1.6;
+    border-radius: 8px;
 }
 
-.question label{
-    display:block;
-    color:#ddd;
-    font-weight:bold;
-    margin-bottom:8px;
-    line-height:1.4;
+.question {
+    margin-bottom: 20px;
 }
 
-.question textarea{
-    min-height:90px;
-    font-size:15px;
+.question-number {
+    color: #9b70ff;
+    font-size: 13px;
+    margin-bottom: 8px;
+    font-weight: bold;
 }
 
-.evidence-score{
-    margin-top:25px;
-    padding:20px;
-    text-align:center;
-    background:#08080d;
-    border-radius:10px;
-    border:1px solid #292936;
+.market-result {
+    padding: 16px;
+    margin-top: 12px;
+    background: #09090d;
+    border: 1px solid #272733;
+    border-radius: 12px;
 }
 
-.evidence-number{
-    font-size:46px;
-    font-weight:bold;
-    color:#a78bfa;
+.market-result strong {
+    color: #b991ff;
 }
 
-.evidence-label{
-    color:#aaa;
-    letter-spacing:1px;
-    margin-top:5px;
+.good {
+    color: #b991ff;
 }
 
-.status{
-    margin-top:15px;
-    font-weight:bold;
-    letter-spacing:1px;
+.medium {
+    color: #d7c8ff;
 }
 
-.reset{
-    background:transparent;
-    border:1px solid #292936;
-    color:#aaa;
+.weak {
+    color: #888898;
 }
 
-.reset:hover{
-    background:#11111a;
+footer {
+    text-align: center;
+    color: #5f5f6d;
+    font-size: 12px;
+    margin-top: 40px;
 }
-
 </style>
 </head>
 
@@ -250,9 +235,7 @@ button:hover{
 
 <div class="container">
 
-<div class="badge">
-POWERED BY REALITY ENGINE
-</div>
+<header>
 
 <h1>REALITY DEMAND</h1>
 
@@ -260,20 +243,39 @@ POWERED BY REALITY ENGINE
 Is your idea actually wanted?
 </div>
 
-<textarea
-id="idea"
-placeholder="Describe your business idea..."
-></textarea>
+<div class="badge">
+POWERED BY REALITY ENGINE
+</div>
+
+</header>
+
+
+<!-- IDEA -->
+
+<div class="card">
+
+<label>Describe your idea</label>
+
+<textarea id="idea"
+placeholder="Example: I want to sell crispy chicken sandwiches for 10 DH near schools"></textarea>
 
 <button onclick="analyzeIdea()">
 CHECK DEMAND →
 </button>
 
+</div>
 
-<div class="report" id="report">
 
-<h2>REALITY REPORT</h2>
+<!-- REALITY REPORT -->
 
+<div id="report" class="hidden">
+
+
+<div class="card">
+
+<div class="section-title">
+DEMAND SIGNAL
+</div>
 
 <div class="score">
 
@@ -282,761 +284,843 @@ CHECK DEMAND →
 </div>
 
 <div class="score-label">
-DEMAND SIGNAL / 100
+/ 100
 </div>
 
 </div>
-
-
-<div class="why">
-
-<h3>
-WHY THIS SCORE?
-</h3>
-
-<div id="signals"></div>
-
-</div>
-
-
-<div class="item">
-
-<div class="item-title">
-BUSINESS TYPE
-</div>
-
-<div class="item-text" id="businessType"></div>
-
-</div>
-
-
-<div class="item">
-
-<div class="item-title">
-PROBLEM SIGNAL
-</div>
-
-<div class="item-text" id="problem"></div>
-
-</div>
-
-
-<div class="item">
-
-<div class="item-title">
-CUSTOMER SIGNAL
-</div>
-
-<div class="item-text" id="customer"></div>
-
-</div>
-
-
-<div class="item">
-
-<div class="item-title">
-BUYING SIGNAL
-</div>
-
-<div class="item-text" id="buying"></div>
-
-</div>
-
-
-<div class="item">
-
-<div class="item-title">
-COMPETITION SIGNAL
-</div>
-
-<div class="item-text" id="competition"></div>
-
-</div>
-
-
-<div class="item">
-
-<div class="item-title">
-RISK LEVEL
-</div>
-
-<div class="item-text" id="risk"></div>
-
-</div>
-
-
-<div class="item">
-
-<div class="item-title">
-FIRST DEMAND TEST
-</div>
-
-<div class="item-text" id="test"></div>
-
-</div>
-
 
 <div class="warning">
-
-The Demand Signal is based on the idea description.
-It is not proof that customers will buy.
+This is an initial machine signal based on the idea description.
+It is NOT proof that customers will buy.
+</div>
 
 </div>
 
 
-<!-- EVIDENCE CHECK -->
+<!-- WHY SCORE -->
 
-<div class="evidence">
+<div class="card">
 
-<h3>
+<div class="section-title">
+WHY THIS SCORE?
+</div>
+
+<div id="scoreReasons"></div>
+
+</div>
+
+
+<!-- BUSINESS -->
+
+<div class="card">
+
+<div class="section-title">
+REALITY CHECK
+</div>
+
+<div class="row">
+<span>BUSINESS TYPE</span>
+<span id="businessType"></span>
+</div>
+
+<div class="row">
+<span>PROBLEM SIGNAL</span>
+<span id="problemSignal"></span>
+</div>
+
+<div class="row">
+<span>CUSTOMER SIGNAL</span>
+<span id="customerSignal"></span>
+</div>
+
+<div class="row">
+<span>BUYING SIGNAL</span>
+<span id="buyingSignal"></span>
+</div>
+
+<div class="row">
+<span>COMPETITION SIGNAL</span>
+<span id="competitionSignal"></span>
+</div>
+
+<div class="row">
+<span>RISK LEVEL</span>
+<span id="riskLevel"></span>
+</div>
+
+<div class="row">
+<span>FIRST DEMAND TEST</span>
+<span id="firstTest"></span>
+</div>
+
+</div>
+
+
+<!-- USER EVIDENCE -->
+
+<div class="card">
+
+<div class="section-title">
 REALITY EVIDENCE CHECK
-</h3>
-
-<div class="evidence-intro">
-Your idea is only a hypothesis. Answer these five questions
-to measure how much real evidence you already have.
 </div>
+
+<p style="color:#aaaaba;">
+Don't just describe the idea. Show us what you know about the market.
+</p>
 
 
 <div class="question">
 
-<label>
-1. Who would pay for this?
-</label>
+<div class="question-number">
+01 — WHO WOULD PAY FOR THIS?
+</div>
 
-<textarea
-id="q1"
-placeholder="Example: Local students who want affordable meals..."
-></textarea>
+<textarea id="q1"
+placeholder="Example: Students near schools who want a cheap lunch"></textarea>
 
 </div>
 
 
 <div class="question">
 
-<label>
-2. What problem are you solving?
-</label>
+<div class="question-number">
+02 — WHAT PROBLEM ARE YOU SOLVING?
+</div>
 
-<textarea
-id="q2"
-placeholder="Describe the real problem..."
-></textarea>
+<textarea id="q2"
+placeholder="Example: Students need a quick and affordable lunch"></textarea>
 
 </div>
 
 
 <div class="question">
 
-<label>
-3. How do people solve this today?
-</label>
+<div class="question-number">
+03 — HOW DO PEOPLE SOLVE THIS TODAY?
+</div>
 
-<textarea
-id="q3"
-placeholder="What do they use or do now?"
-></textarea>
+<textarea id="q3"
+placeholder="Example: They buy sandwiches from nearby shops"></textarea>
 
 </div>
 
 
 <div class="question">
 
-<label>
-4. Why would they choose you?
-</label>
+<div class="question-number">
+04 — WHY WOULD THEY CHOOSE YOU?
+</div>
 
-<textarea
-id="q4"
-placeholder="What makes your solution different or useful?"
-></textarea>
+<textarea id="q4"
+placeholder="Example: Crispy chicken, fast service and 10 DH price"></textarea>
 
 </div>
 
 
 <div class="question">
 
-<label>
-5. Can you get your first customer without building everything?
-</label>
+<div class="question-number">
+05 — CAN YOU GET YOUR FIRST CUSTOMER WITHOUT BUILDING EVERYTHING?
+</div>
 
-<textarea
-id="q5"
-placeholder="Explain how you could test it quickly..."
-></textarea>
+<textarea id="q5"
+placeholder="Example: Yes, I can sell 10 sandwiches tomorrow"></textarea>
 
 </div>
 
 
-<button onclick="calculateEvidence()">
+<button onclick="checkEvidence()">
 CHECK MY EVIDENCE →
 </button>
 
 
-<div class="evidence-score" id="evidenceResult">
+<div id="evidenceResult" class="hidden">
 
-<div class="evidence-number" id="evidenceNumber">
-0
+<br>
+
+<div class="evidence-score">
+<span id="evidenceScore">0</span>/25
 </div>
 
-<div class="evidence-label">
-EVIDENCE SCORE / 25
-</div>
+<h3 id="evidenceStatus" style="text-align:center;"></h3>
 
-<div class="status" id="evidenceStatus">
-NOT CHECKED YET
-</div>
-
-</div>
+<div id="evidenceBreakdown"></div>
 
 </div>
 
+</div>
 
-<button class="reset" onclick="resetIdea()">
+
+<!-- MARKET EVIDENCE -->
+
+<div class="card">
+
+<div class="section-title">
+REAL MARKET EVIDENCE
+</div>
+
+<p style="color:#aaaaba; line-height:1.6;">
+Now check the world outside your idea.
+Enter real information you can observe yourself.
+Reality Demand will separate market evidence from assumptions.
+</p>
+
+
+<div class="question">
+
+<div class="question-number">
+01 — COMPETITORS
+</div>
+
+<textarea id="market1"
+placeholder="Who already sells something similar? Example: 5 sandwich shops near 2 schools"></textarea>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-number">
+02 — PRICE EVIDENCE
+</div>
+
+<textarea id="market2"
+placeholder="What prices did you actually observe? Example: Similar sandwiches sell for 12–20 DH"></textarea>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-number">
+03 — CUSTOMER EVIDENCE
+</div>
+
+<textarea id="market3"
+placeholder="Where did you find real potential customers? Example: I asked 10 students and 6 said they would consider buying"></textarea>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-number">
+04 — DEMAND ACTION
+</div>
+
+<textarea id="market4"
+placeholder="Did anyone search, ask, order, message, subscribe, pre-order or pay?"></textarea>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-number">
+05 — YOUR DIRECT TEST
+</div>
+
+<textarea id="market5"
+placeholder="What can you test in the real world within 24–72 hours?"></textarea>
+
+</div>
+
+
+<button onclick="checkMarketEvidence()">
+CHECK MARKET EVIDENCE →
+</button>
+
+
+<div id="marketResult" class="hidden">
+
+<br>
+
+<div class="evidence-score">
+<span id="marketScore">0</span>/25
+</div>
+
+<h3 id="marketStatus" style="text-align:center;"></h3>
+
+<div id="marketBreakdown"></div>
+
+<div class="warning" style="margin-top:20px;">
+Market Evidence is based on information you enter.
+Reality Demand does not independently verify these claims yet.
+The next version can connect this system to external market data.
+</div>
+
+</div>
+
+</div>
+
+
+<button class="secondary" onclick="resetAll()">
 CHECK ANOTHER IDEA
 </button>
 
 </div>
+
+
+<footer>
+REALITY DEMAND — Don't trust the score. Improve the evidence.
+</footer>
 
 </div>
 
 
 <script>
 
+function analyzeIdea() {
 
-function analyzeIdea(){
+const idea = document.getElementById("idea").value.toLowerCase().trim();
 
-const idea =
-document.getElementById("idea").value.toLowerCase().trim();
-
-
-if(!idea){
-
-alert("Describe your idea first.");
-
+if (!idea) {
+alert("Please describe your idea first.");
 return;
-
 }
-
 
 let score = 45;
 
-let signals = [];
+let reasons = [];
 
-
-signals.push({
-text:"Base signal",
-points:45
-});
-
-
-let businessType =
-"Digital product or service";
-
-let problem =
-"A possible problem may exist, but it needs stronger evidence.";
-
-let customer =
-"A potential customer group can be identified.";
-
-let buying =
-"There may be a path to charging customers.";
-
-let competition =
-"Similar solutions may already exist.";
-
-let risk =
-"Demand is still unproven.";
-
-let test =
-"Create the smallest possible version and try to get 3 real paying customers.";
+let businessType = "Digital product / service";
+let problemSignal = "Potential problem detected";
+let customerSignal = "Niche customer";
+let buyingSignal = "Direct sales / subscription / service fees";
+let competitionSignal = "Competition needs investigation";
+let riskLevel = "Unknown willingness to pay";
+let firstTest = "Build the smallest version and find 3 potential paying customers";
 
 
 /* FOOD */
 
-if(
-/food|meal|sandwich|chicken|pizza|bread|bakery|cake|restaurant|burger|coffee|drink|snack/
-.test(idea)
-){
+if (
+idea.includes("food") ||
+idea.includes("sandwich") ||
+idea.includes("chicken") ||
+idea.includes("restaurant") ||
+idea.includes("bread") ||
+idea.includes("cake") ||
+idea.includes("meal") ||
+idea.includes("pizza")
+) {
+
+businessType = "Food / physical product";
+
+problemSignal = "Convenience / food need";
+
+customerSignal = "Local customers";
+
+buyingSignal = "Direct product sales";
+
+competitionSignal = "Local food businesses";
+
+riskLevel = "Margins, location, repeat purchases and customer acquisition";
+
+firstTest = "Sell 10–20 units to real customers";
 
 score += 12;
 
-signals.push({
-text:"Food / physical product detected",
-points:12
-});
-
-businessType =
-"Food / physical product";
-
-problem =
-"The idea can solve a simple food or convenience need.";
-
-customer =
-"Local customers who want a specific food product.";
-
-buying =
-"Direct product sales.";
-
-competition =
-"Local food businesses are likely to compete for the same customers.";
-
-risk =
-"Margins, location, repeat purchases and customer acquisition.";
-
-test =
-"Sell 10–20 units to real customers before investing heavily.";
+reasons.push("+12 Food / physical product detected");
 
 }
 
 
 /* APP */
 
-else if(
-/app|website|platform|software|online tool|marketplace|saas/
-.test(idea)
-){
+else if (
+idea.includes("app") ||
+idea.includes("website") ||
+idea.includes("platform") ||
+idea.includes("software")
+) {
 
-score += 8;
+businessType = "App / website / digital platform";
 
-signals.push({
-text:"Digital platform detected",
-points:8
-});
+customerSignal = "Users with a specific problem";
 
-businessType =
-"App / website / digital platform";
+buyingSignal = "Subscription / transaction fee / premium access";
 
-problem =
-"A digital problem appears to be identified.";
+riskLevel = "Building before proving demand";
 
-customer =
-"A specific niche customer should be targeted.";
+firstTest = "Create a simple landing page and get 3 real users";
 
-buying =
-"Subscription, transaction fee or premium access.";
+score += 12;
 
-competition =
-"Digital alternatives are likely to exist.";
-
-risk =
-"Building the platform before proving people will use or pay for it.";
-
-test =
-"Create a simple landing page and try to get 3 real users or pre-orders.";
+reasons.push("+12 Digital product detected");
 
 }
 
 
 /* EDUCATION */
 
-else if(
-/course|training|learn|education|lesson|teach|tutorial|coaching|class/
-.test(idea)
-){
+else if (
+idea.includes("course") ||
+idea.includes("training") ||
+idea.includes("learn") ||
+idea.includes("education") ||
+idea.includes("formation")
+) {
 
-score += 10;
+businessType = "Education / digital knowledge";
 
-signals.push({
-text:"Education opportunity detected",
-points:10
-});
+customerSignal = "People seeking a specific skill or result";
 
-businessType =
-"Education / digital knowledge";
+buyingSignal = "Course / membership / coaching";
 
-problem =
-"The idea targets a specific learning need.";
+riskLevel = "People may like the content but not pay";
 
-customer =
-"People who want a specific skill or result.";
+firstTest = "Offer a small paid lesson or workshop";
 
-buying =
-"Course sales, membership or coaching.";
+score += 12;
 
-competition =
-"Free educational content may compete with the offer.";
-
-risk =
-"People may like the content but not pay for it.";
-
-test =
-"Sell a small paid lesson or workshop before creating the complete course.";
+reasons.push("+12 Education business detected");
 
 }
 
 
 /* SERVICE */
 
-else if(
-/service|freelance|repair|cleaning|design|marketing|consulting|delivery|maintenance/
-.test(idea)
-){
+else if (
+idea.includes("service") ||
+idea.includes("freelance") ||
+idea.includes("design") ||
+idea.includes("marketing") ||
+idea.includes("repair")
+) {
 
-score += 13;
+businessType = "Service business";
 
-signals.push({
-text:"Service business detected",
-points:13
-});
+customerSignal = "People or businesses with a specific problem";
 
-businessType =
-"Service business";
+buyingSignal = "Per-job or monthly payment";
 
-problem =
-"The service can directly solve a customer problem.";
+riskLevel = "Customer consistency";
 
-customer =
-"People or businesses with a specific need.";
+firstTest = "Contact 20 potential customers";
 
-buying =
-"Payment per job or recurring monthly payment.";
+score += 12;
 
-competition =
-"Other service providers may already serve the market.";
-
-risk =
-"Finding customers consistently.";
-
-test =
-"Contact 20 potential customers and try to get your first 3 paid jobs.";
+reasons.push("+12 Service business detected");
 
 }
 
 
 /* ECOMMERCE */
 
-else if(
-/shop|store|sell|product|ecommerce|e-commerce|clothes|shoes|accessories/
-.test(idea)
-){
+else if (
+idea.includes("shop") ||
+idea.includes("store") ||
+idea.includes("sell") ||
+idea.includes("product")
+) {
 
-score += 9;
+businessType = "E-commerce / physical product";
 
-signals.push({
-text:"E-commerce / product signal detected",
-points:9
-});
+customerSignal = "Consumers with a specific need";
 
-businessType =
-"E-commerce / physical product";
+buyingSignal = "Product margin";
 
-problem =
-"The product may solve a specific customer need.";
+riskLevel = "Inventory and customer acquisition";
 
-customer =
-"Consumers with a specific need or preference.";
+firstTest = "Show the product and collect orders before buying inventory";
 
-buying =
-"Direct product sales and product margin.";
+score += 12;
 
-competition =
-"Existing sellers and marketplaces may compete for the same buyers.";
-
-risk =
-"Inventory, customer acquisition and unsold products.";
-
-test =
-"Show the product and collect real orders before buying large inventory.";
+reasons.push("+12 Product / commerce detected");
 
 }
 
 
-/* BUYING SIGNAL */
+/* PAYMENT */
 
-if(
-/pay|paid|price|money|sell|buy|customer|order|subscription|€|\$|dh|mad/
-.test(idea)
-){
+if (
+idea.includes("dh") ||
+idea.includes("$") ||
+idea.includes("€") ||
+idea.includes("price") ||
+idea.includes("pay") ||
+idea.includes("buy") ||
+idea.includes("sell") ||
+idea.includes("order")
+) {
 
 score += 8;
 
-signals.push({
-text:"Explicit buying / payment signal",
-points:8
-});
-
-buying =
-"The idea contains an explicit buying or payment signal.";
+reasons.push("+8 Explicit buying / payment signal");
 
 }
 
 
-/* CUSTOMER SIGNAL */
+/* CUSTOMER */
 
-if(
-/students|student|businesses|companies|parents|children|workers|drivers|tourists|gamers|restaurants|schools|women|men|beginners|professionals/
-.test(idea)
-){
+if (
+idea.includes("student") ||
+idea.includes("school") ||
+idea.includes("business") ||
+idea.includes("company") ||
+idea.includes("customer") ||
+idea.includes("worker") ||
+idea.includes("tourist") ||
+idea.includes("parent") ||
+idea.includes("driver")
+) {
 
 score += 7;
 
-signals.push({
-text:"Specific customer detected",
-points:7
-});
-
-customer =
-"A more specific customer group is visible in the idea.";
+reasons.push("+7 Specific customer detected");
 
 }
 
 
-/* PROBLEM SIGNAL */
+/* LIMIT */
 
-if(
-/problem|need|save|faster|cheaper|easy|difficult|help|solution|avoid|reduce|fix/
-.test(idea)
-){
-
-score += 8;
-
-signals.push({
-text:"Problem / benefit signal",
-points:8
-});
-
-problem =
-"The idea contains a clearer problem or benefit signal.";
-
+if (score > 100) {
+score = 100;
 }
 
+document.getElementById("score").innerText = score;
 
-/* LIMIT SCORE */
+document.getElementById("businessType").innerText = businessType;
 
-if(score > 95){
-score = 95;
-}
+document.getElementById("problemSignal").innerText = problemSignal;
 
-if(score < 10){
-score = 10;
-}
+document.getElementById("customerSignal").innerText = customerSignal;
 
+document.getElementById("buyingSignal").innerText = buyingSignal;
 
-document.getElementById("score").textContent =
-score;
+document.getElementById("competitionSignal").innerText = competitionSignal;
 
+document.getElementById("riskLevel").innerText = riskLevel;
 
-let signalHTML = "";
+document.getElementById("firstTest").innerText = firstTest;
 
 
-signals.forEach(function(signal){
+/* SCORE REASONS */
 
-signalHTML += `
-<div class="signal">
+let reasonsHTML = "";
 
-<span>${signal.text}</span>
+reasonsHTML += '<div class="reason">+45 Base signal</div>';
 
-<span class="points">
-+${signal.points}
-</span>
+reasons.forEach(function(reason) {
 
-</div>
-`;
+reasonsHTML += '<div class="reason">' + reason + '</div>';
 
 });
 
+reasonsHTML += '<div class="reason">Real-world validation required ?</div>';
 
-signalHTML += `
-<div class="signal">
-
-<span>
-Real-world validation still required
-</span>
-
-<span class="points">
-?
-</span>
-
-</div>
-`;
+document.getElementById("scoreReasons").innerHTML = reasonsHTML;
 
 
-document.getElementById("signals").innerHTML =
-signalHTML;
+document.getElementById("report").classList.remove("hidden");
 
-
-document.getElementById("businessType").textContent =
-businessType;
-
-document.getElementById("problem").textContent =
-problem;
-
-document.getElementById("customer").textContent =
-customer;
-
-document.getElementById("buying").textContent =
-buying;
-
-document.getElementById("competition").textContent =
-competition;
-
-document.getElementById("risk").textContent =
-risk;
-
-document.getElementById("test").textContent =
-test;
-
-
-document.getElementById("report").style.display =
-"block";
-
-
-document.getElementById("report")
-.scrollIntoView({
-behavior:"smooth"
+window.scrollTo({
+top: document.getElementById("report").offsetTop,
+behavior: "smooth"
 });
 
 }
 
 
-/* EVIDENCE ENGINE */
+/* USER EVIDENCE */
 
-function calculateEvidence(){
+function calculateEvidence(text) {
+
+let points = 0;
+
+let lower = text.toLowerCase();
+
+if (text.length >= 20) {
+points += 2;
+}
+
+if (text.length >= 60) {
+points += 1;
+}
+
+const keywords = [
+"customer",
+"customers",
+"student",
+"students",
+"business",
+"company",
+"sell",
+"sales",
+"pay",
+"paid",
+"buy",
+"order",
+"price",
+"competitor",
+"competition",
+"already",
+"test",
+"tested",
+"sold",
+"money",
+"client",
+"clients"
+];
+
+let found = false;
+
+keywords.forEach(function(word) {
+
+if (lower.includes(word)) {
+found = true;
+}
+
+});
+
+if (found) {
+points += 1;
+}
+
+if (
+lower.includes("real") ||
+lower.includes("actually") ||
+lower.includes("asked") ||
+lower.includes("sold") ||
+lower.includes("paid")
+) {
+points += 1;
+}
+
+return Math.min(points,5);
+
+}
+
+
+function checkEvidence() {
 
 let answers = [
 
-document.getElementById("q1").value.trim(),
-
-document.getElementById("q2").value.trim(),
-
-document.getElementById("q3").value.trim(),
-
-document.getElementById("q4").value.trim(),
-
-document.getElementById("q5").value.trim()
+document.getElementById("q1").value,
+document.getElementById("q2").value,
+document.getElementById("q3").value,
+document.getElementById("q4").value,
+document.getElementById("q5").value
 
 ];
 
+let total = 0;
 
-let score = 0;
+let breakdown = "";
 
+answers.forEach(function(answer,index) {
 
-answers.forEach(function(answer){
+let points = calculateEvidence(answer);
 
-let length = answer.length;
+total += points;
 
-
-/*
-Very short answer:
-probably not enough information.
-*/
-
-if(length >= 20){
-score += 2;
-}
-
-
-/*
-Clearer answer:
-more detail.
-*/
-
-if(length >= 60){
-score += 1;
-}
-
-
-/*
-Strong answer:
-specific evidence or action.
-*/
-
-if(
-/customer|customers|people|students|business|company|sell|sales|pay|paid|buy|order|price|competitor|competition|already|test|tested|sold|money|client|clients/
-.test(answer.toLowerCase())
-){
-
-score += 1;
-}
+breakdown +=
+'<div class="market-result">' +
+"<strong>Question " + (index + 1) + "</strong> — " +
+points + "/5" +
+"</div>";
 
 });
-
-
-/*
-Maximum 5 points per question.
-*/
-
-if(score > 25){
-score = 25;
-}
-
-
-document.getElementById("evidenceNumber")
-.textContent = score;
 
 
 let status = "";
 
-
-if(score <= 5){
-
-status =
-"VERY WEAK EVIDENCE";
-
+if (total <= 5) {
+status = "VERY WEAK EVIDENCE";
 }
 
-else if(score <= 10){
-
-status =
-"EARLY HYPOTHESIS";
-
+else if (total <= 10) {
+status = "EARLY HYPOTHESIS";
 }
 
-else if(score <= 15){
-
-status =
-"SOME EVIDENCE";
-
+else if (total <= 15) {
+status = "SOME EVIDENCE";
 }
 
-else if(score <= 20){
-
-status =
-"PROMISING EVIDENCE";
-
+else if (total <= 20) {
+status = "PROMISING EVIDENCE";
 }
 
-else{
+else {
+status = "STRONGER EVIDENCE";
+}
 
-status =
-"STRONGER EVIDENCE";
+
+document.getElementById("evidenceScore").innerText = total;
+
+document.getElementById("evidenceStatus").innerText = status;
+
+document.getElementById("evidenceBreakdown").innerHTML = breakdown;
+
+document.getElementById("evidenceResult").classList.remove("hidden");
 
 }
 
 
-document.getElementById("evidenceStatus")
-.textContent =
-status;
+/* MARKET EVIDENCE */
+
+function calculateMarketEvidence(text) {
+
+let points = 0;
+
+let lower = text.toLowerCase();
+
+if (text.length >= 20) {
+points += 2;
+}
+
+if (text.length >= 60) {
+points += 1;
+}
 
 
-document.getElementById("evidenceResult")
-.scrollIntoView({
-behavior:"smooth"
+/* Competitor / price / customer evidence */
+
+const evidenceWords = [
+
+"competitor",
+"competitors",
+"competition",
+"shop",
+"shops",
+"seller",
+"sellers",
+"price",
+"prices",
+"dh",
+"€",
+"$",
+"customer",
+"customers",
+"student",
+"students",
+"asked",
+"search",
+"searched",
+"order",
+"ordered",
+"buy",
+"bought",
+"paid",
+"payment",
+"message",
+"messages",
+"pre-order",
+"preorder",
+"subscription",
+"sign up",
+"signup",
+"test",
+"tested",
+"sold"
+
+];
+
+let found = false;
+
+evidenceWords.forEach(function(word) {
+
+if (lower.includes(word)) {
+found = true;
+}
+
 });
+
+if (found) {
+points += 1;
+}
+
+
+/* Strong evidence */
+
+if (
+lower.includes("sold") ||
+lower.includes("paid") ||
+lower.includes("ordered") ||
+lower.includes("pre-order") ||
+lower.includes("preorder")
+) {
+
+points += 1;
+
+}
+
+return Math.min(points,5);
+
+}
+
+
+function checkMarketEvidence() {
+
+let answers = [
+
+document.getElementById("market1").value,
+document.getElementById("market2").value,
+document.getElementById("market3").value,
+document.getElementById("market4").value,
+document.getElementById("market5").value
+
+];
+
+let total = 0;
+
+let breakdown = "";
+
+answers.forEach(function(answer,index) {
+
+let points = calculateMarketEvidence(answer);
+
+total += points;
+
+breakdown +=
+'<div class="market-result">' +
+"<strong>Market Evidence " + (index + 1) + "</strong> — " +
+points + "/5" +
+"</div>";
+
+});
+
+
+let status = "";
+
+if (total <= 5) {
+status = "VERY LITTLE MARKET EVIDENCE";
+}
+
+else if (total <= 10) {
+status = "EARLY MARKET SIGNAL";
+}
+
+else if (total <= 15) {
+status = "SOME MARKET EVIDENCE";
+}
+
+else if (total <= 20) {
+status = "PROMISING MARKET EVIDENCE";
+}
+
+else {
+status = "STRONGER MARKET EVIDENCE";
+}
+
+
+document.getElementById("marketScore").innerText = total;
+
+document.getElementById("marketStatus").innerText = status;
+
+document.getElementById("marketBreakdown").innerHTML = breakdown;
+
+document.getElementById("marketResult").classList.remove("hidden");
 
 }
 
 
 /* RESET */
 
-function resetIdea(){
+function resetAll() {
 
-document.getElementById("idea").value = "";
-
-document.getElementById("q1").value = "";
-document.getElementById("q2").value = "";
-document.getElementById("q3").value = "";
-document.getElementById("q4").value = "";
-document.getElementById("q5").value = "";
-
-document.getElementById("report").style.display =
-"none";
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
+location.reload();
 
 }
 
