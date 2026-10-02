@@ -3,10 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Reality Demand</title>
 
 <style>
-*{box-sizing:border-box}
+
+*{
+    box-sizing:border-box;
+}
 
 body{
     margin:0;
@@ -109,6 +113,38 @@ button:hover{
     letter-spacing:2px;
 }
 
+.why{
+    margin:25px 0;
+    padding:20px;
+    background:#10101a;
+    border:1px solid #292936;
+    border-radius:12px;
+}
+
+.why h3{
+    margin-top:0;
+    color:#a78bfa;
+}
+
+.signal{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    padding:10px 0;
+    border-bottom:1px solid #20202b;
+    color:#ddd;
+}
+
+.signal:last-child{
+    border-bottom:none;
+}
+
+.points{
+    color:#a78bfa;
+    font-weight:bold;
+    white-space:nowrap;
+}
+
 .item{
     margin-bottom:22px;
 }
@@ -143,6 +179,7 @@ button:hover{
 .reset:hover{
     background:#11111a;
 }
+
 </style>
 </head>
 
@@ -150,330 +187,557 @@ button:hover{
 
 <div class="container">
 
-    <div class="badge">POWERED BY REALITY ENGINE</div>
+<div class="badge">
+POWERED BY REALITY ENGINE
+</div>
 
-    <h1>REALITY DEMAND</h1>
+<h1>REALITY DEMAND</h1>
 
-    <div class="subtitle">
-        Is your idea actually wanted?
-    </div>
+<div class="subtitle">
+Is your idea actually wanted?
+</div>
 
-    <textarea id="idea"
-        placeholder="Describe your business idea..."></textarea>
+<textarea
+id="idea"
+placeholder="Describe your business idea..."
+></textarea>
 
-    <button onclick="analyzeIdea()">
-        CHECK DEMAND →
-    </button>
+<button onclick="analyzeIdea()">
+CHECK DEMAND →
+</button>
 
-    <div class="report" id="report">
 
-        <h2>REALITY REPORT</h2>
+<div class="report" id="report">
 
-        <div class="score">
-            <div class="score-number" id="score">0</div>
-            <div class="score-label">DEMAND SCORE / 100</div>
-        </div>
+<h2>REALITY REPORT</h2>
 
-        <div class="item">
-            <div class="item-title">BUSINESS TYPE</div>
-            <div class="item-text" id="businessType"></div>
-        </div>
 
-        <div class="item">
-            <div class="item-title">PROBLEM SIGNAL</div>
-            <div class="item-text" id="problem"></div>
-        </div>
+<div class="score">
 
-        <div class="item">
-            <div class="item-title">CUSTOMER SIGNAL</div>
-            <div class="item-text" id="customer"></div>
-        </div>
+<div class="score-number" id="score">
+0
+</div>
 
-        <div class="item">
-            <div class="item-title">BUYING SIGNAL</div>
-            <div class="item-text" id="buying"></div>
-        </div>
-
-        <div class="item">
-            <div class="item-title">COMPETITION SIGNAL</div>
-            <div class="item-text" id="competition"></div>
-        </div>
-
-        <div class="item">
-            <div class="item-title">RISK LEVEL</div>
-            <div class="item-text" id="risk"></div>
-        </div>
-
-        <div class="item">
-            <div class="item-title">FIRST DEMAND TEST</div>
-            <div class="item-text" id="test"></div>
-        </div>
-
-        <div class="warning">
-            This score is an initial signal, not proof of real demand.
-            Real customers and real payments are the strongest validation.
-        </div>
-
-        <button class="reset" onclick="resetIdea()">
-            CHECK ANOTHER IDEA
-        </button>
-
-    </div>
+<div class="score-label">
+DEMAND SCORE / 100
+</div>
 
 </div>
+
+
+<div class="why">
+
+<h3>
+WHY THIS SCORE?
+</h3>
+
+<div id="signals"></div>
+
+</div>
+
+
+<div class="item">
+
+<div class="item-title">
+BUSINESS TYPE
+</div>
+
+<div class="item-text" id="businessType"></div>
+
+</div>
+
+
+<div class="item">
+
+<div class="item-title">
+PROBLEM SIGNAL
+</div>
+
+<div class="item-text" id="problem"></div>
+
+</div>
+
+
+<div class="item">
+
+<div class="item-title">
+CUSTOMER SIGNAL
+</div>
+
+<div class="item-text" id="customer"></div>
+
+</div>
+
+
+<div class="item">
+
+<div class="item-title">
+BUYING SIGNAL
+</div>
+
+<div class="item-text" id="buying"></div>
+
+</div>
+
+
+<div class="item">
+
+<div class="item-title">
+COMPETITION SIGNAL
+</div>
+
+<div class="item-text" id="competition"></div>
+
+</div>
+
+
+<div class="item">
+
+<div class="item-title">
+RISK LEVEL
+</div>
+
+<div class="item-text" id="risk"></div>
+
+</div>
+
+
+<div class="item">
+
+<div class="item-title">
+FIRST DEMAND TEST
+</div>
+
+<div class="item-text" id="test"></div>
+
+</div>
+
+
+<div class="warning">
+
+This score is an initial signal, not proof of real demand.
+Real customers and real payments are the strongest validation.
+
+</div>
+
+
+<button class="reset" onclick="resetIdea()">
+CHECK ANOTHER IDEA
+</button>
+
+</div>
+
+</div>
+
 
 <script>
 
 function analyzeIdea(){
 
-    const idea =
-        document.getElementById("idea").value.toLowerCase().trim();
+const idea =
+document.getElementById("idea").value.toLowerCase().trim();
 
-    if(!idea){
-        alert("Describe your idea first.");
-        return;
-    }
+if(!idea){
 
-    let score = 45;
+alert("Describe your idea first.");
 
-    let businessType =
-        "Digital product or service";
+return;
 
-    let problem =
-        "A possible problem may exist, but it needs stronger evidence.";
+}
 
-    let customer =
-        "A potential customer group can be identified.";
 
-    let buying =
-        "There may be a path to charging customers.";
+/* BASE SCORE */
 
-    let competition =
-        "Similar solutions may already exist.";
+let score = 45;
 
-    let risk =
-        "Demand is still unproven.";
 
-    let test =
-        "Create the smallest possible version and try to get 3 real paying customers.";
+/* SIGNALS */
 
-    /* FOOD */
+let signals = [];
 
-    if(
-        /food|meal|sandwich|chicken|pizza|bread|bakery|cake|restaurant|burger|coffee|drink|snack/.test(idea)
-    ){
+signals.push({
+text:"Base signal",
+points:45
+});
 
-        score += 12;
 
-        businessType =
-            "Food / physical product";
+let businessType =
+"Digital product or service";
 
-        problem =
-            "The idea can solve a simple food or convenience need.";
+let problem =
+"A possible problem may exist, but it needs stronger evidence.";
 
-        customer =
-            "Local customers who want a specific food product.";
+let customer =
+"A potential customer group can be identified.";
 
-        buying =
-            "Direct product sales.";
+let buying =
+"There may be a path to charging customers.";
 
-        competition =
-            "Local food businesses are likely to compete for the same customers.";
+let competition =
+"Similar solutions may already exist.";
 
-        risk =
-            "Margins, location, repeat purchases and customer acquisition.";
+let risk =
+"Demand is still unproven.";
 
-        test =
-            "Sell 10–20 units to real customers before investing heavily.";
+let test =
+"Create the smallest possible version and try to get 3 real paying customers.";
 
-    }
 
-    /* APP / WEBSITE */
+/* FOOD */
 
-    else if(
-        /app|website|platform|software|online tool|marketplace|saas/.test(idea)
-    ){
+if(
+/food|meal|sandwich|chicken|pizza|bread|bakery|cake|restaurant|burger|coffee|drink|snack/
+.test(idea)
+){
 
-        score += 8;
+score += 12;
 
-        businessType =
-            "App / website / digital platform";
+signals.push({
+text:"Food / physical product detected",
+points:12
+});
 
-        problem =
-            "A digital problem appears to be identified.";
+businessType =
+"Food / physical product";
 
-        customer =
-            "A specific niche customer should be targeted.";
+problem =
+"The idea can solve a simple food or convenience need.";
 
-        buying =
-            "Subscription, transaction fee or premium access.";
+customer =
+"Local customers who want a specific food product.";
 
-        competition =
-            "Digital alternatives are likely to exist.";
+buying =
+"Direct product sales.";
 
-        risk =
-            "Building the platform before proving people will use or pay for it.";
+competition =
+"Local food businesses are likely to compete for the same customers.";
 
-        test =
-            "Create a simple landing page and try to get 3 real users or pre-orders.";
+risk =
+"Margins, location, repeat purchases and customer acquisition.";
 
-    }
+test =
+"Sell 10–20 units to real customers before investing heavily.";
 
-    /* EDUCATION */
+}
 
-    else if(
-        /course|training|learn|education|lesson|teach|tutorial|coaching|class/.test(idea)
-    ){
 
-        score += 10;
+/* APP */
 
-        businessType =
-            "Education / digital knowledge";
+else if(
+/app|website|platform|software|online tool|marketplace|saas/
+.test(idea)
+){
 
-        problem =
-            "The idea targets a specific learning need.";
+score += 8;
 
-        customer =
-            "People who want a specific skill or result.";
+signals.push({
+text:"Digital platform detected",
+points:8
+});
 
-        buying =
-            "Course sales, membership or coaching.";
+businessType =
+"App / website / digital platform";
 
-        competition =
-            "Free educational content may compete with the offer.";
+problem =
+"A digital problem appears to be identified.";
 
-        risk =
-            "People may like the content but not pay for it.";
+customer =
+"A specific niche customer should be targeted.";
 
-        test =
-            "Sell a small paid lesson or workshop before creating the complete course.";
+buying =
+"Subscription, transaction fee or premium access.";
 
-    }
+competition =
+"Digital alternatives are likely to exist.";
 
-    /* SERVICE */
+risk =
+"Building the platform before proving people will use or pay for it.";
 
-    else if(
-        /service|freelance|repair|cleaning|design|marketing|consulting|delivery|maintenance/.test(idea)
-    ){
+test =
+"Create a simple landing page and try to get 3 real users or pre-orders.";
 
-        score += 13;
+}
 
-        businessType =
-            "Service business";
 
-        problem =
-            "The service can directly solve a customer problem.";
+/* EDUCATION */
 
-        customer =
-            "People or businesses with a specific need.";
+else if(
+/course|training|learn|education|lesson|teach|tutorial|coaching|class/
+.test(idea)
+){
 
-        buying =
-            "Payment per job or recurring monthly payment.";
+score += 10;
 
-        competition =
-            "Other service providers may already serve the market.";
+signals.push({
+text:"Education opportunity detected",
+points:10
+});
 
-        risk =
-            "Finding customers consistently.";
+businessType =
+"Education / digital knowledge";
 
-        test =
-            "Contact 20 potential customers and try to get your first 3 paid jobs.";
+problem =
+"The idea targets a specific learning need.";
 
-    }
+customer =
+"People who want a specific skill or result.";
 
-    /* ECOMMERCE */
+buying =
+"Course sales, membership or coaching.";
 
-    else if(
-        /shop|store|sell|product|ecommerce|e-commerce|clothes|shoes|accessories/.test(idea)
-    ){
+competition =
+"Free educational content may compete with the offer.";
 
-        score += 9;
+risk =
+"People may like the content but not pay for it.";
 
-        businessType =
-            "E-commerce / physical product";
+test =
+"Sell a small paid lesson or workshop before creating the complete course.";
 
-        problem =
-            "The product may solve a specific customer need.";
+}
 
-        customer =
-            "Consumers with a specific need or preference.";
 
-        buying =
-            "Direct product sales and product margin.";
+/* SERVICE */
 
-        competition =
-            "Existing sellers and marketplaces may compete for the same buyers.";
+else if(
+/service|freelance|repair|cleaning|design|marketing|consulting|delivery|maintenance/
+.test(idea)
+){
 
-        risk =
-            "Inventory, customer acquisition and unsold products.";
+score += 13;
 
-        test =
-            "Show the product and collect real orders before buying large inventory.";
+signals.push({
+text:"Service business detected",
+points:13
+});
 
-    }
+businessType =
+"Service business";
 
-    /* BUYING SIGNAL */
+problem =
+"The service can directly solve a customer problem.";
 
-    if(
-        /pay|paid|price|money|sell|buy|customer|order|subscription|€|\$|dh|mad/.test(idea)
-    ){
-        score += 8;
-        buying =
-            "The idea contains an explicit buying or payment signal.";
-    }
+customer =
+"People or businesses with a specific need.";
 
-    /* CUSTOMER SIGNAL */
+buying =
+"Payment per job or recurring monthly payment.";
 
-    if(
-        /students|student|businesses|companies|parents|children|workers|drivers|tourists|gamers|restaurants|schools|women|men|beginners|professionals/.test(idea)
-    ){
-        score += 7;
-        customer =
-            "A more specific customer group is visible in the idea.";
-    }
+competition =
+"Other service providers may already serve the market.";
 
-    /* PROBLEM SIGNAL */
+risk =
+"Finding customers consistently.";
 
-    if(
-        /problem|need|save|faster|cheaper|easy|difficult|help|solution|avoid|reduce|fix/.test(idea)
-    ){
-        score += 8;
-        problem =
-            "The idea contains a clearer problem or benefit signal.";
-    }
+test =
+"Contact 20 potential customers and try to get your first 3 paid jobs.";
 
-    /* LIMIT SCORE */
+}
 
-    if(score > 95) score = 95;
-    if(score < 10) score = 10;
 
-    document.getElementById("score").textContent = score;
+/* ECOMMERCE */
 
-    document.getElementById("businessType").textContent = businessType;
-    document.getElementById("problem").textContent = problem;
-    document.getElementById("customer").textContent = customer;
-    document.getElementById("buying").textContent = buying;
-    document.getElementById("competition").textContent = competition;
-    document.getElementById("risk").textContent = risk;
-    document.getElementById("test").textContent = test;
+else if(
+/shop|store|sell|product|ecommerce|e-commerce|clothes|shoes|accessories/
+.test(idea)
+){
 
-    document.getElementById("report").style.display = "block";
+score += 9;
 
-    document.getElementById("report")
-        .scrollIntoView({behavior:"smooth"});
+signals.push({
+text:"E-commerce / product signal detected",
+points:9
+});
+
+businessType =
+"E-commerce / physical product";
+
+problem =
+"The product may solve a specific customer need.";
+
+customer =
+"Consumers with a specific need or preference.";
+
+buying =
+"Direct product sales and product margin.";
+
+competition =
+"Existing sellers and marketplaces may compete for the same buyers.";
+
+risk =
+"Inventory, customer acquisition and unsold products.";
+
+test =
+"Show the product and collect real orders before buying large inventory.";
+
+}
+
+
+/* BUYING SIGNAL */
+
+if(
+/pay|paid|price|money|sell|buy|customer|order|subscription|€|\$|dh|mad/
+.test(idea)
+){
+
+score += 8;
+
+signals.push({
+text:"Explicit buying / payment signal",
+points:8
+});
+
+buying =
+"The idea contains an explicit buying or payment signal.";
+
+}
+
+
+/* CUSTOMER SIGNAL */
+
+if(
+/students|student|businesses|companies|parents|children|workers|drivers|tourists|gamers|restaurants|schools|women|men|beginners|professionals/
+.test(idea)
+){
+
+score += 7;
+
+signals.push({
+text:"Specific customer detected",
+points:7
+});
+
+customer =
+"A more specific customer group is visible in the idea.";
+
+}
+
+
+/* PROBLEM SIGNAL */
+
+if(
+/problem|need|save|faster|cheaper|easy|difficult|help|solution|avoid|reduce|fix/
+.test(idea)
+){
+
+score += 8;
+
+signals.push({
+text:"Problem / benefit signal",
+points:8
+});
+
+problem =
+"The idea contains a clearer problem or benefit signal.";
+
+}
+
+
+/* LIMIT SCORE */
+
+if(score > 95){
+score = 95;
+}
+
+if(score < 10){
+score = 10;
+}
+
+
+/* SCORE */
+
+document.getElementById("score").textContent =
+score;
+
+
+/* SIGNAL DISPLAY */
+
+let signalHTML = "";
+
+signals.forEach(function(signal){
+
+signalHTML +=
+`
+<div class="signal">
+
+<span>${signal.text}</span>
+
+<span class="points">
++${signal.points}
+</span>
+
+</div>
+`;
+
+});
+
+signalHTML +=
+`
+<div class="signal">
+
+<span>
+Real-world validation still required
+</span>
+
+<span class="points">
+?
+</span>
+
+</div>
+`;
+
+document.getElementById("signals").innerHTML =
+signalHTML;
+
+
+/* REPORT */
+
+document.getElementById("businessType").textContent =
+businessType;
+
+document.getElementById("problem").textContent =
+problem;
+
+document.getElementById("customer").textContent =
+customer;
+
+document.getElementById("buying").textContent =
+buying;
+
+document.getElementById("competition").textContent =
+competition;
+
+document.getElementById("risk").textContent =
+risk;
+
+document.getElementById("test").textContent =
+test;
+
+
+document.getElementById("report").style.display =
+"block";
+
+
+document.getElementById("report")
+.scrollIntoView({
+behavior:"smooth"
+});
+
 }
 
 
 function resetIdea(){
 
-    document.getElementById("idea").value = "";
+document.getElementById("idea").value = "";
 
-    document.getElementById("report").style.display = "none";
+document.getElementById("report").style.display =
+"none";
 
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
 }
 
 </script>
