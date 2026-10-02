@@ -6,257 +6,142 @@
 <title>Reality Demand</title>
 
 <style>
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-}
+*{box-sizing:border-box}
 
 body{
-font-family:Arial,Helvetica,sans-serif;
-background:#070707;
-color:#fff;
-min-height:100vh;
+    margin:0;
+    background:#050509;
+    color:#fff;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
 .container{
-max-width:1050px;
-margin:auto;
-padding:35px 20px 60px;
-}
-
-nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:95px;
-}
-
-.logo{
-font-weight:bold;
-letter-spacing:2px;
-font-size:20px;
-}
-
-.badge{
-border:1px solid #292929;
-color:#999;
-padding:8px 14px;
-border-radius:30px;
-font-size:12px;
-}
-
-.hero{
-text-align:center;
-max-width:850px;
-margin:auto;
-}
-
-.eyebrow{
-color:#9b6cff;
-font-size:12px;
-letter-spacing:3px;
-margin-bottom:20px;
-font-weight:bold;
+    max-width:850px;
+    margin:auto;
+    padding:60px 20px;
 }
 
 h1{
-font-size:clamp(48px,8vw,86px);
-line-height:.95;
-letter-spacing:-5px;
-margin-bottom:28px;
-}
-
-h1 span{
-color:#925cff;
+    font-size:48px;
+    margin:0 0 10px;
+    letter-spacing:2px;
 }
 
 .subtitle{
-color:#999;
-max-width:680px;
-margin:auto;
-font-size:18px;
-line-height:1.7;
-margin-bottom:50px;
-}
-
-.box{
-background:#101010;
-border:1px solid #292929;
-border-radius:20px;
-padding:25px;
-text-align:left;
-box-shadow:0 0 60px rgba(139,92,246,.08);
-}
-
-textarea{
-width:100%;
-height:145px;
-background:transparent;
-border:0;
-outline:0;
-color:white;
-font-size:18px;
-line-height:1.5;
-resize:none;
-}
-
-textarea::placeholder{
-color:#505050;
-}
-
-button{
-width:100%;
-border:0;
-padding:18px;
-border-radius:12px;
-background:#8b5cf6;
-color:white;
-font-size:16px;
-font-weight:bold;
-cursor:pointer;
-transition:.2s;
-}
-
-button:hover{
-background:#7c3aed;
-transform:translateY(-1px);
-}
-
-.analyzing{
-display:none;
-margin-top:25px;
-background:#101010;
-border:1px solid #292929;
-border-radius:20px;
-padding:35px;
-text-align:left;
-}
-
-.analyzing h2{
-margin-bottom:25px;
-}
-
-.scan{
-padding:14px 0;
-border-bottom:1px solid #222;
-color:#555;
-}
-
-.scan.active{
-color:#b994ff;
-}
-
-.dot{
-display:inline-block;
-width:7px;
-height:7px;
-background:#8b5cf6;
-border-radius:50%;
-margin-right:10px;
-animation:pulse 1s infinite;
-}
-
-@keyframes pulse{
-50%{opacity:.25}
-}
-
-.report{
-display:none;
-margin-top:25px;
-background:#101010;
-border:1px solid #292929;
-border-radius:20px;
-padding:30px;
-text-align:left;
-}
-
-.report-title{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:25px;
-}
-
-.report-title h2{
-font-size:26px;
-}
-
-.live{
-color:#8b5cf6;
-font-size:11px;
-letter-spacing:2px;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:12px;
-}
-
-.card{
-border:1px solid #252525;
-background:#0c0c0c;
-border-radius:14px;
-padding:20px;
-}
-
-.label{
-color:#666;
-font-size:11px;
-letter-spacing:2px;
-margin-bottom:10px;
-}
-
-.value{
-font-size:17px;
-line-height:1.4;
-}
-
-.next{
-margin-top:15px;
-border:1px solid #5636a0;
-background:#15101f;
-border-radius:14px;
-padding:22px;
-}
-
-.next .value{
-color:#d5c5ff;
-line-height:1.5;
-}
-
-.reset{
-margin-top:15px;
-background:transparent;
-border:1px solid #333;
-color:#aaa;
-}
-
-footer{
-text-align:center;
-margin-top:100px;
-color:#444;
-font-size:12px;
-}
-
-@media(max-width:650px){
-
-nav{
-margin-bottom:70px;
+    color:#aaa;
+    font-size:18px;
+    margin-bottom:35px;
 }
 
 .badge{
-display:none;
+    display:inline-block;
+    border:1px solid #8b5cf6;
+    color:#a78bfa;
+    padding:7px 12px;
+    border-radius:20px;
+    font-size:12px;
+    letter-spacing:1px;
+    margin-bottom:25px;
 }
 
-h1{
-letter-spacing:-3px;
+textarea{
+    width:100%;
+    min-height:150px;
+    background:#0c0c13;
+    border:1px solid #292936;
+    border-radius:12px;
+    padding:18px;
+    color:white;
+    font-size:17px;
+    resize:vertical;
+    outline:none;
 }
 
-.grid{
-grid-template-columns:1fr;
+textarea:focus{
+    border-color:#8b5cf6;
 }
+
+button{
+    margin-top:15px;
+    width:100%;
+    padding:16px;
+    border:0;
+    border-radius:10px;
+    background:#8b5cf6;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#7c3aed;
+}
+
+.report{
+    display:none;
+    margin-top:40px;
+    background:#0b0b12;
+    border:1px solid #292936;
+    border-radius:15px;
+    padding:25px;
+}
+
+.report h2{
+    margin-top:0;
+}
+
+.score{
+    text-align:center;
+    padding:25px 0;
+    border-bottom:1px solid #292936;
+    margin-bottom:25px;
+}
+
+.score-number{
+    font-size:64px;
+    font-weight:bold;
+    color:#a78bfa;
+}
+
+.score-label{
+    color:#aaa;
+    letter-spacing:2px;
+}
+
+.item{
+    margin-bottom:22px;
+}
+
+.item-title{
+    color:#a78bfa;
+    font-size:13px;
+    letter-spacing:1px;
+    margin-bottom:7px;
+}
+
+.item-text{
+    color:#ddd;
+    line-height:1.5;
+}
+
+.warning{
+    margin-top:25px;
+    padding:15px;
+    border-left:3px solid #8b5cf6;
+    background:#10101a;
+    color:#bbb;
+    line-height:1.5;
+}
+
+.reset{
+    background:transparent;
+    border:1px solid #292936;
+    color:#aaa;
+}
+
+.reset:hover{
+    background:#11111a;
 }
 </style>
 </head>
@@ -265,257 +150,330 @@ grid-template-columns:1fr;
 
 <div class="container">
 
-<nav>
-<div class="logo">REALITY DEMAND</div>
-<div class="badge">POWERED BY REALITY ENGINE</div>
-</nav>
+    <div class="badge">POWERED BY REALITY ENGINE</div>
 
-<section class="hero">
+    <h1>REALITY DEMAND</h1>
 
-<div class="eyebrow">DEMAND INTELLIGENCE</div>
+    <div class="subtitle">
+        Is your idea actually wanted?
+    </div>
 
-<h1>
-Is your idea<br>
-<span>actually wanted?</span>
-</h1>
+    <textarea id="idea"
+        placeholder="Describe your business idea..."></textarea>
 
-<p class="subtitle">
-Describe your product, service or business idea.
-Reality Engine will break it down into a practical first test.
-</p>
+    <button onclick="analyzeIdea()">
+        CHECK DEMAND →
+    </button>
 
-<div class="box">
+    <div class="report" id="report">
 
-<textarea id="idea"
-placeholder="Example: I want to sell healthy meals to people who work from home..."></textarea>
+        <h2>REALITY REPORT</h2>
 
-<button onclick="checkDemand()">
-CHECK DEMAND →
-</button>
+        <div class="score">
+            <div class="score-number" id="score">0</div>
+            <div class="score-label">DEMAND SCORE / 100</div>
+        </div>
 
-</div>
+        <div class="item">
+            <div class="item-title">BUSINESS TYPE</div>
+            <div class="item-text" id="businessType"></div>
+        </div>
 
-<div class="analyzing" id="analyzing">
+        <div class="item">
+            <div class="item-title">PROBLEM SIGNAL</div>
+            <div class="item-text" id="problem"></div>
+        </div>
 
-<h2>REALITY ENGINE</h2>
+        <div class="item">
+            <div class="item-title">CUSTOMER SIGNAL</div>
+            <div class="item-text" id="customer"></div>
+        </div>
 
-<div class="scan active">
-<span class="dot"></span>
-Reading your idea
-</div>
+        <div class="item">
+            <div class="item-title">BUYING SIGNAL</div>
+            <div class="item-text" id="buying"></div>
+        </div>
 
-<div class="scan">
-<span class="dot"></span>
-Detecting business type
-</div>
+        <div class="item">
+            <div class="item-title">COMPETITION SIGNAL</div>
+            <div class="item-text" id="competition"></div>
+        </div>
 
-<div class="scan">
-<span class="dot"></span>
-Identifying the customer
-</div>
+        <div class="item">
+            <div class="item-title">RISK LEVEL</div>
+            <div class="item-text" id="risk"></div>
+        </div>
 
-<div class="scan">
-<span class="dot"></span>
-Finding the monetization path
-</div>
+        <div class="item">
+            <div class="item-title">FIRST DEMAND TEST</div>
+            <div class="item-text" id="test"></div>
+        </div>
 
-<div class="scan">
-<span class="dot"></span>
-Designing the first demand test
-</div>
+        <div class="warning">
+            This score is an initial signal, not proof of real demand.
+            Real customers and real payments are the strongest validation.
+        </div>
 
-</div>
+        <button class="reset" onclick="resetIdea()">
+            CHECK ANOTHER IDEA
+        </button>
 
-<div class="report" id="report">
-
-<div class="report-title">
-<h2>REALITY REPORT</h2>
-<div class="live">ENGINE ANALYSIS</div>
-</div>
-
-<div class="grid">
-
-<div class="card">
-<div class="label">BUSINESS TYPE</div>
-<div class="value" id="type"></div>
-</div>
-
-<div class="card">
-<div class="label">CUSTOMER</div>
-<div class="value" id="customer"></div>
-</div>
-
-<div class="card">
-<div class="label">MONETIZATION</div>
-<div class="value" id="money"></div>
-</div>
-
-<div class="card">
-<div class="label">MAIN RISK</div>
-<div class="value" id="risk"></div>
-</div>
-
-</div>
-
-<div class="next">
-
-<div class="label">FIRST DEMAND TEST</div>
-
-<div class="value" id="test"></div>
-
-</div>
-
-<button class="reset" onclick="resetCheck()">
-CHECK ANOTHER IDEA
-</button>
-
-</div>
-
-</section>
-
-<footer>
-Reality Demand — Validate before you build.
-</footer>
+    </div>
 
 </div>
 
 <script>
 
-function analyzeIdea(idea){
+function analyzeIdea(){
 
-let text=idea.toLowerCase();
+    const idea =
+        document.getElementById("idea").value.toLowerCase().trim();
 
-let type="Digital product or service";
-let customer="A clearly defined niche customer";
-let money="Direct sales, subscription or service fees";
-let risk="You don't yet know whether people will pay";
-let test="Create the smallest possible version and try to get 3 paying customers.";
+    if(!idea){
+        alert("Describe your idea first.");
+        return;
+    }
 
-if(
-text.includes("app") ||
-text.includes("website") ||
-text.includes("platform")
-){
-type="App / website / digital platform";
-money="Subscription, transaction fee or premium access";
-risk="Building the platform before proving demand";
-test="Create a simple landing page and try to collect 3 real users or pre-orders.";
+    let score = 45;
+
+    let businessType =
+        "Digital product or service";
+
+    let problem =
+        "A possible problem may exist, but it needs stronger evidence.";
+
+    let customer =
+        "A potential customer group can be identified.";
+
+    let buying =
+        "There may be a path to charging customers.";
+
+    let competition =
+        "Similar solutions may already exist.";
+
+    let risk =
+        "Demand is still unproven.";
+
+    let test =
+        "Create the smallest possible version and try to get 3 real paying customers.";
+
+    /* FOOD */
+
+    if(
+        /food|meal|sandwich|chicken|pizza|bread|bakery|cake|restaurant|burger|coffee|drink|snack/.test(idea)
+    ){
+
+        score += 12;
+
+        businessType =
+            "Food / physical product";
+
+        problem =
+            "The idea can solve a simple food or convenience need.";
+
+        customer =
+            "Local customers who want a specific food product.";
+
+        buying =
+            "Direct product sales.";
+
+        competition =
+            "Local food businesses are likely to compete for the same customers.";
+
+        risk =
+            "Margins, location, repeat purchases and customer acquisition.";
+
+        test =
+            "Sell 10–20 units to real customers before investing heavily.";
+
+    }
+
+    /* APP / WEBSITE */
+
+    else if(
+        /app|website|platform|software|online tool|marketplace|saas/.test(idea)
+    ){
+
+        score += 8;
+
+        businessType =
+            "App / website / digital platform";
+
+        problem =
+            "A digital problem appears to be identified.";
+
+        customer =
+            "A specific niche customer should be targeted.";
+
+        buying =
+            "Subscription, transaction fee or premium access.";
+
+        competition =
+            "Digital alternatives are likely to exist.";
+
+        risk =
+            "Building the platform before proving people will use or pay for it.";
+
+        test =
+            "Create a simple landing page and try to get 3 real users or pre-orders.";
+
+    }
+
+    /* EDUCATION */
+
+    else if(
+        /course|training|learn|education|lesson|teach|tutorial|coaching|class/.test(idea)
+    ){
+
+        score += 10;
+
+        businessType =
+            "Education / digital knowledge";
+
+        problem =
+            "The idea targets a specific learning need.";
+
+        customer =
+            "People who want a specific skill or result.";
+
+        buying =
+            "Course sales, membership or coaching.";
+
+        competition =
+            "Free educational content may compete with the offer.";
+
+        risk =
+            "People may like the content but not pay for it.";
+
+        test =
+            "Sell a small paid lesson or workshop before creating the complete course.";
+
+    }
+
+    /* SERVICE */
+
+    else if(
+        /service|freelance|repair|cleaning|design|marketing|consulting|delivery|maintenance/.test(idea)
+    ){
+
+        score += 13;
+
+        businessType =
+            "Service business";
+
+        problem =
+            "The service can directly solve a customer problem.";
+
+        customer =
+            "People or businesses with a specific need.";
+
+        buying =
+            "Payment per job or recurring monthly payment.";
+
+        competition =
+            "Other service providers may already serve the market.";
+
+        risk =
+            "Finding customers consistently.";
+
+        test =
+            "Contact 20 potential customers and try to get your first 3 paid jobs.";
+
+    }
+
+    /* ECOMMERCE */
+
+    else if(
+        /shop|store|sell|product|ecommerce|e-commerce|clothes|shoes|accessories/.test(idea)
+    ){
+
+        score += 9;
+
+        businessType =
+            "E-commerce / physical product";
+
+        problem =
+            "The product may solve a specific customer need.";
+
+        customer =
+            "Consumers with a specific need or preference.";
+
+        buying =
+            "Direct product sales and product margin.";
+
+        competition =
+            "Existing sellers and marketplaces may compete for the same buyers.";
+
+        risk =
+            "Inventory, customer acquisition and unsold products.";
+
+        test =
+            "Show the product and collect real orders before buying large inventory.";
+
+    }
+
+    /* BUYING SIGNAL */
+
+    if(
+        /pay|paid|price|money|sell|buy|customer|order|subscription|€|\$|dh|mad/.test(idea)
+    ){
+        score += 8;
+        buying =
+            "The idea contains an explicit buying or payment signal.";
+    }
+
+    /* CUSTOMER SIGNAL */
+
+    if(
+        /students|student|businesses|companies|parents|children|workers|drivers|tourists|gamers|restaurants|schools|women|men|beginners|professionals/.test(idea)
+    ){
+        score += 7;
+        customer =
+            "A more specific customer group is visible in the idea.";
+    }
+
+    /* PROBLEM SIGNAL */
+
+    if(
+        /problem|need|save|faster|cheaper|easy|difficult|help|solution|avoid|reduce|fix/.test(idea)
+    ){
+        score += 8;
+        problem =
+            "The idea contains a clearer problem or benefit signal.";
+    }
+
+    /* LIMIT SCORE */
+
+    if(score > 95) score = 95;
+    if(score < 10) score = 10;
+
+    document.getElementById("score").textContent = score;
+
+    document.getElementById("businessType").textContent = businessType;
+    document.getElementById("problem").textContent = problem;
+    document.getElementById("customer").textContent = customer;
+    document.getElementById("buying").textContent = buying;
+    document.getElementById("competition").textContent = competition;
+    document.getElementById("risk").textContent = risk;
+    document.getElementById("test").textContent = test;
+
+    document.getElementById("report").style.display = "block";
+
+    document.getElementById("report")
+        .scrollIntoView({behavior:"smooth"});
 }
 
-else if(
-text.includes("food") ||
-text.includes("meal") ||
-text.includes("bread") ||
-text.includes("cake") ||
-text.includes("restaurant") ||
-text.includes("sandwich")
-){
-type="Food / physical product";
-customer="Local customers with a specific food need";
-money="Direct product sales";
-risk="Margins, delivery and repeat purchases";
-test="Offer the product to 10 potential customers before investing in equipment or stock.";
-}
 
-else if(
-text.includes("course") ||
-text.includes("training") ||
-text.includes("learn") ||
-text.includes("education")
-){
-type="Education / digital knowledge";
-customer="People who want a specific skill or result";
-money="Course sales, membership or coaching";
-risk="People may like the content but not pay for it";
-test="Sell a small paid lesson or workshop before creating the complete course.";
-}
+function resetIdea(){
 
-else if(
-text.includes("service") ||
-text.includes("freelance") ||
-text.includes("design") ||
-text.includes("marketing") ||
-text.includes("repair")
-){
-type="Service business";
-customer="People or businesses with a specific problem";
-money="Per-job pricing or monthly service";
-risk="Finding customers consistently";
-test="Contact 20 potential customers with one clear offer and measure responses.";
-}
+    document.getElementById("idea").value = "";
 
-else if(
-text.includes("shop") ||
-text.includes("store") ||
-text.includes("sell") ||
-text.includes("product")
-){
-type="E-commerce / physical product";
-customer="Consumers with a specific need";
-money="Product margin";
-risk="Inventory and customer acquisition";
-test="Show the product to potential buyers and collect orders before buying large quantities.";
-}
+    document.getElementById("report").style.display = "none";
 
-document.getElementById("type").textContent=type;
-document.getElementById("customer").textContent=customer;
-document.getElementById("money").textContent=money;
-document.getElementById("risk").textContent=risk;
-document.getElementById("test").textContent=test;
-}
-
-function checkDemand(){
-
-const idea=document.getElementById("idea").value.trim();
-
-if(idea===""){
-alert("Describe your idea first.");
-return;
-}
-
-document.getElementById("report").style.display="none";
-
-const analyzing=document.getElementById("analyzing");
-
-analyzing.style.display="block";
-
-const scans=document.querySelectorAll(".scan");
-
-scans.forEach((scan,index)=>{
-
-setTimeout(()=>{
-scan.classList.add("active");
-},index*500);
-
-});
-
-setTimeout(()=>{
-
-analyzeIdea(idea);
-
-analyzing.style.display="none";
-
-document.getElementById("report").style.display="block";
-
-document.getElementById("report").scrollIntoView({
-behavior:"smooth"
-});
-
-},2800);
-
-}
-
-function resetCheck(){
-
-document.getElementById("idea").value="";
-
-document.getElementById("report").style.display="none";
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 }
 
 </script>
