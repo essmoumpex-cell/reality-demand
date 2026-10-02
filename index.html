@@ -170,6 +170,69 @@ button:hover{
     line-height:1.5;
 }
 
+.evidence{
+    margin-top:35px;
+    padding:22px;
+    background:#0f0f17;
+    border:1px solid #292936;
+    border-radius:12px;
+}
+
+.evidence h3{
+    color:#a78bfa;
+    margin-top:0;
+}
+
+.evidence-intro{
+    color:#aaa;
+    line-height:1.5;
+    margin-bottom:25px;
+}
+
+.question{
+    margin-bottom:22px;
+}
+
+.question label{
+    display:block;
+    color:#ddd;
+    font-weight:bold;
+    margin-bottom:8px;
+    line-height:1.4;
+}
+
+.question textarea{
+    min-height:90px;
+    font-size:15px;
+}
+
+.evidence-score{
+    margin-top:25px;
+    padding:20px;
+    text-align:center;
+    background:#08080d;
+    border-radius:10px;
+    border:1px solid #292936;
+}
+
+.evidence-number{
+    font-size:46px;
+    font-weight:bold;
+    color:#a78bfa;
+}
+
+.evidence-label{
+    color:#aaa;
+    letter-spacing:1px;
+    margin-top:5px;
+}
+
+.status{
+    margin-top:15px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
 .reset{
     background:transparent;
     border:1px solid #292936;
@@ -219,7 +282,7 @@ CHECK DEMAND →
 </div>
 
 <div class="score-label">
-DEMAND SCORE / 100
+DEMAND SIGNAL / 100
 </div>
 
 </div>
@@ -315,8 +378,116 @@ FIRST DEMAND TEST
 
 <div class="warning">
 
-This score is an initial signal, not proof of real demand.
-Real customers and real payments are the strongest validation.
+The Demand Signal is based on the idea description.
+It is not proof that customers will buy.
+
+</div>
+
+
+<!-- EVIDENCE CHECK -->
+
+<div class="evidence">
+
+<h3>
+REALITY EVIDENCE CHECK
+</h3>
+
+<div class="evidence-intro">
+Your idea is only a hypothesis. Answer these five questions
+to measure how much real evidence you already have.
+</div>
+
+
+<div class="question">
+
+<label>
+1. Who would pay for this?
+</label>
+
+<textarea
+id="q1"
+placeholder="Example: Local students who want affordable meals..."
+></textarea>
+
+</div>
+
+
+<div class="question">
+
+<label>
+2. What problem are you solving?
+</label>
+
+<textarea
+id="q2"
+placeholder="Describe the real problem..."
+></textarea>
+
+</div>
+
+
+<div class="question">
+
+<label>
+3. How do people solve this today?
+</label>
+
+<textarea
+id="q3"
+placeholder="What do they use or do now?"
+></textarea>
+
+</div>
+
+
+<div class="question">
+
+<label>
+4. Why would they choose you?
+</label>
+
+<textarea
+id="q4"
+placeholder="What makes your solution different or useful?"
+></textarea>
+
+</div>
+
+
+<div class="question">
+
+<label>
+5. Can you get your first customer without building everything?
+</label>
+
+<textarea
+id="q5"
+placeholder="Explain how you could test it quickly..."
+></textarea>
+
+</div>
+
+
+<button onclick="calculateEvidence()">
+CHECK MY EVIDENCE →
+</button>
+
+
+<div class="evidence-score" id="evidenceResult">
+
+<div class="evidence-number" id="evidenceNumber">
+0
+</div>
+
+<div class="evidence-label">
+EVIDENCE SCORE / 25
+</div>
+
+<div class="status" id="evidenceStatus">
+NOT CHECKED YET
+</div>
+
+</div>
 
 </div>
 
@@ -332,10 +503,12 @@ CHECK ANOTHER IDEA
 
 <script>
 
+
 function analyzeIdea(){
 
 const idea =
 document.getElementById("idea").value.toLowerCase().trim();
+
 
 if(!idea){
 
@@ -346,14 +519,10 @@ return;
 }
 
 
-/* BASE SCORE */
-
 let score = 45;
 
-
-/* SIGNALS */
-
 let signals = [];
+
 
 signals.push({
 text:"Base signal",
@@ -644,20 +813,16 @@ score = 10;
 }
 
 
-/* SCORE */
-
 document.getElementById("score").textContent =
 score;
 
 
-/* SIGNAL DISPLAY */
-
 let signalHTML = "";
+
 
 signals.forEach(function(signal){
 
-signalHTML +=
-`
+signalHTML += `
 <div class="signal">
 
 <span>${signal.text}</span>
@@ -671,8 +836,8 @@ signalHTML +=
 
 });
 
-signalHTML +=
-`
+
+signalHTML += `
 <div class="signal">
 
 <span>
@@ -686,11 +851,10 @@ Real-world validation still required
 </div>
 `;
 
+
 document.getElementById("signals").innerHTML =
 signalHTML;
 
-
-/* REPORT */
 
 document.getElementById("businessType").textContent =
 businessType;
@@ -726,9 +890,145 @@ behavior:"smooth"
 }
 
 
+/* EVIDENCE ENGINE */
+
+function calculateEvidence(){
+
+let answers = [
+
+document.getElementById("q1").value.trim(),
+
+document.getElementById("q2").value.trim(),
+
+document.getElementById("q3").value.trim(),
+
+document.getElementById("q4").value.trim(),
+
+document.getElementById("q5").value.trim()
+
+];
+
+
+let score = 0;
+
+
+answers.forEach(function(answer){
+
+let length = answer.length;
+
+
+/*
+Very short answer:
+probably not enough information.
+*/
+
+if(length >= 20){
+score += 2;
+}
+
+
+/*
+Clearer answer:
+more detail.
+*/
+
+if(length >= 60){
+score += 1;
+}
+
+
+/*
+Strong answer:
+specific evidence or action.
+*/
+
+if(
+/customer|customers|people|students|business|company|sell|sales|pay|paid|buy|order|price|competitor|competition|already|test|tested|sold|money|client|clients/
+.test(answer.toLowerCase())
+){
+
+score += 1;
+}
+
+});
+
+
+/*
+Maximum 5 points per question.
+*/
+
+if(score > 25){
+score = 25;
+}
+
+
+document.getElementById("evidenceNumber")
+.textContent = score;
+
+
+let status = "";
+
+
+if(score <= 5){
+
+status =
+"VERY WEAK EVIDENCE";
+
+}
+
+else if(score <= 10){
+
+status =
+"EARLY HYPOTHESIS";
+
+}
+
+else if(score <= 15){
+
+status =
+"SOME EVIDENCE";
+
+}
+
+else if(score <= 20){
+
+status =
+"PROMISING EVIDENCE";
+
+}
+
+else{
+
+status =
+"STRONGER EVIDENCE";
+
+}
+
+
+document.getElementById("evidenceStatus")
+.textContent =
+status;
+
+
+document.getElementById("evidenceResult")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+/* RESET */
+
 function resetIdea(){
 
 document.getElementById("idea").value = "";
+
+document.getElementById("q1").value = "";
+document.getElementById("q2").value = "";
+document.getElementById("q3").value = "";
+document.getElementById("q4").value = "";
+document.getElementById("q5").value = "";
 
 document.getElementById("report").style.display =
 "none";
