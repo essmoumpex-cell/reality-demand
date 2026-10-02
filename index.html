@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reality Demand</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #080808;
+      color: white;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 100px;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .badge {
+      border: 1px solid #333;
+      padding: 8px 14px;
+      border-radius: 20px;
+      color: #aaa;
+      font-size: 13px;
+    }
+
+    .hero {
+      text-align: center;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .hero h1 {
+      font-size: clamp(45px, 8vw, 82px);
+      line-height: 0.95;
+      margin-bottom: 25px;
+      letter-spacing: -4px;
+    }
+
+    .hero h1 span {
+      color: #8b5cf6;
+    }
+
+    .hero p {
+      color: #999;
+      font-size: 19px;
+      line-height: 1.6;
+      margin-bottom: 45px;
+    }
+
+    .box {
+      background: #111;
+      border: 1px solid #292929;
+      border-radius: 18px;
+      padding: 25px;
+      text-align: left;
+    }
+
+    textarea {
+      width: 100%;
+      height: 150px;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: white;
+      font-size: 18px;
+      resize: none;
+    }
+
+    textarea::placeholder {
+      color: #555;
+    }
+
+    button {
+      width: 100%;
+      padding: 18px;
+      border: none;
+      border-radius: 12px;
+      background: #8b5cf6;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      background: #7c3aed;
+    }
+
+    .result {
+      display: none;
+      margin-top: 25px;
+      padding: 25px;
+      background: #111;
+      border: 1px solid #292929;
+      border-radius: 18px;
+    }
+
+    .result h2 {
+      margin-bottom: 20px;
+    }
+
+    .item {
+      padding: 15px 0;
+      border-bottom: 1px solid #222;
+    }
+
+    .item:last-child {
+      border-bottom: none;
+    }
+
+    .label {
+      color: #777;
+      font-size: 13px;
+      margin-bottom: 5px;
+    }
+
+    .value {
+      font-size: 17px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 100px;
+      color: #444;
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <nav>
+      <div class="logo">REALITY DEMAND</div>
+      <div class="badge">BUILD LESS. TEST MORE.</div>
+    </nav>
+
+    <section class="hero">
+
+      <h1>
+        Is your idea<br>
+        <span>actually wanted?</span>
+      </h1>
+
+      <p>
+        Describe your product, service or business idea.
+        Reality Demand helps you test the idea before
+        wasting your time and money building it.
+      </p>
+
+      <div class="box">
+
+        <textarea id="idea"
+          placeholder="Example: I want to sell healthy meals to people who work from home..."></textarea>
+
+        <button onclick="checkDemand()">
+          CHECK DEMAND →
+        </button>
+
+      </div>
+
+      <div class="result" id="result">
+
+        <h2>REALITY CHECK</h2>
+
+        <div class="item">
+          <div class="label">PROBLEM</div>
+          <div class="value">Your idea describes a specific problem.</div>
+        </div>
+
+        <div class="item">
+          <div class="label">CUSTOMER</div>
+          <div class="value">A target customer can be identified.</div>
+        </div>
+
+        <div class="item">
+          <div class="label">FIRST TEST</div>
+          <div class="value">Try to get your first 3 paying customers before building the full product.</div>
+        </div>
+
+        <div class="item">
+          <div class="label">NEXT MOVE</div>
+          <div class="value">Don't build yet. Test the demand first.</div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <footer>
+      Reality Demand — Validate before you build.
+    </footer>
+
+  </div>
+
+  <script>
+    function checkDemand() {
+
+      const idea = document.getElementById("idea").value.trim();
+      const result = document.getElementById("result");
+
+      if (idea === "") {
+        alert("Describe your idea first.");
+        return;
+      }
+
+      result.style.display = "block";
+
+      result.scrollIntoView({
+        behavior: "smooth"
+      });
+    }
+  </script>
+
+</body>
+</html>
