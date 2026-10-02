@@ -1,241 +1,442 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reality Demand</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<title>Reality Demand</title>
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #080808;
-      color: white;
-      min-height: 100vh;
-    }
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 40px 20px;
-    }
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#070707;
+  color:#fff;
+  min-height:100vh;
+}
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 100px;
-    }
+.container{
+  max-width:1050px;
+  margin:auto;
+  padding:35px 20px 60px;
+}
 
-    .logo {
-      font-size: 22px;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:100px;
+}
 
-    .badge {
-      border: 1px solid #333;
-      padding: 8px 14px;
-      border-radius: 20px;
-      color: #aaa;
-      font-size: 13px;
-    }
+.logo{
+  font-weight:bold;
+  letter-spacing:2px;
+  font-size:20px;
+}
 
-    .hero {
-      text-align: center;
-      max-width: 800px;
-      margin: auto;
-    }
+.badge{
+  border:1px solid #292929;
+  color:#999;
+  padding:8px 14px;
+  border-radius:30px;
+  font-size:12px;
+}
 
-    .hero h1 {
-      font-size: clamp(45px, 8vw, 82px);
-      line-height: 0.95;
-      margin-bottom: 25px;
-      letter-spacing: -4px;
-    }
+.hero{
+  text-align:center;
+  max-width:850px;
+  margin:auto;
+}
 
-    .hero h1 span {
-      color: #8b5cf6;
-    }
+.eyebrow{
+  color:#9b6cff;
+  font-size:13px;
+  letter-spacing:3px;
+  margin-bottom:20px;
+  font-weight:bold;
+}
 
-    .hero p {
-      color: #999;
-      font-size: 19px;
-      line-height: 1.6;
-      margin-bottom: 45px;
-    }
+h1{
+  font-size:clamp(48px,8vw,86px);
+  line-height:.95;
+  letter-spacing:-5px;
+  margin-bottom:28px;
+}
 
-    .box {
-      background: #111;
-      border: 1px solid #292929;
-      border-radius: 18px;
-      padding: 25px;
-      text-align: left;
-    }
+h1 span{
+  color:#925cff;
+}
 
-    textarea {
-      width: 100%;
-      height: 150px;
-      background: transparent;
-      border: none;
-      outline: none;
-      color: white;
-      font-size: 18px;
-      resize: none;
-    }
+.subtitle{
+  color:#999;
+  max-width:680px;
+  margin:auto;
+  font-size:18px;
+  line-height:1.7;
+  margin-bottom:50px;
+}
 
-    textarea::placeholder {
-      color: #555;
-    }
+.box{
+  background:#101010;
+  border:1px solid #292929;
+  border-radius:20px;
+  padding:25px;
+  text-align:left;
+  box-shadow:0 0 60px rgba(139,92,246,.08);
+}
 
-    button {
-      width: 100%;
-      padding: 18px;
-      border: none;
-      border-radius: 12px;
-      background: #8b5cf6;
-      color: white;
-      font-size: 17px;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 15px;
-    }
+textarea{
+  width:100%;
+  height:145px;
+  background:transparent;
+  border:0;
+  outline:0;
+  color:white;
+  font-size:18px;
+  line-height:1.5;
+  resize:none;
+}
 
-    button:hover {
-      background: #7c3aed;
-    }
+textarea::placeholder{
+  color:#505050;
+}
 
-    .result {
-      display: none;
-      margin-top: 25px;
-      padding: 25px;
-      background: #111;
-      border: 1px solid #292929;
-      border-radius: 18px;
-    }
+button{
+  width:100%;
+  border:0;
+  padding:18px;
+  border-radius:12px;
+  background:#8b5cf6;
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.2s;
+}
 
-    .result h2 {
-      margin-bottom: 20px;
-    }
+button:hover{
+  background:#7c3aed;
+  transform:translateY(-1px);
+}
 
-    .item {
-      padding: 15px 0;
-      border-bottom: 1px solid #222;
-    }
+.analyzing{
+  display:none;
+  margin-top:25px;
+  background:#101010;
+  border:1px solid #292929;
+  border-radius:20px;
+  padding:35px;
+  text-align:left;
+}
 
-    .item:last-child {
-      border-bottom: none;
-    }
+.analyzing h2{
+  margin-bottom:25px;
+}
 
-    .label {
-      color: #777;
-      font-size: 13px;
-      margin-bottom: 5px;
-    }
+.scan{
+  padding:14px 0;
+  border-bottom:1px solid #222;
+  color:#777;
+}
 
-    .value {
-      font-size: 17px;
-    }
+.scan.active{
+  color:#b994ff;
+}
 
-    footer {
-      text-align: center;
-      margin-top: 100px;
-      color: #444;
-      font-size: 13px;
-    }
-  </style>
+.dot{
+  display:inline-block;
+  width:7px;
+  height:7px;
+  background:#8b5cf6;
+  border-radius:50%;
+  margin-right:10px;
+  animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+  50%{opacity:.25}
+}
+
+.report{
+  display:none;
+  margin-top:25px;
+  background:#101010;
+  border:1px solid #292929;
+  border-radius:20px;
+  padding:30px;
+  text-align:left;
+}
+
+.report-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:25px;
+}
+
+.report-title h2{
+  font-size:26px;
+}
+
+.live{
+  color:#8b5cf6;
+  font-size:12px;
+  letter-spacing:2px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+.card{
+  border:1px solid #252525;
+  background:#0c0c0c;
+  border-radius:14px;
+  padding:20px;
+}
+
+.label{
+  color:#666;
+  font-size:11px;
+  letter-spacing:2px;
+  margin-bottom:10px;
+}
+
+.value{
+  font-size:18px;
+}
+
+.next{
+  margin-top:15px;
+  border:1px solid #5636a0;
+  background:#15101f;
+  border-radius:14px;
+  padding:22px;
+}
+
+.next .value{
+  color:#d5c5ff;
+  line-height:1.5;
+}
+
+.reset{
+  margin-top:15px;
+  background:transparent;
+  border:1px solid #333;
+  color:#aaa;
+}
+
+footer{
+  text-align:center;
+  margin-top:100px;
+  color:#444;
+  font-size:12px;
+}
+
+@media(max-width:650px){
+  nav{
+    margin-bottom:70px;
+  }
+
+  .badge{
+    display:none;
+  }
+
+  h1{
+    letter-spacing:-3px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <div class="container">
+<div class="container">
 
-    <nav>
-      <div class="logo">REALITY DEMAND</div>
-      <div class="badge">BUILD LESS. TEST MORE.</div>
-    </nav>
+<nav>
+  <div class="logo">REALITY DEMAND</div>
+  <div class="badge">BUILD LESS. TEST MORE.</div>
+</nav>
 
-    <section class="hero">
+<section class="hero">
 
-      <h1>
-        Is your idea<br>
-        <span>actually wanted?</span>
-      </h1>
+<div class="eyebrow">DEMAND INTELLIGENCE</div>
 
-      <p>
-        Describe your product, service or business idea.
-        Reality Demand helps you test the idea before
-        wasting your time and money building it.
-      </p>
+<h1>
+  Is your idea<br>
+  <span>actually wanted?</span>
+</h1>
 
-      <div class="box">
+<p class="subtitle">
+  Describe your product, service or business idea.
+  Test the concept before spending your time and money building it.
+</p>
 
-        <textarea id="idea"
-          placeholder="Example: I want to sell healthy meals to people who work from home..."></textarea>
+<div class="box">
 
-        <button onclick="checkDemand()">
-          CHECK DEMAND →
-        </button>
+<textarea id="idea"
+placeholder="Example: I want to sell healthy meals to people who work from home..."></textarea>
 
-      </div>
+<button onclick="checkDemand()">
+  CHECK DEMAND →
+</button>
 
-      <div class="result" id="result">
+</div>
 
-        <h2>REALITY CHECK</h2>
+<div class="analyzing" id="analyzing">
 
-        <div class="item">
-          <div class="label">PROBLEM</div>
-          <div class="value">Your idea describes a specific problem.</div>
-        </div>
+<h2>ANALYZING YOUR IDEA</h2>
 
-        <div class="item">
-          <div class="label">CUSTOMER</div>
-          <div class="value">A target customer can be identified.</div>
-        </div>
+<div class="scan active">
+<span class="dot"></span>
+Understanding the problem
+</div>
 
-        <div class="item">
-          <div class="label">FIRST TEST</div>
-          <div class="value">Try to get your first 3 paying customers before building the full product.</div>
-        </div>
+<div class="scan">
+<span class="dot"></span>
+Identifying potential customers
+</div>
 
-        <div class="item">
-          <div class="label">NEXT MOVE</div>
-          <div class="value">Don't build yet. Test the demand first.</div>
-        </div>
+<div class="scan">
+<span class="dot"></span>
+Checking monetization possibilities
+</div>
 
-      </div>
+<div class="scan">
+<span class="dot"></span>
+Finding the first practical test
+</div>
 
-    </section>
+</div>
 
-    <footer>
-      Reality Demand — Validate before you build.
-    </footer>
+<div class="report" id="report">
 
-  </div>
+<div class="report-title">
+<h2>REALITY REPORT</h2>
+<div class="live">INITIAL ANALYSIS</div>
+</div>
 
-  <script>
-    function checkDemand() {
+<div class="grid">
 
-      const idea = document.getElementById("idea").value.trim();
-      const result = document.getElementById("result");
+<div class="card">
+<div class="label">PROBLEM</div>
+<div class="value" id="problem">
+A specific problem appears to be present.
+</div>
+</div>
 
-      if (idea === "") {
-        alert("Describe your idea first.");
-        return;
-      }
+<div class="card">
+<div class="label">CUSTOMER</div>
+<div class="value" id="customer">
+A potential customer group can be identified.
+</div>
+</div>
 
-      result.style.display = "block";
+<div class="card">
+<div class="label">MONETIZATION</div>
+<div class="value">
+There may be a path to charging for the solution.
+</div>
+</div>
 
-      result.scrollIntoView({
-        behavior: "smooth"
-      });
-    }
-  </script>
+<div class="card">
+<div class="label">MAIN RISK</div>
+<div class="value">
+Demand must be tested before investing heavily.
+</div>
+</div>
+
+</div>
+
+<div class="next">
+
+<div class="label">NEXT MOVE</div>
+
+<div class="value">
+Don't build the full business yet.
+Try to get your first 3 paying customers with the smallest possible version.
+</div>
+
+</div>
+
+<button class="reset" onclick="resetCheck()">
+CHECK ANOTHER IDEA
+</button>
+
+</div>
+
+</section>
+
+<footer>
+Reality Demand — Validate before you build.
+</footer>
+
+</div>
+
+<script>
+
+function checkDemand(){
+
+const idea=document.getElementById("idea").value.trim();
+
+if(idea===""){
+alert("Describe your idea first.");
+return;
+}
+
+document.getElementById("report").style.display="none";
+
+const analyzing=document.getElementById("analyzing");
+
+analyzing.style.display="block";
+
+const scans=document.querySelectorAll(".scan");
+
+scans.forEach((scan,index)=>{
+setTimeout(()=>{
+scan.classList.add("active");
+},index*600);
+});
+
+setTimeout(()=>{
+
+analyzing.style.display="none";
+
+document.getElementById("report").style.display="block";
+
+document.getElementById("report").scrollIntoView({
+behavior:"smooth"
+});
+
+},2800);
+
+}
+
+function resetCheck(){
+
+document.getElementById("idea").value="";
+
+document.getElementById("report").style.display="none";
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+</script>
 
 </body>
 </html>
