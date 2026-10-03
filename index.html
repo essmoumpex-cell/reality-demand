@@ -8,356 +8,193 @@
 <style>
 :root{
   --bg:#050507;
-  --bg2:#09090d;
-  --card:rgba(18,18,25,.72);
-  --card2:rgba(25,24,36,.72);
-  --text:#f5f3ff;
-  --muted:#9692a8;
+  --panel:#0b0b10;
+  --panel2:#111119;
+  --text:#f5f5f7;
+  --muted:#8d8d9a;
   --line:rgba(255,255,255,.09);
-  --purple:#8b5cf6;
-  --purple2:#c084fc;
-  --blue:#38bdf8;
-  --green:#34d399;
+  --purple:#9b5cff;
+  --blue:#4d9fff;
+  --green:#4ade80;
   --orange:#fb923c;
   --red:#fb7185;
-  --shadow:0 20px 70px rgba(0,0,0,.45);
+  --yellow:#facc15;
 }
 
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
-html{
-  scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth}
 
 body{
   margin:0;
   background:
-    radial-gradient(circle at 15% 10%,rgba(139,92,246,.16),transparent 28%),
-    radial-gradient(circle at 85% 25%,rgba(56,189,248,.10),transparent 25%),
-    radial-gradient(circle at 50% 100%,rgba(139,92,246,.08),transparent 30%),
+    radial-gradient(circle at 50% -10%,rgba(130,70,255,.22),transparent 35%),
+    radial-gradient(circle at 90% 20%,rgba(40,120,255,.10),transparent 25%),
     var(--bg);
   color:var(--text);
-  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-family:Inter,Arial,sans-serif;
   min-height:100vh;
-  overflow-x:hidden;
 }
 
-/* BACKGROUND */
-
-.noise{
+body:before{
+  content:"";
   position:fixed;
   inset:0;
   pointer-events:none;
-  opacity:.025;
-  z-index:1;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:40px 40px;
+  mask-image:linear-gradient(to bottom,black,transparent 80%);
 }
 
-.orb{
-  position:fixed;
-  width:360px;
-  height:360px;
-  border-radius:50%;
-  filter:blur(90px);
-  opacity:.13;
-  pointer-events:none;
-  z-index:0;
+.container{
+  width:min(1180px,92%);
+  margin:auto;
 }
-
-.orb.one{
-  background:#8b5cf6;
-  top:-180px;
-  left:-120px;
-  animation:floatOne 12s ease-in-out infinite;
-}
-
-.orb.two{
-  background:#38bdf8;
-  right:-170px;
-  top:35%;
-  animation:floatTwo 15s ease-in-out infinite;
-}
-
-@keyframes floatOne{
-  0%,100%{transform:translate(0,0)}
-  50%{transform:translate(80px,70px)}
-}
-
-@keyframes floatTwo{
-  0%,100%{transform:translate(0,0)}
-  50%{transform:translate(-70px,-80px)}
-}
-
-/* HEADER */
 
 header{
-  position:relative;
-  z-index:5;
-  max-width:1180px;
-  margin:auto;
-  padding:25px 22px 10px;
+  padding:28px 0;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  gap:20px;
-}
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-
-.logo{
-  width:38px;
-  height:38px;
-  border-radius:12px;
-  background:linear-gradient(135deg,#8b5cf6,#38bdf8);
-  display:grid;
-  place-items:center;
-  box-shadow:0 0 30px rgba(139,92,246,.35);
+  border-bottom:1px solid var(--line);
   position:relative;
-}
-
-.logo:after{
-  content:"";
-  width:14px;
-  height:14px;
-  border:2px solid white;
-  border-radius:50%;
-  position:absolute;
-}
-
-.logo:before{
-  content:"";
-  width:5px;
-  height:5px;
-  background:white;
-  border-radius:50%;
-  position:absolute;
   z-index:2;
 }
 
-.brand-name{
-  font-weight:800;
-  letter-spacing:.16em;
-  font-size:15px;
+.logo{
+  font-weight:900;
+  letter-spacing:3px;
+  font-size:20px;
 }
 
-.brand-sub{
+.logo span{
+  color:var(--purple);
+}
+
+.header-right{
   color:var(--muted);
-  font-size:11px;
-  margin-top:2px;
-}
-
-.controls{
-  display:flex;
-  gap:8px;
-}
-
-select{
-  background:rgba(255,255,255,.05);
-  border:1px solid var(--line);
-  color:#ddd8eb;
-  padding:9px 11px;
-  border-radius:10px;
-  outline:none;
   font-size:12px;
+  letter-spacing:1.5px;
 }
-
-option{
-  background:#111118;
-}
-
-/* MAIN */
-
-main{
-  position:relative;
-  z-index:3;
-  max-width:1180px;
-  margin:auto;
-  padding:45px 22px 80px;
-}
-
-/* HERO */
 
 .hero{
+  padding:80px 0 50px;
   text-align:center;
-  max-width:850px;
-  margin:20px auto 55px;
 }
 
-.pill{
+.kicker{
   display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:7px 12px;
-  border:1px solid rgba(139,92,246,.25);
-  background:rgba(139,92,246,.08);
-  color:#cbb5ff;
+  padding:8px 14px;
+  border:1px solid rgba(155,92,255,.3);
   border-radius:999px;
+  color:#c7a7ff;
+  background:rgba(155,92,255,.07);
   font-size:11px;
-  letter-spacing:.13em;
-  text-transform:uppercase;
-  margin-bottom:22px;
-  animation:fadeUp .8s ease both;
-}
-
-.pill-dot{
-  width:6px;
-  height:6px;
-  border-radius:50%;
-  background:#a78bfa;
-  box-shadow:0 0 12px #a78bfa;
-  animation:pulse 2s infinite;
-}
-
-@keyframes pulse{
-  0%,100%{opacity:1;transform:scale(1)}
-  50%{opacity:.45;transform:scale(.65)}
+  letter-spacing:2px;
+  margin-bottom:25px;
 }
 
 .hero h1{
   font-size:clamp(42px,7vw,78px);
   line-height:.95;
-  letter-spacing:-.055em;
   margin:0;
-  font-weight:850;
-  background:linear-gradient(100deg,#fff 15%,#c4b5fd 50%,#7dd3fc 90%);
+  letter-spacing:-4px;
+}
+
+.hero h1 span{
+  background:linear-gradient(90deg,#fff,#a978ff,#58a7ff);
   -webkit-background-clip:text;
-  background-clip:text;
   color:transparent;
-  animation:fadeUp .9s .1s ease both;
 }
 
 .hero p{
-  max-width:590px;
-  margin:22px auto 0;
+  max-width:650px;
+  margin:25px auto 0;
   color:var(--muted);
-  font-size:16px;
-  line-height:1.7;
-  animation:fadeUp .9s .2s ease both;
+  font-size:17px;
+  line-height:1.6;
 }
 
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(18px)}
-  to{opacity:1;transform:translateY(0)}
-}
-
-/* INPUT */
-
-.launch-card{
-  max-width:850px;
-  margin:auto;
-  padding:8px;
-  border-radius:24px;
-  background:linear-gradient(135deg,rgba(139,92,246,.20),rgba(56,189,248,.10),rgba(255,255,255,.03));
-  box-shadow:var(--shadow);
-  animation:fadeUp .9s .3s ease both;
-}
-
-.launch-inner{
-  background:rgba(9,9,14,.91);
+.input-panel{
+  max-width:900px;
+  margin:30px auto 0;
+  padding:20px;
   border:1px solid var(--line);
-  border-radius:18px;
-  padding:22px;
+  border-radius:24px;
+  background:rgba(12,12,18,.8);
+  box-shadow:0 25px 80px rgba(0,0,0,.45);
+  backdrop-filter:blur(20px);
+}
+
+textarea,input,select{
+  width:100%;
+  border:1px solid var(--line);
+  background:#08080c;
+  color:white;
+  border-radius:14px;
+  padding:15px;
+  outline:none;
+  font-size:15px;
 }
 
 textarea{
-  width:100%;
-  min-height:105px;
+  min-height:120px;
   resize:vertical;
-  background:transparent;
-  border:0;
-  outline:none;
-  color:white;
-  font-size:19px;
-  line-height:1.5;
-  font-family:inherit;
 }
 
-textarea::placeholder{
-  color:#5f5a6d;
+textarea:focus,input:focus,select:focus{
+  border-color:rgba(155,92,255,.7);
+  box-shadow:0 0 0 3px rgba(155,92,255,.08);
 }
 
-.input-bottom{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:15px;
-  border-top:1px solid var(--line);
-  padding-top:15px;
-  margin-top:10px;
+.row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:12px;
 }
 
-.market-input{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-}
-
-.market-input input{
-  background:rgba(255,255,255,.045);
-  border:1px solid var(--line);
-  color:white;
-  border-radius:10px;
-  padding:10px 12px;
-  outline:none;
-  width:170px;
-}
-
-.analyze{
+button{
   border:0;
   cursor:pointer;
   color:white;
   font-weight:800;
-  letter-spacing:.03em;
-  padding:13px 21px;
-  border-radius:12px;
-  background:linear-gradient(135deg,#7c3aed,#2563eb);
-  box-shadow:0 10px 30px rgba(99,102,241,.25);
+  letter-spacing:1px;
+}
+
+.analyze{
+  width:100%;
+  margin-top:14px;
+  padding:17px;
+  border-radius:14px;
+  background:linear-gradient(90deg,#743cff,#3c8dff);
+  box-shadow:0 10px 40px rgba(110,60,255,.25);
   transition:.25s;
-  white-space:nowrap;
 }
 
 .analyze:hover{
   transform:translateY(-2px);
-  box-shadow:0 15px 38px rgba(99,102,241,.38);
+  box-shadow:0 15px 50px rgba(110,60,255,.4);
 }
 
-.analyze:active{
-  transform:translateY(0);
+.scan{
+  display:none;
+  text-align:center;
+  padding:70px 20px;
 }
-
-/* SCANNING */
 
 .scanner{
-  display:none;
-  max-width:850px;
-  margin:25px auto 0;
-  padding:25px;
-  border:1px solid rgba(139,92,246,.18);
-  border-radius:18px;
-  background:rgba(12,11,18,.75);
-  text-align:center;
-}
-
-.scanner.active{
-  display:block;
-  animation:fadeUp .5s ease;
-}
-
-.scan-ring{
-  width:62px;
-  height:62px;
-  border:2px solid rgba(139,92,246,.25);
-  border-top-color:#a78bfa;
-  border-right-color:#38bdf8;
+  width:100px;
+  height:100px;
   border-radius:50%;
-  margin:0 auto 16px;
+  margin:auto;
+  border:2px solid rgba(155,92,255,.15);
+  border-top-color:var(--purple);
+  border-right-color:var(--blue);
   animation:spin 1s linear infinite;
+  box-shadow:0 0 50px rgba(130,80,255,.18);
 }
 
 @keyframes spin{
@@ -365,341 +202,260 @@ textarea::placeholder{
 }
 
 .scan-title{
-  font-weight:750;
-}
-
-.scan-text{
-  color:var(--muted);
-  font-size:13px;
-  margin-top:5px;
-}
-
-/* RESULTS */
-
-#results{
-  display:none;
-  margin-top:80px;
-}
-
-#results.show{
-  display:block;
-}
-
-.section-intro{
-  text-align:center;
-  margin-bottom:32px;
-}
-
-.eyebrow{
-  color:#a78bfa;
-  font-size:10px;
-  letter-spacing:.2em;
-  text-transform:uppercase;
+  margin-top:25px;
+  font-size:18px;
   font-weight:800;
 }
 
-.section-intro h2{
-  margin:9px 0 8px;
-  font-size:32px;
-  letter-spacing:-.03em;
-}
-
-.section-intro p{
+.scan-status{
+  margin-top:10px;
   color:var(--muted);
-  margin:0;
 }
 
-/* SCORE */
+.results{
+  display:none;
+  padding:30px 0 100px;
+}
 
 .signal{
-  position:relative;
-  max-width:850px;
-  margin:auto;
-  min-height:270px;
+  padding:45px 25px;
   border:1px solid var(--line);
-  border-radius:26px;
+  border-radius:28px;
   background:
-    radial-gradient(circle at 50% 35%,rgba(139,92,246,.14),transparent 38%),
-    rgba(12,11,18,.72);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-  box-shadow:var(--shadow);
-}
-
-.signal:before{
-  content:"";
-  position:absolute;
-  width:450px;
-  height:450px;
-  border-radius:50%;
-  border:1px solid rgba(139,92,246,.08);
-  animation:rotateRing 18s linear infinite;
-}
-
-.signal:after{
-  content:"";
-  position:absolute;
-  width:300px;
-  height:300px;
-  border-radius:50%;
-  border:1px dashed rgba(56,189,248,.10);
-  animation:rotateRing 12s linear infinite reverse;
-}
-
-@keyframes rotateRing{
-  to{transform:rotate(360deg)}
-}
-
-.score-content{
-  position:relative;
-  z-index:2;
+    radial-gradient(circle at 50% 0%,rgba(120,70,255,.15),transparent 50%),
+    rgba(10,10,15,.9);
   text-align:center;
 }
 
-.score-number{
-  font-size:82px;
-  line-height:1;
-  font-weight:850;
-  letter-spacing:-.07em;
-  background:linear-gradient(135deg,#fff,#a78bfa,#67e8f9);
+.signal-label{
+  color:var(--muted);
+  letter-spacing:2px;
+  font-size:11px;
+}
+
+.signal-number{
+  font-size:90px;
+  font-weight:900;
+  letter-spacing:-6px;
+  margin:10px 0;
+  background:linear-gradient(180deg,#fff,#a675ff);
   -webkit-background-clip:text;
   color:transparent;
-  background-clip:text;
 }
 
-.score-label{
-  margin-top:7px;
-  font-size:11px;
-  letter-spacing:.22em;
-  color:#aaa5b7;
-  text-transform:uppercase;
+.signal-text{
+  color:#b9b9c5;
 }
 
-.score-context{
-  margin-top:16px;
-  color:#d8d2e7;
-  font-size:14px;
-}
-
-/* QUICK INSIGHTS */
-
-.insights{
-  max-width:850px;
-  margin:22px auto 0;
+.quick{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:12px;
+  margin:15px 0 35px;
 }
 
-.insight{
-  padding:18px;
+.quick-card{
   border:1px solid var(--line);
-  border-radius:16px;
-  background:rgba(16,15,22,.7);
-  transition:.25s;
+  padding:22px;
+  border-radius:20px;
+  background:rgba(10,10,15,.7);
 }
 
-.insight:hover{
-  transform:translateY(-3px);
-  border-color:rgba(139,92,246,.3);
-}
-
-.insight-icon{
-  font-size:18px;
-  margin-bottom:12px;
-}
-
-.insight-title{
-  font-size:10px;
-  letter-spacing:.12em;
-  color:#8f899d;
+.quick-card small{
+  color:var(--muted);
   text-transform:uppercase;
+  letter-spacing:1.5px;
 }
 
-.insight-value{
-  margin-top:6px;
-  font-size:15px;
-  font-weight:700;
-  line-height:1.4;
+.quick-card strong{
+  display:block;
+  margin-top:10px;
+  font-size:18px;
 }
 
-/* BIG SECTIONS */
-
-.intelligence{
-  max-width:1000px;
-  margin:70px auto 0;
+.section{
+  border-top:1px solid var(--line);
+  padding:28px 0;
 }
 
-.intel-card{
-  margin-bottom:16px;
-  border:1px solid var(--line);
-  border-radius:22px;
-  background:rgba(12,11,18,.70);
-  overflow:hidden;
-  transition:.3s;
-}
-
-.intel-card:hover{
-  border-color:rgba(139,92,246,.25);
-}
-
-.intel-head{
+.section-head{
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  gap:20px;
-  padding:22px 24px;
+  align-items:center;
   cursor:pointer;
 }
 
-.intel-left{
-  display:flex;
-  align-items:center;
-  gap:14px;
+.section-title{
+  font-size:23px;
+  font-weight:900;
 }
 
-.big-icon{
-  width:43px;
-  height:43px;
-  border-radius:13px;
-  display:grid;
-  place-items:center;
-  background:rgba(139,92,246,.10);
-  border:1px solid rgba(139,92,246,.16);
-  font-size:19px;
-}
-
-.intel-title{
-  font-size:17px;
-  font-weight:780;
-}
-
-.intel-sub{
+.section-sub{
   color:var(--muted);
-  font-size:12px;
-  margin-top:3px;
+  margin-top:6px;
 }
 
-.chevron{
-  color:#777184;
-  transition:.25s;
+.arrow{
+  font-size:22px;
+  color:var(--muted);
+  transition:.2s;
 }
 
-.intel-card.open .chevron{
+.section.open .arrow{
   transform:rotate(180deg);
 }
 
-.intel-body{
+.section-content{
   display:none;
-  padding:0 24px 25px;
+  padding-top:25px;
 }
 
-.intel-card.open .intel-body{
+.section.open .section-content{
   display:block;
-  animation:fadeUp .35s ease;
+  animation:fade .3s ease;
 }
 
-/* EVIDENCE */
+@keyframes fade{
+  from{opacity:0;transform:translateY(5px)}
+  to{opacity:1;transform:none}
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+
+.stat{
+  padding:20px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:#09090d;
+}
+
+.stat-number{
+  font-size:30px;
+  font-weight:900;
+}
+
+.stat-label{
+  color:var(--muted);
+  font-size:12px;
+  margin-top:5px;
+}
 
 .evidence-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
   gap:10px;
 }
 
-.evidence-stat{
-  padding:17px;
-  border-radius:14px;
-  background:rgba(255,255,255,.035);
-}
-
-.evidence-stat strong{
-  display:block;
-  font-size:28px;
-}
-
-.evidence-stat span{
-  color:var(--muted);
-  font-size:11px;
-}
-
-.research-list{
-  margin-top:14px;
-  display:grid;
-  gap:10px;
-}
-
-.source{
-  display:flex;
-  align-items:flex-start;
-  gap:12px;
-  padding:14px;
+.evidence{
   border:1px solid var(--line);
-  border-radius:13px;
-  background:rgba(255,255,255,.025);
+  border-radius:18px;
+  padding:18px;
+  background:#09090d;
 }
 
-.source-dot{
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:#8b5cf6;
-  margin-top:5px;
-  flex:none;
+.evidence-top{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  align-items:flex-start;
 }
 
-.source-info{
-  min-width:0;
-}
-
-.source-title{
-  font-size:13px;
-  font-weight:700;
+.evidence-title{
+  font-weight:800;
   line-height:1.4;
 }
 
-.source-url{
-  color:#777184;
-  font-size:10px;
-  margin-top:4px;
-  word-break:break-all;
+.evidence a{
+  color:#b88cff;
+  text-decoration:none;
 }
 
-.source-link{
-  margin-left:auto;
-  color:#a78bfa;
-  text-decoration:none;
+.badge{
+  display:inline-block;
+  padding:6px 9px;
+  border-radius:999px;
   font-size:10px;
+  font-weight:900;
+  letter-spacing:.7px;
   white-space:nowrap;
 }
 
-/* MONEY */
+.direct{
+  color:#86efac;
+  background:rgba(74,222,128,.1);
+  border:1px solid rgba(74,222,128,.2);
+}
 
-.money-inputs{
+.directory{
+  color:#a7f3d0;
+  background:rgba(52,211,153,.08);
+  border:1px solid rgba(52,211,153,.2);
+}
+
+.price{
+  color:#93c5fd;
+  background:rgba(59,130,246,.1);
+  border:1px solid rgba(59,130,246,.2);
+}
+
+.customer{
+  color:#c4b5fd;
+  background:rgba(139,92,246,.1);
+  border:1px solid rgba(139,92,246,.2);
+}
+
+.supplier{
+  color:#fdba74;
+  background:rgba(249,115,22,.1);
+  border:1px solid rgba(249,115,22,.2);
+}
+
+.content{
+  color:#fde68a;
+  background:rgba(234,179,8,.08);
+  border:1px solid rgba(234,179,8,.2);
+}
+
+.background{
+  color:#a1a1aa;
+  background:rgba(113,113,122,.08);
+  border:1px solid rgba(113,113,122,.2);
+}
+
+.irrelevant{
+  color:#fda4af;
+  background:rgba(244,63,94,.08);
+  border:1px solid rgba(244,63,94,.2);
+}
+
+.evidence-meta{
+  margin-top:10px;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.5;
+}
+
+.money-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:10px;
+  gap:12px;
 }
 
-.money-input label{
-  display:block;
-  color:#8e899b;
-  font-size:10px;
-  margin-bottom:6px;
-  text-transform:uppercase;
-  letter-spacing:.08em;
-}
-
-.money-input input{
-  width:100%;
-  padding:12px;
-  border-radius:10px;
+.money-card{
+  padding:20px;
   border:1px solid var(--line);
-  background:rgba(255,255,255,.04);
-  color:white;
-  outline:none;
+  border-radius:18px;
+  background:#09090d;
+}
+
+.money-card label{
+  display:block;
+  color:var(--muted);
+  font-size:12px;
+  margin-bottom:8px;
 }
 
 .money-results{
@@ -709,229 +465,121 @@ textarea::placeholder{
   margin-top:15px;
 }
 
-.money-box{
-  padding:17px;
-  border-radius:14px;
-  background:rgba(255,255,255,.035);
-}
-
-.money-box .num{
-  font-size:23px;
-  font-weight:800;
-}
-
-.money-box .lbl{
-  color:var(--muted);
-  font-size:10px;
-  margin-top:4px;
-}
-
-/* PLAN */
-
-.plan{
-  display:grid;
-  gap:9px;
-}
-
-.day{
-  display:flex;
-  gap:15px;
-  padding:15px;
-  border-radius:13px;
-  background:rgba(255,255,255,.03);
-}
-
-.day-number{
-  color:#a78bfa;
-  font-weight:800;
-  width:52px;
-  flex:none;
-}
-
-.day-text{
-  font-size:13px;
-  line-height:1.5;
-}
-
-/* RISKS */
-
-.risk{
-  display:flex;
-  gap:13px;
-  padding:15px;
-  border-radius:13px;
-  background:rgba(251,113,133,.045);
-  border:1px solid rgba(251,113,133,.10);
-  margin-bottom:9px;
-}
-
-.risk strong{
-  font-size:13px;
-}
-
-.risk span{
-  display:block;
-  color:var(--muted);
-  font-size:12px;
-  margin-top:3px;
-}
-
-/* CTA */
-
-.final-cta{
-  max-width:850px;
-  margin:55px auto 0;
-  padding:35px 25px;
-  text-align:center;
-  border-radius:22px;
-  background:
-    radial-gradient(circle at 50% 0%,rgba(139,92,246,.17),transparent 55%),
-    rgba(14,13,21,.75);
+.money-result{
+  padding:18px;
+  border-radius:16px;
+  background:#101016;
   border:1px solid var(--line);
 }
 
-.final-cta h3{
-  margin:0;
+.money-result strong{
+  display:block;
   font-size:24px;
+  margin-top:5px;
 }
 
-.final-cta p{
+.plan{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:8px;
+}
+
+.day{
+  min-height:130px;
+  padding:15px;
+  border-radius:16px;
+  background:#09090d;
+  border:1px solid var(--line);
+}
+
+.day b{
+  color:#b98cff;
+}
+
+.day p{
   color:var(--muted);
-  font-size:13px;
-  line-height:1.6;
+  font-size:12px;
+  line-height:1.5;
 }
 
-.secondary{
-  border:1px solid rgba(139,92,246,.3);
-  background:rgba(139,92,246,.08);
-  color:#d9c9ff;
-  padding:11px 17px;
-  border-radius:11px;
-  cursor:pointer;
-  font-weight:700;
+.risks{
+  display:grid;
+  gap:10px;
 }
 
-/* EMPTY / ERROR */
-
-.error{
-  max-width:850px;
-  margin:25px auto;
+.risk{
   padding:18px;
-  border:1px solid rgba(251,113,133,.18);
-  background:rgba(251,113,133,.05);
-  color:#fda4af;
-  border-radius:14px;
+  border-left:3px solid var(--red);
+  background:#0d0d12;
+  border-radius:10px;
+  color:#c7c7d0;
+}
+
+.reset{
+  display:block;
+  margin:35px auto 0;
+  background:transparent;
+  color:var(--muted);
+  border:1px solid var(--line);
+  padding:12px 20px;
+  border-radius:12px;
+}
+
+.empty{
+  color:var(--muted);
+  padding:20px;
   text-align:center;
 }
-
-/* FOOTER */
 
 footer{
-  position:relative;
-  z-index:3;
-  max-width:1180px;
-  margin:auto;
-  padding:25px 22px 45px;
+  padding:30px 0;
   border-top:1px solid var(--line);
-  color:#666173;
-  font-size:11px;
+  color:#666673;
   text-align:center;
+  font-size:12px;
 }
 
-/* MOBILE */
-
-@media(max-width:700px){
-
-  header{
-    padding:18px 15px 5px;
-  }
-
-  .brand-sub{
-    display:none;
-  }
-
-  .controls select{
-    padding:7px 8px;
-    font-size:10px;
-  }
-
-  main{
-    padding:35px 15px 60px;
-  }
-
-  .hero{
-    margin-top:15px;
-    margin-bottom:35px;
-  }
-
-  .hero h1{
-    font-size:48px;
-  }
-
-  .hero p{
-    font-size:14px;
-  }
-
-  .launch-inner{
-    padding:17px;
-  }
-
-  textarea{
-    font-size:16px;
-    min-height:90px;
-  }
-
-  .input-bottom{
-    flex-direction:column;
-    align-items:stretch;
-  }
-
-  .market-input input{
-    width:100%;
-  }
-
-  .analyze{
-    width:100%;
-  }
-
-  .signal{
-    min-height:230px;
-  }
-
-  .score-number{
-    font-size:68px;
-  }
-
-  .insights{
-    grid-template-columns:1fr;
-  }
-
-  .money-inputs{
-    grid-template-columns:1fr 1fr;
-  }
-
+@media(max-width:800px){
+  .hero{padding-top:55px}
+  .row,
+  .quick,
+  .stats,
+  .money-grid,
   .money-results{
     grid-template-columns:1fr 1fr;
   }
 
-  .evidence-grid{
-    grid-template-columns:1fr 1fr 1fr;
+  .plan{
+    grid-template-columns:1fr 1fr;
   }
 
-  .intel-head{
-    padding:18px;
+  .signal-number{
+    font-size:70px;
+  }
+}
+
+@media(max-width:520px){
+  header{
+    align-items:flex-start;
+    gap:10px;
   }
 
-  .intel-body{
-    padding:0 18px 20px;
+  .header-right{
+    text-align:right;
+    font-size:9px;
   }
 
-  .intel-title{
-    font-size:15px;
+  .row,
+  .quick,
+  .stats,
+  .money-grid,
+  .money-results,
+  .plan{
+    grid-template-columns:1fr;
   }
 
-  .source-link{
-    display:none;
+  .hero h1{
+    letter-spacing:-2px;
   }
 }
 </style>
@@ -939,1775 +587,1232 @@ footer{
 
 <body>
 
-<div class="noise"></div>
-<div class="orb one"></div>
-<div class="orb two"></div>
+<div class="container">
 
 <header>
-
-  <div class="brand">
-    <div class="logo"></div>
-    <div>
-      <div class="brand-name">REALITY DEMAND</div>
-      <div class="brand-sub">MARKET INTELLIGENCE</div>
-    </div>
-  </div>
-
-  <div class="controls">
-    <select id="language">
-      <option value="en">English</option>
-      <option value="fr">Français</option>
-      <option value="ar">العربية</option>
-      <option value="darija">Darija</option>
-    </select>
-
-    <select id="country">
-      <option value="Morocco">Morocco</option>
-      <option value="France">France</option>
-      <option value="Belgium">Belgium</option>
-      <option value="Canada">Canada</option>
-      <option value="United States">United States</option>
-      <option value="United Kingdom">United Kingdom</option>
-      <option value="Spain">Spain</option>
-      <option value="Germany">Germany</option>
-      <option value="UAE">UAE</option>
-      <option value="India">India</option>
-      <option value="Japan">Japan</option>
-      <option value="Brazil">Brazil</option>
-    </select>
-  </div>
-
+  <div class="logo">REALITY <span>DEMAND</span></div>
+  <div class="header-right">MARKET INTELLIGENCE · v1.1</div>
 </header>
 
-<main>
+<section class="hero">
 
-  <section class="hero">
+  <div class="kicker">EVIDENCE BEFORE INVESTMENT</div>
 
-    <div class="pill">
-      <span class="pill-dot"></span>
-      Evidence before investment
+  <h1>Know before<br><span>you build.</span></h1>
+
+  <p>
+    Research the market, separate useful evidence from noise,
+    understand the money, and decide what needs to be tested first.
+  </p>
+
+  <div class="input-panel">
+
+    <textarea id="idea"
+      placeholder="Describe your business idea...&#10;&#10;Example: I want to sell crispy chicken sandwiches for 15 DH near schools."></textarea>
+
+    <div class="row">
+      <input id="city" placeholder="City / area — e.g. Casablanca">
+      <input id="target" placeholder="Target customer — e.g. students">
     </div>
 
-    <h1>Know before<br>you build.</h1>
+    <div class="row">
+      <select id="country">
+        <option value="Morocco">Morocco</option>
+        <option value="France">France</option>
+        <option value="Belgium">Belgium</option>
+        <option value="Canada">Canada</option>
+        <option value="United States">United States</option>
+        <option value="United Kingdom">United Kingdom</option>
+        <option value="Spain">Spain</option>
+        <option value="Germany">Germany</option>
+        <option value="UAE">UAE</option>
+        <option value="India">India</option>
+        <option value="Japan">Japan</option>
+        <option value="Brazil">Brazil</option>
+      </select>
 
-    <p>
-      Reality Demand turns an idea into market evidence,
-      money reality and a practical first move.
-    </p>
-
-  </section>
-
-
-  <!-- INPUT -->
-
-  <section class="launch-card">
-
-    <div class="launch-inner">
-
-      <textarea
-        id="idea"
-        placeholder="Describe what you want to launch...&#10;&#10;Example: I want to sell crispy chicken sandwiches in Casablanca"
-      ></textarea>
-
-      <div class="input-bottom">
-
-        <div class="market-input">
-
-          <input
-            id="city"
-            type="text"
-            placeholder="City / area"
-            value="Casablanca"
-          >
-
-          <input
-            id="target"
-            type="text"
-            placeholder="Target customer"
-          >
-
-        </div>
-
-        <button class="analyze" onclick="startResearch()">
-          ANALYZE MARKET →
-        </button>
-
-      </div>
-
+      <input id="price"
+        type="number"
+        placeholder="Expected selling price">
     </div>
 
-  </section>
+    <button class="analyze" id="analyze">
+      ANALYZE MARKET →
+    </button>
 
+  </div>
 
-  <!-- SCANNER -->
+</section>
 
-  <div class="scanner" id="scanner">
+<div class="scan" id="scan">
+  <div class="scanner"></div>
+  <div class="scan-title">Reality Engine is researching...</div>
+  <div class="scan-status" id="scanStatus">
+    Searching local competitors...
+  </div>
+</div>
 
-    <div class="scan-ring"></div>
+<section class="results" id="results">
 
-    <div class="scan-title">
-      Reality Engine is scanning the market
+  <div class="signal">
+    <div class="signal-label">DEMAND SIGNAL</div>
+    <div class="signal-number" id="score">0</div>
+    <div class="signal-text" id="scoreText">
+      Initial evidence signal — not a guarantee of demand.
+    </div>
+  </div>
+
+  <div class="quick">
+
+    <div class="quick-card">
+      <small>Market</small>
+      <strong id="quickMarket">Researching...</strong>
     </div>
 
-    <div class="scan-text" id="scanText">
-      Searching competitors...
+    <div class="quick-card">
+      <small>Competition</small>
+      <strong id="quickCompetition">Researching...</strong>
+    </div>
+
+    <div class="quick-card">
+      <small>Next move</small>
+      <strong id="quickMove">Research first</strong>
     </div>
 
   </div>
 
+  <!-- MARKET -->
 
-  <!-- RESULTS -->
+  <div class="section open">
 
-  <section id="results">
+    <div class="section-head">
+      <div>
+        <div class="section-title">Market Reality</div>
+        <div class="section-sub">
+          What the web evidence actually contains.
+        </div>
+      </div>
+      <div class="arrow">⌄</div>
+    </div>
 
-    <div class="section-intro">
+    <div class="section-content">
 
-      <div class="eyebrow">Reality Engine Report</div>
+      <div class="stats">
 
-      <h2 id="resultTitle">Market Reality</h2>
+        <div class="stat">
+          <div class="stat-number" id="totalResults">0</div>
+          <div class="stat-label">TOTAL RESULTS</div>
+        </div>
 
-      <p id="resultSubtitle">
-        Evidence collected from the selected market.
-      </p>
+        <div class="stat">
+          <div class="stat-number" id="directCount">0</div>
+          <div class="stat-label">DIRECT COMPETITORS</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-number" id="priceCount">0</div>
+          <div class="stat-label">PRICE SIGNALS</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-number" id="customerCount">0</div>
+          <div class="stat-label">CUSTOMER SIGNALS</div>
+        </div>
+
+      </div>
+
+      <div style="height:18px"></div>
+
+      <div class="evidence-grid" id="evidenceList"></div>
 
     </div>
 
+  </div>
 
-    <!-- SCORE -->
+  <!-- MONEY -->
 
-    <div class="signal">
+  <div class="section">
 
-      <div class="score-content">
+    <div class="section-head">
+      <div>
+        <div class="section-title">Money Reality</div>
+        <div class="section-sub">
+          Test your own unit economics.
+        </div>
+      </div>
+      <div class="arrow">⌄</div>
+    </div>
 
-        <div class="score-number" id="score">
-          —
+    <div class="section-content">
+
+      <div class="money-grid">
+
+        <div class="money-card">
+          <label>Selling price / unit</label>
+          <input id="moneyPrice" type="number" placeholder="15">
         </div>
 
-        <div class="score-label">
-          Demand Signal
+        <div class="money-card">
+          <label>Total cost / unit</label>
+          <input id="moneyCost" type="number" placeholder="8">
         </div>
 
-        <div class="score-context" id="scoreContext">
-          Initial market signal
+        <div class="money-card">
+          <label>Units sold / day</label>
+          <input id="moneyUnits" type="number" placeholder="50">
+        </div>
+
+      </div>
+
+      <div class="money-results">
+
+        <div class="money-result">
+          Profit / unit
+          <strong id="profitUnit">—</strong>
+        </div>
+
+        <div class="money-result">
+          Gross margin
+          <strong id="margin">—</strong>
+        </div>
+
+        <div class="money-result">
+          Daily gross
+          <strong id="dailyProfit">—</strong>
+        </div>
+
+        <div class="money-result">
+          30-day gross
+          <strong id="monthlyProfit">—</strong>
         </div>
 
       </div>
 
     </div>
 
+  </div>
 
-    <!-- QUICK INSIGHTS -->
+  <!-- CUSTOMER -->
 
-    <div class="insights">
+  <div class="section">
 
-      <div class="insight">
-
-        <div class="insight-icon">◉</div>
-
-        <div class="insight-title">
-          Market
+    <div class="section-head">
+      <div>
+        <div class="section-title">Customer Reality</div>
+        <div class="section-sub">
+          A target customer is a hypothesis until someone acts.
         </div>
+      </div>
+      <div class="arrow">⌄</div>
+    </div>
 
-        <div class="insight-value" id="marketInsight">
-          Scanning...
-        </div>
+    <div class="section-content">
 
+      <div class="risk">
+        <strong>Test this before investing:</strong><br><br>
+        Can you identify 10 real people who fit your target?
+        Can you show them the offer?
+        Will they give you money, place an order, leave contact details,
+        or take another measurable action?
       </div>
 
+      <div style="height:12px"></div>
 
-      <div class="insight">
-
-        <div class="insight-icon">◆</div>
-
-        <div class="insight-title">
-          Competition
-        </div>
-
-        <div class="insight-value" id="competitionInsight">
-          Scanning...
-        </div>
-
+      <div class="risk">
+        <strong>Your current target:</strong>
+        <span id="customerTarget">Not specified</span>
       </div>
 
+    </div>
 
-      <div class="insight">
+  </div>
 
-        <div class="insight-icon">↗</div>
+  <!-- FIRST MOVE -->
 
-        <div class="insight-title">
-          Next move
+  <div class="section">
+
+    <div class="section-head">
+      <div>
+        <div class="section-title">Your First Move</div>
+        <div class="section-sub">
+          Seven days of validation before serious investment.
+        </div>
+      </div>
+      <div class="arrow">⌄</div>
+    </div>
+
+    <div class="section-content">
+
+      <div class="plan">
+
+        <div class="day">
+          <b>DAY 1</b>
+          <p>Define the exact customer and problem.</p>
         </div>
 
-        <div class="insight-value" id="nextInsight">
-          Scanning...
+        <div class="day">
+          <b>DAY 2</b>
+          <p>Find 5–10 real competitors or alternatives.</p>
+        </div>
+
+        <div class="day">
+          <b>DAY 3</b>
+          <p>Record real prices and offers.</p>
+        </div>
+
+        <div class="day">
+          <b>DAY 4</b>
+          <p>Talk to potential customers.</p>
+        </div>
+
+        <div class="day">
+          <b>DAY 5</b>
+          <p>Test the smallest sellable version.</p>
+        </div>
+
+        <div class="day">
+          <b>DAY 6</b>
+          <p>Measure orders, interest, objections and costs.</p>
+        </div>
+
+        <div class="day">
+          <b>DAY 7</b>
+          <p>Decide what evidence is still missing.</p>
         </div>
 
       </div>
 
     </div>
 
+  </div>
 
-    <!-- INTELLIGENCE -->
+  <!-- RISKS -->
 
-    <div class="intelligence">
+  <div class="section">
 
-
-      <!-- MARKET -->
-
-      <div class="intel-card open">
-
-        <div class="intel-head" onclick="toggleCard(this)">
-
-          <div class="intel-left">
-
-            <div class="big-icon">◉</div>
-
-            <div>
-
-              <div class="intel-title">
-                Market Reality
-              </div>
-
-              <div class="intel-sub">
-                What is actually visible in the market
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="chevron">⌄</div>
-
+    <div class="section-head">
+      <div>
+        <div class="section-title">What Can Kill The Idea?</div>
+        <div class="section-sub">
+          Things you need to prove, not assumptions.
         </div>
-
-
-        <div class="intel-body">
-
-          <div class="evidence-grid">
-
-            <div class="evidence-stat">
-              <strong id="totalResults">0</strong>
-              <span>Web results</span>
-            </div>
-
-            <div class="evidence-stat">
-              <strong id="competitors">0</strong>
-              <span>Competitor signals</span>
-            </div>
-
-            <div class="evidence-stat">
-              <strong id="priceSignals">0</strong>
-              <span>Price signals</span>
-            </div>
-
-          </div>
-
-          <div class="research-list" id="researchList"></div>
-
-        </div>
-
       </div>
+      <div class="arrow">⌄</div>
+    </div>
 
+    <div class="section-content">
 
-      <!-- MONEY -->
-
-      <div class="intel-card">
-
-        <div class="intel-head" onclick="toggleCard(this)">
-
-          <div class="intel-left">
-
-            <div class="big-icon">₽</div>
-
-            <div>
-
-              <div class="intel-title">
-                Money Reality
-              </div>
-
-              <div class="intel-sub">
-                Test your numbers before spending
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="chevron">⌄</div>
-
-        </div>
-
-
-        <div class="intel-body">
-
-          <div class="money-inputs">
-
-            <div class="money-input">
-              <label>Selling price</label>
-              <input id="sellPrice" type="number" placeholder="20">
-            </div>
-
-            <div class="money-input">
-              <label>Cost / unit</label>
-              <input id="unitCost" type="number" placeholder="11">
-            </div>
-
-            <div class="money-input">
-              <label>Units / day</label>
-              <input id="unitsDay" type="number" placeholder="50">
-            </div>
-
-          </div>
-
-
-          <div class="money-results">
-
-            <div class="money-box">
-              <div class="num" id="profitUnit">—</div>
-              <div class="lbl">Profit / unit</div>
-            </div>
-
-            <div class="money-box">
-              <div class="num" id="margin">—</div>
-              <div class="lbl">Gross margin</div>
-            </div>
-
-            <div class="money-box">
-              <div class="num" id="dailyProfit">—</div>
-              <div class="lbl">Daily gross</div>
-            </div>
-
-            <div class="money-box">
-              <div class="num" id="monthlyProfit">—</div>
-              <div class="lbl">30-day gross</div>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- CUSTOMER -->
-
-      <div class="intel-card">
-
-        <div class="intel-head" onclick="toggleCard(this)">
-
-          <div class="intel-left">
-
-            <div class="big-icon">◎</div>
-
-            <div>
-
-              <div class="intel-title">
-                Customer Reality
-              </div>
-
-              <div class="intel-sub">
-                The people who could actually pay
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="chevron">⌄</div>
-
-        </div>
-
-
-        <div class="intel-body">
-
-          <div id="customerContent">
-
-            <p style="color:#aaa;line-height:1.7;font-size:13px;">
-              Your target customer has not been defined yet.
-              Start with one specific person, problem and buying situation.
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- PLAN -->
-
-      <div class="intel-card">
-
-        <div class="intel-head" onclick="toggleCard(this)">
-
-          <div class="intel-left">
-
-            <div class="big-icon">→</div>
-
-            <div>
-
-              <div class="intel-title">
-                Your First Move
-              </div>
-
-              <div class="intel-sub">
-                Seven days without overbuilding
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="chevron">⌄</div>
-
-        </div>
-
-
-        <div class="intel-body">
-
-          <div class="plan" id="plan"></div>
-
-        </div>
-
-      </div>
-
-
-      <!-- RISKS -->
-
-      <div class="intel-card">
-
-        <div class="intel-head" onclick="toggleCard(this)">
-
-          <div class="intel-left">
-
-            <div class="big-icon">!</div>
-
-            <div>
-
-              <div class="intel-title">
-                What Can Kill The Idea?
-              </div>
-
-              <div class="intel-sub">
-                Unknowns worth testing before investment
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="chevron">⌄</div>
-
-        </div>
-
-
-        <div class="intel-body">
-
-          <div id="risks"></div>
-
-        </div>
-
-      </div>
-
+      <div class="risks" id="risks"></div>
 
     </div>
 
+  </div>
 
-    <!-- FINAL -->
+  <button class="reset" id="reset">RESET ANALYSIS</button>
 
-    <div class="final-cta">
-
-      <h3>Evidence first. Investment second.</h3>
-
-      <p>
-        This report is a research assistant, not proof that customers will buy.
-        Verify the important signals directly before committing serious money.
-      </p>
-
-      <button class="secondary" onclick="resetTool()">
-        ANALYZE ANOTHER IDEA
-      </button>
-
-    </div>
-
-  </section>
-
-</main>
-
+</section>
 
 <footer>
-  REALITY DEMAND — Evidence before investment.
+  REALITY DEMAND · Evidence before investment.
 </footer>
 
+</div>
 
 <script>
 
 const API =
 "https://reality-demand-api.essmoumpex.workers.dev/api/search";
 
+const $ = id => document.getElementById(id);
 
-/* --------------------------------------------------
-   HELPERS
--------------------------------------------------- */
+let latestResults = [];
 
 function escapeHTML(value){
-
-  return String(value ?? "")
+  return String(value || "")
     .replace(/&/g,"&amp;")
     .replace(/</g,"&lt;")
     .replace(/>/g,"&gt;")
     .replace(/"/g,"&quot;")
     .replace(/'/g,"&#039;");
-
 }
 
+/* ---------------------------------------------------
+   LANGUAGE / MARKET TERMS
+--------------------------------------------------- */
+
+const countryTerms = {
+  Morocco:["morocco","maroc","المغرب","casablanca","rabat","marrakech"],
+  France:["france","français","paris","lyon","marseille"],
+  Belgium:["belgium","belgique","brussels","bruxelles"],
+  Canada:["canada","montreal","montréal","toronto","quebec"],
+  "United States":["united states","usa","america","new york","los angeles"],
+  "United Kingdom":["uk","united kingdom","england","london"],
+  Spain:["spain","españa","madrid","barcelona"],
+  Germany:["germany","deutschland","berlin","munich"],
+  UAE:["uae","dubai","abu dhabi"],
+  India:["india","mumbai","delhi","bangalore"],
+  Japan:["japan","tokyo","osaka"],
+  Brazil:["brazil","brasil","sao paulo","rio"]
+};
+
+/* ---------------------------------------------------
+   SEMANTIC CATEGORIES
+--------------------------------------------------- */
+
+const categoryWords = {
+
+  food:[
+    "food","restaurant","sandwich","chicken","burger","pizza",
+    "meal","cafe","bakery","bread","cake","fried","crispy",
+    "menu","snack","street food","fast food","tacos"
+  ],
+
+  digital:[
+    "app","software","website","platform","saas",
+    "online tool","ai tool","subscription","digital"
+  ],
+
+  service:[
+    "service","repair","cleaning","marketing","design",
+    "freelance","consulting","agency","installation"
+  ],
+
+  ecommerce:[
+    "shop","store","product","ecommerce","e-commerce",
+    "online store","sell","selling"
+  ],
+
+  education:[
+    "course","training","learn","education","lesson",
+    "school","teaching","coaching"
+  ]
+};
+
+/* ---------------------------------------------------
+   CLASSIFIER
+--------------------------------------------------- */
 
 function words(text){
-
-  return text
+  return String(text || "")
     .toLowerCase()
-    .replace(/[^\p{L}\p{N}\s-]/gu," ")
-    .split(/\s+/)
+    .split(/[^a-zA-ZÀ-ÿ0-9\u0600-\u06FF]+/)
     .filter(w => w.length > 2);
-
 }
 
-
-function unique(arr){
-
-  return [...new Set(arr)];
-
+function containsAny(text,list){
+  const t = text.toLowerCase();
+  return list.some(x => t.includes(x));
 }
 
+function ideaCategory(idea){
 
-function money(value){
+  const t = idea.toLowerCase();
 
-  if(!Number.isFinite(value)) return "—";
+  let best = "general";
+  let bestScore = 0;
 
-  return value.toLocaleString(undefined,{
-    maximumFractionDigits:2
+  for(const [cat,list] of Object.entries(categoryWords)){
+
+    let score = 0;
+
+    list.forEach(word=>{
+      if(t.includes(word)) score++;
+    });
+
+    if(score > bestScore){
+      bestScore = score;
+      best = cat;
+    }
+  }
+
+  return best;
+}
+
+function classifyResult(result, context){
+
+  const title = (result.title || "").toLowerCase();
+  const content = (result.content || "").toLowerCase();
+  const url = (result.url || "").toLowerCase();
+
+  const text = title + " " + content;
+
+  const idea = context.idea.toLowerCase();
+  const city = context.city.toLowerCase();
+  const country = context.country.toLowerCase();
+
+  const category = ideaCategory(idea);
+
+  /* locality */
+
+  const localTerms = [
+    city,
+    country,
+    ...(countryTerms[context.country] || [])
+  ].filter(Boolean);
+
+  let locality = containsAny(text,localTerms);
+
+  /* category relevance */
+
+  let relevant = false;
+
+  const ideaWords = words(idea);
+
+  let matchedIdeaWords = 0;
+
+  ideaWords.forEach(word=>{
+    if(word.length >= 4 && text.includes(word)){
+      matchedIdeaWords++;
+    }
   });
 
-}
+  if(matchedIdeaWords >= 1) relevant = true;
 
+  if(category !== "general"){
+    if(containsAny(text,categoryWords[category])){
+      relevant = true;
+    }
+  }
 
-/* --------------------------------------------------
-   SCORE
--------------------------------------------------- */
+  /* strong irrelevant signals */
 
-function calculateDemand(idea){
+  const irrelevantSignals = [
+    "telecom",
+    "bank",
+    "insurance",
+    "construction",
+    "software consulting",
+    "industrial",
+    "automotive",
+    "circet",
+    "linkedin jobs"
+  ];
 
-  const text = idea.toLowerCase();
+  const obviouslyIrrelevant =
+    containsAny(text,irrelevantSignals) &&
+    !containsAny(text,categoryWords[category] || []);
 
-  let score = 45;
+  /* supplier */
 
-  const positive = [
-    "sell",
-    "selling",
-    "buy",
-    "customer",
-    "customers",
-    "pay",
-    "paid",
-    "order",
-    "orders",
+  const supplierSignals = [
+    "supplier",
+    "wholesale",
+    "wholesaler",
+    "distributor",
+    "distribution",
+    "manufacturer",
+    "factory",
+    "grossiste",
+    "fournisseur",
+    "importer",
+    "packaging",
+    "equipment"
+  ];
+
+  const supplier =
+    containsAny(text,supplierSignals);
+
+  /* price */
+
+  const priceSignals = [
     "price",
-    "business",
-    "service",
-    "shop",
-    "store",
-    "food",
-    "restaurant",
-    "sandwich",
-    "chicken",
-    "course",
-    "app",
-    "website",
-    "product"
-  ];
-
-  const negative = [
-    "maybe",
-    "perhaps",
-    "someday",
-    "something",
-    "anything"
-  ];
-
-  positive.forEach(word => {
-
-    if(text.includes(word)){
-      score += 2;
-    }
-
-  });
-
-  negative.forEach(word => {
-
-    if(text.includes(word)){
-      score -= 2;
-    }
-
-  });
-
-  if(text.length > 60) score += 4;
-  if(text.length > 120) score += 3;
-
-  return Math.max(0,Math.min(100,score));
-
-}
-
-
-/* --------------------------------------------------
-   SEARCH QUERIES
--------------------------------------------------- */
-
-function buildQueries(idea,country,city){
-
-  const location =
-    [city,country]
-      .filter(Boolean)
-      .join(" ");
-
-  return [
-
-    `${idea} ${location} competitors businesses`,
-
-    `${idea} ${location} prices menu`,
-
-    `${idea} ${location} reviews customers`,
-
-    `${idea} ${location} suppliers`,
-
-    `${idea} ${location} alternatives`
-
-  ];
-
-}
-
-
-/* --------------------------------------------------
-   RESULT CLASSIFICATION
--------------------------------------------------- */
-
-function classifyResult(result,context){
-
-  const title =
-    String(result.title || "").toLowerCase();
-
-  const content =
-    String(result.content || "").toLowerCase();
-
-  const url =
-    String(result.url || "").toLowerCase();
-
-  const text =
-    title + " " + content;
-
-
-  const ideaWords =
-    words(context.idea)
-      .filter(w => w.length > 3)
-      .slice(0,12);
-
-
-  let relevance = 0;
-
-  ideaWords.forEach(word => {
-
-    if(text.includes(word)){
-      relevance++;
-    }
-
-  });
-
-
-  const businessWords = [
-    "restaurant",
-    "cafe",
-    "bakery",
-    "shop",
-    "store",
+    "prices",
+    "prix",
     "menu",
-    "delivery",
-    "order",
-    "sandwich",
-    "chicken",
-    "food",
-    "kitchen",
-    "burger",
-    "market"
-  ];
-
-
-  let businessScore = 0;
-
-  businessWords.forEach(word => {
-
-    if(text.includes(word)){
-      businessScore++;
-    }
-
-  });
-
-
-  const priceWords = [
     "dh",
     "mad",
     "€",
-    "price",
-    "prices",
-    "menu",
+    "$",
     "cost",
-    "19.99",
-    "15",
-    "20",
-    "25",
-    "30"
+    "tarif",
+    "15 dh",
+    "20 dh",
+    "25 dh"
   ];
 
+  const price =
+    containsAny(text,priceSignals);
 
-  let priceScore = 0;
+  /* customer */
 
-  priceWords.forEach(word => {
-
-    if(text.includes(word)){
-      priceScore++;
-    }
-
-  });
-
-
-  const supplierWords = [
-    "supplier",
-    "wholesale",
-    "distributor",
-    "grossiste",
-    "distributeur",
-    "packaging",
-    "ingredient",
-    "chicken supplier"
+  const customerSignals = [
+    "review",
+    "reviews",
+    "rating",
+    "customer",
+    "customers",
+    "client",
+    "clients",
+    "ordered",
+    "order",
+    "sold",
+    "bought",
+    "avis",
+    "commande",
+    "comment",
+    "comments"
   ];
 
+  const customer =
+    containsAny(text,customerSignals);
 
-  let supplierScore = 0;
+  /* directories */
 
-  supplierWords.forEach(word => {
-
-    if(text.includes(word)){
-      supplierScore++;
-    }
-
-  });
-
-
-  const directoryWords = [
+  const directorySignals = [
     "tripadvisor",
     "yelp",
-    "foursquare",
     "directory",
     "best restaurants",
+    "best sandwich",
     "top restaurants",
-    "restaurants in"
+    "list of"
   ];
 
+  const directory =
+    containsAny(text,directorySignals) ||
+    /tripadvisor|yelp/.test(url);
 
-  let directoryScore = 0;
+  /* content */
 
-  directoryWords.forEach(word => {
-
-    if(text.includes(word)){
-      directoryScore++;
-    }
-
-  });
-
-
-  const contentWords = [
+  const contentSignals = [
     "youtube",
-    "instagram",
     "tiktok",
+    "instagram",
+    "reel",
     "video",
     "street food",
+    "food tour",
     "vlog",
-    "recipe"
+    "challenge"
   ];
 
+  const media =
+    containsAny(text,contentSignals) ||
+    /youtube|tiktok|instagram/.test(url);
 
-  let contentScore = 0;
+  /* generic background */
 
-  contentWords.forEach(word => {
-
-    if(text.includes(word)){
-      contentScore++;
-    }
-
-  });
-
-
-  const localWords = [
-
-    context.city.toLowerCase(),
-
-    context.country.toLowerCase(),
-
-    "casablanca",
-
-    "morocco",
-
-    "maroc",
-
-    "ma"
-
-  ].filter(Boolean);
-
-
-  let localScore = 0;
-
-  localWords.forEach(word => {
-
-    if(word && text.includes(word)){
-      localScore++;
-    }
-
-  });
-
-
-  /* remove generic false positives */
-
-  const irrelevantWords = [
-
-    "telecom",
-    "circet",
-    "hyundai",
-    "software company",
-    "cloud kitchen market",
-    "global market",
+  const backgroundSignals = [
+    "market report",
     "market size",
     "industry report",
-    "forecast 2030",
-    "forecast 2035"
-
+    "market analysis",
+    "industry analysis",
+    "global market",
+    "forecast",
+    "statistics"
   ];
 
+  const background =
+    containsAny(text,backgroundSignals);
 
-  const isObviouslyIrrelevant =
-    irrelevantWords.some(word => text.includes(word));
+  /* business signal */
 
+  const businessSignals = [
+    "restaurant",
+    "cafe",
+    "shop",
+    "store",
+    "bakery",
+    "business",
+    "menu",
+    "delivery",
+    "takeaway",
+    "food truck"
+  ];
 
-  let type = "MARKET SIGNAL";
+  const business =
+    containsAny(text,businessSignals);
 
-  let badge = "signal";
+  /* -------------------------------------------------
+     PRIORITY LOGIC
+  ------------------------------------------------- */
 
-
-  if(isObviouslyIrrelevant){
-
-    type = "NOT RELEVANT";
-    badge = "bad";
-
+  if(obviouslyIrrelevant){
+    return {
+      type:"IRRELEVANT",
+      class:"irrelevant",
+      reason:"The result does not match the business category."
+    };
   }
 
-  else if(supplierScore >= 2){
-
-    type = "SUPPLIER";
-    badge = "supplier";
-
+  if(supplier && relevant){
+    return {
+      type:"SUPPLIER",
+      class:"supplier",
+      reason:"This looks like a supplier, distributor or equipment source."
+    };
   }
 
-  else if(directoryScore >= 1){
-
-    type = "COMPETITOR DIRECTORY";
-    badge = "directory";
-
+  if(directory && relevant && locality){
+    return {
+      type:"COMPETITOR DIRECTORY",
+      class:"directory",
+      reason:"A local directory/list that can reveal several competitors."
+    };
   }
 
-  else if(priceScore >= 2 && relevance >= 1){
-
-    type = "PRICE EVIDENCE";
-    badge = "price";
-
+  if(price && relevant && locality && business){
+    return {
+      type:"PRICE EVIDENCE",
+      class:"price",
+      reason:"Relevant local offer with a visible price/menu signal."
+    };
   }
 
-  else if(
-    businessScore >= 2 &&
-    relevance >= 2 &&
-    localScore >= 1 &&
-    contentScore === 0
-  ){
-
-    type = "POSSIBLE COMPETITOR";
-    badge = "competitor";
-
+  if(customer && relevant && locality){
+    return {
+      type:"CUSTOMER SIGNAL",
+      class:"customer",
+      reason:"Contains reviews, orders, comments or other customer activity."
+    };
   }
 
-  else if(
-    relevance >= 2 &&
-    localScore >= 1
-  ){
-
-    type = "LOCAL MARKET SIGNAL";
-    badge = "local";
-
+  if(media && relevant){
+    return {
+      type:"MARKET CONTENT",
+      class:"content",
+      reason:"Useful market content, but not necessarily a business selling directly."
+    };
   }
 
-  else if(contentScore >= 1){
-
-    type = "MARKET CONTENT";
-    badge = "content";
-
+  if(background && relevant){
+    return {
+      type:"BACKGROUND",
+      class:"background",
+      reason:"Useful context, but not direct local evidence."
+    };
   }
 
+  /*
+     DIRECT COMPETITOR:
+     requires relevance + locality + business signal.
+     A generic mention of the city is NOT enough.
+  */
+
+  if(relevant && locality && business){
+    return {
+      type:"DIRECT COMPETITOR",
+      class:"direct",
+      reason:"The result appears to describe a relevant business in the target market."
+    };
+  }
+
+  if(relevant && locality){
+    return {
+      type:"LOCAL MARKET SIGNAL",
+      class:"customer",
+      reason:"Relevant local evidence, but not enough to call it a direct competitor."
+    };
+  }
+
+  if(relevant){
+    return {
+      type:"BACKGROUND",
+      class:"background",
+      reason:"Related to the idea but local relevance is not confirmed."
+    };
+  }
 
   return {
-
-    type,
-    badge,
-    relevance,
-    businessScore,
-    priceScore,
-    supplierScore,
-    localScore,
-    title:result.title || "Untitled result",
-    content:result.content || "",
-    url:result.url || ""
-
+    type:"IRRELEVANT",
+    class:"irrelevant",
+    reason:"No strong connection to the idea and target market."
   };
-
 }
 
+/* ---------------------------------------------------
+   SCORE
+--------------------------------------------------- */
 
-/* --------------------------------------------------
+function calculateSignal(results){
+
+  if(!results.length) return 0;
+
+  let score = 35;
+
+  const direct = results.filter(r=>r.type==="DIRECT COMPETITOR").length;
+  const prices = results.filter(r=>r.type==="PRICE EVIDENCE").length;
+  const customers = results.filter(r=>r.type==="CUSTOMER SIGNAL").length;
+  const local = results.filter(r=>
+    r.type==="DIRECT COMPETITOR" ||
+    r.type==="PRICE EVIDENCE" ||
+    r.type==="CUSTOMER SIGNAL" ||
+    r.type==="COMPETITOR DIRECTORY" ||
+    r.type==="LOCAL MARKET SIGNAL"
+  ).length;
+
+  score += Math.min(direct * 5,15);
+  score += Math.min(prices * 4,12);
+  score += Math.min(customers * 4,12);
+  score += Math.min(local * 2,10);
+
+  return Math.min(score,89);
+}
+
+/* ---------------------------------------------------
    SEARCH
--------------------------------------------------- */
+--------------------------------------------------- */
 
-async function searchWeb(query){
+async function search(query){
 
   const response =
-    await fetch(
-      API + "?q=" + encodeURIComponent(query)
-    );
+    await fetch(API + "?q=" + encodeURIComponent(query));
 
   if(!response.ok){
-
-    throw new Error(
-      "Search API returned " + response.status
-    );
-
+    throw new Error("Search API error");
   }
 
   return await response.json();
-
 }
 
+/* ---------------------------------------------------
+   RENDER EVIDENCE
+--------------------------------------------------- */
 
-/* --------------------------------------------------
-   MAIN
--------------------------------------------------- */
+function renderEvidence(results){
 
-async function startResearch(){
+  const list = $("evidenceList");
 
-  const idea =
-    document.getElementById("idea").value.trim();
-
-  const city =
-    document.getElementById("city").value.trim();
-
-  const country =
-    document.getElementById("country").value;
-
-  const target =
-    document.getElementById("target").value.trim();
-
-
-  if(!idea){
-
-    document.getElementById("idea").focus();
-
+  if(!results.length){
+    list.innerHTML =
+      '<div class="empty">No usable evidence found.</div>';
     return;
-
   }
 
+  list.innerHTML = results.slice(0,15).map(item=>{
 
-  const scanner =
-    document.getElementById("scanner");
+    const title =
+      escapeHTML(item.title || "Untitled result");
 
-  const results =
-    document.getElementById("results");
+    const url =
+      escapeHTML(item.url || "#");
 
+    const content =
+      escapeHTML(
+        String(item.content || "")
+          .replace(/\s+/g," ")
+          .slice(0,260)
+      );
 
-  scanner.classList.add("active");
+    return `
+      <div class="evidence">
 
-  results.classList.remove("show");
+        <div class="evidence-top">
 
-  window.scrollTo({
-    top:document.querySelector(".launch-card").offsetTop - 30,
-    behavior:"smooth"
-  });
+          <div class="evidence-title">
+            <a href="${url}" target="_blank" rel="noopener">
+              ${title}
+            </a>
+          </div>
 
+          <span class="badge ${item.class}">
+            ${item.type}
+          </span>
 
-  const scanText =
-    document.getElementById("scanText");
+        </div>
 
+        <div class="evidence-meta">
+          ${content || item.reason}
+        </div>
 
-  const messages = [
+        <div class="evidence-meta">
+          <strong>Why:</strong> ${escapeHTML(item.reason)}
+        </div>
 
+      </div>
+    `;
+
+  }).join("");
+}
+
+/* ---------------------------------------------------
+   RISKS
+--------------------------------------------------- */
+
+function renderRisks(context,results){
+
+  const risks = [];
+
+  const direct =
+    results.filter(r=>r.type==="DIRECT COMPETITOR").length;
+
+  const prices =
+    results.filter(r=>r.type==="PRICE EVIDENCE").length;
+
+  const customers =
+    results.filter(r=>r.type==="CUSTOMER SIGNAL").length;
+
+  if(direct === 0){
+    risks.push(
+      "No strong direct competitor was identified. This can mean an opportunity, weak search coverage, or an unclear market. Verify manually."
+    );
+  }
+
+  if(prices === 0){
+    risks.push(
+      "No strong local price evidence was identified. Do not build your financial model around guessed prices."
+    );
+  }
+
+  if(customers === 0){
+    risks.push(
+      "Customer activity was not strongly detected. You still need direct customer validation."
+    );
+  }
+
+  risks.push(
+    "Search engines can return incomplete or noisy results. Important competitors may be missing."
+  );
+
+  risks.push(
+    "Interest is not the same as payment. A real transaction or measurable customer action is stronger evidence."
+  );
+
+  if(context.target.trim()===""){
+    risks.push(
+      "Your target customer is still undefined. A broad audience makes demand testing harder."
+    );
+  }
+
+  $("risks").innerHTML =
+    risks.map(x=>`<div class="risk">${escapeHTML(x)}</div>`).join("");
+}
+
+/* ---------------------------------------------------
+   ANALYSIS
+--------------------------------------------------- */
+
+async function analyze(){
+
+  const idea = $("idea").value.trim();
+  const city = $("city").value.trim();
+  const country = $("country").value;
+  const target = $("target").value.trim();
+
+  if(!idea){
+    $("idea").focus();
+    return;
+  }
+
+  $("results").style.display="none";
+  $("scan").style.display="block";
+
+  const statuses = [
     "Searching local competitors...",
-
     "Checking price signals...",
-
     "Looking for customer evidence...",
-
     "Searching suppliers and alternatives...",
-
     "Filtering weak results...",
-
     "Building your reality report..."
-
   ];
 
+  let statusIndex=0;
 
-  let messageIndex = 0;
-
-  const interval =
+  const statusTimer =
     setInterval(()=>{
+      statusIndex =
+        Math.min(statusIndex+1,statuses.length-1);
 
-      scanText.textContent =
-        messages[messageIndex % messages.length];
+      $("scanStatus").textContent =
+        statuses[statusIndex];
 
-      messageIndex++;
-
-    },1000);
-
+    },1200);
 
   try{
 
-    const queries =
-      buildQueries(
-        idea,
-        country,
-        city
-      );
+    const base =
+      `${idea} ${country} ${city}`;
 
+    const queries = [
 
-    const context = {
-      idea,
-      country,
-      city,
-      target
-    };
+      `${base} competitors businesses`,
 
+      `${base} prices menu`,
+
+      `${base} reviews customers`,
+
+      `${base} suppliers wholesale`,
+
+      `${base} alternatives`
+
+    ];
 
     const responses =
       await Promise.all(
-        queries.map(searchWeb)
+        queries.map(q=>search(q))
       );
 
+    clearInterval(statusTimer);
 
-    clearInterval(interval);
+    let raw = [];
 
-
-    let rawResults = [];
-
-
-    responses.forEach(data => {
-
-      if(
-        data &&
-        Array.isArray(data.results)
-      ){
-
-        rawResults.push(
-          ...data.results
-        );
-
+    responses.forEach(data=>{
+      if(Array.isArray(data.results)){
+        raw.push(...data.results);
       }
-
     });
-
 
     const seen = new Set();
 
-    const uniqueResults =
-      rawResults.filter(item => {
+    raw = raw.filter(item=>{
 
-        const key =
-          item.url ||
-          item.title;
+      const key =
+        item.url ||
+        item.title ||
+        Math.random();
 
-        if(seen.has(key)){
-          return false;
-        }
+      if(seen.has(key)) return false;
 
-        seen.add(key);
+      seen.add(key);
 
-        return true;
+      return true;
+    });
+
+    const context = {
+      idea,
+      city,
+      country,
+      target
+    };
+
+    let classified =
+      raw.map(item=>{
+
+        const c =
+          classifyResult(item,context);
+
+        return {
+          ...item,
+          ...c
+        };
 
       });
 
+    /*
+      Evidence quality first.
+      Direct competitors and strong evidence
+      appear before noise.
+    */
 
-    const classified =
-      uniqueResults
-        .map(item =>
-          classifyResult(item,context)
-        )
-        .sort((a,b)=>{
+    const priority = {
+      "DIRECT COMPETITOR":10,
+      "COMPETITOR DIRECTORY":9,
+      "PRICE EVIDENCE":8,
+      "CUSTOMER SIGNAL":7,
+      "LOCAL MARKET SIGNAL":6,
+      "SUPPLIER":5,
+      "MARKET CONTENT":4,
+      "BACKGROUND":2,
+      "IRRELEVANT":0
+    };
 
-          const scoreA =
-            a.relevance * 3 +
-            a.businessScore * 2 +
-            a.priceScore * 2 +
-            a.localScore * 2;
-
-          const scoreB =
-            b.relevance * 3 +
-            b.businessScore * 2 +
-            b.priceScore * 2 +
-            b.localScore * 2;
-
-          return scoreB - scoreA;
-
-        });
-
-
-    renderReport(
-      classified,
-      context
+    classified.sort((a,b)=>
+      (priority[b.type]||0) -
+      (priority[a.type]||0)
     );
 
+    latestResults = classified;
 
-    scanner.classList.remove("active");
+    const score =
+      calculateSignal(classified);
 
-    results.classList.add("show");
+    $("score").textContent = score;
+
+    if(score >= 70){
+      $("scoreText").textContent =
+        "Strong initial market signals detected. Validate with real customers before investing.";
+    }else if(score >= 50){
+      $("scoreText").textContent =
+        "Some useful signals detected. More direct evidence is needed.";
+    }else{
+      $("scoreText").textContent =
+        "Limited evidence detected. Research and test before spending money.";
+    }
+
+    const direct =
+      classified.filter(r=>r.type==="DIRECT COMPETITOR").length;
+
+    const prices =
+      classified.filter(r=>r.type==="PRICE EVIDENCE").length;
+
+    const customers =
+      classified.filter(r=>r.type==="CUSTOMER SIGNAL").length;
+
+    const local =
+      classified.filter(r=>
+        [
+          "DIRECT COMPETITOR",
+          "COMPETITOR DIRECTORY",
+          "PRICE EVIDENCE",
+          "CUSTOMER SIGNAL",
+          "LOCAL MARKET SIGNAL"
+        ].includes(r.type)
+      ).length;
+
+    $("totalResults").textContent =
+      classified.length;
+
+    $("directCount").textContent =
+      direct;
+
+    $("priceCount").textContent =
+      prices;
+
+    $("customerCount").textContent =
+      customers;
+
+    $("quickMarket").textContent =
+      local > 0
+        ? `${local} local signals`
+        : "Limited local evidence";
+
+    $("quickCompetition").textContent =
+      direct > 0
+        ? `${direct} direct signal${direct>1?"s":""}`
+        : "Not confirmed";
+
+    $("quickMove").textContent =
+      prices > 0
+        ? "Compare real prices"
+        : "Find real prices";
+
+    $("customerTarget").textContent =
+      target || "Not specified";
+
+    renderEvidence(classified);
+
+    renderRisks(context,classified);
+
+    $("results").style.display="block";
 
     setTimeout(()=>{
-
-      results.scrollIntoView({
+      $("results").scrollIntoView({
         behavior:"smooth",
         block:"start"
       });
+    },150);
 
-    },100);
+  }catch(error){
 
+    clearInterval(statusTimer);
 
+    $("scanStatus").textContent =
+      "Research failed. Check the API connection.";
+
+    console.error(error);
+
+    setTimeout(()=>{
+      $("scan").style.display="none";
+    },1800);
   }
-
-  catch(error){
-
-    clearInterval(interval);
-
-    scanner.classList.remove("active");
-
-    const errorBox =
-      document.createElement("div");
-
-    errorBox.className = "error";
-
-    errorBox.textContent =
-      "Research failed: " + error.message;
-
-    document
-      .querySelector(".launch-card")
-      .after(errorBox);
-
-  }
-
 }
 
-
-/* --------------------------------------------------
-   RENDER
--------------------------------------------------- */
-
-function renderReport(items,context){
-
-  const score =
-    calculateDemand(context.idea);
-
-
-  document.getElementById("score")
-    .textContent = score;
-
-
-  document.getElementById("scoreContext")
-    .textContent =
-      score >= 70
-        ? "Strong initial signal — verify it with real customers."
-        : score >= 50
-          ? "Interesting signal — more evidence is needed."
-          : "Weak initial signal — test before investing.";
-
-
-  document.getElementById("resultTitle")
-    .textContent =
-      context.idea.length > 55
-        ? "Market Reality"
-        : context.idea;
-
-
-  document.getElementById("resultSubtitle")
-    .textContent =
-      `${context.city || "Selected market"}, ${context.country} · ${items.length} unique web signals found`;
-
-
-  const competitors =
-    items.filter(x =>
-      x.type === "POSSIBLE COMPETITOR" ||
-      x.type === "COMPETITOR DIRECTORY"
-    ).length;
-
-
-  const priceSignals =
-    items.filter(x =>
-      x.type === "PRICE EVIDENCE"
-    ).length;
-
-
-  const localSignals =
-    items.filter(x =>
-      x.type === "LOCAL MARKET SIGNAL" ||
-      x.type === "POSSIBLE COMPETITOR"
-    ).length;
-
-
-  document.getElementById("totalResults")
-    .textContent = items.length;
-
-
-  document.getElementById("competitors")
-    .textContent = competitors;
-
-
-  document.getElementById("priceSignals")
-    .textContent = priceSignals;
-
-
-  document.getElementById("marketInsight")
-    .textContent =
-      localSignals > 0
-        ? `${localSignals} local market signals detected`
-        : "Local evidence still needs verification";
-
-
-  document.getElementById("competitionInsight")
-    .textContent =
-      competitors > 0
-        ? `${competitors} competitor/directory signals`
-        : "No strong competitor signal found";
-
-
-  document.getElementById("nextInsight")
-    .textContent =
-      priceSignals > 0
-        ? "Verify prices and test real buyers"
-        : "Find real prices before investing";
-
-
-  renderSources(items);
-
-  renderCustomer(context);
-
-  renderPlan(context);
-
-  renderRisks(context,items);
-
-}
-
-
-/* --------------------------------------------------
-   SOURCES
--------------------------------------------------- */
-
-function renderSources(items){
-
-  const container =
-    document.getElementById("researchList");
-
-
-  if(!items.length){
-
-    container.innerHTML =
-      `<div class="source">
-        <div class="source-info">
-          No web results were returned.
-        </div>
-      </div>`;
-
-    return;
-
-  }
-
-
-  container.innerHTML =
-    items
-      .slice(0,12)
-      .map(item => {
-
-        const badgeClass =
-          item.badge || "signal";
-
-
-        return `
-
-        <div class="source">
-
-          <div class="source-dot"></div>
-
-          <div class="source-info">
-
-            <div style="margin-bottom:5px">
-
-              <span class="result-badge ${badgeClass}">
-                ${escapeHTML(item.type)}
-              </span>
-
-            </div>
-
-            <div class="source-title">
-              ${escapeHTML(item.title)}
-            </div>
-
-            <div class="source-url">
-              ${escapeHTML(item.url)}
-            </div>
-
-          </div>
-
-          ${
-            item.url
-              ? `<a
-                  class="source-link"
-                  href="${escapeHTML(item.url)}"
-                  target="_blank"
-                  rel="noopener"
-                >OPEN →</a>`
-              : ""
-          }
-
-        </div>
-
-        `;
-
-      })
-      .join("");
-
-}
-
-
-/* --------------------------------------------------
-   CUSTOMER
--------------------------------------------------- */
-
-function renderCustomer(context){
-
-  const target =
-    context.target;
-
-
-  const container =
-    document.getElementById("customerContent");
-
-
-  if(target){
-
-    container.innerHTML = `
-
-      <div style="
-        font-size:25px;
-        font-weight:800;
-        margin-bottom:8px;
-      ">
-        ${escapeHTML(target)}
-      </div>
-
-      <p style="
-        color:#aaa;
-        line-height:1.7;
-        font-size:13px;
-        margin:0;
-      ">
-        Your first validation should focus on this customer,
-        their current alternative, willingness to pay and
-        the moment when they would actually buy.
-      </p>
-
-    `;
-
-  }
-  else{
-
-    container.innerHTML = `
-
-      <div style="
-        font-size:25px;
-        font-weight:800;
-        margin-bottom:8px;
-      ">
-        Who pays?
-      </div>
-
-      <p style="
-        color:#aaa;
-        line-height:1.7;
-        font-size:13px;
-        margin:0;
-      ">
-        You haven't specified a target customer.
-        Start with one specific group instead of “everyone”.
-      </p>
-
-    `;
-
-  }
-
-}
-
-
-/* --------------------------------------------------
-   MONEY MODEL
--------------------------------------------------- */
-
-function updateMoney(){
+/* ---------------------------------------------------
+   MONEY ENGINE
+--------------------------------------------------- */
+
+function calculateMoney(){
 
   const price =
-    parseFloat(
-      document.getElementById("sellPrice").value
-    );
+    parseFloat($("moneyPrice").value);
 
   const cost =
-    parseFloat(
-      document.getElementById("unitCost").value
-    );
+    parseFloat($("moneyCost").value);
 
   const units =
-    parseFloat(
-      document.getElementById("unitsDay").value
-    );
-
+    parseFloat($("moneyUnits").value);
 
   if(
     !Number.isFinite(price) ||
     !Number.isFinite(cost) ||
-    !Number.isFinite(units)
+    !Number.isFinite(units) ||
+    price <= 0
   ){
-
+    $("profitUnit").textContent="—";
+    $("margin").textContent="—";
+    $("dailyProfit").textContent="—";
+    $("monthlyProfit").textContent="—";
     return;
-
   }
 
-
   const profit =
-    price - cost;
-
+    price-cost;
 
   const margin =
-    price > 0
-      ? (profit / price) * 100
-      : 0;
-
+    (profit/price)*100;
 
   const daily =
-    profit * units;
-
+    profit*units;
 
   const monthly =
-    daily * 30;
+    daily*30;
 
+  $("profitUnit").textContent =
+    profit.toFixed(2);
 
-  document.getElementById("profitUnit")
-    .textContent = money(profit);
+  $("margin").textContent =
+    margin.toFixed(1)+"%";
 
+  $("dailyProfit").textContent =
+    daily.toFixed(2);
 
-  document.getElementById("margin")
-    .textContent = money(margin) + "%";
-
-
-  document.getElementById("dailyProfit")
-    .textContent = money(daily);
-
-
-  document.getElementById("monthlyProfit")
-    .textContent = money(monthly);
-
+  $("monthlyProfit").textContent =
+    monthly.toFixed(2);
 }
 
+/* ---------------------------------------------------
+   UI
+--------------------------------------------------- */
 
-["sellPrice","unitCost","unitsDay"]
-.forEach(id => {
+document.querySelectorAll(".section-head")
+.forEach(head=>{
 
-  document
-    .getElementById(id)
-    .addEventListener(
-      "input",
-      updateMoney
-    );
+  head.addEventListener("click",()=>{
+
+    head.parentElement.classList.toggle("open");
+
+  });
 
 });
 
+$("analyze").addEventListener("click",analyze);
 
-/* --------------------------------------------------
-   PLAN
--------------------------------------------------- */
+$("idea").addEventListener("keydown",e=>{
 
-function renderPlan(context){
-
-  const idea =
-    escapeHTML(context.idea);
-
-
-  const city =
-    escapeHTML(
-      context.city || context.country
-    );
-
-
-  const steps = [
-
-    `<strong>Define the offer.</strong> Write exactly what ${idea} means, who buys it and what they receive.`,
-
-    `<strong>Map the market.</strong> Find 5 real alternatives customers in ${city} can already choose from.`,
-
-    `<strong>Record prices.</strong> Capture actual prices instead of guessing what people will pay.`,
-
-    `<strong>Talk to buyers.</strong> Ask at least 10 potential customers about their current solution.`,
-
-    `<strong>Test the offer.</strong> Try to get real interest, an order, booking, deposit or other meaningful action.`,
-
-    `<strong>Calculate the economics.</strong> Enter your real cost, selling price and realistic daily volume.`,
-
-    `<strong>Make the decision.</strong> Keep, change or abandon the idea based on evidence — not excitement.`
-
-  ];
-
-
-  document.getElementById("plan")
-    .innerHTML =
-      steps.map((step,index)=>`
-
-        <div class="day">
-
-          <div class="day-number">
-            DAY ${index + 1}
-          </div>
-
-          <div class="day-text">
-            ${step}
-          </div>
-
-        </div>
-
-      `).join("");
-
-}
-
-
-/* --------------------------------------------------
-   RISKS
--------------------------------------------------- */
-
-function renderRisks(context,items){
-
-  const risks = [];
-
-
-  if(!context.target){
-
-    risks.push([
-      "Unknown customer",
-      "You haven't defined exactly who will pay."
-    ]);
-
+  if(e.ctrlKey && e.key==="Enter"){
+    analyze();
   }
 
+});
 
-  const priceSignals =
-    items.filter(
-      x => x.type === "PRICE EVIDENCE"
-    ).length;
+["moneyPrice","moneyCost","moneyUnits"]
+.forEach(id=>{
+  $(id).addEventListener("input",calculateMoney);
+});
 
+$("reset").addEventListener("click",()=>{
 
-  if(priceSignals === 0){
+  $("results").style.display="none";
+  $("scan").style.display="none";
 
-    risks.push([
-      "Unknown price",
-      "The research did not produce strong price evidence yet."
-    ]);
+  $("idea").value="";
+  $("city").value="";
+  $("target").value="";
+  $("price").value="";
 
-  }
-
-
-  const competitors =
-    items.filter(
-      x =>
-        x.type === "POSSIBLE COMPETITOR" ||
-        x.type === "COMPETITOR DIRECTORY"
-    ).length;
-
-
-  if(competitors > 0){
-
-    risks.push([
-      "Existing alternatives",
-      `${competitors} competitor or directory signals appeared in the research.`
-    ]);
-
-  }
-
-
-  risks.push([
-    "Demand ≠ clicks",
-    "Online attention is not the same as a paying customer."
-  ]);
-
-
-  risks.push([
-    "Unit economics",
-    "A product can sell and still lose money if costs are underestimated."
-  ]);
-
-
-  document.getElementById("risks")
-    .innerHTML =
-      risks.map(r => `
-
-        <div class="risk">
-
-          <div style="color:#fb7185;font-size:18px">
-            !
-          </div>
-
-          <div>
-
-            <strong>${escapeHTML(r[0])}</strong>
-
-            <span>${escapeHTML(r[1])}</span>
-
-          </div>
-
-        </div>
-
-      `).join("");
-
-}
-
-
-/* --------------------------------------------------
-   CARD TOGGLE
--------------------------------------------------- */
-
-function toggleCard(head){
-
-  const card =
-    head.parentElement;
-
-  card.classList.toggle("open");
-
-}
-
-
-/* --------------------------------------------------
-   RESET
--------------------------------------------------- */
-
-function resetTool(){
-
-  document.getElementById("idea").value = "";
-
-  document.getElementById("target").value = "";
-
-  document.getElementById("sellPrice").value = "";
-
-  document.getElementById("unitCost").value = "";
-
-  document.getElementById("unitsDay").value = "";
-
-  document.getElementById("results")
-    .classList.remove("show");
-
+  $("moneyPrice").value="";
+  $("moneyCost").value="";
+  $("moneyUnits").value="";
 
   window.scrollTo({
     top:0,
     behavior:"smooth"
   });
 
-
-  document.getElementById("idea").focus();
-
-}
-
-
-/* --------------------------------------------------
-   ENTER KEY
--------------------------------------------------- */
-
-document
-  .getElementById("idea")
-  .addEventListener("keydown",event=>{
-
-    if(
-      event.key === "Enter" &&
-      (event.ctrlKey || event.metaKey)
-    ){
-
-      startResearch();
-
-    }
-
-  });
+});
 
 </script>
-
-
-<style>
-
-/* RESULT BADGES */
-
-.result-badge{
-  display:inline-block;
-  padding:4px 7px;
-  border-radius:999px;
-  font-size:8px;
-  letter-spacing:.08em;
-  font-weight:800;
-  color:#bdb6c9;
-  background:rgba(255,255,255,.06);
-}
-
-.result-badge.competitor{
-  color:#c4b5fd;
-  background:rgba(139,92,246,.12);
-}
-
-.result-badge.price{
-  color:#67e8f9;
-  background:rgba(56,189,248,.10);
-}
-
-.result-badge.local{
-  color:#6ee7b7;
-  background:rgba(52,211,153,.09);
-}
-
-.result-badge.supplier{
-  color:#fdba74;
-  background:rgba(251,146,60,.09);
-}
-
-.result-badge.directory{
-  color:#93c5fd;
-  background:rgba(59,130,246,.09);
-}
-
-.result-badge.content{
-  color:#fcd34d;
-  background:rgba(245,158,11,.08);
-}
-
-.result-badge.bad{
-  color:#fb7185;
-  background:rgba(251,113,133,.08);
-}
-
-</style>
 
 </body>
 </html>
