@@ -3,49 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Reality Demand — Market Intelligence</title>
 
 <style>
 :root{
-  --bg:#050507;
-  --panel:#0b0b10;
-  --panel2:#111119;
+  --bg:#07070b;
+  --panel:#101019;
+  --panel2:#151522;
+  --border:#29293a;
   --text:#f5f5f7;
-  --muted:#8d8d9a;
-  --line:rgba(255,255,255,.09);
-  --purple:#9b5cff;
-  --blue:#4d9fff;
-  --green:#4ade80;
-  --orange:#fb923c;
+  --muted:#9b9bad;
+  --purple:#8b5cf6;
+  --blue:#38bdf8;
+  --green:#34d399;
+  --yellow:#fbbf24;
   --red:#fb7185;
-  --yellow:#facc15;
 }
 
-*{box-sizing:border-box}
-
-html{scroll-behavior:smooth}
+*{
+  box-sizing:border-box;
+}
 
 body{
   margin:0;
   background:
-    radial-gradient(circle at 50% -10%,rgba(130,70,255,.22),transparent 35%),
-    radial-gradient(circle at 90% 20%,rgba(40,120,255,.10),transparent 25%),
+    radial-gradient(circle at 10% 0%,rgba(139,92,246,.12),transparent 30%),
+    radial-gradient(circle at 90% 10%,rgba(56,189,248,.08),transparent 28%),
     var(--bg);
   color:var(--text);
-  font-family:Inter,Arial,sans-serif;
-  min-height:100vh;
+  font-family:Inter,Arial,Helvetica,sans-serif;
+  line-height:1.5;
 }
 
-body:before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  background-image:
-    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
-  background-size:40px 40px;
-  mask-image:linear-gradient(to bottom,black,transparent 80%);
+button,input,textarea,select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
 }
 
 .container{
@@ -54,388 +50,375 @@ body:before{
 }
 
 header{
-  padding:28px 0;
+  padding:26px 0 12px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  border-bottom:1px solid var(--line);
-  position:relative;
-  z-index:2;
 }
 
 .logo{
   font-weight:900;
-  letter-spacing:3px;
-  font-size:20px;
+  letter-spacing:2px;
+  font-size:18px;
 }
 
-.logo span{
-  color:var(--purple);
-}
-
-.header-right{
+.version{
   color:var(--muted);
   font-size:12px;
   letter-spacing:1.5px;
 }
 
 .hero{
-  padding:80px 0 50px;
-  text-align:center;
-}
-
-.kicker{
-  display:inline-flex;
-  padding:8px 14px;
-  border:1px solid rgba(155,92,255,.3);
-  border-radius:999px;
-  color:#c7a7ff;
-  background:rgba(155,92,255,.07);
-  font-size:11px;
-  letter-spacing:2px;
-  margin-bottom:25px;
+  padding:42px 0 28px;
 }
 
 .hero h1{
+  margin:0;
+  max-width:850px;
   font-size:clamp(42px,7vw,78px);
   line-height:.95;
-  margin:0;
   letter-spacing:-4px;
-}
-
-.hero h1 span{
-  background:linear-gradient(90deg,#fff,#a978ff,#58a7ff);
+  background:linear-gradient(90deg,#fff,#b8a4ff,#75d7ff);
   -webkit-background-clip:text;
+  background-clip:text;
   color:transparent;
 }
 
 .hero p{
-  max-width:650px;
-  margin:25px auto 0;
   color:var(--muted);
-  font-size:17px;
-  line-height:1.6;
+  font-size:18px;
+  margin:20px 0 0;
+  max-width:700px;
 }
 
-.input-panel{
-  max-width:900px;
-  margin:30px auto 0;
-  padding:20px;
-  border:1px solid var(--line);
+.panel{
+  background:rgba(16,16,25,.84);
+  border:1px solid var(--border);
   border-radius:24px;
-  background:rgba(12,12,18,.8);
-  box-shadow:0 25px 80px rgba(0,0,0,.45);
-  backdrop-filter:blur(20px);
+  padding:24px;
+  margin:18px 0;
 }
 
-textarea,input,select{
-  width:100%;
-  border:1px solid var(--line);
-  background:#08080c;
-  color:white;
-  border-radius:14px;
-  padding:15px;
-  outline:none;
-  font-size:15px;
+.section-title{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  margin-bottom:18px;
 }
 
-textarea{
-  min-height:120px;
-  resize:vertical;
+.section-title h2{
+  margin:0;
+  font-size:22px;
 }
 
-textarea:focus,input:focus,select:focus{
-  border-color:rgba(155,92,255,.7);
-  box-shadow:0 0 0 3px rgba(155,92,255,.08);
-}
-
-.row{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-  margin-top:12px;
-}
-
-button{
-  border:0;
-  cursor:pointer;
-  color:white;
-  font-weight:800;
+.section-title span{
+  color:var(--muted);
+  font-size:12px;
   letter-spacing:1px;
 }
 
-.analyze{
-  width:100%;
-  margin-top:14px;
-  padding:17px;
-  border-radius:14px;
-  background:linear-gradient(90deg,#743cff,#3c8dff);
-  box-shadow:0 10px 40px rgba(110,60,255,.25);
-  transition:.25s;
+.form-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:14px;
 }
 
-.analyze:hover{
-  transform:translateY(-2px);
-  box-shadow:0 15px 50px rgba(110,60,255,.4);
+.field{
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+}
+
+.field.full{
+  grid-column:1/-1;
+}
+
+label{
+  color:#c7c7d5;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.6px;
+  text-transform:uppercase;
+}
+
+input,
+textarea,
+select{
+  width:100%;
+  border:1px solid var(--border);
+  background:#0b0b12;
+  color:var(--text);
+  border-radius:13px;
+  padding:13px 14px;
+  outline:none;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+  border-color:var(--purple);
+  box-shadow:0 0 0 3px rgba(139,92,246,.12);
+}
+
+textarea{
+  min-height:105px;
+  resize:vertical;
+}
+
+.actions{
+  display:flex;
+  gap:10px;
+  margin-top:16px;
+}
+
+.btn{
+  border:1px solid var(--border);
+  background:#171722;
+  color:#fff;
+  padding:12px 18px;
+  border-radius:12px;
+  font-weight:800;
+}
+
+.btn.primary{
+  border:0;
+  background:linear-gradient(135deg,var(--purple),#5b7cff);
 }
 
 .scan{
   display:none;
-  text-align:center;
-  padding:70px 20px;
+  margin-top:18px;
 }
 
-.scanner{
-  width:100px;
-  height:100px;
-  border-radius:50%;
-  margin:auto;
-  border:2px solid rgba(155,92,255,.15);
-  border-top-color:var(--purple);
-  border-right-color:var(--blue);
-  animation:spin 1s linear infinite;
-  box-shadow:0 0 50px rgba(130,80,255,.18);
+.scan.show{
+  display:block;
 }
 
-@keyframes spin{
-  to{transform:rotate(360deg)}
+.scan-bar{
+  height:7px;
+  background:#1b1b27;
+  border-radius:99px;
+  overflow:hidden;
 }
 
-.scan-title{
-  margin-top:25px;
-  font-size:18px;
-  font-weight:800;
+.scan-bar i{
+  display:block;
+  height:100%;
+  width:0;
+  background:linear-gradient(90deg,var(--purple),var(--blue));
+  animation:scan 2.5s infinite;
+}
+
+@keyframes scan{
+  0%{width:4%}
+  70%{width:92%}
+  100%{width:100%}
 }
 
 .scan-status{
-  margin-top:10px;
   color:var(--muted);
+  font-size:13px;
+  margin-top:8px;
 }
 
 .results{
   display:none;
-  padding:30px 0 100px;
 }
 
-.signal{
-  padding:45px 25px;
-  border:1px solid var(--line);
-  border-radius:28px;
+.results.show{
+  display:block;
+}
+
+.decision{
+  border:1px solid var(--border);
   background:
-    radial-gradient(circle at 50% 0%,rgba(120,70,255,.15),transparent 50%),
-    rgba(10,10,15,.9);
-  text-align:center;
+    radial-gradient(circle at 0 0,rgba(139,92,246,.16),transparent 45%),
+    #101019;
+  border-radius:22px;
+  padding:24px;
+  margin-bottom:18px;
 }
 
-.signal-label{
-  color:var(--muted);
-  letter-spacing:2px;
+.decision-label{
   font-size:11px;
+  letter-spacing:2px;
+  color:var(--muted);
+  font-weight:800;
 }
 
-.signal-number{
-  font-size:90px;
-  font-weight:900;
-  letter-spacing:-6px;
-  margin:10px 0;
-  background:linear-gradient(180deg,#fff,#a675ff);
+.decision-action{
+  margin-top:5px;
+  font-size:34px;
+  font-weight:950;
+}
+
+.decision-note{
+  color:#c8c8d4;
+  max-width:800px;
+}
+
+.pills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:15px;
+}
+
+.pill{
+  display:inline-flex;
+  padding:7px 10px;
+  border-radius:999px;
+  background:#191925;
+  border:1px solid var(--border);
+  color:#c8c8d4;
+  font-size:12px;
+}
+
+.score-row{
+  display:grid;
+  grid-template-columns:160px 1fr;
+  gap:20px;
+  align-items:center;
+}
+
+.score{
+  font-size:76px;
+  line-height:1;
+  font-weight:950;
+  background:linear-gradient(135deg,#fff,#9c7dff);
   -webkit-background-clip:text;
+  background-clip:text;
   color:transparent;
 }
 
-.signal-text{
-  color:#b9b9c5;
+.score-text{
+  color:var(--muted);
+}
+
+.quick-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:18px;
 }
 
 .quick{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-  margin:15px 0 35px;
+  border:1px solid var(--border);
+  background:#0d0d15;
+  border-radius:16px;
+  padding:16px;
 }
 
-.quick-card{
-  border:1px solid var(--line);
-  padding:22px;
-  border-radius:20px;
-  background:rgba(10,10,15,.7);
-}
-
-.quick-card small{
+.quick small{
   color:var(--muted);
+  display:block;
+  font-size:11px;
   text-transform:uppercase;
-  letter-spacing:1.5px;
+  letter-spacing:.8px;
 }
 
-.quick-card strong{
+.quick strong{
   display:block;
-  margin-top:10px;
-  font-size:18px;
-}
-
-.section{
-  border-top:1px solid var(--line);
-  padding:28px 0;
-}
-
-.section-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  cursor:pointer;
-}
-
-.section-title{
-  font-size:23px;
-  font-weight:900;
-}
-
-.section-sub{
-  color:var(--muted);
-  margin-top:6px;
-}
-
-.arrow{
   font-size:22px;
-  color:var(--muted);
-  transition:.2s;
-}
-
-.section.open .arrow{
-  transform:rotate(180deg);
-}
-
-.section-content{
-  display:none;
-  padding-top:25px;
-}
-
-.section.open .section-content{
-  display:block;
-  animation:fade .3s ease;
-}
-
-@keyframes fade{
-  from{opacity:0;transform:translateY(5px)}
-  to{opacity:1;transform:none}
-}
-
-.stats{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:10px;
-}
-
-.stat{
-  padding:20px;
-  border:1px solid var(--line);
-  border-radius:18px;
-  background:#09090d;
-}
-
-.stat-number{
-  font-size:30px;
-  font-weight:900;
-}
-
-.stat-label{
-  color:var(--muted);
-  font-size:12px;
   margin-top:5px;
 }
 
-.evidence-grid{
+.evidence-list{
   display:grid;
   gap:10px;
 }
 
 .evidence{
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:18px;
-  background:#09090d;
+  border:1px solid var(--border);
+  background:#0d0d15;
+  border-radius:15px;
+  padding:15px;
 }
 
 .evidence-top{
   display:flex;
   justify-content:space-between;
-  gap:15px;
   align-items:flex-start;
+  gap:12px;
 }
 
 .evidence-title{
-  font-weight:800;
-  line-height:1.4;
+  font-weight:850;
 }
 
-.evidence a{
-  color:#b88cff;
-  text-decoration:none;
+.evidence-source{
+  color:var(--muted);
+  font-size:12px;
+  margin-top:4px;
+  word-break:break-word;
+}
+
+.evidence-reason{
+  color:#c7c7d5;
+  font-size:13px;
+  margin-top:10px;
+}
+
+.badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  justify-content:flex-end;
 }
 
 .badge{
-  display:inline-block;
-  padding:6px 9px;
+  padding:5px 8px;
   border-radius:999px;
   font-size:10px;
   font-weight:900;
-  letter-spacing:.7px;
+  border:1px solid var(--border);
   white-space:nowrap;
 }
 
 .direct{
-  color:#86efac;
-  background:rgba(74,222,128,.1);
-  border:1px solid rgba(74,222,128,.2);
-}
-
-.directory{
-  color:#a7f3d0;
-  background:rgba(52,211,153,.08);
-  border:1px solid rgba(52,211,153,.2);
+  background:rgba(52,211,153,.11);
+  color:#7ef2c0;
 }
 
 .price{
-  color:#93c5fd;
-  background:rgba(59,130,246,.1);
-  border:1px solid rgba(59,130,246,.2);
+  background:rgba(251,191,36,.10);
+  color:#ffd66d;
 }
 
 .customer{
-  color:#c4b5fd;
-  background:rgba(139,92,246,.1);
-  border:1px solid rgba(139,92,246,.2);
+  background:rgba(56,189,248,.10);
+  color:#7bdcff;
 }
 
 .supplier{
-  color:#fdba74;
-  background:rgba(249,115,22,.1);
-  border:1px solid rgba(249,115,22,.2);
+  background:rgba(139,92,246,.12);
+  color:#c2a9ff;
 }
 
 .content{
-  color:#fde68a;
-  background:rgba(234,179,8,.08);
-  border:1px solid rgba(234,179,8,.2);
+  background:rgba(168,85,247,.09);
+  color:#d0b0ff;
 }
 
 .background{
-  color:#a1a1aa;
-  background:rgba(113,113,122,.08);
-  border:1px solid rgba(113,113,122,.2);
+  background:#161620;
+  color:#aaaabd;
 }
 
 .irrelevant{
-  color:#fda4af;
-  background:rgba(244,63,94,.08);
-  border:1px solid rgba(244,63,94,.2);
+  background:rgba(251,113,133,.08);
+  color:#ff9aaa;
 }
 
-.evidence-meta{
-  margin-top:10px;
-  color:var(--muted);
-  font-size:13px;
-  line-height:1.5;
+.directory{
+  background:rgba(99,102,241,.10);
+  color:#a9b0ff;
+}
+
+.local{
+  background:rgba(34,197,94,.08);
+  color:#8be9a9;
 }
 
 .money-grid{
@@ -445,141 +428,252 @@ button{
 }
 
 .money-card{
-  padding:20px;
-  border:1px solid var(--line);
-  border-radius:18px;
-  background:#09090d;
+  border:1px solid var(--border);
+  background:#0d0d15;
+  border-radius:15px;
+  padding:14px;
 }
 
 .money-card label{
   display:block;
-  color:var(--muted);
-  font-size:12px;
   margin-bottom:8px;
 }
 
 .money-results{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:repeat(6,1fr);
   gap:10px;
-  margin-top:15px;
+  margin-top:14px;
 }
 
 .money-result{
-  padding:18px;
-  border-radius:16px;
-  background:#101016;
-  border:1px solid var(--line);
+  border:1px solid var(--border);
+  background:#11111a;
+  border-radius:14px;
+  padding:13px;
+  color:var(--muted);
+  font-size:12px;
 }
 
 .money-result strong{
   display:block;
-  font-size:24px;
-  margin-top:5px;
+  color:#fff;
+  font-size:19px;
+  margin-top:4px;
+}
+
+.money-note{
+  color:var(--muted);
+  font-size:13px;
+  margin-top:12px;
+}
+
+.problem-grid,
+.operation-grid,
+.visual-grid,
+.strategy-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+
+.problem,
+.operation,
+.visual,
+.strategy{
+  border:1px solid var(--border);
+  background:#0d0d15;
+  border-radius:16px;
+  padding:17px;
+}
+
+.problem h3,
+.operation h3,
+.visual h3,
+.strategy h3{
+  margin:0 0 7px;
+  font-size:16px;
+}
+
+.problem p,
+.operation p,
+.visual p,
+.strategy p{
+  color:var(--muted);
+  font-size:13px;
+  margin:0;
+}
+
+.solution{
+  margin-top:12px;
+  border-left:3px solid var(--green);
+  padding-left:10px;
+  color:#d8fbe9;
+  font-size:13px;
+}
+
+.flow{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  overflow:auto;
+  padding:8px 0 16px;
+}
+
+.flow span{
+  flex:1;
+  min-width:105px;
+  text-align:center;
+  border:1px solid var(--border);
+  background:#0d0d15;
+  border-radius:13px;
+  padding:11px 8px;
+  font-size:12px;
+}
+
+.flow b{
+  color:var(--purple);
+}
+
+.strategy.recommended{
+  border-color:var(--purple);
+  box-shadow:0 0 0 1px rgba(139,92,246,.2);
+}
+
+.strategy-tag{
+  display:inline-block;
+  margin-bottom:9px;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1px;
+  color:#c6b5ff;
 }
 
 .plan{
+  border:1px solid var(--border);
+  background:#0d0d15;
+  border-radius:17px;
+  padding:18px;
+}
+
+.plan-row{
   display:grid;
-  grid-template-columns:repeat(7,1fr);
-  gap:8px;
+  grid-template-columns:90px 1fr;
+  gap:15px;
+  padding:13px 0;
+  border-bottom:1px solid #20202b;
 }
 
-.day{
-  min-height:130px;
-  padding:15px;
-  border-radius:16px;
-  background:#09090d;
-  border:1px solid var(--line);
+.plan-row:last-child{
+  border-bottom:0;
 }
 
-.day b{
-  color:#b98cff;
+.plan-day{
+  color:#bba7ff;
+  font-weight:900;
 }
 
-.day p{
-  color:var(--muted);
-  font-size:12px;
-  line-height:1.5;
+.plan-task{
+  color:#dddde6;
 }
 
 .risks{
   display:grid;
-  gap:10px;
+  gap:9px;
 }
 
 .risk{
-  padding:18px;
-  border-left:3px solid var(--red);
-  background:#0d0d12;
-  border-radius:10px;
-  color:#c7c7d0;
+  border:1px solid var(--border);
+  background:#0d0d15;
+  border-radius:13px;
+  padding:13px;
 }
 
-.reset{
+.risk strong{
   display:block;
-  margin:35px auto 0;
-  background:transparent;
+}
+
+.risk span{
+  display:block;
   color:var(--muted);
-  border:1px solid var(--line);
-  padding:12px 20px;
-  border-radius:12px;
+  font-size:13px;
+  margin-top:4px;
 }
 
 .empty{
   color:var(--muted);
-  padding:20px;
-  text-align:center;
+  border:1px dashed var(--border);
+  border-radius:14px;
+  padding:18px;
 }
 
-footer{
-  padding:30px 0;
-  border-top:1px solid var(--line);
-  color:#666673;
-  text-align:center;
+.footer{
+  color:#666678;
   font-size:12px;
+  padding:35px 0 60px;
+  text-align:center;
 }
 
-@media(max-width:800px){
-  .hero{padding-top:55px}
-  .row,
-  .quick,
-  .stats,
-  .money-grid,
+@media(max-width:900px){
+  .form-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .quick-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .money-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
   .money-results{
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:repeat(3,1fr);
   }
 
-  .plan{
+  .problem-grid,
+  .operation-grid,
+  .visual-grid,
+  .strategy-grid{
     grid-template-columns:1fr 1fr;
-  }
-
-  .signal-number{
-    font-size:70px;
   }
 }
 
-@media(max-width:520px){
+@media(max-width:620px){
   header{
     align-items:flex-start;
-    gap:10px;
-  }
-
-  .header-right{
-    text-align:right;
-    font-size:9px;
-  }
-
-  .row,
-  .quick,
-  .stats,
-  .money-grid,
-  .money-results,
-  .plan{
-    grid-template-columns:1fr;
+    flex-direction:column;
   }
 
   .hero h1{
     letter-spacing:-2px;
+  }
+
+  .form-grid,
+  .quick-grid,
+  .money-grid,
+  .problem-grid,
+  .operation-grid,
+  .visual-grid,
+  .strategy-grid{
+    grid-template-columns:1fr;
+  }
+
+  .money-results{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .score-row{
+    grid-template-columns:1fr;
+  }
+
+  .score{
+    font-size:60px;
+  }
+
+  .panel{
+    padding:17px;
+    border-radius:18px;
   }
 }
 </style>
@@ -590,32 +684,45 @@ footer{
 <div class="container">
 
 <header>
-  <div class="logo">REALITY <span>DEMAND</span></div>
-  <div class="header-right">MARKET INTELLIGENCE · v1.1</div>
+  <div class="logo">REALITY DEMAND</div>
+  <div class="version">MARKET INTELLIGENCE · v1.2</div>
 </header>
 
 <section class="hero">
+  <h1>EVIDENCE BEFORE INVESTMENT</h1>
+  <p>Know what the market is showing before you build, buy, launch or invest.</p>
+</section>
 
-  <div class="kicker">EVIDENCE BEFORE INVESTMENT</div>
+<section class="panel">
 
-  <h1>Know before<br><span>you build.</span></h1>
+  <div class="section-title">
+    <h2>Market Research Input</h2>
+    <span>REALITY ENGINE</span>
+  </div>
 
-  <p>
-    Research the market, separate useful evidence from noise,
-    understand the money, and decide what needs to be tested first.
-  </p>
+  <div class="form-grid">
 
-  <div class="input-panel">
-
-    <textarea id="idea"
-      placeholder="Describe your business idea...&#10;&#10;Example: I want to sell crispy chicken sandwiches for 15 DH near schools."></textarea>
-
-    <div class="row">
-      <input id="city" placeholder="City / area — e.g. Casablanca">
-      <input id="target" placeholder="Target customer — e.g. students">
+    <div class="field full">
+      <label for="idea">What do you want to sell or build?</label>
+      <textarea
+        id="idea"
+        placeholder="Example: I want to sell crispy chicken sandwiches for 15 DH"
+      ></textarea>
     </div>
 
-    <div class="row">
+    <div class="field">
+      <label for="city">City / Market</label>
+      <input id="city" placeholder="Casablanca">
+    </div>
+
+    <div class="field">
+      <label for="target">Target Customer</label>
+      <input id="target" placeholder="Students">
+    </div>
+
+    <div class="field">
+      <label for="country">Country</label>
+
       <select id="country">
         <option value="Morocco">Morocco</option>
         <option value="France">France</option>
@@ -630,1187 +737,3420 @@ footer{
         <option value="Japan">Japan</option>
         <option value="Brazil">Brazil</option>
       </select>
-
-      <input id="price"
-        type="number"
-        placeholder="Expected selling price">
     </div>
 
-    <button class="analyze" id="analyze">
-      ANALYZE MARKET →
+    <div class="field">
+      <label for="price">Target Price</label>
+      <input id="price" type="number" step="0.01" placeholder="15">
+    </div>
+
+  </div>
+
+  <div class="actions">
+    <button class="btn primary" id="analyze">
+      Analyze Market
     </button>
 
+    <button class="btn" id="reset">
+      Reset
+    </button>
+  </div>
+
+  <div class="scan" id="scan">
+    <div class="scan-bar">
+      <i></i>
+    </div>
+
+    <div class="scan-status" id="scanStatus">
+      Scanning market evidence...
+    </div>
   </div>
 
 </section>
 
-<div class="scan" id="scan">
-  <div class="scanner"></div>
-  <div class="scan-title">Reality Engine is researching...</div>
-  <div class="scan-status" id="scanStatus">
-    Searching local competitors...
-  </div>
-</div>
 
-<section class="results" id="results">
+<main class="results" id="results">
 
-  <div class="signal">
-    <div class="signal-label">DEMAND SIGNAL</div>
-    <div class="signal-number" id="score">0</div>
-    <div class="signal-text" id="scoreText">
-      Initial evidence signal — not a guarantee of demand.
-    </div>
+
+<section class="decision">
+
+  <div class="decision-label">
+    REALITY DECISION
   </div>
 
-  <div class="quick">
+  <div class="decision-action" id="decisionAction">
+    RESEARCH
+  </div>
 
-    <div class="quick-card">
-      <small>Market</small>
-      <strong id="quickMarket">Researching...</strong>
+  <div class="decision-note" id="decisionNote">
+    Analyze the market to generate a decision.
+  </div>
+
+  <div class="pills">
+
+    <span class="pill" id="qualityPill">
+      Evidence quality: —
+    </span>
+
+    <span class="pill" id="confidencePill">
+      Confidence: —
+    </span>
+
+    <span class="pill" id="coveragePill">
+      Local coverage: —
+    </span>
+
+  </div>
+
+</section>
+
+
+<section class="panel">
+
+  <div class="score-row">
+
+    <div class="score" id="score">
+      —
     </div>
 
-    <div class="quick-card">
+    <div>
+
+      <div class="section-title">
+        <h2>Reality Score</h2>
+        <span>EVIDENCE-BASED</span>
+      </div>
+
+      <div class="score-text" id="scoreText">
+        Waiting for market research.
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="quick-grid">
+
+    <div class="quick">
+      <small>Useful Evidence</small>
+      <strong id="quickMarket">—</strong>
+    </div>
+
+    <div class="quick">
       <small>Competition</small>
-      <strong id="quickCompetition">Researching...</strong>
+      <strong id="quickCompetition">—</strong>
     </div>
 
-    <div class="quick-card">
-      <small>Next move</small>
-      <strong id="quickMove">Research first</strong>
+    <div class="quick">
+      <small>Price Evidence</small>
+      <strong id="quickPrice">—</strong>
     </div>
 
-  </div>
-
-  <!-- MARKET -->
-
-  <div class="section open">
-
-    <div class="section-head">
-      <div>
-        <div class="section-title">Market Reality</div>
-        <div class="section-sub">
-          What the web evidence actually contains.
-        </div>
-      </div>
-      <div class="arrow">⌄</div>
-    </div>
-
-    <div class="section-content">
-
-      <div class="stats">
-
-        <div class="stat">
-          <div class="stat-number" id="totalResults">0</div>
-          <div class="stat-label">TOTAL RESULTS</div>
-        </div>
-
-        <div class="stat">
-          <div class="stat-number" id="directCount">0</div>
-          <div class="stat-label">DIRECT COMPETITORS</div>
-        </div>
-
-        <div class="stat">
-          <div class="stat-number" id="priceCount">0</div>
-          <div class="stat-label">PRICE SIGNALS</div>
-        </div>
-
-        <div class="stat">
-          <div class="stat-number" id="customerCount">0</div>
-          <div class="stat-label">CUSTOMER SIGNALS</div>
-        </div>
-
-      </div>
-
-      <div style="height:18px"></div>
-
-      <div class="evidence-grid" id="evidenceList"></div>
-
+    <div class="quick">
+      <small>Next Move</small>
+      <strong id="quickMove">—</strong>
     </div>
 
   </div>
-
-  <!-- MONEY -->
-
-  <div class="section">
-
-    <div class="section-head">
-      <div>
-        <div class="section-title">Money Reality</div>
-        <div class="section-sub">
-          Test your own unit economics.
-        </div>
-      </div>
-      <div class="arrow">⌄</div>
-    </div>
-
-    <div class="section-content">
-
-      <div class="money-grid">
-
-        <div class="money-card">
-          <label>Selling price / unit</label>
-          <input id="moneyPrice" type="number" placeholder="15">
-        </div>
-
-        <div class="money-card">
-          <label>Total cost / unit</label>
-          <input id="moneyCost" type="number" placeholder="8">
-        </div>
-
-        <div class="money-card">
-          <label>Units sold / day</label>
-          <input id="moneyUnits" type="number" placeholder="50">
-        </div>
-
-      </div>
-
-      <div class="money-results">
-
-        <div class="money-result">
-          Profit / unit
-          <strong id="profitUnit">—</strong>
-        </div>
-
-        <div class="money-result">
-          Gross margin
-          <strong id="margin">—</strong>
-        </div>
-
-        <div class="money-result">
-          Daily gross
-          <strong id="dailyProfit">—</strong>
-        </div>
-
-        <div class="money-result">
-          30-day gross
-          <strong id="monthlyProfit">—</strong>
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <!-- CUSTOMER -->
-
-  <div class="section">
-
-    <div class="section-head">
-      <div>
-        <div class="section-title">Customer Reality</div>
-        <div class="section-sub">
-          A target customer is a hypothesis until someone acts.
-        </div>
-      </div>
-      <div class="arrow">⌄</div>
-    </div>
-
-    <div class="section-content">
-
-      <div class="risk">
-        <strong>Test this before investing:</strong><br><br>
-        Can you identify 10 real people who fit your target?
-        Can you show them the offer?
-        Will they give you money, place an order, leave contact details,
-        or take another measurable action?
-      </div>
-
-      <div style="height:12px"></div>
-
-      <div class="risk">
-        <strong>Your current target:</strong>
-        <span id="customerTarget">Not specified</span>
-      </div>
-
-    </div>
-
-  </div>
-
-  <!-- FIRST MOVE -->
-
-  <div class="section">
-
-    <div class="section-head">
-      <div>
-        <div class="section-title">Your First Move</div>
-        <div class="section-sub">
-          Seven days of validation before serious investment.
-        </div>
-      </div>
-      <div class="arrow">⌄</div>
-    </div>
-
-    <div class="section-content">
-
-      <div class="plan">
-
-        <div class="day">
-          <b>DAY 1</b>
-          <p>Define the exact customer and problem.</p>
-        </div>
-
-        <div class="day">
-          <b>DAY 2</b>
-          <p>Find 5–10 real competitors or alternatives.</p>
-        </div>
-
-        <div class="day">
-          <b>DAY 3</b>
-          <p>Record real prices and offers.</p>
-        </div>
-
-        <div class="day">
-          <b>DAY 4</b>
-          <p>Talk to potential customers.</p>
-        </div>
-
-        <div class="day">
-          <b>DAY 5</b>
-          <p>Test the smallest sellable version.</p>
-        </div>
-
-        <div class="day">
-          <b>DAY 6</b>
-          <p>Measure orders, interest, objections and costs.</p>
-        </div>
-
-        <div class="day">
-          <b>DAY 7</b>
-          <p>Decide what evidence is still missing.</p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <!-- RISKS -->
-
-  <div class="section">
-
-    <div class="section-head">
-      <div>
-        <div class="section-title">What Can Kill The Idea?</div>
-        <div class="section-sub">
-          Things you need to prove, not assumptions.
-        </div>
-      </div>
-      <div class="arrow">⌄</div>
-    </div>
-
-    <div class="section-content">
-
-      <div class="risks" id="risks"></div>
-
-    </div>
-
-  </div>
-
-  <button class="reset" id="reset">RESET ANALYSIS</button>
 
 </section>
 
-<footer>
-  REALITY DEMAND · Evidence before investment.
-</footer>
+
+<section class="panel">
+
+  <div class="section-title">
+    <h2>Market Reality</h2>
+    <span>WHAT THE MARKET IS SHOWING</span>
+  </div>
+
+  <div class="quick-grid">
+
+    <div class="quick">
+      <small>Total Results</small>
+      <strong id="totalResults">0</strong>
+    </div>
+
+    <div class="quick">
+      <small>Direct Competitors</small>
+      <strong id="directCount">0</strong>
+    </div>
+
+    <div class="quick">
+      <small>Price Signals</small>
+      <strong id="priceCount">0</strong>
+    </div>
+
+    <div class="quick">
+      <small>Customer Signals</small>
+      <strong id="customerCount">0</strong>
+    </div>
+
+    <div class="quick">
+      <small>Suppliers</small>
+      <strong id="supplierCount">0</strong>
+    </div>
+
+  </div>
+
+  <div style="height:18px"></div>
+
+  <div class="evidence-list" id="evidenceList"></div>
+
+</section>
+
+
+<section class="panel">
+
+  <div class="section-title">
+    <h2>Problems → Solutions</h2>
+    <span>TURN RISKS INTO ACTIONS</span>
+  </div>
+
+  <div class="problem-grid" id="problemGrid"></div>
+
+</section>
+
+
+<section class="panel">
+
+  <div class="section-title">
+    <h2>How To Operate</h2>
+    <span>FROM SUPPLIER TO CUSTOMER</span>
+  </div>
+
+  <div class="flow" id="operationFlow"></div>
+
+  <div class="operation-grid" id="operationGrid"></div>
+
+</section>
+
+
+<section class="panel">
+
+  <div class="section-title">
+    <h2>Money Reality</h2>
+    <span>NO INVENTED NUMBERS</span>
+  </div>
+
+
+  <div class="money-grid">
+
+    <div class="money-card">
+      <label>Selling price / unit</label>
+      <input
+        id="moneyPrice"
+        type="number"
+        step="0.01"
+        placeholder="15"
+      >
+    </div>
+
+    <div class="money-card">
+      <label>Variable cost / unit</label>
+      <input
+        id="moneyCost"
+        type="number"
+        step="0.01"
+        placeholder="8"
+      >
+    </div>
+
+    <div class="money-card">
+      <label>Units sold / day</label>
+      <input
+        id="moneyUnits"
+        type="number"
+        step="1"
+        placeholder="50"
+      >
+    </div>
+
+    <div class="money-card">
+      <label>Fixed costs / month</label>
+      <input
+        id="fixedCosts"
+        type="number"
+        step="0.01"
+        placeholder="0"
+      >
+    </div>
+
+    <div class="money-card">
+      <label>Startup budget</label>
+      <input
+        id="startupBudget"
+        type="number"
+        step="0.01"
+        placeholder="0"
+      >
+    </div>
+
+    <div class="money-card">
+      <label>Working days / month</label>
+      <input
+        id="workingDays"
+        type="number"
+        step="1"
+        placeholder="26"
+      >
+    </div>
+
+  </div>
+
+
+  <div class="money-results">
+
+    <div class="money-result">
+      Profit / unit
+      <strong id="profitUnit">—</strong>
+    </div>
+
+    <div class="money-result">
+      Gross margin
+      <strong id="margin">—</strong>
+    </div>
+
+    <div class="money-result">
+      Daily contribution
+      <strong id="dailyProfit">—</strong>
+    </div>
+
+    <div class="money-result">
+      Monthly result
+      <strong id="monthlyProfit">—</strong>
+    </div>
+
+    <div class="money-result">
+      Break-even units
+      <strong id="breakEvenUnits">—</strong>
+    </div>
+
+    <div class="money-result">
+      Break-even days
+      <strong id="breakEvenDays">—</strong>
+    </div>
+
+  </div>
+
+
+  <div class="money-note" id="moneyNote">
+    Enter the numbers you actually know.
+    Reality Demand will not invent missing costs.
+  </div>
+
+</section>
+
+
+<section class="panel">
+
+  <div class="section-title">
+    <h2>Visual Guide</h2>
+    <span>UNDERSTAND THE BUSINESS</span>
+  </div>
+
+  <div class="visual-grid" id="visualGrid"></div>
+
+</section>
+
+
+<section class="panel">
+
+  <div class="section-title">
+    <h2>Success Path</h2>
+    <span>VALIDATE BEFORE SCALING</span>
+  </div>
+
+  <div class="strategy-grid" id="strategyGrid"></div>
+
+  <div style="height:18px"></div>
+
+  <div class="plan" id="plan"></div>
+
+</section>
+
+
+<section class="panel">
+
+  <div class="section-title">
+    <h2>Risk Control</h2>
+    <span>WHAT CAN BREAK THE IDEA</span>
+  </div>
+
+  <div class="risks" id="risks"></div>
+
+</section>
+
+
+<section class="panel">
+
+  <div class="section-title">
+    <h2>Customer Reality</h2>
+    <span>WHO PAYS</span>
+  </div>
+
+  <div class="empty" id="customerTarget">
+    No customer target defined.
+  </div>
+
+</section>
+
+
+</main>
+
+
+<div class="footer">
+  Reality Demand · Market Intelligence v1.2 · Evidence before investment.
+</div>
 
 </div>
+
 
 <script>
 
 const API =
 "https://reality-demand-api.essmoumpex.workers.dev/api/search";
 
-const $ = id => document.getElementById(id);
+const $ = id =>
+document.getElementById(id);
 
 let latestResults = [];
+let latestContext = {};
+let latestStats = {};
 
-function escapeHTML(value){
-  return String(value || "")
+
+function esc(value){
+
+  return String(value ?? "")
     .replace(/&/g,"&amp;")
     .replace(/</g,"&lt;")
     .replace(/>/g,"&gt;")
     .replace(/"/g,"&quot;")
     .replace(/'/g,"&#039;");
+
 }
 
-/* ---------------------------------------------------
-   LANGUAGE / MARKET TERMS
---------------------------------------------------- */
 
-const countryTerms = {
-  Morocco:["morocco","maroc","المغرب","casablanca","rabat","marrakech"],
-  France:["france","français","paris","lyon","marseille"],
-  Belgium:["belgium","belgique","brussels","bruxelles"],
-  Canada:["canada","montreal","montréal","toronto","quebec"],
-  "United States":["united states","usa","america","new york","los angeles"],
-  "United Kingdom":["uk","united kingdom","england","london"],
-  Spain:["spain","españa","madrid","barcelona"],
-  Germany:["germany","deutschland","berlin","munich"],
-  UAE:["uae","dubai","abu dhabi"],
-  India:["india","mumbai","delhi","bangalore"],
-  Japan:["japan","tokyo","osaka"],
-  Brazil:["brazil","brasil","sao paulo","rio"]
-};
+function hasAny(text,list){
 
-/* ---------------------------------------------------
-   SEMANTIC CATEGORIES
---------------------------------------------------- */
+  const s =
+    String(text || "").toLowerCase();
 
-const categoryWords = {
+  return list.some(x =>
+    s.includes(x.toLowerCase())
+  );
 
-  food:[
-    "food","restaurant","sandwich","chicken","burger","pizza",
-    "meal","cafe","bakery","bread","cake","fried","crispy",
-    "menu","snack","street food","fast food","tacos"
-  ],
-
-  digital:[
-    "app","software","website","platform","saas",
-    "online tool","ai tool","subscription","digital"
-  ],
-
-  service:[
-    "service","repair","cleaning","marketing","design",
-    "freelance","consulting","agency","installation"
-  ],
-
-  ecommerce:[
-    "shop","store","product","ecommerce","e-commerce",
-    "online store","sell","selling"
-  ],
-
-  education:[
-    "course","training","learn","education","lesson",
-    "school","teaching","coaching"
-  ]
-};
-
-/* ---------------------------------------------------
-   CLASSIFIER
---------------------------------------------------- */
-
-function words(text){
-  return String(text || "")
-    .toLowerCase()
-    .split(/[^a-zA-ZÀ-ÿ0-9\u0600-\u06FF]+/)
-    .filter(w => w.length > 2);
 }
 
-function containsAny(text,list){
-  const t = text.toLowerCase();
-  return list.some(x => t.includes(x));
+
+function getHost(url){
+
+  try{
+
+    return new URL(url)
+      .hostname
+      .replace(/^www\./,"");
+
+  }catch{
+
+    return "";
+
+  }
+
 }
+
+
+function isMediaHost(host){
+
+  return [
+    "youtube.com",
+    "youtu.be",
+    "tiktok.com",
+    "instagram.com",
+    "facebook.com",
+    "fb.watch",
+    "vimeo.com",
+    "dailymotion.com"
+  ].some(x =>
+    host.includes(x)
+  );
+
+}
+
+
+function isDirectoryHost(host){
+
+  return [
+    "tripadvisor",
+    "yelp",
+    "foursquare",
+    "yellowpages",
+    "pagesjaunes",
+    "glovo",
+    "ubereats",
+    "deliveroo",
+    "justeat"
+  ].some(x =>
+    host.includes(x)
+  );
+
+}
+
+
+function extractPrice(text){
+
+  const s =
+    String(text || "");
+
+  const patterns = [
+
+    /(?:€|\$|£)\s?\d+(?:[.,]\d{1,2})?/i,
+
+    /\d+(?:[.,]\d{1,2})?\s?(?:dh|dhs|mad|€|\$|£|cad|usd|aed|inr|jpy|brl)\b/i
+
+  ];
+
+  for(const p of patterns){
+
+    const match =
+      s.match(p);
+
+    if(match){
+
+      return match[0]
+        .replace(/\s+/g," ")
+        .trim();
+
+    }
+
+  }
+
+  return "";
+
+}
+
+
+function normalizeResult(raw){
+
+  const title =
+    raw.title ||
+    raw.name ||
+    "";
+
+  const description =
+    raw.description ||
+    raw.snippet ||
+    raw.text ||
+    "";
+
+  const url =
+    raw.url ||
+    raw.link ||
+    "";
+
+  return {
+
+    title,
+    description,
+    url,
+
+    text:
+      `${title} ${description} ${url}`.trim()
+
+  };
+
+}
+
 
 function ideaCategory(idea){
 
-  const t = idea.toLowerCase();
+  const s =
+    idea.toLowerCase();
 
-  let best = "general";
-  let bestScore = 0;
+  if(hasAny(s,[
 
-  for(const [cat,list] of Object.entries(categoryWords)){
+    "sandwich",
+    "chicken",
+    "burger",
+    "pizza",
+    "tacos",
+    "restaurant",
+    "food",
+    "snack",
+    "boulanger",
+    "bakery",
+    "patisserie",
+    "pastry",
+    "cafe",
+    "coffee",
+    "jus",
+    "juice",
+    "poulet",
+    "pain",
+    "gateau"
 
-    let score = 0;
+  ])){
 
-    list.forEach(word=>{
-      if(t.includes(word)) score++;
-    });
+    return "food";
 
-    if(score > bestScore){
-      bestScore = score;
-      best = cat;
-    }
   }
 
-  return best;
+
+  if(hasAny(s,[
+
+    "app",
+    "website",
+    "software",
+    "saas",
+    "platform",
+    "application",
+    "online tool",
+    "ai tool",
+    "digital"
+
+  ])){
+
+    return "digital";
+
+  }
+
+
+  if(hasAny(s,[
+
+    "clothing",
+    "tshirt",
+    "shoes",
+    "fashion",
+    "vêtements",
+    "vetement"
+
+  ])){
+
+    return "retail";
+
+  }
+
+
+  if(hasAny(s,[
+
+    "repair",
+    "electric",
+    "electricity",
+    "plumbing",
+    "construction",
+    "maintenance",
+    "installation"
+
+  ])){
+
+    return "service";
+
+  }
+
+
+  return "general";
+
 }
 
-function classifyResult(result, context){
 
-  const title = (result.title || "").toLowerCase();
-  const content = (result.content || "").toLowerCase();
-  const url = (result.url || "").toLowerCase();
+function categoryTerms(category){
 
-  const text = title + " " + content;
+  const map = {
 
-  const idea = context.idea.toLowerCase();
-  const city = context.city.toLowerCase();
-  const country = context.country.toLowerCase();
+    food:[
 
-  const category = ideaCategory(idea);
+      "restaurant",
+      "food",
+      "sandwich",
+      "chicken",
+      "burger",
+      "pizza",
+      "tacos",
+      "bakery",
+      "boulangerie",
+      "patisserie",
+      "cafe",
+      "snack",
+      "menu",
+      "delivery",
+      "takeaway",
+      "street food",
+      "fast food",
+      "poulet",
+      "pain",
+      "gateau"
 
-  /* locality */
+    ],
 
-  const localTerms = [
-    city,
-    country,
-    ...(countryTerms[context.country] || [])
-  ].filter(Boolean);
+    digital:[
 
-  let locality = containsAny(text,localTerms);
+      "software",
+      "app",
+      "application",
+      "saas",
+      "platform",
+      "website",
+      "tool",
+      "online",
+      "ai"
 
-  /* category relevance */
+    ],
 
-  let relevant = false;
+    retail:[
 
-  const ideaWords = words(idea);
+      "shop",
+      "store",
+      "fashion",
+      "clothing",
+      "shoes",
+      "retail",
+      "boutique",
+      "product",
+      "price"
 
-  let matchedIdeaWords = 0;
+    ],
 
-  ideaWords.forEach(word=>{
-    if(word.length >= 4 && text.includes(word)){
-      matchedIdeaWords++;
-    }
-  });
+    service:[
 
-  if(matchedIdeaWords >= 1) relevant = true;
+      "service",
+      "repair",
+      "maintenance",
+      "installation",
+      "electric",
+      "plumbing",
+      "construction",
+      "technician"
 
-  if(category !== "general"){
-    if(containsAny(text,categoryWords[category])){
-      relevant = true;
-    }
-  }
+    ],
 
-  /* strong irrelevant signals */
+    general:[
 
-  const irrelevantSignals = [
-    "telecom",
-    "bank",
-    "insurance",
-    "construction",
-    "software consulting",
-    "industrial",
-    "automotive",
-    "circet",
-    "linkedin jobs"
-  ];
+      "business",
+      "market",
+      "product",
+      "service",
+      "price",
+      "customer"
 
-  const obviouslyIrrelevant =
-    containsAny(text,irrelevantSignals) &&
-    !containsAny(text,categoryWords[category] || []);
+    ]
 
-  /* supplier */
+  };
 
-  const supplierSignals = [
-    "supplier",
-    "wholesale",
-    "wholesaler",
-    "distributor",
-    "distribution",
-    "manufacturer",
-    "factory",
-    "grossiste",
-    "fournisseur",
-    "importer",
-    "packaging",
-    "equipment"
-  ];
+  return map[category] ||
+    map.general;
 
-  const supplier =
-    containsAny(text,supplierSignals);
+}
 
-  /* price */
 
-  const priceSignals = [
-    "price",
-    "prices",
-    "prix",
-    "menu",
-    "dh",
-    "mad",
-    "€",
-    "$",
-    "cost",
-    "tarif",
-    "15 dh",
-    "20 dh",
-    "25 dh"
-  ];
+const irrelevantSignals = [
 
-  const price =
-    containsAny(text,priceSignals);
+  "telecom",
+  "bank",
+  "banking",
+  "insurance",
+  "assurance",
+  "mortgage",
+  "automotive",
+  "car dealership",
+  "truck",
+  "industrial",
+  "factory",
+  "oil company",
+  "gas company",
+  "circet",
+  "stock market",
+  "crypto exchange",
+  "casino",
+  "politics"
 
-  /* customer */
+];
 
-  const customerSignals = [
-    "review",
-    "reviews",
-    "rating",
-    "customer",
-    "customers",
-    "client",
-    "clients",
-    "ordered",
-    "order",
-    "sold",
-    "bought",
-    "avis",
-    "commande",
-    "comment",
-    "comments"
-  ];
 
-  const customer =
-    containsAny(text,customerSignals);
+const supplierSignals = [
 
-  /* directories */
+  "supplier",
+  "suppliers",
+  "wholesale",
+  "wholesaler",
+  "distributor",
+  "distribution",
+  "grossiste",
+  "grossistes",
+  "fournisseur",
+  "fournisseurs",
+  "bulk",
+  "manufacturer",
+  "fabricant"
 
-  const directorySignals = [
-    "tripadvisor",
-    "yelp",
-    "directory",
-    "best restaurants",
-    "best sandwich",
-    "top restaurants",
-    "list of"
-  ];
+];
 
-  const directory =
-    containsAny(text,directorySignals) ||
-    /tripadvisor|yelp/.test(url);
 
-  /* content */
+const customerSignals = [
 
-  const contentSignals = [
-    "youtube",
-    "tiktok",
-    "instagram",
-    "reel",
-    "video",
-    "street food",
-    "food tour",
-    "vlog",
-    "challenge"
-  ];
+  "review",
+  "reviews",
+  "rating",
+  "ratings",
+  "customer",
+  "customers",
+  "comments",
+  "comment",
+  "order",
+  "orders",
+  "experience",
+  "avis",
+  "client",
+  "clients",
+  "satisfaction",
+  "stars",
+  "evaluation"
+
+];
+
+
+const priceSignals = [
+
+  "price",
+  "prices",
+  "prix",
+  "cost",
+  "menu",
+  "tarif",
+  "tarifs",
+  "dh",
+  "dhs",
+  "mad",
+  "€",
+  "$",
+  "£",
+  "cad",
+  "usd",
+  "aed"
+
+];
+
+
+const businessSignals = [
+
+  "restaurant",
+  "shop",
+  "store",
+  "bakery",
+  "boulangerie",
+  "patisserie",
+  "cafe",
+  "snack",
+  "company",
+  "business",
+  "location",
+  "address",
+  "menu",
+  "order",
+  "delivery",
+  "takeaway",
+  "boutique",
+  "service"
+
+];
+
+
+const backgroundSignals = [
+
+  "market report",
+  "industry report",
+  "statistics",
+  "statistique",
+  "market size",
+  "trend",
+  "trends",
+  "forecast",
+  "growth",
+  "industry",
+  "overview",
+  "guide",
+  "definition",
+  "what is"
+
+];
+
+
+const localSignals = [
+
+  "near",
+  "nearby",
+  "local",
+  "casablanca",
+  "rabat",
+  "marrakech",
+  "fes",
+  "tangier",
+  "morocco",
+  "france",
+  "belgium",
+  "canada",
+  "paris",
+  "montreal",
+  "brussels"
+
+];
+
+
+function classifyResult(raw,context){
+
+  const r =
+    normalizeResult(raw);
+
+  const s =
+    r.text.toLowerCase();
+
+  const host =
+    getHost(r.url);
 
   const media =
-    containsAny(text,contentSignals) ||
-    /youtube|tiktok|instagram/.test(url);
+    isMediaHost(host);
 
-  /* generic background */
+  const directory =
+    isDirectoryHost(host);
 
-  const backgroundSignals = [
-    "market report",
-    "market size",
-    "industry report",
-    "market analysis",
-    "industry analysis",
-    "global market",
-    "forecast",
-    "statistics"
-  ];
+  const terms =
+    categoryTerms(context.category);
+
+  const relevant =
+    hasAny(s,terms);
+
+  const local =
+    relevant &&
+    (
+      hasAny(
+        s,
+        [
+          context.city,
+          context.country
+        ].filter(Boolean)
+      )
+      ||
+      hasAny(s,localSignals)
+    );
+
+  const price =
+    extractPrice(r.text);
+
+  const hasPrice =
+    !!price ||
+    hasAny(s,priceSignals);
+
+  const customer =
+    hasAny(s,customerSignals);
+
+  const supplier =
+    hasAny(s,supplierSignals);
 
   const background =
-    containsAny(text,backgroundSignals);
+    hasAny(s,backgroundSignals);
 
-  /* business signal */
+  const irrelevant =
+    hasAny(s,irrelevantSignals) &&
+    !relevant;
 
-  const businessSignals = [
-    "restaurant",
-    "cafe",
-    "shop",
-    "store",
-    "bakery",
-    "business",
-    "menu",
-    "delivery",
-    "takeaway",
-    "food truck"
-  ];
 
-  const business =
-    containsAny(text,businessSignals);
+  let type =
+    "BACKGROUND";
 
-  /* -------------------------------------------------
-     PRIORITY LOGIC
-  ------------------------------------------------- */
+  let confidence =
+    25;
 
-  if(obviouslyIrrelevant){
-    return {
-      type:"IRRELEVANT",
-      class:"irrelevant",
-      reason:"The result does not match the business category."
-    };
+  let quality =
+    .25;
+
+  let reason =
+    "General background information.";
+
+
+  if(irrelevant){
+
+    type =
+      "IRRELEVANT";
+
+    confidence =
+      94;
+
+    quality =
+      0;
+
+    reason =
+      "The result does not match the business category being researched.";
+
   }
 
-  if(supplier && relevant){
-    return {
-      type:"SUPPLIER",
-      class:"supplier",
-      reason:"This looks like a supplier, distributor or equipment source."
-    };
+
+  else if(supplier && relevant){
+
+    type =
+      "SUPPLIER";
+
+    confidence =
+      88;
+
+    quality =
+      .72;
+
+    reason =
+      "Relevant supplier, wholesaler or distribution evidence.";
+
   }
 
-  if(directory && relevant && locality){
-    return {
-      type:"COMPETITOR DIRECTORY",
-      class:"directory",
-      reason:"A local directory/list that can reveal several competitors."
-    };
+
+  else if(media && relevant && hasPrice){
+
+    type =
+      "PRICE SIGNAL";
+
+    confidence =
+      82;
+
+    quality =
+      .70;
+
+    reason =
+      `Media content mentions a market price${
+        price ? ` (${price})` : ""
+      }, but it is not treated as direct competitor proof.`;
+
   }
 
-  if(price && relevant && locality && business){
-    return {
-      type:"PRICE EVIDENCE",
-      class:"price",
-      reason:"Relevant local offer with a visible price/menu signal."
-    };
+
+  else if(
+    media &&
+    relevant &&
+    hasAny(
+      s,
+      [
+        "review",
+        "reviews",
+        "rating",
+        "restaurant",
+        "kfc",
+        "mcdonald",
+        "burger king",
+        "pizza hut",
+        "competitor",
+        "comparison"
+      ]
+    )
+  ){
+
+    type =
+      "COMPETITOR CONTENT";
+
+    confidence =
+      84;
+
+    quality =
+      .64;
+
+    reason =
+      "Content about an existing competitor or comparable business.";
+
   }
 
-  if(customer && relevant && locality){
-    return {
-      type:"CUSTOMER SIGNAL",
-      class:"customer",
-      reason:"Contains reviews, orders, comments or other customer activity."
-    };
+
+  else if(media && relevant){
+
+    type =
+      "MARKET CONTENT";
+
+    confidence =
+      78;
+
+    quality =
+      .46;
+
+    reason =
+      "Market content useful for trends, products or customer behavior, not direct proof.";
+
   }
 
-  if(media && relevant){
-    return {
-      type:"MARKET CONTENT",
-      class:"content",
-      reason:"Useful market content, but not necessarily a business selling directly."
-    };
+
+  else if(
+    relevant &&
+    (
+      businessSignals.some(x =>
+        s.includes(x)
+      )
+      ||
+      directory
+    ) &&
+    (
+      local ||
+      hasAny(
+        s,
+        [
+          "address",
+          "order",
+          "delivery",
+          "menu",
+          "location",
+          "contact",
+          "phone"
+        ]
+      )
+    )
+  ){
+
+    type =
+      "DIRECT COMPETITOR";
+
+    confidence =
+      91;
+
+    quality =
+      hasPrice ? .98 : .88;
+
+    reason =
+      hasPrice
+      ?
+      `Relevant local business evidence with pricing${
+        price ? ` (${price})` : ""
+      }.`
+      :
+      "Relevant business that can compete for the same customer.";
+
   }
 
-  if(background && relevant){
-    return {
-      type:"BACKGROUND",
-      class:"background",
-      reason:"Useful context, but not direct local evidence."
-    };
+
+  else if(relevant && directory){
+
+    type =
+      "COMPETITOR DIRECTORY";
+
+    confidence =
+      82;
+
+    quality =
+      .75;
+
+    reason =
+      "Directory or marketplace listing that can help map competitors.";
+
   }
 
-  /*
-     DIRECT COMPETITOR:
-     requires relevance + locality + business signal.
-     A generic mention of the city is NOT enough.
-  */
 
-  if(relevant && locality && business){
-    return {
-      type:"DIRECT COMPETITOR",
-      class:"direct",
-      reason:"The result appears to describe a relevant business in the target market."
-    };
+  else if(relevant && hasPrice){
+
+    type =
+      "PRICE SIGNAL";
+
+    confidence =
+      76;
+
+    quality =
+      .66;
+
+    reason =
+      `Relevant price evidence${
+        price ? ` (${price})` : ""
+      }, but direct competition is not confirmed.`;
+
   }
 
-  if(relevant && locality){
-    return {
-      type:"LOCAL MARKET SIGNAL",
-      class:"customer",
-      reason:"Relevant local evidence, but not enough to call it a direct competitor."
-    };
+
+  else if(relevant && customer){
+
+    type =
+      "CUSTOMER SIGNAL";
+
+    confidence =
+      80;
+
+    quality =
+      .78;
+
+    reason =
+      "Customer reviews, ratings or buying behavior provide demand evidence.";
+
   }
 
-  if(relevant){
-    return {
-      type:"BACKGROUND",
-      class:"background",
-      reason:"Related to the idea but local relevance is not confirmed."
-    };
+
+  else if(relevant && background){
+
+    type =
+      "BACKGROUND";
+
+    confidence =
+      70;
+
+    quality =
+      .30;
+
+    reason =
+      "Useful context, but not strong evidence of actual local demand.";
+
   }
+
+
+  else if(relevant && local){
+
+    type =
+      "LOCAL MARKET SIGNAL";
+
+    confidence =
+      67;
+
+    quality =
+      .55;
+
+    reason =
+      "Local market information relevant to the category.";
+
+  }
+
+
+  else if(relevant){
+
+    type =
+      "BACKGROUND";
+
+    confidence =
+      61;
+
+    quality =
+      .28;
+
+    reason =
+      "Category-related information, but weak direct evidence.";
+
+  }
+
+
+  else{
+
+    type =
+      "BACKGROUND";
+
+    confidence =
+      30;
+
+    quality =
+      .12;
+
+    reason =
+      "Weak connection to the researched market.";
+
+  }
+
 
   return {
-    type:"IRRELEVANT",
-    class:"irrelevant",
-    reason:"No strong connection to the idea and target market."
+
+    ...r,
+
+    type,
+    confidence,
+    quality,
+    price,
+    hasPrice,
+    local,
+    relevant,
+    media,
+    host
+
   };
+
 }
 
-/* ---------------------------------------------------
-   SCORE
---------------------------------------------------- */
+
+function typeClass(type){
+
+  if(type === "DIRECT COMPETITOR")
+    return "direct";
+
+  if(type === "PRICE SIGNAL")
+    return "price";
+
+  if(type === "CUSTOMER SIGNAL")
+    return "customer";
+
+  if(type === "SUPPLIER")
+    return "supplier";
+
+  if(
+    type === "COMPETITOR CONTENT" ||
+    type === "MARKET CONTENT"
+  )
+    return "content";
+
+  if(type === "COMPETITOR DIRECTORY")
+    return "directory";
+
+  if(type === "LOCAL MARKET SIGNAL")
+    return "local";
+
+  if(type === "IRRELEVANT")
+    return "irrelevant";
+
+  return "background";
+
+}
+
 
 function calculateSignal(results){
 
-  if(!results.length) return 0;
+  const counts = {
 
-  let score = 35;
+    direct:
+      results.filter(
+        r => r.type === "DIRECT COMPETITOR"
+      ).length,
 
-  const direct = results.filter(r=>r.type==="DIRECT COMPETITOR").length;
-  const prices = results.filter(r=>r.type==="PRICE EVIDENCE").length;
-  const customers = results.filter(r=>r.type==="CUSTOMER SIGNAL").length;
-  const local = results.filter(r=>
-    r.type==="DIRECT COMPETITOR" ||
-    r.type==="PRICE EVIDENCE" ||
-    r.type==="CUSTOMER SIGNAL" ||
-    r.type==="COMPETITOR DIRECTORY" ||
-    r.type==="LOCAL MARKET SIGNAL"
-  ).length;
+    price:
+      results.filter(
+        r =>
+          r.hasPrice &&
+          r.type !== "IRRELEVANT"
+      ).length,
 
-  score += Math.min(direct * 5,15);
-  score += Math.min(prices * 4,12);
-  score += Math.min(customers * 4,12);
-  score += Math.min(local * 2,10);
+    customer:
+      results.filter(
+        r =>
+          r.type === "CUSTOMER SIGNAL"
+      ).length,
 
-  return Math.min(score,89);
-}
+    supplier:
+      results.filter(
+        r =>
+          r.type === "SUPPLIER"
+      ).length,
 
-/* ---------------------------------------------------
-   SEARCH
---------------------------------------------------- */
+    local:
+      results.filter(
+        r =>
+          r.local &&
+          r.type !== "IRRELEVANT"
+      ).length
 
-async function search(query){
+  };
 
-  const response =
-    await fetch(API + "?q=" + encodeURIComponent(query));
 
-  if(!response.ok){
-    throw new Error("Search API error");
+  const useful =
+    results.filter(
+      r =>
+        r.type !== "IRRELEVANT" &&
+        r.quality >= .25
+    );
+
+
+  if(!useful.length){
+
+    return {
+
+      score:18,
+      quality:0,
+      confidence:25,
+      coverage:0,
+      counts,
+      useful:0
+
+    };
+
   }
 
-  return await response.json();
+
+  const weighted =
+    useful.reduce(
+      (sum,r) =>
+        sum + r.quality,
+      0
+    );
+
+
+  const qualityRatio =
+    Math.min(
+      1,
+      weighted / useful.length
+    );
+
+
+  let score =
+
+    20 +
+
+    qualityRatio * 45 +
+
+    Math.min(counts.direct,3) * 7 +
+
+    Math.min(counts.price,4) * 2 +
+
+    Math.min(counts.customer,3) * 4 +
+
+    Math.min(counts.supplier,2) * 1.5;
+
+
+  if(useful.length < 3)
+    score -= 8;
+
+  if(counts.direct === 0)
+    score -= 5;
+
+
+  score =
+    Math.round(
+      Math.max(
+        8,
+        Math.min(95,score)
+      )
+    );
+
+
+  const confidence =
+    Math.round(
+      Math.min(
+        96,
+        38 +
+        qualityRatio * 35 +
+        Math.min(useful.length,10) * 3
+      )
+    );
+
+
+  const coverage =
+    Math.round(
+      Math.min(
+        100,
+        (counts.local / useful.length) * 100
+      )
+    );
+
+
+  return {
+
+    score,
+    quality:
+      Math.round(
+        qualityRatio * 100
+      ),
+
+    confidence,
+    coverage,
+    counts,
+
+    useful:
+      useful.length
+
+  };
+
 }
 
-/* ---------------------------------------------------
-   RENDER EVIDENCE
---------------------------------------------------- */
+
+function getCurrency(country){
+
+  const map = {
+
+    Morocco:"DH",
+    France:"€",
+    Belgium:"€",
+    Spain:"€",
+    Germany:"€",
+    Canada:"CAD",
+    "United States":"USD",
+    "United Kingdom":"GBP",
+    UAE:"AED",
+    India:"INR",
+    Japan:"JPY",
+    Brazil:"BRL"
+
+  };
+
+  return map[country] || "";
+
+}
+
+
+function formatMoney(value,currency){
+
+  if(
+    value === null ||
+    value === undefined ||
+    !Number.isFinite(value)
+  )
+    return "—";
+
+  return `${value.toFixed(2)} ${currency}`.trim();
+
+}
+
+
+function updateMoney(){
+
+  const country =
+    latestContext.country ||
+    $("country").value ||
+    "Morocco";
+
+  const currency =
+    getCurrency(country);
+
+
+  const price =
+    parseFloat(
+      $("moneyPrice").value
+    );
+
+  const cost =
+    parseFloat(
+      $("moneyCost").value
+    );
+
+  const units =
+    parseFloat(
+      $("moneyUnits").value
+    );
+
+  const fixed =
+    parseFloat(
+      $("fixedCosts").value
+    );
+
+  const startup =
+    parseFloat(
+      $("startupBudget").value
+    );
+
+  const days =
+    parseFloat(
+      $("workingDays").value
+    );
+
+
+  const validPrice =
+    Number.isFinite(price) &&
+    price > 0;
+
+  const validCost =
+    Number.isFinite(cost) &&
+    cost >= 0;
+
+  const validUnits =
+    Number.isFinite(units) &&
+    units >= 0;
+
+  const validFixed =
+    Number.isFinite(fixed) &&
+    fixed >= 0;
+
+  const validDays =
+    Number.isFinite(days) &&
+    days > 0;
+
+
+  const profit =
+    validPrice && validCost
+    ?
+    price - cost
+    :
+    null;
+
+
+  const margin =
+    profit !== null &&
+    price > 0
+    ?
+    (profit / price) * 100
+    :
+    null;
+
+
+  const daily =
+    profit !== null &&
+    validUnits
+    ?
+    profit * units
+    :
+    null;
+
+
+  const monthly =
+    daily !== null &&
+    validFixed &&
+    validDays
+    ?
+    daily * days - fixed
+    :
+    null;
+
+
+  const breakEvenUnits =
+    profit !== null &&
+    profit > 0 &&
+    validFixed
+    ?
+    fixed / profit
+    :
+    null;
+
+
+  const breakEvenDays =
+    breakEvenUnits !== null &&
+    validUnits &&
+    units > 0
+    ?
+    breakEvenUnits / units
+    :
+    null;
+
+
+  $("profitUnit").textContent =
+    formatMoney(
+      profit,
+      currency
+    );
+
+  $("margin").textContent =
+    margin === null
+    ?
+    "—"
+    :
+    `${margin.toFixed(1)}%`;
+
+  $("dailyProfit").textContent =
+    formatMoney(
+      daily,
+      currency
+    );
+
+  $("monthlyProfit").textContent =
+    formatMoney(
+      monthly,
+      currency
+    );
+
+  $("breakEvenUnits").textContent =
+    breakEvenUnits === null
+    ?
+    "—"
+    :
+    Math.ceil(
+      breakEvenUnits
+    );
+
+  $("breakEvenDays").textContent =
+    breakEvenDays === null
+    ?
+    "—"
+    :
+    breakEvenDays.toFixed(1);
+
+
+  let note =
+    "Enter the numbers you actually know. Reality Demand will not invent missing costs.";
+
+
+  if(
+    validPrice &&
+    validCost &&
+    profit <= 0
+  ){
+
+    note =
+      "Warning: the selling price does not cover the variable cost. Change the price, reduce the cost, or change the product.";
+
+  }
+
+
+  else if(
+    monthly !== null &&
+    monthly < 0
+  ){
+
+    note =
+      "Current monthly economics are negative after fixed costs. Treat this as a TEST, not a scale decision.";
+
+  }
+
+
+  else if(
+    monthly !== null &&
+    monthly >= 0
+  ){
+
+    note =
+      `Using your numbers: ${formatMoney(
+        monthly,
+        currency
+      )} estimated monthly result before taxes and other unentered costs.`;
+
+  }
+
+
+  if(
+    Number.isFinite(startup) &&
+    startup > 0 &&
+    monthly !== null &&
+    monthly > 0
+  ){
+
+    const payback =
+      startup / monthly;
+
+    note +=
+      ` Approximate startup payback: ${payback.toFixed(1)} month(s), based only on your entered assumptions.`;
+
+  }
+
+
+  $("moneyNote").textContent =
+    note;
+
+
+  return {
+
+    price:
+      validPrice
+      ?
+      price
+      :
+      null,
+
+    cost:
+      validCost
+      ?
+      cost
+      :
+      null,
+
+    units:
+      validUnits
+      ?
+      units
+      :
+      null,
+
+    fixed:
+      validFixed
+      ?
+      fixed
+      :
+      null,
+
+    startup:
+      Number.isFinite(startup) &&
+      startup >= 0
+      ?
+      startup
+      :
+      null,
+
+    days:
+      validDays
+      ?
+      days
+      :
+      null,
+
+    profit,
+    margin,
+    daily,
+    monthly,
+    breakEvenUnits,
+    breakEvenDays
+
+  };
+
+}
+
+
+function decide(stats,money){
+
+  if(
+    money.profit !== null &&
+    money.profit <= 0
+  ){
+
+    return {
+
+      action:"CHANGE",
+
+      note:
+        "The current unit economics do not work. Fix price/cost/product economics before investing."
+
+    };
+
+  }
+
+
+  if(
+    money.monthly !== null &&
+    money.monthly < 0 &&
+    stats.score < 80
+  ){
+
+    return {
+
+      action:"TEST, DON'T SCALE",
+
+      note:
+        "The market has some evidence, but your current entered economics are negative. Run the smallest possible test."
+
+    };
+
+  }
+
+
+  if(
+
+    stats.score >= 78 &&
+
+    stats.counts.direct >= 2 &&
+
+    stats.counts.price >= 2 &&
+
+    money.profit !== null &&
+
+    money.profit > 0
+
+  ){
+
+    return {
+
+      action:"SCALE AFTER TEST",
+
+      note:
+        "Strong evidence exists, but validate with real sales before committing serious capital."
+
+    };
+
+  }
+
+
+  if(
+    stats.score >= 58 &&
+    stats.counts.direct >= 1
+  ){
+
+    return {
+
+      action:"TEST NOW",
+
+      note:
+        "There is enough useful evidence to run a small real-world customer test."
+
+    };
+
+  }
+
+
+  if(stats.score >= 40){
+
+    return {
+
+      action:"RESEARCH + TEST",
+
+      note:
+        "The idea has signals, but evidence is not strong enough for a major investment."
+
+    };
+
+  }
+
+
+  return {
+
+    action:"CHANGE OR STOP",
+
+    note:
+      "Evidence is currently too weak. Improve the idea or collect better local evidence before spending money."
+
+  };
+
+}
+
+
+function renderDecision(stats,money){
+
+  const decision =
+    decide(stats,money);
+
+
+  $("decisionAction").textContent =
+    decision.action;
+
+  $("decisionNote").textContent =
+    decision.note;
+
+
+  $("qualityPill").textContent =
+    `Evidence quality: ${stats.quality}%`;
+
+  $("confidencePill").textContent =
+    `Confidence: ${stats.confidence}%`;
+
+  $("coveragePill").textContent =
+    `Local coverage: ${stats.coverage}%`;
+
+
+  $("score").textContent =
+    stats.score;
+
+
+  let scoreText =
+    "Weak evidence. Do not invest yet.";
+
+
+  if(stats.score >= 75){
+
+    scoreText =
+      "Strong evidence base. Validate with real sales before scaling.";
+
+  }
+
+  else if(stats.score >= 58){
+
+    scoreText =
+      "Useful evidence exists. A controlled market test is justified.";
+
+  }
+
+  else if(stats.score >= 40){
+
+    scoreText =
+      "Some signals exist, but more evidence is needed.";
+
+  }
+
+
+  $("scoreText").textContent =
+    scoreText;
+
+
+  $("quickMarket").textContent =
+    `${stats.useful} useful`;
+
+
+  $("quickCompetition").textContent =
+
+    stats.counts.direct > 0
+
+    ?
+
+    `${stats.counts.direct} direct`
+
+    :
+
+    "Not confirmed";
+
+
+  $("quickPrice").textContent =
+
+    stats.counts.price > 0
+
+    ?
+
+    `${stats.counts.price} signals`
+
+    :
+
+    "Not found";
+
+
+  $("quickMove").textContent =
+
+    decision.action === "TEST NOW" ||
+    decision.action === "SCALE AFTER TEST"
+
+    ?
+
+    "Run test"
+
+    :
+
+    decision.action === "CHANGE"
+
+    ?
+
+    "Fix economics"
+
+    :
+
+    "Research";
+
+}
+
 
 function renderEvidence(results){
 
-  const list = $("evidenceList");
+  const priority = {
 
-  if(!results.length){
-    list.innerHTML =
-      '<div class="empty">No usable evidence found.</div>';
-    return;
-  }
+    "DIRECT COMPETITOR":10,
+    "CUSTOMER SIGNAL":9,
+    "PRICE SIGNAL":8,
+    "COMPETITOR DIRECTORY":7,
+    "SUPPLIER":6,
+    "COMPETITOR CONTENT":5,
+    "LOCAL MARKET SIGNAL":4,
+    "MARKET CONTENT":3,
+    "BACKGROUND":2,
+    "IRRELEVANT":0
 
-  list.innerHTML = results.slice(0,15).map(item=>{
+  };
 
-    const title =
-      escapeHTML(item.title || "Untitled result");
 
-    const url =
-      escapeHTML(item.url || "#");
+  const sorted =
+    [...results].sort(
+      (a,b) =>
+        (priority[b.type] || 0) -
+        (priority[a.type] || 0)
+    );
 
-    const content =
-      escapeHTML(
-        String(item.content || "")
-          .replace(/\s+/g," ")
-          .slice(0,260)
-      );
 
-    return `
-      <div class="evidence">
+  const top =
+    sorted.slice(0,30);
 
-        <div class="evidence-top">
 
-          <div class="evidence-title">
-            <a href="${url}" target="_blank" rel="noopener">
-              ${title}
-            </a>
+  $("evidenceList").innerHTML =
+
+    top.length
+
+    ?
+
+    top.map(r=>{
+
+      const cls =
+        typeClass(r.type);
+
+      const source =
+        r.host ||
+        r.url ||
+        "source unavailable";
+
+
+      return `
+
+        <div class="evidence">
+
+          <div class="evidence-top">
+
+            <div>
+
+              <div class="evidence-title">
+                ${esc(
+                  r.title ||
+                  "Untitled result"
+                )}
+              </div>
+
+              <div class="evidence-source">
+                ${esc(source)}
+              </div>
+
+            </div>
+
+
+            <div class="badges">
+
+              <span class="badge ${cls}">
+                ${esc(r.type)}
+              </span>
+
+              <span class="badge">
+                ${r.confidence}% confidence
+              </span>
+
+              ${
+                r.hasPrice
+                ?
+                `
+                <span class="badge price">
+                  PRICE
+                  ${
+                    r.price
+                    ?
+                    ` · ${esc(r.price)}`
+                    :
+                    ""
+                  }
+                </span>
+                `
+                :
+                ""
+              }
+
+            </div>
+
           </div>
 
-          <span class="badge ${item.class}">
-            ${item.type}
+
+          <div class="evidence-reason">
+            ${esc(r.reason)}
+          </div>
+
+        </div>
+
+      `;
+
+    }).join("")
+
+    :
+
+    `
+      <div class="empty">
+        No evidence returned.
+      </div>
+    `;
+
+}
+
+
+function renderProblems(stats,money){
+
+  const problems = [];
+
+  const target =
+    latestContext.target ||
+    "the target customer";
+
+
+  if(stats.counts.direct >= 4){
+
+    problems.push({
+
+      title:"High competition",
+
+      text:
+        "Several direct competitors are visible in the researched market.",
+
+      solution:
+        "Differentiate on one measurable advantage: speed, price, location, quality, signature product or service."
+
+    });
+
+  }
+
+
+  if(stats.counts.direct === 0){
+
+    problems.push({
+
+      title:"Competition not confirmed",
+
+      text:
+        "Search results did not prove enough direct competitors.",
+
+      solution:
+        "Manually verify Google Maps/local listings and inspect the area before assuming there is no competition."
+
+    });
+
+  }
+
+
+  if(stats.counts.price < 2){
+
+    problems.push({
+
+      title:"Weak price evidence",
+
+      text:
+        "There are not enough reliable market price points.",
+
+      solution:
+        "Record at least 10 real prices from local competitors, menus or marketplaces before choosing your final price."
+
+    });
+
+  }
+
+
+  if(stats.counts.customer === 0){
+
+    problems.push({
+
+      title:"Customer evidence is weak",
+
+      text:
+        `There is little direct evidence about what ${target} actually wants.`,
+
+      solution:
+        "Talk to 10 potential customers, ask what they currently buy, what they pay and what they dislike."
+
+    });
+
+  }
+
+
+  if(stats.counts.supplier === 0){
+
+    problems.push({
+
+      title:"Supply side not verified",
+
+      text:
+        "No strong supplier evidence was found.",
+
+      solution:
+        "Identify at least 2–3 local suppliers and record purchase price, minimum order, delivery and payment terms."
+
+    });
+
+  }
+
+
+  if(
+    money.profit !== null &&
+    money.profit <= 0
+  ){
+
+    problems.push({
+
+      title:"Unit economics fail",
+
+      text:
+        "The entered selling price is not above the entered variable cost.",
+
+      solution:
+        "Reduce variable cost, increase price, change portion/product, or stop the current version."
+
+    });
+
+  }
+
+
+  if(
+    money.monthly !== null &&
+    money.monthly < 0
+  ){
+
+    problems.push({
+
+      title:"Monthly result is negative",
+
+      text:
+        "Your entered volume does not cover fixed costs.",
+
+      solution:
+        "Start with lower fixed costs and test demand before renting, hiring or buying expensive equipment."
+
+    });
+
+  }
+
+
+  if(stats.quality < 55){
+
+    problems.push({
+
+      title:"Evidence quality is limited",
+
+      text:
+        "Too much of the available information is weak, generic or indirect.",
+
+      solution:
+        "Prioritize local businesses, real prices, customer reviews and supplier quotations over generic content."
+
+    });
+
+  }
+
+
+  if(!problems.length){
+
+    problems.push({
+
+      title:"No major evidence problem detected",
+
+      text:
+        "The current research has a reasonably balanced evidence base.",
+
+      solution:
+        "Move to a small real-world test and measure actual sales before scaling."
+
+    });
+
+  }
+
+
+  $("problemGrid").innerHTML =
+
+    problems
+      .slice(0,9)
+      .map(p=>`
+
+        <div class="problem">
+
+          <h3>
+            ${esc(p.title)}
+          </h3>
+
+          <p>
+            ${esc(p.text)}
+          </p>
+
+          <div class="solution">
+            <strong>Solution:</strong>
+            ${esc(p.solution)}
+          </div>
+
+        </div>
+
+      `)
+      .join("");
+
+}
+
+
+function renderOperation(){
+
+  const category =
+    latestContext.category;
+
+  let steps;
+
+
+  if(category === "food"){
+
+    steps = [
+
+      [
+        "Supplier",
+        "Buy ingredients from verified local suppliers."
+      ],
+
+      [
+        "Preparation",
+        "Prepare ingredients and control portions."
+      ],
+
+      [
+        "Production",
+        "Cook/assemble consistently and measure waste."
+      ],
+
+      [
+        "Packaging",
+        "Use practical packaging that protects the product."
+      ],
+
+      [
+        "Customer",
+        "Serve or deliver quickly to the target customer."
+      ],
+
+      [
+        "Payment",
+        "Record every sale and real selling price."
+      ],
+
+      [
+        "Feedback",
+        "Track complaints, repeat orders and best sellers."
+      ]
+
+    ];
+
+  }
+
+
+  else if(category === "digital"){
+
+    steps = [
+
+      [
+        "Problem",
+        "Define one painful customer problem."
+      ],
+
+      [
+        "Build",
+        "Create the smallest usable version."
+      ],
+
+      [
+        "Test",
+        "Put it in front of real users."
+      ],
+
+      [
+        "Activation",
+        "Get the first user to complete the core action."
+      ],
+
+      [
+        "Payment",
+        "Test willingness to pay."
+      ],
+
+      [
+        "Measure",
+        "Track usage, conversion and retention."
+      ],
+
+      [
+        "Improve",
+        "Fix the biggest bottleneck before scaling."
+      ]
+
+    ];
+
+  }
+
+
+  else{
+
+    steps = [
+
+      [
+        "Supplier",
+        "Identify reliable inputs and costs."
+      ],
+
+      [
+        "Preparation",
+        "Prepare the service/product process."
+      ],
+
+      [
+        "Production",
+        "Deliver consistently."
+      ],
+
+      [
+        "Packaging",
+        "Present the result clearly."
+      ],
+
+      [
+        "Customer",
+        "Acquire and serve the target customer."
+      ],
+
+      [
+        "Payment",
+        "Record revenue and actual costs."
+      ],
+
+      [
+        "Feedback",
+        "Use customer feedback to improve."
+      ]
+
+    ];
+
+  }
+
+
+  $("operationFlow").innerHTML =
+
+    steps
+      .map((s,i)=>`
+
+        <span>
+          ${esc(s[0])}
+        </span>
+
+        ${
+          i < steps.length - 1
+          ?
+          "<b>→</b>"
+          :
+          ""
+        }
+
+      `)
+      .join("");
+
+
+  $("operationGrid").innerHTML =
+
+    steps
+      .map(s=>`
+
+        <div class="operation">
+
+          <h3>
+            ${esc(s[0])}
+          </h3>
+
+          <p>
+            ${esc(s[1])}
+          </p>
+
+        </div>
+
+      `)
+      .join("");
+
+}
+
+
+function renderVisuals(stats,money){
+
+  const idea =
+    latestContext.idea ||
+    "your product";
+
+  const target =
+    latestContext.target ||
+    "a defined customer";
+
+  const currency =
+    getCurrency(
+      latestContext.country
+    );
+
+
+  const cards = [
+
+    {
+      title:"PRODUCT",
+
+      text:
+        `Define exactly what is sold: ${idea}. Remove unnecessary features or variants during the first test.`
+    },
+
+    {
+      title:"CUSTOMER",
+
+      text:
+        `The first customer hypothesis is: ${target}. Validate this with real conversations and purchases.`
+    },
+
+    {
+      title:"COMPETITION",
+
+      text:
+        `Reality currently shows ${stats.counts.direct} direct competitor result(s). Compare their offer, price, location and reviews.`
+    },
+
+    {
+      title:"MONEY",
+
+      text:
+        money.profit === null
+
+        ?
+
+        "Enter your actual price and variable cost to calculate unit economics."
+
+        :
+
+        `Current entered contribution is ${money.profit.toFixed(2)} ${currency} per unit.`
+    },
+
+    {
+      title:"OPERATION",
+
+      text:
+        "Keep the first version simple enough to deliver consistently every day."
+    },
+
+    {
+      title:"ROADMAP",
+
+      text:
+        "Research → Test → First Sale → Measure → Improve → Scale."
+    }
+
+  ];
+
+
+  $("visualGrid").innerHTML =
+
+    cards
+      .map(c=>`
+
+        <div class="visual">
+
+          <h3>
+            ${esc(c.title)}
+          </h3>
+
+          <p>
+            ${esc(c.text)}
+          </p>
+
+        </div>
+
+      `)
+      .join("");
+
+}
+
+
+function renderStrategy(stats,money){
+
+  let recommended =
+    "SAFE";
+
+
+  if(
+
+    stats.score >= 78 &&
+
+    stats.counts.direct >= 2 &&
+
+    money.profit !== null &&
+
+    money.profit > 0
+
+  ){
+
+    recommended =
+      "GROWTH";
+
+  }
+
+
+  if(
+
+    stats.score >= 88 &&
+
+    stats.counts.direct >= 3 &&
+
+    stats.counts.price >= 3 &&
+
+    money.monthly !== null &&
+
+    money.monthly > 0
+
+  ){
+
+    recommended =
+      "AGGRESSIVE";
+
+  }
+
+
+  const strategies = [
+
+    {
+
+      id:"SAFE",
+
+      title:"SAFE PATH",
+
+      text:
+        "Lowest investment and lowest risk. Validate demand with the smallest sellable version before spending heavily.",
+
+      tag:
+        "RECOMMENDED FOR WEAK OR UNCERTAIN EVIDENCE"
+
+    },
+
+    {
+
+      id:"GROWTH",
+
+      title:"GROWTH PATH",
+
+      text:
+        "After first sales, improve capacity, marketing and customer acquisition while keeping unit economics positive.",
+
+      tag:
+        "RECOMMENDED AFTER PROOF"
+
+    },
+
+    {
+
+      id:"AGGRESSIVE",
+
+      title:"AGGRESSIVE PATH",
+
+      text:
+        "Higher investment, faster expansion and higher risk. Use only when demand, pricing and economics are already proven.",
+
+      tag:
+        "ONLY AFTER STRONG PROOF"
+
+    }
+
+  ];
+
+
+  $("strategyGrid").innerHTML =
+
+    strategies
+      .map(s=>`
+
+        <div class="strategy ${
+          recommended === s.id
+          ?
+          "recommended"
+          :
+          ""
+        }">
+
+          <div class="strategy-tag">
+
+            ${
+              recommended === s.id
+              ?
+              "★ "
+              :
+              ""
+            }
+
+            ${esc(s.tag)}
+
+          </div>
+
+          <h3>
+            ${esc(s.title)}
+          </h3>
+
+          <p>
+            ${esc(s.text)}
+          </p>
+
+        </div>
+
+      `)
+      .join("");
+
+
+  const days = [
+
+    [
+      "DAY 1",
+      "Define the exact customer, problem and product."
+    ],
+
+    [
+      "DAY 2",
+      "Map local competitors and alternatives."
+    ],
+
+    [
+      "DAY 3",
+      "Record real competitor prices and offers."
+    ],
+
+    [
+      "DAY 4",
+      "Speak with 10 target customers and collect objections."
+    ],
+
+    [
+      "DAY 5",
+      "Launch the smallest possible real-world test."
+    ],
+
+    [
+      "DAY 6",
+      "Measure sales, costs, conversion, complaints and repeat interest."
+    ],
+
+    [
+      "DAY 7",
+      "Decide: SCALE, TEST AGAIN, CHANGE or STOP."
+    ]
+
+  ];
+
+
+  $("plan").innerHTML =
+
+    days
+      .map(d=>`
+
+        <div class="plan-row">
+
+          <div class="plan-day">
+            ${esc(d[0])}
+          </div>
+
+          <div class="plan-task">
+            ${esc(d[1])}
+          </div>
+
+        </div>
+
+      `)
+      .join("");
+
+}
+
+
+function renderRisks(stats,money){
+
+  const risks = [];
+
+
+  if(stats.counts.direct >= 4){
+
+    risks.push([
+
+      "Competition",
+
+      "Many direct competitors can make customer acquisition harder.",
+
+      "Differentiate on one clear advantage and test it."
+
+    ]);
+
+  }
+
+
+  if(stats.counts.price < 2){
+
+    risks.push([
+
+      "Pricing uncertainty",
+
+      "The market price range is not sufficiently verified.",
+
+      "Collect 10 real prices before locking the offer."
+
+    ]);
+
+  }
+
+
+  if(stats.counts.customer === 0){
+
+    risks.push([
+
+      "Customer uncertainty",
+
+      "Online evidence does not prove that your target will buy.",
+
+      "Run interviews and a paid/preorder test."
+
+    ]);
+
+  }
+
+
+  if(stats.counts.supplier === 0){
+
+    risks.push([
+
+      "Supply uncertainty",
+
+      "Input costs and supplier reliability are not verified.",
+
+      "Get at least two supplier quotations."
+
+    ]);
+
+  }
+
+
+  if(
+    money.profit !== null &&
+    money.profit <= 0
+  ){
+
+    risks.push([
+
+      "Negative unit economics",
+
+      "Each sale loses money using your entered numbers.",
+
+      "Change price, cost, portion or product."
+
+    ]);
+
+  }
+
+
+  if(
+    money.monthly !== null &&
+    money.monthly < 0
+  ){
+
+    risks.push([
+
+      "Fixed-cost pressure",
+
+      "Current volume does not cover monthly fixed costs.",
+
+      "Reduce fixed costs and validate volume first."
+
+    ]);
+
+  }
+
+
+  if(!risks.length){
+
+    risks.push([
+
+      "Main remaining risk",
+
+      "Research cannot fully predict real customer behavior.",
+
+      "Run a small paid test and measure actual results."
+
+    ]);
+
+  }
+
+
+  $("risks").innerHTML =
+
+    risks
+      .map(r=>`
+
+        <div class="risk">
+
+          <strong>
+            ${esc(r[0])}
+          </strong>
+
+          <span>
+            ${esc(r[1])}
+          </span>
+
+          <span>
+            <b>Action:</b>
+            ${esc(r[2])}
           </span>
 
         </div>
 
-        <div class="evidence-meta">
-          ${content || item.reason}
-        </div>
+      `)
+      .join("");
 
-        <div class="evidence-meta">
-          <strong>Why:</strong> ${escapeHTML(item.reason)}
-        </div>
-
-      </div>
-    `;
-
-  }).join("");
 }
 
-/* ---------------------------------------------------
-   RISKS
---------------------------------------------------- */
 
-function renderRisks(context,results){
+function renderCustomer(){
 
-  const risks = [];
+  const target =
+    latestContext.target;
 
-  const direct =
-    results.filter(r=>r.type==="DIRECT COMPETITOR").length;
+  const category =
+    latestContext.category;
 
-  const prices =
-    results.filter(r=>r.type==="PRICE EVIDENCE").length;
 
-  const customers =
-    results.filter(r=>r.type==="CUSTOMER SIGNAL").length;
+  if(!target){
 
-  if(direct === 0){
-    risks.push(
-      "No strong direct competitor was identified. This can mean an opportunity, weak search coverage, or an unclear market. Verify manually."
-    );
+    $("customerTarget").textContent =
+      "No target customer was entered. Define who pays before investing.";
+
+    return;
+
   }
 
-  if(prices === 0){
-    risks.push(
-      "No strong local price evidence was identified. Do not build your financial model around guessed prices."
-    );
-  }
 
-  if(customers === 0){
-    risks.push(
-      "Customer activity was not strongly detected. You still need direct customer validation."
-    );
-  }
+  const advice = {
 
-  risks.push(
-    "Search engines can return incomplete or noisy results. Important competitors may be missing."
-  );
+    food:
+      "Observe where they buy, what price they accept, peak hours and what makes them return.",
 
-  risks.push(
-    "Interest is not the same as payment. A real transaction or measurable customer action is stronger evidence."
-  );
+    digital:
+      "Identify the exact problem, current workaround, frequency and willingness to pay.",
 
-  if(context.target.trim()===""){
-    risks.push(
-      "Your target customer is still undefined. A broad audience makes demand testing harder."
-    );
-  }
+    retail:
+      "Check preferred product, budget, purchase frequency and alternatives.",
 
-  $("risks").innerHTML =
-    risks.map(x=>`<div class="risk">${escapeHTML(x)}</div>`).join("");
+    service:
+      "Check urgency, trust, price sensitivity and how customers currently find providers.",
+
+    general:
+      "Validate the problem, budget, alternatives and purchase frequency."
+
+  };
+
+
+  $("customerTarget").innerHTML =
+
+    `<strong>${esc(target)}</strong> — ${
+      esc(
+        advice[category] ||
+        advice.general
+      )
+    }`;
+
 }
 
-/* ---------------------------------------------------
-   ANALYSIS
---------------------------------------------------- */
+
+function dedupe(results){
+
+  const map =
+    new Map();
+
+
+  for(const r of results){
+
+    const key =
+      (
+        r.url ||
+        r.title ||
+        ""
+      )
+      .toLowerCase()
+      .trim();
+
+
+    if(!key)
+      continue;
+
+
+    if(!map.has(key)){
+
+      map.set(
+        key,
+        r
+      );
+
+    }
+
+  }
+
+
+  return [...map.values()];
+
+}
+
+
+async function search(query){
+
+  const response =
+    await fetch(
+      API +
+      "?q=" +
+      encodeURIComponent(query)
+    );
+
+
+  if(!response.ok){
+
+    throw new Error(
+      `API error ${response.status}`
+    );
+
+  }
+
+
+  const data =
+    await response.json();
+
+
+  return Array.isArray(data.results)
+    ?
+    data.results
+    :
+    [];
+
+}
+
 
 async function analyze(){
 
-  const idea = $("idea").value.trim();
-  const city = $("city").value.trim();
-  const country = $("country").value;
-  const target = $("target").value.trim();
+  const idea =
+    $("idea").value.trim();
+
+  const city =
+    $("city").value.trim();
+
+  const target =
+    $("target").value.trim();
+
+  const country =
+    $("country").value;
+
 
   if(!idea){
+
+    alert(
+      "Enter your idea first."
+    );
+
     $("idea").focus();
+
     return;
+
   }
 
-  $("results").style.display="none";
-  $("scan").style.display="block";
 
-  const statuses = [
-    "Searching local competitors...",
-    "Checking price signals...",
-    "Looking for customer evidence...",
-    "Searching suppliers and alternatives...",
-    "Filtering weak results...",
-    "Building your reality report..."
+  latestContext = {
+
+    idea,
+    city,
+    target,
+    country,
+
+    category:
+      ideaCategory(idea)
+
+  };
+
+
+  if(
+    !$("moneyPrice").value &&
+    $("price").value
+  ){
+
+    $("moneyPrice").value =
+      $("price").value;
+
+  }
+
+
+  $("results")
+    .classList
+    .remove("show");
+
+
+  $("scan")
+    .classList
+    .add("show");
+
+
+  $("scanStatus").textContent =
+    "Building evidence queries...";
+
+
+  const base =
+    `${idea} ${city} ${country}`.trim();
+
+
+  const queries = [
+
+    `${base} competitors businesses`,
+
+    `${base} prices menu`,
+
+    `${base} reviews customers`,
+
+    `${base} suppliers wholesale`,
+
+    `${base} alternatives`,
+
+    `${base} TikTok YouTube Instagram`
+
   ];
 
-  let statusIndex=0;
-
-  const statusTimer =
-    setInterval(()=>{
-      statusIndex =
-        Math.min(statusIndex+1,statuses.length-1);
-
-      $("scanStatus").textContent =
-        statuses[statusIndex];
-
-    },1200);
 
   try{
 
-    const base =
-      `${idea} ${country} ${city}`;
+    $("scanStatus").textContent =
+      "Searching competitors, prices, customers and suppliers...";
 
-    const queries = [
-
-      `${base} competitors businesses`,
-
-      `${base} prices menu`,
-
-      `${base} reviews customers`,
-
-      `${base} suppliers wholesale`,
-
-      `${base} alternatives`
-
-    ];
 
     const responses =
-      await Promise.all(
-        queries.map(q=>search(q))
+      await Promise.allSettled(
+        queries.map(
+          q => search(q)
+        )
       );
 
-    clearInterval(statusTimer);
 
     let raw = [];
 
-    responses.forEach(data=>{
-      if(Array.isArray(data.results)){
-        raw.push(...data.results);
+
+    responses.forEach(res=>{
+
+      if(
+        res.status ===
+        "fulfilled"
+      ){
+
+        raw.push(
+          ...res.value
+        );
+
       }
+
     });
 
-    const seen = new Set();
-
-    raw = raw.filter(item=>{
-
-      const key =
-        item.url ||
-        item.title ||
-        Math.random();
-
-      if(seen.has(key)) return false;
-
-      seen.add(key);
-
-      return true;
-    });
-
-    const context = {
-      idea,
-      city,
-      country,
-      target
-    };
-
-    let classified =
-      raw.map(item=>{
-
-        const c =
-          classifyResult(item,context);
-
-        return {
-          ...item,
-          ...c
-        };
-
-      });
-
-    /*
-      Evidence quality first.
-      Direct competitors and strong evidence
-      appear before noise.
-    */
-
-    const priority = {
-      "DIRECT COMPETITOR":10,
-      "COMPETITOR DIRECTORY":9,
-      "PRICE EVIDENCE":8,
-      "CUSTOMER SIGNAL":7,
-      "LOCAL MARKET SIGNAL":6,
-      "SUPPLIER":5,
-      "MARKET CONTENT":4,
-      "BACKGROUND":2,
-      "IRRELEVANT":0
-    };
-
-    classified.sort((a,b)=>
-      (priority[b.type]||0) -
-      (priority[a.type]||0)
-    );
-
-    latestResults = classified;
-
-    const score =
-      calculateSignal(classified);
-
-    $("score").textContent = score;
-
-    if(score >= 70){
-      $("scoreText").textContent =
-        "Strong initial market signals detected. Validate with real customers before investing.";
-    }else if(score >= 50){
-      $("scoreText").textContent =
-        "Some useful signals detected. More direct evidence is needed.";
-    }else{
-      $("scoreText").textContent =
-        "Limited evidence detected. Research and test before spending money.";
-    }
-
-    const direct =
-      classified.filter(r=>r.type==="DIRECT COMPETITOR").length;
-
-    const prices =
-      classified.filter(r=>r.type==="PRICE EVIDENCE").length;
-
-    const customers =
-      classified.filter(r=>r.type==="CUSTOMER SIGNAL").length;
-
-    const local =
-      classified.filter(r=>
-        [
-          "DIRECT COMPETITOR",
-          "COMPETITOR DIRECTORY",
-          "PRICE EVIDENCE",
-          "CUSTOMER SIGNAL",
-          "LOCAL MARKET SIGNAL"
-        ].includes(r.type)
-      ).length;
-
-    $("totalResults").textContent =
-      classified.length;
-
-    $("directCount").textContent =
-      direct;
-
-    $("priceCount").textContent =
-      prices;
-
-    $("customerCount").textContent =
-      customers;
-
-    $("quickMarket").textContent =
-      local > 0
-        ? `${local} local signals`
-        : "Limited local evidence";
-
-    $("quickCompetition").textContent =
-      direct > 0
-        ? `${direct} direct signal${direct>1?"s":""}`
-        : "Not confirmed";
-
-    $("quickMove").textContent =
-      prices > 0
-        ? "Compare real prices"
-        : "Find real prices";
-
-    $("customerTarget").textContent =
-      target || "Not specified";
-
-    renderEvidence(classified);
-
-    renderRisks(context,classified);
-
-    $("results").style.display="block";
-
-    setTimeout(()=>{
-      $("results").scrollIntoView({
-        behavior:"smooth",
-        block:"start"
-      });
-    },150);
-
-  }catch(error){
-
-    clearInterval(statusTimer);
 
     $("scanStatus").textContent =
-      "Research failed. Check the API connection.";
+      `Classifying ${raw.length} returned results...`;
+
+
+    const results =
+
+      dedupe(raw)
+        .map(
+          r =>
+            classifyResult(
+              r,
+              latestContext
+            )
+        );
+
+
+    latestResults =
+      results;
+
+
+    const stats =
+      calculateSignal(
+        results
+      );
+
+
+    latestStats =
+      stats;
+
+
+    const money =
+      updateMoney();
+
+
+    renderDecision(
+      stats,
+      money
+    );
+
+    renderEvidence(
+      results
+    );
+
+    renderProblems(
+      stats,
+      money
+    );
+
+    renderOperation();
+
+    renderVisuals(
+      stats,
+      money
+    );
+
+    renderStrategy(
+      stats,
+      money
+    );
+
+    renderRisks(
+      stats,
+      money
+    );
+
+    renderCustomer();
+
+
+    $("totalResults").textContent =
+      results.length;
+
+    $("directCount").textContent =
+      stats.counts.direct;
+
+    $("priceCount").textContent =
+      stats.counts.price;
+
+    $("customerCount").textContent =
+      stats.counts.customer;
+
+    $("supplierCount").textContent =
+      stats.counts.supplier;
+
+
+    $("results")
+      .classList
+      .add("show");
+
+
+    $("scanStatus").textContent =
+      "Research complete.";
+
+
+    window.scrollTo({
+
+      top:
+        $("results").offsetTop - 20,
+
+      behavior:
+        "smooth"
+
+    });
+
+  }
+
+
+  catch(error){
 
     console.error(error);
 
-    setTimeout(()=>{
-      $("scan").style.display="none";
-    },1800);
+    $("scanStatus").textContent =
+      "Research failed. Check the API or internet connection and try again.";
+
   }
+
+
+  finally{
+
+    setTimeout(()=>{
+
+      $("scan")
+        .classList
+        .remove("show");
+
+    },900);
+
+  }
+
 }
 
-/* ---------------------------------------------------
-   MONEY ENGINE
---------------------------------------------------- */
 
-function calculateMoney(){
+function resetAll(){
 
-  const price =
-    parseFloat($("moneyPrice").value);
+  $("idea").value = "";
+  $("city").value = "";
+  $("target").value = "";
+  $("price").value = "";
 
-  const cost =
-    parseFloat($("moneyCost").value);
+  $("moneyPrice").value = "";
+  $("moneyCost").value = "";
+  $("moneyUnits").value = "";
+  $("fixedCosts").value = "";
+  $("startupBudget").value = "";
+  $("workingDays").value = "";
 
-  const units =
-    parseFloat($("moneyUnits").value);
 
-  if(
-    !Number.isFinite(price) ||
-    !Number.isFinite(cost) ||
-    !Number.isFinite(units) ||
-    price <= 0
-  ){
-    $("profitUnit").textContent="—";
-    $("margin").textContent="—";
-    $("dailyProfit").textContent="—";
-    $("monthlyProfit").textContent="—";
-    return;
-  }
+  $("results")
+    .classList
+    .remove("show");
 
-  const profit =
-    price-cost;
 
-  const margin =
-    (profit/price)*100;
+  $("scan")
+    .classList
+    .remove("show");
 
-  const daily =
-    profit*units;
-
-  const monthly =
-    daily*30;
 
   $("profitUnit").textContent =
-    profit.toFixed(2);
+    "—";
 
   $("margin").textContent =
-    margin.toFixed(1)+"%";
+    "—";
 
   $("dailyProfit").textContent =
-    daily.toFixed(2);
+    "—";
 
   $("monthlyProfit").textContent =
-    monthly.toFixed(2);
-}
+    "—";
 
-/* ---------------------------------------------------
-   UI
---------------------------------------------------- */
+  $("breakEvenUnits").textContent =
+    "—";
 
-document.querySelectorAll(".section-head")
-.forEach(head=>{
+  $("breakEvenDays").textContent =
+    "—";
 
-  head.addEventListener("click",()=>{
 
-    head.parentElement.classList.toggle("open");
+  latestResults = [];
+  latestContext = {};
+  latestStats = {};
 
-  });
-
-});
-
-$("analyze").addEventListener("click",analyze);
-
-$("idea").addEventListener("keydown",e=>{
-
-  if(e.ctrlKey && e.key==="Enter"){
-    analyze();
-  }
-
-});
-
-["moneyPrice","moneyCost","moneyUnits"]
-.forEach(id=>{
-  $(id).addEventListener("input",calculateMoney);
-});
-
-$("reset").addEventListener("click",()=>{
-
-  $("results").style.display="none";
-  $("scan").style.display="none";
-
-  $("idea").value="";
-  $("city").value="";
-  $("target").value="";
-  $("price").value="";
-
-  $("moneyPrice").value="";
-  $("moneyCost").value="";
-  $("moneyUnits").value="";
 
   window.scrollTo({
+
     top:0,
+
     behavior:"smooth"
+
   });
 
+}
+
+
+$("analyze")
+  .addEventListener(
+    "click",
+    analyze
+  );
+
+
+$("reset")
+  .addEventListener(
+    "click",
+    resetAll
+  );
+
+
+[
+
+  "moneyPrice",
+  "moneyCost",
+  "moneyUnits",
+  "fixedCosts",
+  "startupBudget",
+  "workingDays"
+
+].forEach(id=>{
+
+  $(id)
+    .addEventListener(
+      "input",
+      ()=>{
+
+        const money =
+          updateMoney();
+
+
+        if(
+          latestStats.score
+        ){
+
+          renderDecision(
+            latestStats,
+            money
+          );
+
+          renderProblems(
+            latestStats,
+            money
+          );
+
+          renderVisuals(
+            latestStats,
+            money
+          );
+
+          renderStrategy(
+            latestStats,
+            money
+          );
+
+          renderRisks(
+            latestStats,
+            money
+          );
+
+        }
+
+      }
+    );
+
 });
+
+
+$("price")
+  .addEventListener(
+    "input",
+    ()=>{
+
+      if(
+        !$("moneyPrice").value
+      ){
+
+        $("moneyPrice").value =
+          $("price").value;
+
+        updateMoney();
+
+      }
+
+    }
+  );
+
+
+$("idea")
+  .addEventListener(
+    "keydown",
+    e=>{
+
+      if(
+        e.ctrlKey &&
+        e.key === "Enter"
+      ){
+
+        analyze();
+
+      }
+
+    }
+  );
 
 </script>
 
