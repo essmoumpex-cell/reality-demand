@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Reality Demand — Market Intelligence v1.2</title>
+<title>Reality Demand — Market Intelligence v1.3</title>
 
 <style>
 :root{
@@ -26,13 +26,9 @@
   --red:#fb7185;
 }
 
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
-html{
-  scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth}
 
 body{
   margin:0;
@@ -46,20 +42,9 @@ body{
   line-height:1.5;
 }
 
-button,
-input,
-textarea,
-select{
-  font:inherit;
-}
-
-button{
-  cursor:pointer;
-}
-
-a{
-  color:inherit;
-}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+a{color:inherit}
 
 .container{
   width:min(1240px,92%);
@@ -81,9 +66,7 @@ header{
   font-size:18px;
 }
 
-.logo span{
-  color:var(--purple2);
-}
+.logo span{color:var(--purple2)}
 
 .version{
   color:var(--muted);
@@ -126,12 +109,7 @@ header{
   font-size:clamp(43px,7vw,82px);
   line-height:.94;
   letter-spacing:-4px;
-  background:linear-gradient(
-    90deg,
-    #fff,
-    #b9a6ff 48%,
-    #73d7ff
-  );
+  background:linear-gradient(90deg,#fff,#b9a6ff 48%,#73d7ff);
   -webkit-background-clip:text;
   background-clip:text;
   color:transparent;
@@ -189,9 +167,7 @@ header{
   gap:7px;
 }
 
-.field.full{
-  grid-column:1/-1;
-}
+.field.full{grid-column:1/-1}
 
 label{
   color:#c8c8d6;
@@ -201,9 +177,7 @@ label{
   text-transform:uppercase;
 }
 
-input,
-textarea,
-select{
+input,textarea,select{
   width:100%;
   border:1px solid var(--border);
   background:#08080e;
@@ -214,9 +188,7 @@ select{
   transition:.2s;
 }
 
-input:focus,
-textarea:focus,
-select:focus{
+input:focus,textarea:focus,select:focus{
   border-color:var(--purple);
   box-shadow:0 0 0 3px rgba(139,92,246,.12);
 }
@@ -250,11 +222,7 @@ textarea{
 
 .btn.primary{
   border:0;
-  background:linear-gradient(
-    135deg,
-    var(--purple),
-    #5b7cff
-  );
+  background:linear-gradient(135deg,var(--purple),#5b7cff);
   box-shadow:0 10px 30px rgba(99,82,220,.2);
 }
 
@@ -270,9 +238,7 @@ textarea{
   margin-top:18px;
 }
 
-.scan.show{
-  display:block;
-}
+.scan.show{display:block}
 
 .scan-bar{
   height:7px;
@@ -285,11 +251,7 @@ textarea{
   display:block;
   height:100%;
   width:0;
-  background:linear-gradient(
-    90deg,
-    var(--purple),
-    var(--blue)
-  );
+  background:linear-gradient(90deg,var(--purple),var(--blue));
   animation:scan 2.5s infinite;
 }
 
@@ -307,24 +269,15 @@ textarea{
 
 /* RESULTS */
 
-.results{
-  display:none;
-}
-
-.results.show{
-  display:block;
-}
+.results{display:none}
+.results.show{display:block}
 
 /* DECISION */
 
 .decision{
   border:1px solid var(--border);
   background:
-    radial-gradient(
-      circle at 0 0,
-      rgba(139,92,246,.18),
-      transparent 45%
-    ),
+    radial-gradient(circle at 0 0,rgba(139,92,246,.18),transparent 45%),
     #101019;
   border-radius:22px;
   padding:26px;
@@ -411,19 +364,13 @@ textarea{
   font-size:82px;
   line-height:1;
   font-weight:950;
-  background:linear-gradient(
-    135deg,
-    #fff,
-    #9c7dff
-  );
+  background:linear-gradient(135deg,#fff,#9c7dff);
   -webkit-background-clip:text;
   background-clip:text;
   color:transparent;
 }
 
-.score-text{
-  color:var(--muted);
-}
+.score-text{color:var(--muted)}
 
 .score-meter{
   height:8px;
@@ -437,11 +384,7 @@ textarea{
   display:block;
   height:100%;
   width:0;
-  background:linear-gradient(
-    90deg,
-    var(--purple),
-    var(--blue)
-  );
+  background:linear-gradient(90deg,var(--purple),var(--blue));
   transition:1s;
 }
 
@@ -475,6 +418,85 @@ textarea{
   margin-top:5px;
 }
 
+/* WALKER */
+
+.walker-map{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+
+.walker-node{
+  border:1px solid var(--border);
+  background:#0d0d15;
+  border-radius:15px;
+  padding:14px;
+  position:relative;
+  overflow:hidden;
+}
+
+.walker-node.active{
+  border-color:rgba(139,92,246,.65);
+  box-shadow:0 0 0 1px rgba(139,92,246,.12);
+}
+
+.walker-node .node-icon{
+  font-size:18px;
+}
+
+.walker-node strong{
+  display:block;
+  margin-top:6px;
+  font-size:13px;
+}
+
+.walker-node span{
+  display:block;
+  color:var(--muted);
+  font-size:10px;
+  margin-top:4px;
+}
+
+.walker-count{
+  position:absolute;
+  top:10px;
+  right:10px;
+  padding:4px 7px;
+  border-radius:999px;
+  background:#181824;
+  border:1px solid var(--border);
+  color:#cfcfff;
+  font-size:9px;
+  font-weight:900;
+}
+
+.walker-summary{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+  margin-top:12px;
+}
+
+.walker-stat{
+  border:1px solid var(--border);
+  background:#10101a;
+  border-radius:13px;
+  padding:12px;
+}
+
+.walker-stat small{
+  display:block;
+  color:var(--muted);
+  font-size:9px;
+  text-transform:uppercase;
+}
+
+.walker-stat strong{
+  display:block;
+  margin-top:3px;
+  font-size:18px;
+}
+
 /* EVIDENCE */
 
 .evidence-list{
@@ -502,9 +524,7 @@ textarea{
   gap:12px;
 }
 
-.evidence-title{
-  font-weight:850;
-}
+.evidence-title{font-weight:850}
 
 .evidence-source{
   color:var(--muted);
@@ -535,72 +555,19 @@ textarea{
   white-space:nowrap;
 }
 
-.verified{
-  background:rgba(52,211,153,.10);
-  color:#7ef2c0;
-}
-
-.estimated{
-  background:rgba(251,191,36,.10);
-  color:#ffd66d;
-}
-
-.ai{
-  background:rgba(139,92,246,.10);
-  color:#c9b7ff;
-}
-
-.demo{
-  background:rgba(56,189,248,.09);
-  color:#7bdcff;
-}
-
-.direct{
-  background:rgba(52,211,153,.11);
-  color:#7ef2c0;
-}
-
-.price{
-  background:rgba(251,191,36,.10);
-  color:#ffd66d;
-}
-
-.customer{
-  background:rgba(56,189,248,.10);
-  color:#7bdcff;
-}
-
-.supplier{
-  background:rgba(139,92,246,.12);
-  color:#c2a9ff;
-}
-
-.content{
-  background:rgba(168,85,247,.09);
-  color:#d0b0ff;
-}
-
-.background{
-  background:#161620;
-  color:#aaaabd;
-}
-
-.irrelevant{
-  background:rgba(251,113,133,.08);
-  color:#ff9aaa;
-}
-
-.directory{
-  background:rgba(99,102,241,.10);
-  color:#a9b0ff;
-}
-
-.local{
-  background:rgba(34,197,94,.08);
-  color:#8be9a9;
-}
-
-/* LINK */
+.verified{background:rgba(52,211,153,.10);color:#7ef2c0}
+.estimated{background:rgba(251,191,36,.10);color:#ffd66d}
+.ai{background:rgba(139,92,246,.10);color:#c9b7ff}
+.demo{background:rgba(56,189,248,.09);color:#7bdcff}
+.direct{background:rgba(52,211,153,.11);color:#7ef2c0}
+.price{background:rgba(251,191,36,.10);color:#ffd66d}
+.customer{background:rgba(56,189,248,.10);color:#7bdcff}
+.supplier{background:rgba(139,92,246,.12);color:#c2a9ff}
+.content{background:rgba(168,85,247,.09);color:#d0b0ff}
+.background{background:#161620;color:#aaaabd}
+.irrelevant{background:rgba(251,113,133,.08);color:#ff9aaa}
+.directory{background:rgba(99,102,241,.10);color:#a9b0ff}
+.local{background:rgba(34,197,94,.08);color:#8be9a9}
 
 .source-link{
   display:inline-flex;
@@ -610,11 +577,9 @@ textarea{
   text-decoration:none;
 }
 
-.source-link:hover{
-  text-decoration:underline;
-}
+.source-link:hover{text-decoration:underline}
 
-/* MARKET GRID */
+/* MARKET */
 
 .market-grid{
   display:grid;
@@ -623,7 +588,7 @@ textarea{
   margin-top:18px;
 }
 
-/* PROBLEMS */
+/* CARDS */
 
 .problem-grid,
 .operation-grid,
@@ -632,7 +597,8 @@ textarea{
 .social-grid,
 .image-grid,
 .supplier-grid,
-.price-grid{
+.price-grid,
+.gap-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:12px;
@@ -645,7 +611,8 @@ textarea{
 .social-card,
 .image-card,
 .supplier-card,
-.price-card{
+.price-card,
+.gap-card{
   border:1px solid var(--border);
   background:#0d0d15;
   border-radius:16px;
@@ -659,7 +626,8 @@ textarea{
 .social-card h3,
 .image-card h3,
 .supplier-card h3,
-.price-card h3{
+.price-card h3,
+.gap-card h3{
   margin:0 0 7px;
   font-size:16px;
 }
@@ -671,7 +639,8 @@ textarea{
 .social-card p,
 .image-card p,
 .supplier-card p,
-.price-card p{
+.price-card p,
+.gap-card p{
   color:var(--muted);
   font-size:13px;
   margin:0;
@@ -687,20 +656,11 @@ textarea{
 
 /* SOCIAL */
 
-.social-card{
-  overflow:hidden;
-}
-
 .media-thumb{
   height:155px;
   border-radius:12px;
   overflow:hidden;
-  background:
-    linear-gradient(
-      135deg,
-      #151526,
-      #08080e
-    );
+  background:linear-gradient(135deg,#151526,#08080e);
   margin-bottom:13px;
   display:flex;
   align-items:center;
@@ -737,20 +697,9 @@ textarea{
   font-weight:900;
 }
 
-.signal.strong{
-  background:rgba(52,211,153,.1);
-  color:#7ef2c0;
-}
-
-.signal.moderate{
-  background:rgba(251,191,36,.1);
-  color:#ffd66d;
-}
-
-.signal.weak{
-  background:rgba(251,113,133,.1);
-  color:#ff9aaa;
-}
+.signal.strong{background:rgba(52,211,153,.1);color:#7ef2c0}
+.signal.moderate{background:rgba(251,191,36,.1);color:#ffd66d}
+.signal.weak{background:rgba(251,113,133,.1);color:#ff9aaa}
 
 .media-stats{
   display:flex;
@@ -768,11 +717,9 @@ textarea{
   font-size:10px;
 }
 
-/* IMAGES */
+/* IMAGE */
 
-.image-card{
-  padding:10px;
-}
+.image-card{padding:10px}
 
 .image-card img{
   width:100%;
@@ -783,15 +730,11 @@ textarea{
   background:#151520;
 }
 
-.image-card-info{
-  padding:10px 4px 3px;
-}
+.image-card-info{padding:10px 4px 3px}
 
 /* PRICE */
 
-.price-card{
-  text-align:center;
-}
+.price-card{text-align:center}
 
 .price-number{
   font-size:29px;
@@ -815,11 +758,7 @@ textarea{
 .price-range i{
   display:block;
   height:100%;
-  background:linear-gradient(
-    90deg,
-    var(--purple),
-    var(--blue)
-  );
+  background:linear-gradient(90deg,var(--purple),var(--blue));
 }
 
 /* FLOW */
@@ -843,9 +782,7 @@ textarea{
   font-size:12px;
 }
 
-.flow b{
-  color:var(--purple);
-}
+.flow b{color:var(--purple)}
 
 /* MONEY */
 
@@ -957,25 +894,18 @@ textarea{
   border-bottom:1px solid #20202b;
 }
 
-.plan-row:last-child{
-  border-bottom:0;
-}
+.plan-row:last-child{border-bottom:0}
 
 .plan-day{
   color:#bba7ff;
   font-weight:900;
 }
 
-.plan-task{
-  color:#dddde6;
-}
+.plan-task{color:#dddde6}
 
 /* RISKS */
 
-.risks{
-  display:grid;
-  gap:9px;
-}
+.risks{display:grid;gap:9px}
 
 .risk{
   border:1px solid var(--border);
@@ -984,9 +914,7 @@ textarea{
   padding:13px;
 }
 
-.risk strong{
-  display:block;
-}
+.risk strong{display:block}
 
 .risk span{
   display:block;
@@ -1027,23 +955,17 @@ textarea{
 
 @media(max-width:1000px){
 
-  .form-grid{
+  .form-grid{grid-template-columns:1fr 1fr}
+  .quick-grid{grid-template-columns:1fr 1fr}
+  .market-grid{grid-template-columns:repeat(3,1fr)}
+  .money-grid{grid-template-columns:1fr 1fr}
+  .money-results{grid-template-columns:repeat(3,1fr)}
+
+  .walker-map{
     grid-template-columns:1fr 1fr;
   }
 
-  .quick-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .market-grid{
-    grid-template-columns:repeat(3,1fr);
-  }
-
-  .money-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .money-results{
+  .walker-summary{
     grid-template-columns:repeat(3,1fr);
   }
 
@@ -1054,10 +976,10 @@ textarea{
   .social-grid,
   .image-grid,
   .supplier-grid,
-  .price-grid{
+  .price-grid,
+  .gap-grid{
     grid-template-columns:1fr 1fr;
   }
-
 }
 
 @media(max-width:650px){
@@ -1068,13 +990,9 @@ textarea{
     gap:7px;
   }
 
-  .hero{
-    padding-top:35px;
-  }
+  .hero{padding-top:35px}
 
-  .hero h1{
-    letter-spacing:-2.5px;
-  }
+  .hero h1{letter-spacing:-2.5px}
 
   .form-grid,
   .quick-grid,
@@ -1087,7 +1005,10 @@ textarea{
   .social-grid,
   .image-grid,
   .supplier-grid,
-  .price-grid{
+  .price-grid,
+  .gap-grid,
+  .walker-map,
+  .walker-summary{
     grid-template-columns:1fr;
   }
 
@@ -1095,17 +1016,11 @@ textarea{
     grid-template-columns:1fr 1fr;
   }
 
-  .score-row{
-    grid-template-columns:1fr;
-  }
+  .score-row{grid-template-columns:1fr}
 
-  .score{
-    font-size:62px;
-  }
+  .score{font-size:62px}
 
-  .decision-reasons{
-    grid-template-columns:1fr;
-  }
+  .decision-reasons{grid-template-columns:1fr}
 
   .panel{
     padding:17px;
@@ -1116,7 +1031,6 @@ textarea{
     align-items:flex-start;
     flex-direction:column;
   }
-
 }
 </style>
 </head>
@@ -1131,16 +1045,15 @@ textarea{
   </div>
 
   <div class="version">
-    MARKET INTELLIGENCE · v1.2
+    MARKET INTELLIGENCE · v1.3
   </div>
 </header>
-
 
 <section class="hero">
 
   <div class="hero-badge">
     <i></i>
-    EVIDENCE ENGINE
+    REALITY WALKER
   </div>
 
   <h1>
@@ -1148,12 +1061,11 @@ textarea{
   </h1>
 
   <p>
-    Know what the market is showing before you build,
-    buy, launch or invest.
+    Walk the market first. Find competitors, prices,
+    customers, suppliers and demand signals before you invest.
   </p>
 
 </section>
-
 
 <!-- INPUT -->
 
@@ -1161,171 +1073,83 @@ textarea{
 
   <div class="section-title">
     <h2>Market Research Input</h2>
-    <span>REALITY ENGINE</span>
+    <span>REALITY ENGINE · WALKER CORE</span>
   </div>
 
   <div class="form-grid">
 
     <div class="field full">
-
-      <label>
-        What do you want to sell or build?
-      </label>
+      <label>What do you want to sell or build?</label>
 
       <textarea
         id="idea"
         placeholder="Example: I want to sell crispy chicken sandwiches for 15 DH"
       ></textarea>
-
     </div>
 
-
     <div class="field">
-
-      <label>
-        City / Market
-      </label>
-
-      <input
-        id="city"
-        placeholder="Casablanca"
-      >
-
+      <label>City / Market</label>
+      <input id="city" placeholder="Casablanca">
     </div>
 
-
     <div class="field">
-
-      <label>
-        Target Customer
-      </label>
-
-      <input
-        id="target"
-        placeholder="Students"
-      >
-
+      <label>Target Customer</label>
+      <input id="target" placeholder="Students">
     </div>
 
-
     <div class="field">
-
-      <label>
-        Country
-      </label>
+      <label>Country</label>
 
       <select id="country">
-
-        <option value="Morocco">
-          Morocco
-        </option>
-
-        <option value="France">
-          France
-        </option>
-
-        <option value="Belgium">
-          Belgium
-        </option>
-
-        <option value="Luxembourg">
-          Luxembourg
-        </option>
-
-        <option value="Canada">
-          Canada
-        </option>
-
-        <option value="United States">
-          United States
-        </option>
-
-        <option value="United Kingdom">
-          United Kingdom
-        </option>
-
-        <option value="Spain">
-          Spain
-        </option>
-
-        <option value="Germany">
-          Germany
-        </option>
-
-        <option value="UAE">
-          UAE
-        </option>
-
+        <option value="Morocco">Morocco</option>
+        <option value="France">France</option>
+        <option value="Belgium">Belgium</option>
+        <option value="Luxembourg">Luxembourg</option>
+        <option value="Canada">Canada</option>
+        <option value="United States">United States</option>
+        <option value="United Kingdom">United Kingdom</option>
+        <option value="Spain">Spain</option>
+        <option value="Germany">Germany</option>
+        <option value="UAE">UAE</option>
       </select>
-
     </div>
 
-
     <div class="field">
-
-      <label>
-        Target Price
-      </label>
-
-      <input
-        id="price"
-        type="number"
-        step="0.01"
-        placeholder="15"
-      >
-
+      <label>Target Price</label>
+      <input id="price" type="number" step="0.01" placeholder="15">
     </div>
 
   </div>
 
-
   <div class="actions">
 
-    <button
-      class="btn primary"
-      id="analyze"
-    >
-      RUN REALITY CHECK
+    <button class="btn primary" id="analyze">
+      RUN REALITY WALKER
     </button>
 
-    <button
-      class="btn"
-      id="reset"
-    >
+    <button class="btn" id="reset">
       RESET
     </button>
 
   </div>
 
-
-  <div
-    class="scan"
-    id="scan"
-  >
+  <div class="scan" id="scan">
 
     <div class="scan-bar">
       <i></i>
     </div>
 
-    <div
-      class="scan-status"
-      id="scanStatus"
-    >
-      Scanning market evidence...
+    <div class="scan-status" id="scanStatus">
+      Preparing Reality Walker...
     </div>
 
   </div>
 
 </section>
 
-
 <!-- RESULTS -->
 
-<main
-  class="results"
-  id="results"
->
-
+<main class="results" id="results">
 
 <!-- DECISION -->
 
@@ -1335,54 +1159,33 @@ textarea{
     REALITY DECISION
   </div>
 
-  <div
-    class="decision-action"
-    id="decisionAction"
-  >
+  <div class="decision-action" id="decisionAction">
     TEST
   </div>
 
-  <div
-    class="decision-note"
-    id="decisionNote"
-  >
+  <div class="decision-note" id="decisionNote">
     Analyze the market to generate a decision.
   </div>
 
-
-  <div
-    class="decision-reasons"
-    id="decisionReasons"
-  ></div>
-
+  <div class="decision-reasons" id="decisionReasons"></div>
 
   <div class="pills">
 
-    <span
-      class="pill"
-      id="qualityPill"
-    >
+    <span class="pill" id="qualityPill">
       Evidence quality: —
     </span>
 
-    <span
-      class="pill"
-      id="confidencePill"
-    >
+    <span class="pill" id="confidencePill">
       Confidence: —
     </span>
 
-    <span
-      class="pill"
-      id="coveragePill"
-    >
+    <span class="pill" id="coveragePill">
       Local coverage: —
     </span>
 
   </div>
 
 </section>
-
 
 <!-- SCORE -->
 
@@ -1392,40 +1195,25 @@ textarea{
 
     <div>
 
-      <div
-        class="score"
-        id="score"
-      >
-        —
-      </div>
+      <div class="score" id="score">—</div>
 
-      <div
-        class="score-meter"
-      >
+      <div class="score-meter">
         <i id="scoreMeter"></i>
       </div>
 
     </div>
 
-
     <div>
 
       <div class="section-title">
 
-        <h2>
-          Market Score
-        </h2>
+        <h2>Market Score</h2>
 
-        <span>
-          EVIDENCE-BASED
-        </span>
+        <span>EVIDENCE-BASED</span>
 
       </div>
 
-      <div
-        class="score-text"
-        id="scoreText"
-      >
+      <div class="score-text" id="scoreText">
         Waiting for market research.
       </div>
 
@@ -1433,56 +1221,49 @@ textarea{
 
   </div>
 
-
   <div class="quick-grid">
 
     <div class="quick">
-      <small>
-        Useful Evidence
-      </small>
-
-      <strong id="quickMarket">
-        —
-      </strong>
+      <small>Useful Evidence</small>
+      <strong id="quickMarket">—</strong>
     </div>
 
-
     <div class="quick">
-      <small>
-        Competition
-      </small>
-
-      <strong id="quickCompetition">
-        —
-      </strong>
+      <small>Competition</small>
+      <strong id="quickCompetition">—</strong>
     </div>
 
-
     <div class="quick">
-      <small>
-        Price Evidence
-      </small>
-
-      <strong id="quickPrice">
-        —
-      </strong>
+      <small>Price Evidence</small>
+      <strong id="quickPrice">—</strong>
     </div>
 
-
     <div class="quick">
-      <small>
-        Next Move
-      </small>
-
-      <strong id="quickMove">
-        —
-      </strong>
+      <small>Next Move</small>
+      <strong id="quickMove">—</strong>
     </div>
 
   </div>
 
 </section>
 
+<!-- WALKER -->
+
+<section class="panel">
+
+  <div class="section-title">
+
+    <h2>Reality Walker</h2>
+
+    <span>SEARCH MAP · EVIDENCE COVERAGE</span>
+
+  </div>
+
+  <div id="walkerMap" class="walker-map"></div>
+
+  <div id="walkerSummary" class="walker-summary"></div>
+
+</section>
 
 <!-- MARKET REALITY -->
 
@@ -1490,88 +1271,62 @@ textarea{
 
   <div class="section-title">
 
-    <h2>
-      Market Reality
-    </h2>
+    <h2>Market Reality</h2>
 
-    <span>
-      WHAT THE MARKET IS SHOWING
-    </span>
+    <span>WHAT THE MARKET IS SHOWING</span>
 
   </div>
 
-
-  <div
-    class="market-grid"
-  >
+  <div class="market-grid">
 
     <div class="quick">
-      <small>
-        Total Results
-      </small>
-
-      <strong id="totalResults">
-        0
-      </strong>
+      <small>Total Results</small>
+      <strong id="totalResults">0</strong>
     </div>
 
-
     <div class="quick">
-      <small>
-        Direct Competitors
-      </small>
-
-      <strong id="directCount">
-        0
-      </strong>
+      <small>Direct Competitors</small>
+      <strong id="directCount">0</strong>
     </div>
 
-
     <div class="quick">
-      <small>
-        Price Signals
-      </small>
-
-      <strong id="priceCount">
-        0
-      </strong>
+      <small>Price Signals</small>
+      <strong id="priceCount">0</strong>
     </div>
 
-
     <div class="quick">
-      <small>
-        Customer Signals
-      </small>
-
-      <strong id="customerCount">
-        0
-      </strong>
+      <small>Customer Signals</small>
+      <strong id="customerCount">0</strong>
     </div>
 
-
     <div class="quick">
-      <small>
-        Suppliers
-      </small>
-
-      <strong id="supplierCount">
-        0
-      </strong>
+      <small>Suppliers</small>
+      <strong id="supplierCount">0</strong>
     </div>
 
   </div>
-
 
   <div style="height:18px"></div>
 
-
-  <div
-    class="evidence-list"
-    id="evidenceList"
-  ></div>
+  <div class="evidence-list" id="evidenceList"></div>
 
 </section>
 
+<!-- EVIDENCE GAPS -->
+
+<section class="panel">
+
+  <div class="section-title">
+
+    <h2>Evidence Gaps</h2>
+
+    <span>WHAT WE STILL DON'T KNOW</span>
+
+  </div>
+
+  <div class="gap-grid" id="gapGrid"></div>
+
+</section>
 
 <!-- DIRECT COMPETITORS -->
 
@@ -1579,24 +1334,15 @@ textarea{
 
   <div class="section-title">
 
-    <h2>
-      Direct Competitors
-    </h2>
+    <h2>Direct Competitors</h2>
 
-    <span>
-      REAL BUSINESSES
-    </span>
+    <span>REAL BUSINESSES</span>
 
   </div>
 
-
-  <div
-    class="problem-grid"
-    id="competitorGrid"
-  ></div>
+  <div class="problem-grid" id="competitorGrid"></div>
 
 </section>
-
 
 <!-- PRICE -->
 
@@ -1604,24 +1350,15 @@ textarea{
 
   <div class="section-title">
 
-    <h2>
-      Price Evidence
-    </h2>
+    <h2>Price Evidence</h2>
 
-    <span>
-      REAL MARKET PRICES
-    </span>
+    <span>REAL MARKET PRICES</span>
 
   </div>
 
-
-  <div
-    class="price-grid"
-    id="priceGrid"
-  ></div>
+  <div class="price-grid" id="priceGrid"></div>
 
 </section>
-
 
 <!-- CUSTOMER -->
 
@@ -1629,24 +1366,15 @@ textarea{
 
   <div class="section-title">
 
-    <h2>
-      Customer Signals
-    </h2>
+    <h2>Customer Signals</h2>
 
-    <span>
-      WHAT CUSTOMERS SAY
-    </span>
+    <span>WHAT CUSTOMERS SAY</span>
 
   </div>
 
-
-  <div
-    class="problem-grid"
-    id="customerSignalsGrid"
-  ></div>
+  <div class="problem-grid" id="customerSignalsGrid"></div>
 
 </section>
-
 
 <!-- SOCIAL -->
 
@@ -1654,24 +1382,15 @@ textarea{
 
   <div class="section-title">
 
-    <h2>
-      Social Video Signals
-    </h2>
+    <h2>Social Video Signals</h2>
 
-    <span>
-      TIKTOK · REELS · YOUTUBE · FACEBOOK
-    </span>
+    <span>TIKTOK · REELS · YOUTUBE · FACEBOOK</span>
 
   </div>
 
-
-  <div
-    class="social-grid"
-    id="socialGrid"
-  ></div>
+  <div class="social-grid" id="socialGrid"></div>
 
 </section>
-
 
 <!-- IMAGES -->
 
@@ -1679,24 +1398,15 @@ textarea{
 
   <div class="section-title">
 
-    <h2>
-      Real Market Examples
-    </h2>
+    <h2>Real Market Examples</h2>
 
-    <span>
-      PRODUCT / MARKET VISUALS
-    </span>
+    <span>PRODUCT / MARKET VISUALS</span>
 
   </div>
 
-
-  <div
-    class="image-grid"
-    id="imageGrid"
-  ></div>
+  <div class="image-grid" id="imageGrid"></div>
 
 </section>
-
 
 <!-- SUPPLIERS -->
 
@@ -1704,24 +1414,15 @@ textarea{
 
   <div class="section-title">
 
-    <h2>
-      Supplier Intelligence
-    </h2>
+    <h2>Supplier Intelligence</h2>
 
-    <span>
-      SUPPLY SIDE
-    </span>
+    <span>SUPPLY SIDE</span>
 
   </div>
 
-
-  <div
-    class="supplier-grid"
-    id="supplierGrid"
-  ></div>
+  <div class="supplier-grid" id="supplierGrid"></div>
 
 </section>
-
 
 <!-- PROBLEMS -->
 
@@ -1729,24 +1430,15 @@ textarea{
 
   <div class="section-title">
 
-    <h2>
-      Problems → Solutions
-    </h2>
+    <h2>Problems → Solutions</h2>
 
-    <span>
-      TURN RISKS INTO ACTIONS
-    </span>
+    <span>TURN RISKS INTO ACTIONS</span>
 
   </div>
 
-
-  <div
-    class="problem-grid"
-    id="problemGrid"
-  ></div>
+  <div class="problem-grid" id="problemGrid"></div>
 
 </section>
-
 
 <!-- OPERATION -->
 
@@ -1754,30 +1446,17 @@ textarea{
 
   <div class="section-title">
 
-    <h2>
-      How To Operate
-    </h2>
+    <h2>How To Operate</h2>
 
-    <span>
-      FROM SUPPLIER TO CUSTOMER
-    </span>
+    <span>FROM SUPPLIER TO CUSTOMER</span>
 
   </div>
 
+  <div class="flow" id="operationFlow"></div>
 
-  <div
-    class="flow"
-    id="operationFlow"
-  ></div>
-
-
-  <div
-    class="operation-grid"
-    id="operationGrid"
-  ></div>
+  <div class="operation-grid" id="operationGrid"></div>
 
 </section>
-
 
 <!-- MONEY -->
 
@@ -1785,116 +1464,45 @@ textarea{
 
   <div class="section-title">
 
-    <h2>
-      Money Reality
-    </h2>
+    <h2>Money Reality</h2>
 
-    <span>
-      USER NUMBERS ONLY
-    </span>
+    <span>USER NUMBERS ONLY</span>
 
   </div>
-
 
   <div class="money-grid">
 
     <div class="money-card">
-
-      <label>
-        Selling price / unit
-      </label>
-
-      <input
-        id="moneyPrice"
-        type="number"
-        step="0.01"
-        placeholder="15"
-      >
-
+      <label>Selling price / unit</label>
+      <input id="moneyPrice" type="number" step="0.01" placeholder="15">
     </div>
 
-
     <div class="money-card">
-
-      <label>
-        Variable cost / unit
-      </label>
-
-      <input
-        id="moneyCost"
-        type="number"
-        step="0.01"
-        placeholder="8"
-      >
-
+      <label>Variable cost / unit</label>
+      <input id="moneyCost" type="number" step="0.01" placeholder="8">
     </div>
 
-
     <div class="money-card">
-
-      <label>
-        Units sold / day
-      </label>
-
-      <input
-        id="moneyUnits"
-        type="number"
-        step="1"
-        placeholder="50"
-      >
-
+      <label>Units sold / day</label>
+      <input id="moneyUnits" type="number" step="1" placeholder="50">
     </div>
 
-
     <div class="money-card">
-
-      <label>
-        Fixed costs / month
-      </label>
-
-      <input
-        id="fixedCosts"
-        type="number"
-        step="0.01"
-        placeholder="0"
-      >
-
+      <label>Fixed costs / month</label>
+      <input id="fixedCosts" type="number" step="0.01" placeholder="0">
     </div>
 
-
     <div class="money-card">
-
-      <label>
-        Startup budget
-      </label>
-
-      <input
-        id="startupBudget"
-        type="number"
-        step="0.01"
-        placeholder="0"
-      >
-
+      <label>Startup budget</label>
+      <input id="startupBudget" type="number" step="0.01" placeholder="0">
     </div>
 
-
     <div class="money-card">
-
-      <label>
-        Working days / month
-      </label>
-
-      <input
-        id="workingDays"
-        type="number"
-        step="1"
-        placeholder="26"
-      >
-
+      <label>Working days / month</label>
+      <input id="workingDays" type="number" step="1" placeholder="26">
     </div>
 
   </div>
-
 
   <div class="money-results">
 
@@ -1930,16 +1538,11 @@ textarea{
 
   </div>
 
-
-  <div
-    class="money-note"
-    id="moneyNote"
-  >
+  <div class="money-note" id="moneyNote">
     Enter the numbers you actually know.
   </div>
 
 </section>
-
 
 <!-- VISUAL GUIDE -->
 
@@ -1947,24 +1550,15 @@ textarea{
 
   <div class="section-title">
 
-    <h2>
-      Business Reality
-    </h2>
+    <h2>Business Reality</h2>
 
-    <span>
-      UNDERSTAND BEFORE INVESTING
-    </span>
+    <span>UNDERSTAND BEFORE INVESTING</span>
 
   </div>
 
-
-  <div
-    class="visual-grid"
-    id="visualGrid"
-  ></div>
+  <div class="visual-grid" id="visualGrid"></div>
 
 </section>
-
 
 <!-- STRATEGY -->
 
@@ -1972,33 +1566,19 @@ textarea{
 
   <div class="section-title">
 
-    <h2>
-      Strategy
-    </h2>
+    <h2>Strategy</h2>
 
-    <span>
-      SAFE · GROWTH · AGGRESSIVE
-    </span>
+    <span>SAFE · GROWTH · AGGRESSIVE</span>
 
   </div>
 
-
-  <div
-    class="strategy-grid"
-    id="strategyGrid"
-  ></div>
-
+  <div class="strategy-grid" id="strategyGrid"></div>
 
   <div style="height:18px"></div>
 
-
-  <div
-    class="plan"
-    id="plan"
-  ></div>
+  <div class="plan" id="plan"></div>
 
 </section>
-
 
 <!-- RISKS -->
 
@@ -2006,24 +1586,15 @@ textarea{
 
   <div class="section-title">
 
-    <h2>
-      Risk Control
-    </h2>
+    <h2>Risk Control</h2>
 
-    <span>
-      WHAT CAN BREAK THE IDEA
-    </span>
+    <span>WHAT CAN BREAK THE IDEA</span>
 
   </div>
 
-
-  <div
-    class="risks"
-    id="risks"
-  ></div>
+  <div class="risks" id="risks"></div>
 
 </section>
-
 
 <!-- CUSTOMER TARGET -->
 
@@ -2031,62 +1602,50 @@ textarea{
 
   <div class="section-title">
 
-    <h2>
-      Customer Reality
-    </h2>
+    <h2>Customer Reality</h2>
 
-    <span>
-      WHO PAYS
-    </span>
+    <span>WHO PAYS</span>
 
   </div>
 
-
-  <div
-    class="empty"
-    id="customerTarget"
-  >
+  <div class="empty" id="customerTarget">
     No customer target defined.
   </div>
 
 </section>
 
-
 </main>
-
 
 <div class="footer">
 
-  Reality Demand · Market Intelligence v1.2
+  Reality Demand · Market Intelligence v1.3
 
   <br>
 
   <strong>
-    Evidence before investment.
+    Walk the market. Verify the evidence. Then invest.
   </strong>
 
 </div>
 
 </div>
 
-
 <script>
 
 /* =========================================================
-   REALITY DEMAND v1.2
+   REALITY DEMAND v1.3
+   REALITY WALKER CORE
    ========================================================= */
 
 const API =
 "https://reality-demand-api.essmoumpex.workers.dev/api/search";
 
-
-const $ = id =>
-document.getElementById(id);
-
+const $ = id => document.getElementById(id);
 
 let latestResults = [];
 let latestContext = {};
 let latestStats = {};
+let latestWalker = [];
 
 
 /* =========================================================
@@ -2094,14 +1653,12 @@ let latestStats = {};
    ========================================================= */
 
 function esc(value){
-
   return String(value ?? "")
     .replace(/&/g,"&amp;")
     .replace(/</g,"&lt;")
     .replace(/>/g,"&gt;")
     .replace(/"/g,"&quot;")
     .replace(/'/g,"&#039;");
-
 }
 
 
@@ -2123,15 +1680,11 @@ function hasAny(text,list){
 function getHost(url){
 
   try{
-
     return new URL(url)
       .hostname
       .replace(/^www\./,"");
-
   }catch{
-
     return "";
-
   }
 
 }
@@ -2173,7 +1726,6 @@ function extractPrice(text){
 function isMediaHost(host){
 
   return [
-
     "youtube.com",
     "youtu.be",
     "tiktok.com",
@@ -2182,7 +1734,6 @@ function isMediaHost(host){
     "fb.watch",
     "vimeo.com",
     "dailymotion.com"
-
   ].some(x =>
     host.includes(x)
   );
@@ -2193,7 +1744,6 @@ function isMediaHost(host){
 function isDirectoryHost(host){
 
   return [
-
     "tripadvisor",
     "yelp",
     "foursquare",
@@ -2202,8 +1752,8 @@ function isDirectoryHost(host){
     "glovo",
     "ubereats",
     "deliveroo",
-    "justeat"
-
+    "justeat",
+    "google.com"
   ].some(x =>
     host.includes(x)
   );
@@ -2212,7 +1762,7 @@ function isDirectoryHost(host){
 
 
 /* =========================================================
-   CATEGORY
+   CATEGORY DETECTION
    ========================================================= */
 
 function ideaCategory(idea){
@@ -2240,14 +1790,13 @@ function ideaCategory(idea){
     "juice",
     "poulet",
     "pain",
-    "gateau"
+    "gateau",
+    "cake",
+    "fast food"
 
   ])){
-
     return "food";
-
   }
-
 
   if(hasAny(s,[
 
@@ -2259,14 +1808,13 @@ function ideaCategory(idea){
     "application",
     "online tool",
     "ai tool",
-    "digital"
+    "digital",
+    "api",
+    "dashboard"
 
   ])){
-
     return "digital";
-
   }
-
 
   if(hasAny(s,[
 
@@ -2275,14 +1823,14 @@ function ideaCategory(idea){
     "shoes",
     "fashion",
     "vêtements",
-    "vetement"
+    "vetement",
+    "boutique",
+    "cosmetics",
+    "product"
 
   ])){
-
     return "retail";
-
   }
-
 
   if(hasAny(s,[
 
@@ -2292,17 +1840,15 @@ function ideaCategory(idea){
     "plumbing",
     "construction",
     "maintenance",
-    "installation"
+    "installation",
+    "technician",
+    "service"
 
   ])){
-
     return "service";
-
   }
 
-
   return "general";
-
 }
 
 
@@ -2311,7 +1857,6 @@ function categoryTerms(category){
   const map = {
 
     food:[
-
       "restaurant",
       "food",
       "sandwich",
@@ -2332,11 +1877,9 @@ function categoryTerms(category){
       "poulet",
       "pain",
       "gateau"
-
     ],
 
     digital:[
-
       "software",
       "app",
       "application",
@@ -2345,12 +1888,12 @@ function categoryTerms(category){
       "website",
       "tool",
       "online",
-      "ai"
-
+      "ai",
+      "api",
+      "dashboard"
     ],
 
     retail:[
-
       "shop",
       "store",
       "fashion",
@@ -2359,12 +1902,11 @@ function categoryTerms(category){
       "retail",
       "boutique",
       "product",
-      "price"
-
+      "price",
+      "cosmetics"
     ],
 
     service:[
-
       "service",
       "repair",
       "maintenance",
@@ -2373,30 +1915,25 @@ function categoryTerms(category){
       "plumbing",
       "construction",
       "technician"
-
     ],
 
     general:[
-
       "business",
       "market",
       "product",
       "service",
       "price",
       "customer"
-
     ]
 
   };
 
-  return map[category] ||
-    map.general;
-
+  return map[category] || map.general;
 }
 
 
 /* =========================================================
-   SIGNALS
+   SIGNAL LIBRARIES
    ========================================================= */
 
 const irrelevantSignals = [
@@ -2414,7 +1951,6 @@ const irrelevantSignals = [
   "factory",
   "oil company",
   "gas company",
-  "circet",
   "stock market",
   "crypto exchange",
   "casino",
@@ -2437,7 +1973,8 @@ const supplierSignals = [
   "fournisseurs",
   "bulk",
   "manufacturer",
-  "fabricant"
+  "fabricant",
+  "professional supply"
 
 ];
 
@@ -2460,7 +1997,10 @@ const customerSignals = [
   "clients",
   "satisfaction",
   "stars",
-  "evaluation"
+  "evaluation",
+  "complaint",
+  "complaints",
+  "feedback"
 
 ];
 
@@ -2482,7 +2022,10 @@ const priceSignals = [
   "£",
   "cad",
   "usd",
-  "aed"
+  "aed",
+  "rate",
+  "starting at",
+  "from"
 
 ];
 
@@ -2506,7 +2049,10 @@ const businessSignals = [
   "delivery",
   "takeaway",
   "boutique",
-  "service"
+  "service",
+  "studio",
+  "agency",
+  "platform"
 
 ];
 
@@ -2531,25 +2077,58 @@ const backgroundSignals = [
 ];
 
 
+const problemSignals = [
+
+  "problem",
+  "problems",
+  "complaint",
+  "complaints",
+  "issue",
+  "issues",
+  "bad",
+  "worst",
+  "disappointed",
+  "slow",
+  "expensive",
+  "cheap quality",
+  "not worth",
+  "difficult",
+  "hate",
+  "missing",
+  "lack",
+  "pain point"
+
+];
+
+
+/* =========================================================
+   NORMALIZE
+   ========================================================= */
+
 function normalizeResult(raw){
 
   const title =
     raw.title ||
     raw.name ||
+    raw.heading ||
     "";
 
   const description =
     raw.description ||
     raw.snippet ||
     raw.text ||
+    raw.content ||
     "";
 
   const url =
     raw.url ||
     raw.link ||
+    raw.href ||
     "";
 
   return {
+
+    raw,
 
     title,
     description,
@@ -2564,7 +2143,7 @@ function normalizeResult(raw){
 
 
 /* =========================================================
-   CLASSIFICATION
+   EVIDENCE CLASSIFIER
    ========================================================= */
 
 function classifyResult(raw,context){
@@ -2585,106 +2164,119 @@ function classifyResult(raw,context){
     isDirectoryHost(host);
 
   const terms =
-    categoryTerms(context.category);
+    categoryTerms(
+      context.category
+    );
 
   const relevant =
-    hasAny(s,terms);
+    hasAny(
+      s,
+      terms
+    );
 
   const local =
     relevant &&
-    (
-      hasAny(
-        s,
-        [
-          context.city,
-          context.country
-        ].filter(Boolean)
-      )
+    hasAny(
+      s,
+      [
+        context.city,
+        context.country
+      ].filter(Boolean)
     );
 
   const price =
-    extractPrice(r.text);
+    extractPrice(
+      r.text
+    );
 
   const hasPrice =
     !!price ||
-    hasAny(s,priceSignals);
+    hasAny(
+      s,
+      priceSignals
+    );
 
   const customer =
-    hasAny(s,customerSignals);
+    hasAny(
+      s,
+      customerSignals
+    );
 
   const supplier =
-    hasAny(s,supplierSignals);
+    hasAny(
+      s,
+      supplierSignals
+    );
 
   const background =
-    hasAny(s,backgroundSignals);
+    hasAny(
+      s,
+      backgroundSignals
+    );
+
+  const problem =
+    hasAny(
+      s,
+      problemSignals
+    );
 
   const irrelevant =
-    hasAny(s,irrelevantSignals) &&
+    hasAny(
+      s,
+      irrelevantSignals
+    ) &&
     !relevant;
 
 
-  let type =
-    "BACKGROUND";
-
+  let type = "BACKGROUND";
   let confidence = 30;
   let quality = .20;
+  let strength = "WEAK";
   let reason =
     "General background information.";
 
 
   if(irrelevant){
 
-    type =
-      "IRRELEVANT";
-
-    confidence =
-      94;
-
-    quality =
-      0;
+    type="IRRELEVANT";
+    confidence=94;
+    quality=0;
+    strength="NONE";
 
     reason =
       "The result does not match the researched market.";
 
   }
 
+  else if(
+    supplier &&
+    relevant
+  ){
 
-  else if(supplier && relevant){
-
-    type =
-      "SUPPLIER";
-
-    confidence =
-      88;
-
-    quality =
-      .78;
+    type="SUPPLIER";
+    confidence=88;
+    quality=.82;
+    strength="STRONG";
 
     reason =
       "Relevant supplier, wholesaler or manufacturer evidence.";
 
   }
 
-
   else if(
     media &&
     relevant
   ){
 
-    type =
-      "SOCIAL SIGNAL";
-
-    confidence =
-      78;
-
-    quality =
-      .58;
+    type="SOCIAL SIGNAL";
+    confidence=78;
+    quality=.55;
+    strength="MEDIUM";
 
     reason =
-      "Relevant social/media content showing product or market interest.";
+      "Relevant social/media content showing market or product interest.";
 
   }
-
 
   else if(
     relevant &&
@@ -2697,119 +2289,117 @@ function classifyResult(raw,context){
     )
   ){
 
-    type =
-      "DIRECT COMPETITOR";
+    type="DIRECT COMPETITOR";
 
     confidence =
-      91;
+      local && hasPrice
+      ? 95
+      : local
+      ? 91
+      : 84;
 
     quality =
-      hasPrice
-      ?
-      .96
-      :
-      .84;
+      local && hasPrice
+      ? .98
+      : local
+      ? .90
+      : .78;
+
+    strength =
+      quality >= .90
+      ? "STRONG"
+      : "MEDIUM";
 
     reason =
       hasPrice
       ?
-      `Relevant competitor with a visible price${price ? ` (${price})` : ""}.`
+      `Relevant competitor with price evidence${price ? ` (${price})` : ""}.`
       :
       "Relevant business competing for the same customer.";
 
   }
-
 
   else if(
     relevant &&
     directory
   ){
 
-    type =
-      "COMPETITOR DIRECTORY";
-
-    confidence =
-      82;
-
-    quality =
-      .72;
+    type="COMPETITOR DIRECTORY";
+    confidence=82;
+    quality=.70;
+    strength="MEDIUM";
 
     reason =
       "Directory or marketplace listing useful for competitor mapping.";
 
   }
 
-
   else if(
     relevant &&
     hasPrice
   ){
 
-    type =
-      "PRICE SIGNAL";
-
-    confidence =
-      76;
-
-    quality =
-      .68;
+    type="PRICE SIGNAL";
+    confidence=78;
+    quality=.72;
+    strength="MEDIUM";
 
     reason =
       `Relevant market price evidence${price ? ` (${price})` : ""}.`;
 
   }
 
-
   else if(
     relevant &&
     customer
   ){
 
-    type =
-      "CUSTOMER SIGNAL";
-
-    confidence =
-      81;
-
-    quality =
-      .80;
+    type="CUSTOMER SIGNAL";
+    confidence=83;
+    quality=.84;
+    strength="STRONG";
 
     reason =
       "Customer reviews, ratings or buying behavior.";
 
   }
 
+  else if(
+    relevant &&
+    problem
+  ){
+
+    type="PROBLEM SIGNAL";
+    confidence=76;
+    quality=.67;
+    strength="MEDIUM";
+
+    reason =
+      "Potential customer problem, complaint or market pain point.";
+
+  }
 
   else if(
     relevant &&
     background
   ){
 
-    type =
-      "BACKGROUND";
-
-    confidence =
-      68;
-
-    quality =
-      .32;
+    type="BACKGROUND";
+    confidence=68;
+    quality=.32;
+    strength="WEAK";
 
     reason =
       "Useful market context but weak direct demand evidence.";
 
   }
 
-
   else if(relevant){
 
-    type =
-      "MARKET SIGNAL";
-
-    confidence =
-      62;
-
-    quality =
-      .42;
+    type="MARKET SIGNAL";
+    confidence=62;
+    quality=.42;
+    strength="WEAK";
 
     reason =
       "Relevant market information, but not strong direct proof.";
@@ -2824,14 +2414,632 @@ function classifyResult(raw,context){
     type,
     confidence,
     quality,
+    strength,
+    reason,
+
     price,
     hasPrice,
     local,
     relevant,
     media,
-    host
+    directory,
+    host,
+    problem
 
   };
+
+}
+
+
+/* =========================================================
+   REALITY WALKER
+   ========================================================= */
+
+function buildWalker(context){
+
+  const idea =
+    context.idea;
+
+  const city =
+    context.city;
+
+  const country =
+    context.country;
+
+  const target =
+    context.target ||
+    "customers";
+
+  const category =
+    context.category;
+
+
+  const base =
+    `${idea} ${city} ${country}`.trim();
+
+
+  const local =
+    city
+    ?
+    `${idea} ${city} ${country}`
+    :
+    `${idea} ${country}`;
+
+
+  const targetQuery =
+    `${idea} ${target} ${city} ${country}`;
+
+
+  const maps = {
+
+    food:[
+
+      {
+        id:"competitors",
+        icon:"🏪",
+        label:"Direct Competitors",
+        purpose:"Find real businesses selling the same or similar offer.",
+        weight:"STRONG",
+        query:`${local} competitors restaurants shops businesses`
+      },
+
+      {
+        id:"prices",
+        icon:"💰",
+        label:"Real Prices",
+        purpose:"Find menus, product prices and current price points.",
+        weight:"STRONG",
+        query:`${local} menu prices ${idea}`
+      },
+
+      {
+        id:"customers",
+        icon:"👥",
+        label:"Customer Signals",
+        purpose:"Find reviews, ratings, comments and buying behavior.",
+        weight:"STRONG",
+        query:`${targetQuery} reviews ratings customers`
+      },
+
+      {
+        id:"suppliers",
+        icon:"📦",
+        label:"Suppliers",
+        purpose:"Find wholesalers, distributors and manufacturers.",
+        weight:"STRONG",
+        query:`${local} suppliers wholesale grossiste fournisseur`
+      },
+
+      {
+        id:"problems",
+        icon:"⚠️",
+        label:"Problems",
+        purpose:"Find complaints, pain points and customer dissatisfaction.",
+        weight:"MEDIUM",
+        query:`${targetQuery} complaints problems bad reviews`
+      },
+
+      {
+        id:"alternatives",
+        icon:"🔄",
+        label:"Alternatives",
+        purpose:"Find what customers use instead.",
+        weight:"MEDIUM",
+        query:`${targetQuery} alternatives competitors substitute`
+      },
+
+      {
+        id:"marketplace",
+        icon:"🛒",
+        label:"Marketplace",
+        purpose:"Find products, listings and commercial offers.",
+        weight:"MEDIUM",
+        query:`${local} marketplace product price order`
+      },
+
+      {
+        id:"local",
+        icon:"📍",
+        label:"Local Market",
+        purpose:"Find businesses and demand close to the selected market.",
+        weight:"STRONG",
+        query:`${local} local business near me ${idea}`
+      },
+
+      {
+        id:"social",
+        icon:"🎥",
+        label:"Social Signals",
+        purpose:"Find social content, videos and market activity.",
+        weight:"MEDIUM",
+        query:`${targetQuery} TikTok Instagram YouTube Facebook reels`
+      }
+
+    ],
+
+    digital:[
+
+      {
+        id:"competitors",
+        icon:"💻",
+        label:"Direct Competitors",
+        purpose:"Find existing tools solving the same problem.",
+        weight:"STRONG",
+        query:`${base} competitors software tools`
+      },
+
+      {
+        id:"prices",
+        icon:"💰",
+        label:"Pricing",
+        purpose:"Find subscriptions, plans and pricing.",
+        weight:"STRONG",
+        query:`${base} pricing plans cost subscription`
+      },
+
+      {
+        id:"customers",
+        icon:"👥",
+        label:"User Signals",
+        purpose:"Find reviews and user experiences.",
+        weight:"STRONG",
+        query:`${targetQuery} reviews users complaints`
+      },
+
+      {
+        id:"alternatives",
+        icon:"🔄",
+        label:"Alternatives",
+        purpose:"Find competing workflows and substitute solutions.",
+        weight:"MEDIUM",
+        query:`${targetQuery} alternatives competitors`
+      },
+
+      {
+        id:"problems",
+        icon:"⚠️",
+        label:"Pain Points",
+        purpose:"Find complaints and unresolved problems.",
+        weight:"STRONG",
+        query:`${targetQuery} problem pain point complaints`
+      },
+
+      {
+        id:"marketplace",
+        icon:"🛒",
+        label:"Commercial Proof",
+        purpose:"Find existing commercial products and offers.",
+        weight:"MEDIUM",
+        query:`${base} marketplace software product`
+      },
+
+      {
+        id:"social",
+        icon:"🎥",
+        label:"Social Signals",
+        purpose:"Find public discussion and demonstrations.",
+        weight:"MEDIUM",
+        query:`${targetQuery} YouTube TikTok Instagram`
+      },
+
+      {
+        id:"local",
+        icon:"🌍",
+        label:"Market",
+        purpose:"Understand the selected geographic market.",
+        weight:"MEDIUM",
+        query:`${base} local market businesses`
+      }
+
+    ],
+
+    retail:[
+
+      {
+        id:"competitors",
+        icon:"🏪",
+        label:"Competitors",
+        purpose:"Find stores and sellers offering the same product.",
+        weight:"STRONG",
+        query:`${local} shops stores competitors ${idea}`
+      },
+
+      {
+        id:"prices",
+        icon:"💰",
+        label:"Prices",
+        purpose:"Find real product prices.",
+        weight:"STRONG",
+        query:`${local} ${idea} price prices`
+      },
+
+      {
+        id:"customers",
+        icon:"👥",
+        label:"Customer Signals",
+        purpose:"Find reviews and buyer feedback.",
+        weight:"STRONG",
+        query:`${targetQuery} customer reviews ratings`
+      },
+
+      {
+        id:"suppliers",
+        icon:"📦",
+        label:"Suppliers",
+        purpose:"Find wholesalers and manufacturers.",
+        weight:"STRONG",
+        query:`${local} ${idea} wholesale supplier manufacturer`
+      },
+
+      {
+        id:"alternatives",
+        icon:"🔄",
+        label:"Alternatives",
+        purpose:"Find competing products and substitutes.",
+        weight:"MEDIUM",
+        query:`${targetQuery} alternatives similar products`
+      },
+
+      {
+        id:"marketplace",
+        icon:"🛒",
+        label:"Marketplace",
+        purpose:"Find actual commercial listings.",
+        weight:"STRONG",
+        query:`${local} ${idea} marketplace buy price`
+      },
+
+      {
+        id:"social",
+        icon:"🎥",
+        label:"Social Signals",
+        purpose:"Find product trends and customer content.",
+        weight:"MEDIUM",
+        query:`${targetQuery} TikTok Instagram YouTube`
+      }
+
+    ],
+
+    service:[
+
+      {
+        id:"competitors",
+        icon:"🛠️",
+        label:"Competitors",
+        purpose:"Find local service providers.",
+        weight:"STRONG",
+        query:`${local} ${idea} service companies technicians`
+      },
+
+      {
+        id:"prices",
+        icon:"💰",
+        label:"Service Prices",
+        purpose:"Find current service rates.",
+        weight:"STRONG",
+        query:`${local} ${idea} price tarif cost`
+      },
+
+      {
+        id:"customers",
+        icon:"👥",
+        label:"Customer Signals",
+        purpose:"Find reviews and customer satisfaction.",
+        weight:"STRONG",
+        query:`${targetQuery} reviews ratings complaints`
+      },
+
+      {
+        id:"suppliers",
+        icon:"📦",
+        label:"Supply",
+        purpose:"Find equipment, parts and suppliers.",
+        weight:"MEDIUM",
+        query:`${local} ${idea} supplier wholesale equipment`
+      },
+
+      {
+        id:"problems",
+        icon:"⚠️",
+        label:"Pain Points",
+        purpose:"Find recurring customer problems.",
+        weight:"STRONG",
+        query:`${targetQuery} complaints problems service`
+      },
+
+      {
+        id:"alternatives",
+        icon:"🔄",
+        label:"Alternatives",
+        purpose:"Find alternative providers or DIY solutions.",
+        weight:"MEDIUM",
+        query:`${targetQuery} alternatives ${idea}`
+      },
+
+      {
+        id:"social",
+        icon:"🎥",
+        label:"Social Signals",
+        purpose:"Find service demonstrations and demand.",
+        weight:"MEDIUM",
+        query:`${targetQuery} TikTok YouTube Instagram Facebook`
+      }
+
+    ],
+
+    general:[
+
+      {
+        id:"competitors",
+        icon:"🏪",
+        label:"Competitors",
+        purpose:"Find businesses offering a similar solution.",
+        weight:"STRONG",
+        query:`${base} competitors businesses`
+      },
+
+      {
+        id:"prices",
+        icon:"💰",
+        label:"Prices",
+        purpose:"Find real market prices.",
+        weight:"STRONG",
+        query:`${base} prices cost price`
+      },
+
+      {
+        id:"customers",
+        icon:"👥",
+        label:"Customers",
+        purpose:"Find reviews and customer behavior.",
+        weight:"STRONG",
+        query:`${targetQuery} customers reviews`
+      },
+
+      {
+        id:"suppliers",
+        icon:"📦",
+        label:"Suppliers",
+        purpose:"Find supply-side evidence.",
+        weight:"STRONG",
+        query:`${base} suppliers wholesale manufacturer`
+      },
+
+      {
+        id:"alternatives",
+        icon:"🔄",
+        label:"Alternatives",
+        purpose:"Find substitute solutions.",
+        weight:"MEDIUM",
+        query:`${targetQuery} alternatives competitors`
+      },
+
+      {
+        id:"problems",
+        icon:"⚠️",
+        label:"Problems",
+        purpose:"Find customer complaints and pain points.",
+        weight:"MEDIUM",
+        query:`${targetQuery} problems complaints`
+      },
+
+      {
+        id:"social",
+        icon:"🎥",
+        label:"Social Signals",
+        purpose:"Find public market activity.",
+        weight:"MEDIUM",
+        query:`${targetQuery} TikTok Instagram YouTube Facebook`
+      }
+
+    ]
+
+  };
+
+
+  return maps[category] || maps.general;
+
+}
+
+
+/* =========================================================
+   WALKER RENDER
+   ========================================================= */
+
+function renderWalker(walker,results){
+
+  latestWalker =
+    walker;
+
+
+  const nodes =
+    walker.map(node=>{
+
+      const related =
+        results.filter(r =>
+          resultMatchesWalker(
+            r,
+            node.id
+          )
+        );
+
+
+      const useful =
+        related.filter(
+          r =>
+            r.type !==
+            "IRRELEVANT"
+        );
+
+
+      return {
+        ...node,
+        count:related.length,
+        useful:useful.length
+      };
+
+    });
+
+
+  $("walkerMap").innerHTML =
+    nodes.map(n=>`
+
+      <div class="walker-node ${
+        n.useful > 0
+        ? "active"
+        : ""
+      }">
+
+        <div class="node-icon">
+          ${n.icon}
+        </div>
+
+        <strong>
+          ${esc(n.label)}
+        </strong>
+
+        <span>
+          ${esc(n.purpose)}
+        </span>
+
+        <div class="walker-count">
+          ${n.useful} evidence
+        </div>
+
+      </div>
+
+    `).join("");
+
+
+  const totalQueries =
+    nodes.length;
+
+  const covered =
+    nodes.filter(
+      n =>
+        n.useful > 0
+    ).length;
+
+
+  const strong =
+    results.filter(
+      r =>
+        r.strength ===
+        "STRONG"
+    ).length;
+
+
+  const medium =
+    results.filter(
+      r =>
+        r.strength ===
+        "MEDIUM"
+    ).length;
+
+
+  const weak =
+    results.filter(
+      r =>
+        r.strength ===
+        "WEAK"
+    ).length;
+
+
+  const coverage =
+    totalQueries
+    ?
+    Math.round(
+      covered /
+      totalQueries *
+      100
+    )
+    :
+    0;
+
+
+  $("walkerSummary").innerHTML = `
+
+    <div class="walker-stat">
+      <small>Search Nodes</small>
+      <strong>${totalQueries}</strong>
+    </div>
+
+    <div class="walker-stat">
+      <small>Covered</small>
+      <strong>${coverage}%</strong>
+    </div>
+
+    <div class="walker-stat">
+      <small>Strong</small>
+      <strong>${strong}</strong>
+    </div>
+
+    <div class="walker-stat">
+      <small>Medium</small>
+      <strong>${medium}</strong>
+    </div>
+
+    <div class="walker-stat">
+      <small>Weak</small>
+      <strong>${weak}</strong>
+    </div>
+
+  `;
+
+}
+
+
+function resultMatchesWalker(r,id){
+
+  const s =
+    `${r.title} ${r.description}`.toLowerCase();
+
+
+  if(id==="competitors")
+    return r.type==="DIRECT COMPETITOR" ||
+           r.type==="COMPETITOR DIRECTORY";
+
+  if(id==="prices")
+    return r.hasPrice ||
+           r.type==="PRICE SIGNAL";
+
+  if(id==="customers")
+    return r.type==="CUSTOMER SIGNAL";
+
+  if(id==="suppliers")
+    return r.type==="SUPPLIER";
+
+  if(id==="alternatives")
+    return r.type==="MARKET SIGNAL" ||
+           hasAny(s,[
+             "alternative",
+             "similar",
+             "substitute",
+             "competitor"
+           ]);
+
+  if(id==="problems")
+    return r.type==="PROBLEM SIGNAL";
+
+  if(id==="marketplace")
+    return r.directory ||
+           hasAny(
+             s,
+             [
+               "marketplace",
+               "buy",
+               "shop",
+               "order"
+             ]
+           );
+
+  if(id==="local")
+    return r.local;
+
+  if(id==="social")
+    return r.media;
+
+  return false;
 
 }
 
@@ -2841,6 +3049,15 @@ function classifyResult(raw,context){
    ========================================================= */
 
 function calculateSignal(results){
+
+  const useful =
+    results.filter(
+      r =>
+        r.type !==
+        "IRRELEVANT" &&
+        r.quality >= .25
+    );
+
 
   const counts = {
 
@@ -2886,31 +3103,48 @@ function calculateSignal(results){
           r.local &&
           r.type !==
           "IRRELEVANT"
+      ).length,
+
+    problems:
+      results.filter(
+        r =>
+          r.type ===
+          "PROBLEM SIGNAL"
+      ).length,
+
+    strong:
+      results.filter(
+        r =>
+          r.strength ===
+          "STRONG"
+      ).length,
+
+    medium:
+      results.filter(
+        r =>
+          r.strength ===
+          "MEDIUM"
+      ).length,
+
+    weak:
+      results.filter(
+        r =>
+          r.strength ===
+          "WEAK"
       ).length
 
   };
 
 
-  const useful =
-    results.filter(
-      r =>
-        r.type !==
-        "IRRELEVANT" &&
-        r.quality >= .25
-    );
-
-
   if(!useful.length){
 
     return {
-
       score:15,
       quality:0,
       confidence:20,
       coverage:0,
       counts,
       useful:0
-
     };
 
   }
@@ -2934,14 +3168,14 @@ function calculateSignal(results){
 
   let score =
 
-    18 +
+    12 +
 
-    qualityRatio * 40 +
+    qualityRatio * 38 +
 
     Math.min(
       counts.direct,
       4
-    ) * 6 +
+    ) * 7 +
 
     Math.min(
       counts.price,
@@ -2951,7 +3185,7 @@ function calculateSignal(results){
     Math.min(
       counts.customer,
       3
-    ) * 4 +
+    ) * 5 +
 
     Math.min(
       counts.supplier,
@@ -2959,17 +3193,35 @@ function calculateSignal(results){
     ) * 2 +
 
     Math.min(
+      counts.problems,
+      3
+    ) * 2 +
+
+    Math.min(
       counts.social,
-      4
+      5
     ) * 1;
 
 
-  if(useful.length < 3)
+  if(
+    useful.length < 3
+  ){
     score -= 10;
+  }
 
 
-  if(counts.direct === 0)
-    score -= 4;
+  if(
+    counts.direct === 0
+  ){
+    score -= 5;
+  }
+
+
+  if(
+    counts.price === 0
+  ){
+    score -= 3;
+  }
 
 
   score =
@@ -2988,8 +3240,8 @@ function calculateSignal(results){
     Math.round(
       Math.min(
         96,
-        35 +
-        qualityRatio * 38 +
+        30 +
+        qualityRatio * 42 +
         Math.min(
           useful.length,
           9
@@ -3065,8 +3317,9 @@ function formatMoney(value,currency){
     value === null ||
     value === undefined ||
     !Number.isFinite(value)
-  )
+  ){
     return "—";
+  }
 
   return `${value.toFixed(2)} ${currency}`.trim();
 
@@ -3151,10 +3404,9 @@ function updateMoney(){
     profit !== null &&
     price > 0
     ?
-    (
-      profit /
-      price
-    ) * 100
+    profit /
+    price *
+    100
     :
     null;
 
@@ -3204,7 +3456,6 @@ function updateMoney(){
       currency
     );
 
-
   $("margin").textContent =
     margin === null
     ?
@@ -3212,20 +3463,17 @@ function updateMoney(){
     :
     `${margin.toFixed(1)}%`;
 
-
   $("dailyProfit").textContent =
     formatMoney(
       daily,
       currency
     );
 
-
   $("monthlyProfit").textContent =
     formatMoney(
       monthly,
       currency
     );
-
 
   $("breakEvenUnits").textContent =
     breakEvenUnits === null
@@ -3235,7 +3483,6 @@ function updateMoney(){
     Math.ceil(
       breakEvenUnits
     );
-
 
   $("breakEvenDays").textContent =
     breakEvenDays === null
@@ -3259,8 +3506,6 @@ function updateMoney(){
       "WARNING: selling price does not cover variable cost. Change the price, reduce the cost, or change the product.";
 
   }
-
-
   else if(
     monthly !== null &&
     monthly < 0
@@ -3270,8 +3515,6 @@ function updateMoney(){
       "Current monthly economics are negative after fixed costs. Treat this as a TEST, not a scale decision.";
 
   }
-
-
   else if(
     monthly !== null &&
     monthly >= 0
@@ -3458,7 +3701,7 @@ function decide(stats,money){
 
       reasons:[
         "Some useful evidence exists.",
-        "Important gaps remain.",
+        "Important evidence gaps remain.",
         "A small test is safer than a large launch."
       ]
 
@@ -3501,7 +3744,6 @@ function renderDecision(stats,money){
   $("decisionAction").textContent =
     d.action;
 
-
   $("decisionNote").textContent =
     d.note;
 
@@ -3519,10 +3761,8 @@ function renderDecision(stats,money){
   $("qualityPill").textContent =
     `Evidence quality: ${stats.quality}%`;
 
-
   $("confidencePill").textContent =
     `Confidence: ${stats.confidence}%`;
-
 
   $("coveragePill").textContent =
     `Local coverage: ${stats.coverage}%`;
@@ -3531,7 +3771,6 @@ function renderDecision(stats,money){
   $("score").textContent =
     stats.score;
 
-
   $("scoreMeter").style.width =
     `${stats.score}%`;
 
@@ -3539,21 +3778,18 @@ function renderDecision(stats,money){
   let scoreText =
     "Weak evidence. Do not invest yet.";
 
-
   if(stats.score >= 78){
 
     scoreText =
       "Strong evidence base. Validate with real sales before scaling.";
 
   }
-
   else if(stats.score >= 58){
 
     scoreText =
       "Useful evidence exists. A controlled market test is justified.";
 
   }
-
   else if(stats.score >= 40){
 
     scoreText =
@@ -3569,14 +3805,12 @@ function renderDecision(stats,money){
   $("quickMarket").textContent =
     `${stats.useful} useful`;
 
-
   $("quickCompetition").textContent =
     stats.counts.direct
     ?
     `${stats.counts.direct} direct`
     :
     "Not confirmed";
-
 
   $("quickPrice").textContent =
     stats.counts.price
@@ -3585,19 +3819,15 @@ function renderDecision(stats,money){
     :
     "Not found";
 
-
   $("quickMove").textContent =
 
     d.action.includes("CHANGE")
     ?
     "Fix offer"
-
     :
-
     d.action.includes("SCALE")
     ?
     "Validate + scale"
-
     :
     "Run test";
 
@@ -3640,11 +3870,12 @@ function renderEvidence(results){
 
   const priority = {
 
-    "DIRECT COMPETITOR":10,
-    "CUSTOMER SIGNAL":9,
-    "PRICE SIGNAL":8,
+    "DIRECT COMPETITOR":12,
+    "CUSTOMER SIGNAL":11,
+    "SUPPLIER":10,
+    "PRICE SIGNAL":9,
+    "PROBLEM SIGNAL":8,
     "COMPETITOR DIRECTORY":7,
-    "SUPPLIER":6,
     "SOCIAL SIGNAL":5,
     "MARKET SIGNAL":4,
     "BACKGROUND":2,
@@ -3658,14 +3889,15 @@ function renderEvidence(results){
       .sort(
         (a,b)=>
           (priority[b.type]||0) -
-          (priority[a.type]||0)
+          (priority[a.type]||0) ||
+          b.quality-a.quality
       );
 
 
   const top =
     sorted.slice(
       0,
-      35
+      40
     );
 
 
@@ -3698,22 +3930,17 @@ function renderEvidence(results){
             <div>
 
               <div class="evidence-title">
-
                 ${esc(
                   r.title ||
                   "Untitled result"
                 )}
-
               </div>
 
               <div class="evidence-source">
-
                 ${esc(source)}
-
               </div>
 
             </div>
-
 
             <div class="badges">
 
@@ -3723,6 +3950,18 @@ function renderEvidence(results){
 
               <span class="badge verified">
                 ${r.confidence}% confidence
+              </span>
+
+              <span class="badge ${
+                r.strength==="STRONG"
+                ? "verified"
+                :
+                r.strength==="MEDIUM"
+                ? "estimated"
+                :
+                "background"
+              }">
+                ${esc(r.strength)}
               </span>
 
               ${
@@ -3748,15 +3987,9 @@ function renderEvidence(results){
 
           </div>
 
-
           <div class="evidence-reason">
-
-            ${esc(
-              r.reason
-            )}
-
+            ${esc(r.reason)}
           </div>
-
 
           ${
             r.url
@@ -3788,6 +4021,162 @@ function renderEvidence(results){
         No evidence returned.
       </div>
     `;
+
+}
+
+
+/* =========================================================
+   EVIDENCE GAPS
+   ========================================================= */
+
+function renderEvidenceGaps(stats){
+
+  const gaps=[];
+
+
+  if(stats.counts.direct===0){
+
+    gaps.push({
+
+      title:"No direct competitor confirmed",
+
+      text:
+        "The Walker could not confidently verify a local competitor.",
+
+      action:
+        "Check Maps, local directories and physical businesses."
+
+    });
+
+  }
+
+
+  if(stats.counts.price<2){
+
+    gaps.push({
+
+      title:"Not enough price evidence",
+
+      text:
+        "The current search did not produce enough reliable prices.",
+
+      action:
+        "Collect at least 5–10 real prices."
+
+    });
+
+  }
+
+
+  if(stats.counts.customer===0){
+
+    gaps.push({
+
+      title:"Customer voice missing",
+
+      text:
+        "Online evidence does not yet show enough customer feedback.",
+
+      action:
+        "Interview real customers and inspect reviews."
+
+    });
+
+  }
+
+
+  if(stats.counts.supplier===0){
+
+    gaps.push({
+
+      title:"Supplier side missing",
+
+      text:
+        "Input costs are not sufficiently verified.",
+
+      action:
+        "Get 2–3 supplier quotations."
+
+    });
+
+  }
+
+
+  if(stats.counts.problems===0){
+
+    gaps.push({
+
+      title:"Pain points unclear",
+
+      text:
+        "The Walker found little direct complaint evidence.",
+
+      action:
+        "Search complaints and ask customers what they dislike."
+
+    });
+
+  }
+
+
+  if(stats.counts.social===0){
+
+    gaps.push({
+
+      title:"Social signal missing",
+
+      text:
+        "No relevant social-media evidence was classified.",
+
+      action:
+        "Video/social layer will be expanded in the next Walker module."
+
+    });
+
+  }
+
+
+  if(!gaps.length){
+
+    gaps.push({
+
+      title:"No major evidence gap",
+
+      text:
+        "The Walker covered the main evidence categories.",
+
+      action:
+        "Move from research to a controlled real-world test."
+
+    });
+
+  }
+
+
+  $("gapGrid").innerHTML =
+    gaps
+      .slice(0,9)
+      .map(g=>`
+
+        <div class="gap-card">
+
+          <h3>
+            ${esc(g.title)}
+          </h3>
+
+          <p>
+            ${esc(g.text)}
+          </p>
+
+          <div class="solution">
+            <strong>Next:</strong>
+            ${esc(g.action)}
+          </div>
+
+        </div>
+
+      `)
+      .join("");
 
 }
 
@@ -3828,67 +4217,44 @@ function renderCompetitors(results){
     `;
 
     return;
-
   }
 
 
   $("competitorGrid").innerHTML =
+    competitors.map(r=>`
 
-    competitors.map(r=>{
+      <div class="problem">
 
-      return `
+        <h3>
+          ${esc(r.title)}
+        </h3>
 
-        <div class="problem">
+        <p>
+          ${esc(
+            r.description ||
+            "Relevant competitor evidence."
+          )}
+        </p>
 
-          <h3>
-            ${esc(r.title)}
-          </h3>
+        <div class="pills">
 
-          <p>
-            ${esc(
-              r.description ||
-              "Relevant competitor evidence."
-            )}
-          </p>
-
-          <div class="pills">
-
-            <span class="pill">
-              ${
-                r.price
-                ?
-                esc(r.price)
-                :
-                "Price not confirmed"
-              }
-            </span>
-
+          <span class="pill">
             ${
-              r.local
+              r.price
               ?
-              `
-              <span class="badge local">
-                LOCAL
-              </span>
-              `
+              esc(r.price)
               :
-              ""
+              "Price not confirmed"
             }
-
-          </div>
+          </span>
 
           ${
-            r.url
+            r.local
             ?
             `
-            <a
-              class="source-link"
-              href="${esc(r.url)}"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              OPEN SOURCE ↗
-            </a>
+            <span class="badge local">
+              LOCAL
+            </span>
             `
             :
             ""
@@ -3896,9 +4262,26 @@ function renderCompetitors(results){
 
         </div>
 
-      `;
+        ${
+          r.url
+          ?
+          `
+          <a
+            class="source-link"
+            href="${esc(r.url)}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            OPEN SOURCE ↗
+          </a>
+          `
+          :
+          ""
+        }
 
-    }).join("");
+      </div>
+
+    `).join("");
 
 }
 
@@ -3923,12 +4306,6 @@ function renderPrices(results){
       );
 
 
-  const currency =
-    getCurrency(
-      latestContext.country
-    );
-
-
   if(!prices.length){
 
     $("priceGrid").innerHTML = `
@@ -3947,12 +4324,10 @@ function renderPrices(results){
     `;
 
     return;
-
   }
 
 
   $("priceGrid").innerHTML =
-
     prices.map((r,index)=>`
 
       <div class="price-card">
@@ -3970,14 +4345,10 @@ function renderPrices(results){
         </p>
 
         <div class="price-range">
-
-          <i
-            style="width:${Math.min(
-              100,
-              25 + index*7
-            )}%"
-          ></i>
-
+          <i style="width:${Math.min(
+            100,
+            25+index*7
+          )}%"></i>
         </div>
 
         ${
@@ -4040,12 +4411,10 @@ function renderCustomerSignals(results){
     `;
 
     return;
-
   }
 
 
   $("customerSignalsGrid").innerHTML =
-
     signals.map(r=>`
 
       <div class="problem">
@@ -4062,10 +4431,8 @@ function renderCustomerSignals(results){
         </p>
 
         <div class="solution">
-
           Confidence:
           ${r.confidence}%
-
         </div>
 
         ${
@@ -4120,25 +4487,22 @@ function renderSocial(results){
 
         <br><br>
 
-        Social signals should support the decision,
-        not replace real sales evidence.
+        Social signals support the decision;
+        they do not replace real sales evidence.
 
       </div>
 
     `;
 
     return;
-
   }
 
 
   $("socialGrid").innerHTML =
-
     social.map(r=>{
 
       const host =
         r.host || "";
-
 
       let platform =
         "SOCIAL";
@@ -4152,9 +4516,7 @@ function renderSocial(results){
       else if(host.includes("instagram"))
         platform="INSTAGRAM";
 
-      else if(
-        host.includes("facebook")
-      )
+      else if(host.includes("facebook"))
         platform="FACEBOOK";
 
 
@@ -4186,7 +4548,6 @@ function renderSocial(results){
 
           </div>
 
-
           <h3>
             ${esc(
               r.title ||
@@ -4194,14 +4555,12 @@ function renderSocial(results){
             )}
           </h3>
 
-
           <p>
             ${esc(
               r.description ||
               "Relevant social content."
             )}
           </p>
-
 
           <div class="media-stats">
 
@@ -4215,30 +4574,25 @@ function renderSocial(results){
 
           </div>
 
-
           <span class="signal ${signal}">
-
             ${
-              signal === "strong"
+              signal==="strong"
               ?
               "STRONG SIGNAL"
               :
-              signal === "moderate"
+              signal==="moderate"
               ?
               "MODERATE SIGNAL"
               :
               "WEAK SIGNAL"
             }
-
           </span>
-
 
           ${
             r.url
             ?
             `
             <br>
-
             <a
               class="source-link"
               href="${esc(r.url)}"
@@ -4262,7 +4616,7 @@ function renderSocial(results){
 
 
 /* =========================================================
-   IMAGE MARKET EXAMPLES
+   IMAGE PLACEHOLDER
    ========================================================= */
 
 function renderImages(results){
@@ -4287,24 +4641,22 @@ function renderImages(results){
 
       <div class="empty">
 
-        No market image sources were returned.
+        No visual sources were returned.
 
         <br><br>
 
-        Image evidence can be connected later through
-        an image-search API.
+        The dedicated Photo Walker will be connected
+        after the Reality Walker core is validated.
 
       </div>
 
     `;
 
     return;
-
   }
 
 
   $("imageGrid").innerHTML =
-
     visual.map(r=>`
 
       <div class="image-card">
@@ -4313,13 +4665,10 @@ function renderImages(results){
           class="media-thumb"
           style="height:210px"
         >
-
           <span>
-            MARKET IMAGE
+            VISUAL SOURCE
           </span>
-
         </div>
-
 
         <div class="image-card-info">
 
@@ -4396,12 +4745,10 @@ function renderSuppliers(results){
     `;
 
     return;
-
   }
 
 
   $("supplierGrid").innerHTML =
-
     suppliers.map(r=>`
 
       <div class="supplier-card">
@@ -4417,7 +4764,6 @@ function renderSuppliers(results){
           )}
         </p>
 
-
         <div class="pills">
 
           <span class="badge supplier">
@@ -4429,7 +4775,6 @@ function renderSuppliers(results){
           </span>
 
         </div>
-
 
         ${
           r.url
@@ -4461,10 +4806,10 @@ function renderSuppliers(results){
 
 function renderProblems(stats,money){
 
-  const problems = [];
+  const problems=[];
 
 
-  if(stats.counts.direct >= 4){
+  if(stats.counts.direct>=4){
 
     problems.push({
 
@@ -4481,7 +4826,7 @@ function renderProblems(stats,money){
   }
 
 
-  if(stats.counts.direct === 0){
+  if(stats.counts.direct===0){
 
     problems.push({
 
@@ -4491,14 +4836,14 @@ function renderProblems(stats,money){
         "The search did not sufficiently prove direct competitors.",
 
       solution:
-        "Verify Google Maps, local directories and physical competition before assuming the market is empty."
+        "Verify local maps, directories and physical competition before assuming the market is empty."
 
     });
 
   }
 
 
-  if(stats.counts.price < 2){
+  if(stats.counts.price<2){
 
     problems.push({
 
@@ -4515,7 +4860,7 @@ function renderProblems(stats,money){
   }
 
 
-  if(stats.counts.customer === 0){
+  if(stats.counts.customer===0){
 
     problems.push({
 
@@ -4532,7 +4877,7 @@ function renderProblems(stats,money){
   }
 
 
-  if(stats.counts.supplier === 0){
+  if(stats.counts.supplier===0){
 
     problems.push({
 
@@ -4549,9 +4894,26 @@ function renderProblems(stats,money){
   }
 
 
+  if(stats.counts.problems===0){
+
+    problems.push({
+
+      title:"Pain points unclear",
+
+      text:
+        "The Walker did not find enough direct complaints.",
+
+      solution:
+        "Ask customers what they hate about current alternatives."
+
+    });
+
+  }
+
+
   if(
     money.profit !== null &&
-    money.profit <= 0
+    money.profit<=0
   ){
 
     problems.push({
@@ -4571,7 +4933,7 @@ function renderProblems(stats,money){
 
   if(
     money.monthly !== null &&
-    money.monthly < 0
+    money.monthly<0
   ){
 
     problems.push({
@@ -4590,7 +4952,7 @@ function renderProblems(stats,money){
 
 
   if(
-    stats.quality < 55
+    stats.quality<55
   ){
 
     problems.push({
@@ -4626,7 +4988,6 @@ function renderProblems(stats,money){
 
 
   $("problemGrid").innerHTML =
-
     problems
       .slice(0,9)
       .map(p=>`
@@ -4653,8 +5014,7 @@ function renderProblems(stats,money){
 
         </div>
 
-      `)
-      .join("");
+      `).join("");
 
 }
 
@@ -4668,81 +5028,53 @@ function renderOperation(){
   const category =
     latestContext.category;
 
-
   let steps;
 
 
   if(category==="food"){
 
     steps=[
-
       ["SOURCE","Buy ingredients from verified suppliers."],
-
       ["PREPARE","Prepare ingredients and control portions."],
-
       ["PRODUCE","Cook/assemble consistently."],
-
       ["PACKAGE","Protect the product and control packaging cost."],
-
       ["SELL","Reach the target customer."],
-
       ["DELIVER","Deliver quickly when relevant."],
-
       ["FEEDBACK","Track complaints and repeat orders."]
-
     ];
 
   }
-
 
   else if(category==="digital"){
 
     steps=[
-
       ["PROBLEM","Define one painful customer problem."],
-
       ["BUILD","Create the smallest usable version."],
-
       ["TEST","Put it in front of real users."],
-
       ["ACTIVATE","Get the user to complete the core action."],
-
       ["PAY","Test willingness to pay."],
-
       ["MEASURE","Track conversion and retention."],
-
       ["IMPROVE","Fix the biggest bottleneck."]
-
     ];
 
   }
 
-
   else{
 
     steps=[
-
       ["SOURCE","Identify reliable inputs."],
-
       ["PREPARE","Prepare the product/service."],
-
       ["DELIVER","Deliver consistently."],
-
       ["MARKET","Reach the target customer."],
-
       ["SELL","Convert interest into sales."],
-
       ["PAYMENT","Record actual revenue."],
-
       ["FEEDBACK","Improve using customer feedback."]
-
     ];
 
   }
 
 
   $("operationFlow").innerHTML =
-
     steps.map((s,i)=>`
 
       <span>
@@ -4750,8 +5082,7 @@ function renderOperation(){
       </span>
 
       ${
-        i <
-        steps.length-1
+        i<steps.length-1
         ?
         "<b>→</b>"
         :
@@ -4762,7 +5093,6 @@ function renderOperation(){
 
 
   $("operationGrid").innerHTML =
-
     steps.map(s=>`
 
       <div class="operation">
@@ -4831,7 +5161,7 @@ function renderVisuals(stats,money){
     {
       title:"MONEY",
       text:
-        money.profit === null
+        money.profit===null
         ?
         "Enter real price and variable cost."
         :
@@ -4848,7 +5178,6 @@ function renderVisuals(stats,money){
 
 
   $("visualGrid").innerHTML =
-
     cards.map(c=>`
 
       <div class="visual">
@@ -4874,33 +5203,26 @@ function renderVisuals(stats,money){
 
 function renderStrategy(stats,money){
 
-  let recommended =
-    "SAFE";
+  let recommended="SAFE";
 
 
   if(
-    stats.score >= 65 &&
-    money.profit !== null &&
-    money.profit > 0
+    stats.score>=65 &&
+    money.profit!==null &&
+    money.profit>0
   ){
-
-    recommended =
-      "GROWTH";
-
+    recommended="GROWTH";
   }
 
 
   if(
-    stats.score >= 82 &&
-    stats.counts.direct >= 2 &&
-    stats.counts.price >= 2 &&
-    money.monthly !== null &&
-    money.monthly > 0
+    stats.score>=82 &&
+    stats.counts.direct>=2 &&
+    stats.counts.price>=2 &&
+    money.monthly!==null &&
+    money.monthly>0
   ){
-
-    recommended =
-      "AGGRESSIVE";
-
+    recommended="AGGRESSIVE";
   }
 
 
@@ -4943,7 +5265,6 @@ function renderStrategy(stats,money){
 
 
   $("strategyGrid").innerHTML =
-
     strategies.map(s=>`
 
       <div class="strategy ${
@@ -4976,35 +5297,26 @@ function renderStrategy(stats,money){
           ${esc(s.text)}
         </p>
 
-
         <div class="strategy-metrics">
 
           <div class="metric">
             <small>INVESTMENT</small>
-            <strong>
-              ${esc(s.investment)}
-            </strong>
+            <strong>${esc(s.investment)}</strong>
           </div>
 
           <div class="metric">
             <small>SALES</small>
-            <strong>
-              ${esc(s.sales)}
-            </strong>
+            <strong>${esc(s.sales)}</strong>
           </div>
 
           <div class="metric">
             <small>RISK</small>
-            <strong>
-              ${esc(s.risk)}
-            </strong>
+            <strong>${esc(s.risk)}</strong>
           </div>
 
           <div class="metric">
             <small>NEXT</small>
-            <strong>
-              Validate
-            </strong>
+            <strong>Validate</strong>
           </div>
 
         </div>
@@ -5016,46 +5328,18 @@ function renderStrategy(stats,money){
 
   const days=[
 
-    [
-      "DAY 1",
-      "Define the exact customer, problem and product."
-    ],
-
-    [
-      "DAY 2",
-      "Map local competitors and alternatives."
-    ],
-
-    [
-      "DAY 3",
-      "Record real competitor prices."
-    ],
-
-    [
-      "DAY 4",
-      "Speak with 10 potential customers."
-    ],
-
-    [
-      "DAY 5",
-      "Launch the smallest possible real test."
-    ],
-
-    [
-      "DAY 6",
-      "Measure views, messages, sales, costs and objections."
-    ],
-
-    [
-      "DAY 7",
-      "Decide: SCALE, TEST AGAIN, CHANGE or STOP."
-    ]
+    ["DAY 1","Define the exact customer, problem and product."],
+    ["DAY 2","Map local competitors and alternatives."],
+    ["DAY 3","Record real competitor prices."],
+    ["DAY 4","Speak with 10 potential customers."],
+    ["DAY 5","Launch the smallest possible real test."],
+    ["DAY 6","Measure views, messages, sales, costs and objections."],
+    ["DAY 7","Decide: SCALE, TEST AGAIN, CHANGE or STOP."]
 
   ];
 
 
   $("plan").innerHTML =
-
     days.map(d=>`
 
       <div class="plan-row">
@@ -5087,13 +5371,9 @@ function renderRisks(stats,money){
   if(stats.counts.direct>=4){
 
     risks.push([
-
       "Competition",
-
       "Many direct competitors can make customer acquisition harder.",
-
       "Differentiate on one clear advantage."
-
     ]);
 
   }
@@ -5102,13 +5382,9 @@ function renderRisks(stats,money){
   if(stats.counts.price<2){
 
     risks.push([
-
       "Pricing",
-
       "The market price range is not sufficiently verified.",
-
       "Collect more real price points."
-
     ]);
 
   }
@@ -5117,13 +5393,9 @@ function renderRisks(stats,money){
   if(stats.counts.customer===0){
 
     risks.push([
-
       "Customer demand",
-
       "Online evidence does not prove customers will buy.",
-
       "Run interviews and a paid test."
-
     ]);
 
   }
@@ -5132,31 +5404,34 @@ function renderRisks(stats,money){
   if(stats.counts.supplier===0){
 
     risks.push([
-
       "Supply",
-
       "Supplier costs are not sufficiently verified.",
-
       "Get 2–3 supplier quotations."
+    ]);
 
+  }
+
+
+  if(stats.counts.problems===0){
+
+    risks.push([
+      "Pain point",
+      "The customer problem is not sufficiently confirmed.",
+      "Interview customers before building heavily."
     ]);
 
   }
 
 
   if(
-    money.profit !== null &&
+    money.profit!==null &&
     money.profit<=0
   ){
 
     risks.push([
-
       "Unit economics",
-
       "Each sale loses money with current inputs.",
-
       "Change price or cost."
-
     ]);
 
   }
@@ -5165,20 +5440,15 @@ function renderRisks(stats,money){
   if(!risks.length){
 
     risks.push([
-
       "Real-world uncertainty",
-
       "Research cannot fully predict customer behavior.",
-
       "Run a small paid test."
-
     ]);
 
   }
 
 
   $("risks").innerHTML =
-
     risks.map(r=>`
 
       <div class="risk">
@@ -5251,10 +5521,14 @@ function dedupe(results){
 
   for(const r of results){
 
+    const normalized =
+      normalizeResult(r);
+
+
     const key =
       (
-        r.url ||
-        r.title ||
+        normalized.url ||
+        normalized.title ||
         ""
       )
       .toLowerCase()
@@ -5266,12 +5540,10 @@ function dedupe(results){
 
 
     if(!map.has(key)){
-
       map.set(
         key,
         r
       );
-
     }
 
   }
@@ -5391,50 +5663,29 @@ async function analyze(){
 
 
   $("scanStatus").textContent =
-    "Building evidence queries...";
+    "Building Reality Walker search map...";
 
 
-  const base =
-    `${idea} ${city} ${country}`.trim();
+  const walker =
+    buildWalker(
+      latestContext
+    );
 
 
-  const category =
-    latestContext.category;
-
-
-  const queries=[
-
-    `${base} competitors businesses`,
-
-    `${base} prices menu`,
-
-    `${base} reviews customers`,
-
-    `${base} suppliers wholesale`,
-
-    `${base} alternatives`,
-
-    `${base} TikTok Instagram YouTube Facebook`,
-
-    `${base} marketplace product`,
-
-    `${base} local business`
-
-  ];
+  $("scanStatus").textContent =
+    `Walker created ${walker.length} evidence nodes. Searching market...`;
 
 
   try{
 
-    $("scanStatus").textContent =
-      "Searching competitors, prices, customers, suppliers and social signals...";
-
-
     const responses =
       await Promise.allSettled(
 
-        queries.map(
-          q =>
-            search(q)
+        walker.map(
+          node =>
+            search(
+              node.query
+            )
         )
 
       );
@@ -5460,19 +5711,25 @@ async function analyze(){
 
 
     $("scanStatus").textContent =
-      `Classifying ${raw.length} returned results...`;
+      `Walker collected ${raw.length} raw results. Removing duplicates...`;
+
+
+    const unique =
+      dedupe(raw);
+
+
+    $("scanStatus").textContent =
+      `Classifying ${unique.length} unique results by evidence strength...`;
 
 
     const results =
-
-      dedupe(raw)
-        .map(
-          r =>
-            classifyResult(
-              r,
-              latestContext
-            )
-        );
+      unique.map(
+        r =>
+          classifyResult(
+            r,
+            latestContext
+          )
+      );
 
 
     latestResults =
@@ -5499,8 +5756,19 @@ async function analyze(){
     );
 
 
+    renderWalker(
+      walker,
+      results
+    );
+
+
     renderEvidence(
       results
+    );
+
+
+    renderEvidenceGaps(
+      stats
     );
 
 
@@ -5586,7 +5854,7 @@ async function analyze(){
 
 
     $("scanStatus").textContent =
-      "Research complete.";
+      "Reality Walker complete.";
 
 
     window.scrollTo({
@@ -5665,12 +5933,12 @@ function resetAll(){
   latestResults=[];
   latestContext={};
   latestStats={};
+  latestWalker=[];
 
 
   window.scrollTo({
 
     top:0,
-
     behavior:"smooth"
 
   });
@@ -5697,7 +5965,6 @@ $("reset")
 
 
 [
-
   "moneyPrice",
   "moneyCost",
   "moneyUnits",
